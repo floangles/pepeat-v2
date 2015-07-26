@@ -11,10 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726112711) do
+ActiveRecord::Schema.define(version: 20150726142010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chief_pictures", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "chief_pictures", ["user_id"], name: "index_chief_pictures_on_user_id", using: :btree
+
+  create_table "meal_pictures", force: :cascade do |t|
+    t.integer  "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "meal_pictures", ["meal_id"], name: "index_meal_pictures_on_meal_id", using: :btree
+
+  create_table "meals", force: :cascade do |t|
+    t.string   "main"
+    t.string   "starter"
+    t.string   "dessert"
+    t.integer  "price"
+    t.integer  "portion"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "meals", ["user_id"], name: "index_meals_on_user_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "portion"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "user_id"
+    t.integer  "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "orders", ["meal_id"], name: "index_orders_on_meal_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,9 +72,24 @@ ActiveRecord::Schema.define(version: 20150726112711) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "surname"
+    t.boolean  "chief"
+    t.text     "description"
+    t.string   "address"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "chief_pictures", "users"
+  add_foreign_key "meal_pictures", "meals"
+  add_foreign_key "meals", "users"
+  add_foreign_key "orders", "meals"
+  add_foreign_key "orders", "users"
 end

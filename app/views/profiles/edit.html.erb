@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
+  <%= f.error_notification %>
+    <table>
+      <tr>
+        <td><%= f.input :firstname %></td>
+        <td><%= f.input :lastname %></td>
+      </tr>
+       <tr>
+        <td> <%= f.input :email %></td>
+      </tr>
+      <tr>
+        <td><%= f.file_field :picture %></td>
+      </tr>
+      <tr>
+        <td><em><strong><%= f.button :submit, "GO!", class: "btn-lg btn-danger" %></td>
+      </tr>
+    </table>
+<% end %>
+
+
