@@ -38,6 +38,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  has_many :meals
+  has_many :orders
+  has_many :chief_pictures
+  has_many :meals, through: :orders
+
+
+  validates :firstname, presence: true, on: :update
+  validates :lastname, presence: true, on: :update
+
+
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 

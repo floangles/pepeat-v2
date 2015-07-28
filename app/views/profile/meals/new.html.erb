@@ -1,0 +1,41 @@
+
+<%= simple_form_for(@meal, url: profile_meals_path, html: { multipart: true }) do |f| %>
+  <%= f.error_notification %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="card-menu">
+            Faites votre menu
+            <%= f.input :starter %>
+            <%= f.input :main %>
+            <%= f.input :dessert %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+
+          <%= file_field_tag "pictures[]", type: :file, multiple: true,  id: "pictureInput" %>
+
+        </div>
+      </div>
+    </div>
+
+
+
+        <%= f.input :price %>
+        <%= f.input :portion %>
+        <%= f.input :description %>
+
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+
+
+
+
+
+        <em><strong><%= f.button :submit, "GO!", class: "btn-lg btn-danger" %>
+
+<% end %>
+
+
+<div id="target" class= "preview-img-profile">
+</div>

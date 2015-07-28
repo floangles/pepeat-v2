@@ -10,7 +10,7 @@
         <td> <%= f.input :email %></td>
       </tr>
       <tr>
-        <td><%= f.file_field :picture %></td>
+        <td><%= f.file_field :picture, id: "pictureInput"%></td>
       </tr>
       <tr>
         <td><em><strong><%= f.button :submit, "GO!", class: "btn-lg btn-danger" %></td>
@@ -18,4 +18,5 @@
     </table>
 <% end %>
 
-
+<div id="target" class= "preview-img-profile">
+</div>

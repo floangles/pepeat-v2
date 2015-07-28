@@ -7,6 +7,8 @@ class CreateMeals < ActiveRecord::Migration
       t.integer :price
       t.integer :portion
       t.text :description
+      t.datetime :start_date
+      t.datetime :end_date
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

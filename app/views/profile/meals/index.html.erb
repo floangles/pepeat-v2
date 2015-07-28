@@ -1,0 +1,5 @@
+<%= link_to 'Créer un plat', new_profile_meal_path, class: "btn btn-success" %>
+
+<% @meal_picture.each do |picture| %>
+  <%= image_tag picture.picture.url(:medium) %>
+<% end %>

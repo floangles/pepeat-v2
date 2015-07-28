@@ -4,8 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  portion    :integer
-#  start_date :datetime
-#  end_date   :datetime
 #  user_id    :integer
 #  meal_id    :integer
 #  created_at :datetime         not null
@@ -18,6 +16,9 @@
 #
 
 class Order < ActiveRecord::Base
+
   belongs_to :user
   belongs_to :meal
+
+  validates :portion, presence: true
 end
