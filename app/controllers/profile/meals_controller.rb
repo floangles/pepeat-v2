@@ -6,7 +6,6 @@ module Profile
 
 
     def index
-      @meal_picture = MealPicture.all
       @meals = current_user.meals
     end
 
@@ -15,15 +14,12 @@ module Profile
 
     def new
       @meal = Meal.new
-
     end
 
     def create
       @meal = current_user.meals.new(meal_params)
-
       if @meal.save
         if params[:pictures]
-          #===== The magic is here ;)
           params[:pictures].each { |picture|
             @meal.meal_pictures.create(picture: picture)
           }
@@ -49,7 +45,7 @@ module Profile
     end
 
     def meal_params
-      params.require(:meal).permit(:starter, :main, :dessert, :price, :portion, :description, :start_date, :end_date, :picture)
+      params.require(:meal).permit(:starter, :main, :dessert, :price, :portion, :description, :start_hour, :end_hour, :day, :picture)
     end
 
   end

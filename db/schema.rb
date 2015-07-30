@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20150728161102) do
     t.integer  "price"
     t.integer  "portion"
     t.text     "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.datetime "day"
+    t.datetime "start_hour"
+    t.datetime "end_hour"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

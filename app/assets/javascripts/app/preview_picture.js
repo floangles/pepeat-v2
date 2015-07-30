@@ -8,7 +8,7 @@ $(function() {
         var img = new Image();
         console.log(file);
         img.src = file.target.result;
-        $('#target').append($('<div/>', { id: 'r' + i}).html(img));
+        $('#target').append($('<div/>', {class: 'col-xs-3 preview-js' }, { id: 'r' + i}).html(img));
       }
       reader.readAsDataURL(image);
       console.log(files);

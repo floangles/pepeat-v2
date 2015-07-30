@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
   has_many :meals
   has_many :orders
   has_many :chief_pictures
-  has_many :meals, through: :orders
+  has_many :booking, through: :meals, source: :orders
+
 
 
   validates :firstname, presence: true, on: :update

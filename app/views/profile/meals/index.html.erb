@@ -1,5 +1,21 @@
 <%= link_to 'Créer un plat', new_profile_meal_path, class: "btn btn-success" %>
 
-<% @meal_picture.each do |picture| %>
-  <%= image_tag picture.picture.url(:medium) %>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @meals.each do |meal|%>
+      <div class="col-xs-12">
+        <div class="card-meal-online">
+          <div class="card-meal-online-header">
+              <p>Entrée <%= meal.starter %></p>
+              <p>Plat <%= meal.main %></p>
+              <p>Dessert <%= meal.dessert %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

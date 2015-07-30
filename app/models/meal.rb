@@ -9,8 +9,9 @@
 #  price       :integer
 #  portion     :integer
 #  description :text
-#  start_date  :datetime
-#  end_date    :datetime
+#  day         :datetime
+#  start_hour  :datetime
+#  end_hour    :datetime
 #  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -26,8 +27,9 @@ class Meal < ActiveRecord::Base
   has_many :orders
   has_many :meal_pictures, dependent: :destroy
 
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_hour, presence: true
+  validates :day, presence: true
+  validates :end_hour, presence: true
   validates :portion, presence: true
   validates :price, presence: true
 
