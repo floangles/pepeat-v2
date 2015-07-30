@@ -7,9 +7,20 @@
       <div class="col-xs-12">
         <div class="card-meal-online">
           <div class="card-meal-online-header">
-              <p>Entrée <%= meal.starter %></p>
-              <p>Plat <%= meal.main %></p>
-              <p>Dessert <%= meal.dessert %></p>
+              <p>Entrée : <%= meal.starter %></p>
+              <p>Plat : <%= meal.main %></p>
+              <p>Dessert : <%= meal.dessert %></p>
+          </div>
+          <div class="card-meal-online-body">
+            <div>
+              <%= meal.price %> €
+            </div>
+            <div>
+              <%= meal.portion %>
+            </div>
+            <div>
+              <%= meal.price %>
+            </div>
           </div>
         </div>
       </div>
