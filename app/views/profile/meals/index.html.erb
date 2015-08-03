@@ -1,4 +1,4 @@
-<%= link_to 'Créer un plat', new_profile_meal_path, class: "btn btn-success" %>
+<%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success" %>
 
 
 <div class="container">
@@ -16,11 +16,68 @@
               <%= meal.price %> €
             </div>
             <div>
-              <%= meal.portion %>
+              <%= meal.portion %> <i class="fa fa-user"></i>
             </div>
             <div>
-              <%= meal.price %>
+              <%= meal.day.strftime('%d/%m/%Y') %>
             </div>
+            <div>
+              <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+            </div>
+          </div>
+          <div class="card-meal-online-carousel">
+
+            <!-- Carousel -->
+
+              <div id="carousel-example-generic" class="carousel slide" data-wrap="false" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <% time = meal.meal_pictures.length-1 %>
+                  <% time.times do %>
+                    <% i = 1 %>
+                    <li data-target="#carousel-example-generic" data-slide-to= <% i %>></li>
+                    <% i += 1 %>
+                  <% end %>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <% i = 0 %>
+                  <% meal.meal_pictures.each do |picture| %>
+                    <% if i == 0 %>
+                      <div class="item active">
+                        <%= image_tag picture.picture.url(:medium)%>
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    <% else %>
+                      <div class="item">
+                        <%= image_tag picture.picture.url(:medium)%>
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                    <% end %>
+                    <% i += 1 %>
+                  <% end %>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
+            <!-- Carousel -->
+
+          </div>
+          <div class= "card-meal-online-description" >
+            <%= meal.description %>
           </div>
         </div>
       </div>

@@ -25,6 +25,8 @@
 #  picture_content_type   :string
 #  picture_file_size      :integer
 #  picture_updated_at     :datetime
+#  latitude               :float
+#  longitude              :float
 #
 # Indexes
 #
@@ -50,10 +52,14 @@ class User < ActiveRecord::Base
   validates :lastname, presence: true, on: :update
 
 
+
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
 end

@@ -27,6 +27,9 @@ gem "devise-i18n-views"
 gem "coffee-script"
 
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem "geocoder"
+gem "gmaps4rails"
+gem "rails-assets-underscore"
 
 
 group :development, :test do
