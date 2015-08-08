@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
   has_many :meals
   has_many :orders
   has_many :chief_pictures
-  has_many :booking, through: :meals, source: :orders
 
 
 

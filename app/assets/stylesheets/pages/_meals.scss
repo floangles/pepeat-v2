@@ -27,8 +27,52 @@ box-shadow: 0 0 8px rgba(250, 250, 250, .8);
 
 .card-meal {
   width: 100%;
-  height: 300px;
+  height: auto;
   background-color: white;
+  &-header {
+    padding: 10px;
 
+    &-img {
+      margin-right: 30px;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+      -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+      -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    }
+  }
+  &-body {
+    position: relative;
+    padding: 10px;
+    &-menu {
+      padding-top: 15px;
+      &-icon {
+        margin-right: 20px;
+        height: 50px;
+        width:50px;
+      }
+    }
+    &-map {
+      position: absolute;
+      right:0px;
+      top: 19%;
+      height: 59%;
+      width: 36%;
+    }
+  }
+  &-footer {
+
+    &-icon {
+      height: 30px;
+      width: 30px;
+      margin-left: 5px;
+    }
+  }
+}
+
+
+.size-img-carousel {
+  height: 325px !important;
+  width: 380px;
 }
 
