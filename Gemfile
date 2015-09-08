@@ -31,6 +31,8 @@ gem "geocoder"
 gem "gmaps4rails"
 gem "rails-assets-underscore"
 
+gem 'letsrate'
+
 
 group :development, :test do
   gem "spring"

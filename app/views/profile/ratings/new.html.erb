@@ -1,0 +1,9 @@
+<h1>ici formulaire de rating</h1>
+
+<%= simple_form_for @orders do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :meal_comment, input_html: {value: ""}, label: 'Laissez un commentaire' %>
+  <%= f.input :meal_rating, input_html: {value: ""}, label: 'Notez la qualité du plat' %>
+  <%= f.submit 'Postez votre avis' %>
+
+<% end %>

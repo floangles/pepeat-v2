@@ -111,6 +111,7 @@ GEM
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letsrate (1.0.9)
     letter_opener (1.4.1)
       launchy (~> 2.2)
     loofah (2.0.2)
@@ -239,6 +240,7 @@ DEPENDENCIES
   gmaps4rails
   high_voltage
   jquery-rails
+  letsrate
   letter_opener
   momentjs-rails (>= 2.9.0)
   paperclip
