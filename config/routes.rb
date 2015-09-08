@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   namespace :profile do
     resources :meals
-    resources :orders
-  end
+    resources :orders, exept: [:show]
+    resources :histories, only: [:index]
+    resources :ratings
 
+  end
 end

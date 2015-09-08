@@ -1,47 +1,26 @@
-<div class= "chief-banner text-center">
-  <h3>Les chefs du quartier vieux Lille</h3>
-  <% @users.each do |user|  %>
-    <%= image_tag user.picture.url(:medium), class: "cook-picture img-circle" %>
-  <% end %>
-</div>
-
-
-<div class= "week-day">
-  <ul class= "list-inline text-center">
-    <li><h4>Lundi</h4></li>
-    <li><h4>Mardi</h4></li>
-    <li><h4>Mercredi</h4></li>
-    <li><h4>jeudi</h4></li>
-    <li><h4>Vendredi</h4></li>
-    <li><h4>Samedi</h4></li>
-    <li><h4>Dimanche</h4></li>
-  </ul>
-</div>
-
-
 <div class="container">
-  <% @meals.each do |meal|%>
+  <% @orders.each do |order|%>
     <div class="row">
       <div class="col-xs-12 col-sm-8">
         <div class="card-meal">
           <div class="card-meal-header text-center">
-            <%=image_tag meal.user.picture.url(:medium), class: "card-meal-header-img img-circle" %>
+            <%=image_tag order.meal.user.picture.url(:medium), class: "card-meal-header-img img-circle" %>
             Chef
-            <%= meal.user.firstname %>
-            <%= meal.user.lastname %>
+            <%= order.meal.user.firstname %>
+            <%= order.meal.user.lastname %>
           </div>
           <div class="card-meal-body">
             <div class= "card-meal-body-menu">
               <%= image_tag 'starter', class: "card-meal-body-menu-icon" %>
-              <%= meal.starter %>
+              <%= order.meal.starter %>
             </div>
             <div class= "card-meal-body-menu">
               <%= image_tag 'main', class: "card-meal-body-menu-icon" %>
-              <%= meal.main %>
+              <%= order.meal.main %>
             </div>
             <div class= "card-meal-body-menu">
               <%= image_tag 'dessert', class: "card-meal-body-menu-icon" %>
-              <%= meal.dessert %>
+              <%= order.meal.dessert %>
             </div>
           </div>
           <div class="card-meal-body-map">
@@ -49,32 +28,26 @@
           </div>
           <div class="card-meal-footer text-center">
             <ul class= "list-inline">
-              <li> <%= meal.price %> €</li>
-              <li> <%= meal.day.strftime('%d/%m/%Y') %></li>
-              <li><%= meal.start_hour.strftime('De %Hh') %></li>
-              <li><%= meal.end_hour.strftime('à %Hh') %></li>
-              <li><%= available_portions(meal) %>
+              <li> <%= order.meal.price %> €</li>
+              <li> <%= order.meal.day.strftime('%d/%m/%Y') %></li>
+              <li><%= order.meal.start_hour.strftime('De %Hh') %></li>
+              <li><%= order.meal.end_hour.strftime('à %Hh') %></li>
+              <li><%= order.meal.portion %>
                 <%= image_tag 'portion', class: "card-meal-footer-icon" %>
-              </li>
-              <li>
-                <%= render "modale", meal: meal %>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= render 'carousel', meal: meal %>
+        <%= render '/meals/carousel', meal: order.meal %>
       </div>
     </div>
   <% end %>
 </div>
 
 
-
-
-
-
+<%= link_to 'Donner un avis', new_profile_rating_path, class: "btn btn-success" %>
 
 
 <% content_for(:after_js) do %>
@@ -90,5 +63,3 @@
     })
   <% end %>
 <% end %>
-
-

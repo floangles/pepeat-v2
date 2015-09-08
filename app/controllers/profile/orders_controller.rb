@@ -7,12 +7,14 @@ module Profile
 
 
     def index
+      @users = User.all
       @orders = current_user.orders.all
+      @markers = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+    end
     end
 
-    def show
-
-    end
 
     def new
       @meal = Meal.find(params[:order][:meal_id])
@@ -22,6 +24,7 @@ module Profile
     def create
       @meal = Meal.find(params[:order][:meal_id])
       @order = @meal.orders.build(order_params)
+      @order.user = current_user
 
       if @order.save
         redirect_to profile_orders_path

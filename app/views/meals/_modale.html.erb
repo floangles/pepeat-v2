@@ -12,7 +12,7 @@
       </div>
       <%= simple_form_for [meal, @order], url: profile_orders_path do |f| %>
         <div class="modal-body">
-          <%= f.input :portion, label: 'Combien de parts ?', input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
+          <%= f.input :portion, label: 'Combien de parts ?', collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
           <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
         </div>
         <div class="modal-footer">

@@ -29,6 +29,16 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to profile_orders_path do %>
+                  <i class="fa fa-user"></i> Vos réservations
+                <% end %>
+              </li>
+              <li>
+                <%= link_to profile_meals_path do %>
+                  <i class="fa fa-user"></i> Vos annonces
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Déconnection" %>
                 <% end %>
@@ -43,11 +53,6 @@
             <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
           </li>
         <% end %>
-        <li>
-          <%= link_to profile_meals_path do %>
-            <i class="fa fa-user"></i> Mes repas
-          <% end %>
-        </li>
         <li>
           <%= link_to t(".top_call_to_action", default: "Devient chef"), "#", class: "btn" %>
         </li>
