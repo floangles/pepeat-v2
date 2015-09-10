@@ -1,2 +1,107 @@
-<h1>Meals#edit</h1>
-<p>Find me in app/views/meals/edit.html.erb</p>
+
+<%= simple_form_for(@meal, url: profile_meal_path, html: { multipart: true }) do |f| %>
+  <%= f.error_notification %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="card-menu">
+            Faites votre menu
+            <%= f.input :starter %>
+            <%= f.input :main %>
+            <%= f.input :dessert %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+
+           <div id="target" class= "preview-img-profile img-circle">
+          </div>
+          <%= file_field_tag "pictures[]", type: :file, multiple: true,  id: "pictureInput" %>
+        </div>
+      </div>
+    </div>
+
+    <div class= "container">
+      <div class= "col-xs-12 col-sm-6">
+      <h4 class= "text-center">Pour combien de personnes cuisinez vous ? </h4>
+      </div>
+      <div class= "col-xs-1">
+        <%= f.input :portion,label: false %>
+      </div>
+    </div>
+
+
+    <div class= "container">
+      <div class= "col-xs-12 col-sm-6">
+      <h4 class= "text-center">Combien vendez vous une part ? </h4>
+      </div>
+      <div class= "col-xs-1">
+         <%= f.input :price, label: false %>
+      </div>
+    </div>
+
+    <div class= "container">
+      <div class= "col-xs-12 col-sm-6">
+      <h4 class= "text-center">Décrivez vous </h4>
+      </div>
+      <div class= "col-xs-4">
+         <%= f.input :description %>
+      </div>
+    </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <h4>Quel jour voulez vous cuisiner ?</h4>
+      </div>
+      <div class="col-xs-4 col-xs-offset-1">
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker3'>
+             <%= f.input :day, as: :string, label: false, class: 'form-control' %>
+              <span class="input-group-addon form-control">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <h4>A quel créneau horaire ?</h4>
+      </div>
+      <div class="col-xs-2 col-xs-offset-1">
+        <div class="form-group text-center">
+          <div class='input-group date' id='datetimepicker4'>
+             <%= f.input :start_hour, as: :string, label: false, class: 'form-control' %>
+              <span class="input-group-addon form-control">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2 col-xs-offset-1">
+        <div class="form-group text-center">
+          <div class='input-group date' id='datetimepicker5'>
+             <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
+              <span class="input-group-addon form-control">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class= "text-center">
+    <%= f.button :submit, "GO!", class: "btn-lg btn-danger" %>
+  </div>
+
+<% end %>
+
+
+
+
+
+

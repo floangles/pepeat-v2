@@ -39,6 +39,11 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to profile_ratings_path do %>
+                  <i class="fa fa-user"></i> Vos avis
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Déconnection" %>
                 <% end %>

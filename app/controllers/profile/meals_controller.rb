@@ -35,6 +35,19 @@ module Profile
     end
 
     def update
+      @meal.update(meal_params)
+      if @meal.save
+        if params[:pictures]
+          @meal.meal_pictures.delete_all
+          params[:pictures].each {|picture|
+            @meal.meal_pictures.create(picture: picture )
+          }
+        end
+        redirect_to profile_meals_path
+      else
+        render :edit
+
+      end
     end
 
     def destroy
@@ -45,7 +58,7 @@ module Profile
     end
 
     def meal_params
-      params.require(:meal).permit(:starter, :main, :dessert, :price, :portion, :description, :start_hour, :end_hour, :day, :picture)
+      params.require(:meal).permit(:starter, :main, :dessert, :price, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
     end
 
   end

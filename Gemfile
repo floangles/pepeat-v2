@@ -30,8 +30,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem "geocoder"
 gem "gmaps4rails"
 gem "rails-assets-underscore"
-
-gem 'letsrate'
+gem "jquery-slick-rails"
 
 
 group :development, :test do

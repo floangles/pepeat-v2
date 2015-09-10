@@ -1,3 +1,6 @@
+
+<h1>yo</h1>
+
 <div class="container">
   <% @orders.each do |order|%>
     <div class="row">
@@ -43,11 +46,9 @@
         <%= render '/meals/carousel', meal: order.meal %>
       </div>
     </div>
+      <%= link_to "Goo", profile_history_path(order)%>
   <% end %>
 </div>
-
-
-<%= link_to 'Donner un avis', new_profile_rating_path, class: "btn btn-success" %>
 
 
 <% content_for(:after_js) do %>
@@ -63,3 +64,8 @@
     })
   <% end %>
 <% end %>
+
+
+
+
+

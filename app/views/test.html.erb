@@ -1,0 +1,50 @@
+<div class="container">
+  <% @meals.each do |meal|%>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="card-meal">
+          <div class="card-meal-header text-center">
+            <%=image_tag meal.user.picture.url(:medium), class: "card-meal-header-img img-circle" %>
+            Chef
+            <%= meal.user.firstname %>
+            <%= meal.user.lastname %>
+          </div>
+          <div class="card-meal-body">
+            <div class= "card-meal-body-menu">
+              <%= image_tag 'starter', class: "card-meal-body-menu-icon" %>
+              <%= meal.starter %>
+            </div>
+            <div class= "card-meal-body-menu">
+              <%= image_tag 'main', class: "card-meal-body-menu-icon" %>
+              <%= meal.main %>
+            </div>
+            <div class= "card-meal-body-menu">
+              <%= image_tag 'dessert', class: "card-meal-body-menu-icon" %>
+              <%= meal.dessert %>
+            </div>
+          </div>
+          <div class="card-meal-body-map">
+            <div id="map" style="width: 100%; height: 100%;"></div>
+          </div>
+          <div class="card-meal-footer text-center">
+            <ul class= "list-inline">
+              <li> <%= meal.price %> €</li>
+              <li> <%= meal.day.strftime('%d/%m/%Y') %></li>
+              <li><%= meal.start_hour.strftime('De %Hh') %></li>
+              <li><%= meal.end_hour.strftime('à %Hh') %></li>
+              <li><%= available_portions(meal) %>
+                <%= image_tag 'portion', class: "card-meal-footer-icon" %>
+              </li>
+              <li>
+                <%= render "modale", meal: meal %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= render 'carousel', meal: meal %>
+      </div>
+    </div>
+  <% end %>
+</div>

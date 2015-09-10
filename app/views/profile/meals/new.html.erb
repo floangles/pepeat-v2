@@ -21,7 +21,9 @@
     </div>
 
     <div class= "container">
+       <%= f.input :takeaway, label: 'sur place' %>
       <div class= "col-xs-12 col-sm-6">
+
       <h4 class= "text-center">Pour combien de personnes cuisinez vous ? </h4>
       </div>
       <div class= "col-xs-1">
@@ -81,7 +83,9 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-2 col-xs-offset-1">
+
+
+      <div class="takeawayhour col-xs-2 col-xs-offset-1">
         <div class="form-group text-center">
           <div class='input-group date' id='datetimepicker5'>
              <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
@@ -93,6 +97,10 @@
       </div>
     </div>
   </div>
+
+
+
+
 
   <div class= "text-center">
     <%= f.button :submit, "GO!", class: "btn-lg btn-danger" %>

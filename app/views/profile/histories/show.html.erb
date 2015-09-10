@@ -1,0 +1,8 @@
+<h1>salut</h1>
+
+
+<%= simple_form_for @order, :url => { :action => "update" } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :review, input_html: {value: ""}, label: 'Laisser un commentaire sur votre fabuleux repas' %>
+  <%= f.submit 'Post your feedback' %>
+<% end %>

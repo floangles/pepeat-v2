@@ -33,10 +33,21 @@ module Profile
       end
     end
 
+    def show
+      @order = Order.find(params[:id])
+    end
+
     def edit
+       @order = Order.find(params[:id])
     end
 
     def update
+       # if params[:order] != {}
+      if params[:order][:review] != nil
+        @order = Order.find(params[:id])
+        @order.update(order_params)
+        redirect_to profile_orders_path
+      end
     end
 
     def destroy
@@ -47,7 +58,7 @@ module Profile
     end
 
     def order_params
-      params.require(:order).permit(:portion, :meal_id)
+      params.require(:order).permit(:portion, :meal_id, :review)
     end
   end
 end

@@ -20,75 +20,59 @@
 
 
 <div class="container">
-  <% @meals.each do |meal|%>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8">
-        <div class="card-meal">
-          <div class="card-meal-header text-center">
-            <%=image_tag meal.user.picture.url(:medium), class: "card-meal-header-img img-circle" %>
-            Chef
-            <%= meal.user.firstname %>
-            <%= meal.user.lastname %>
-          </div>
-          <div class="card-meal-body">
-            <div class= "card-meal-body-menu">
-              <%= image_tag 'starter', class: "card-meal-body-menu-icon" %>
-              <%= meal.starter %>
+  <div class="row">
+    <% @meals.each do |meal| %>
+      <div class="col-xs-6">
+        <div class="meal">
+          <div class="meal-header">
+            <div class= "carousel">
+              <% meal.meal_pictures.each do |picture| %>
+                <%= link_to meal_path(meal) do %>
+                  <div> <%= image_tag picture.picture.url(:large)%> </div>
+                <% end %>
+              <% end %>
             </div>
-            <div class= "card-meal-body-menu">
-              <%= image_tag 'main', class: "card-meal-body-menu-icon" %>
-              <%= meal.main %>
-            </div>
-            <div class= "card-meal-body-menu">
-              <%= image_tag 'dessert', class: "card-meal-body-menu-icon" %>
-              <%= meal.dessert %>
+            <div class="meal-header-price">
+              <%= meal.price %>€
             </div>
           </div>
-          <div class="card-meal-body-map">
-            <div id="map" style="width: 100%; height: 100%;"></div>
-          </div>
-          <div class="card-meal-footer text-center">
-            <ul class= "list-inline">
-              <li> <%= meal.price %> €</li>
-              <li> <%= meal.day.strftime('%d/%m/%Y') %></li>
-              <li><%= meal.start_hour.strftime('De %Hh') %></li>
-              <li><%= meal.end_hour.strftime('à %Hh') %></li>
-              <li><%= available_portions(meal) %>
-                <%= image_tag 'portion', class: "card-meal-footer-icon" %>
-              </li>
-              <li>
-                <%= render "modale", meal: meal %>
-              </li>
-            </ul>
+          <div class="meal-body">
+            <div class="meal-body-chef">
+              <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
+              <div class= "meal-body-chef-name">
+              chef <%= meal.user.firstname.downcase%> <%= meal.user.lastname.downcase %>( <%=average_rating(meal)%> avis )
+              </div>
+            </div>
+            <div class="meal-body-menu">
+              <div class= "meal-body-menu-starter">
+                <%= image_tag 'starter.svg', class: "img-menu-meal" %> <%= meal.starter %>
+              </div>
+              <div class= "meal-body-menu-starter">
+                <%= image_tag 'main.svg', class: "img-menu-meal" %> <%= meal.main %>
+              </div>
+              <div class= "meal-body-menu-starter">
+                <%= image_tag 'dessert.svg', class: "img-menu-meal" %> <%= meal.dessert %>
+              </div>
+            </div>
+            <div class="meal-body-takeaway">
+              <% if meal.end_hour.nil? %>
+                Rdv à <%= meal.start_hour.strftime('%Hh') %> chez moi
+              <% else %>
+                Take-away <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+              <% end %>
+              <div class= "meal-body-takeaway-portion">
+                <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
+              </div>
+            </div>
+            <div class="meal-body-order">
+              <%= render "modale", meal: meal %>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= render 'carousel', meal: meal %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
-
-
-
-
-
-
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(15);
-      });
-    })
-  <% end %>
-<% end %>
 
 
