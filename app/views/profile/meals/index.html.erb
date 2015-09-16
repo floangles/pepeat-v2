@@ -1,97 +1,56 @@
 <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success" %>
 
-
-<div class="container">
-  <div class="row">
-    <% @meals.each do |meal|%>
-      <div class="col-xs-12">
-        <div class="card-meal-online">
-          <div class="card-meal-online-header">
-              <p>Entrée : <%= meal.starter %></p>
-              <p>Plat : <%= meal.main %></p>
-              <p>Dessert : <%= meal.dessert %></p>
+<% @meals.each do |meal| %>
+  <div class="container">
+    <div class="card-offer">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="card-offer-left">
+            <div class="card-offer-left-title">
+              <%= meal.title%>
+            </div>
+            <div class="card-offer-left-meal">
+              Entrée : <%= meal.starter %>
+            </div>
+            <div class="card-offer-left-meal">
+              Plat : <%= meal.main %>
+            </div>
+            <div class="card-offer-left-meal">
+              Dessert : <%= meal.dessert %>
+            </div>
+            <div class="card-offer-left-announce">
+              <%= link_to "Voir l'annonce", meal_path(meal), class: "btn btn-success" %>
+            </div>
+            <div class="card-offer-left-edit">
+              <%= link_to "Editer l'annonce",  edit_profile_meal_path(meal), class: "btn btn-success" %>
+            </div>
           </div>
-          <div class="card-meal-online-body">
-            <div>
-              <%= meal.price %> €
-            </div>
-            <div>
-              <%= meal.portion %> <i class="fa fa-user"></i>
-            </div>
-            <div>
-              <%= meal.day.strftime('%d/%m/%Y') %>
-            </div>
-            <div>
+        </div>
+        <div class="col-xs-6">
+          <div class="card-offer-right">
+            <div class="card-offer-right-date">
               <% if meal.end_hour.nil? %>
-                <%= meal.start_hour.strftime('Rdv à %Hh') %>
-              <% else %>
-                <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
-              <% end %>
+              <p> Jour et heure du rendez vous</p>
+              <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('%Hh') %>
+            <% else %>
+              <p>Jour et heure du Takeaway</p>
+              <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh')%>
+            <% end %>
             </div>
-          </div>
-          <div class="card-meal-online-carousel">
-
-            <!-- Carousel -->
-
-              <div id="carousel-example-generic" class="carousel slide" data-wrap="false" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <% time = meal.meal_pictures.length-1 %>
-                  <% time.times do %>
-                    <% i = 1 %>
-                    <li data-target="#carousel-example-generic" data-slide-to= <% i %>></li>
-                    <% i += 1 %>
-                  <% end %>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <% i = 0 %>
-                  <% meal.meal_pictures.each do |picture| %>
-                    <% if i == 0 %>
-                      <div class="item active">
-                        <%= image_tag picture.picture.url(:medium)%>
-                        <div class="carousel-caption">
-                        </div>
-                      </div>
-                    <% else %>
-                      <div class="item">
-                        <%= image_tag picture.picture.url(:medium)%>
-                        <div class="carousel-caption">
-                        </div>
-                      </div>
-                    <% end %>
-                    <% i += 1 %>
-                  <% end %>
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-
-            <!-- Carousel -->
-
-          </div>
-          <div class= "card-meal-online-description" >
-            <%= meal.description %>
-            <%= link_to 'Editer un menu', edit_profile_meal_path(meal), class: "btn btn-success" %>
+            <div class="card-offer-right-portion">
+              <p>Vous avez <%= booked_portions(meal) %> réservations</p>
+              <p>Il reste <%= available_portions(meal) %> menus de disponible</p>
+            </div>
           </div>
         </div>
       </div>
-    <% end %>
+      <div class="row">
+        <div class="card-offer-list text-center">
+          <% meal.orders.each do |order| %>
+            <%= image_tag order.user.picture.url(:medium), class: "img-circle picture-offer"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-
-
-
-
-
+<% end %>

@@ -1,0 +1,159 @@
+.meal {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding:4px;
+  margin: 30px;
+  margin-top: 10px;
+  margin-left: 0px;
+  border: 1px solid rgba(49,49,47,0.18);
+
+  &-header {
+    height: 300px;
+    background-size: cover;
+    position: relative;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+    &-price {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      background-color: rgba(2, 2, 2, 0.7);
+      font-size: 30px;
+      padding: 8px;
+    }
+  }
+  &-body {
+    background-color: white;
+    height: auto;
+    &-menu {
+      margin-top: 18px;
+      padding-bottom: 18px;
+      padding-left: 15px;
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      &-first {
+        margin-top: 41px;
+        padding-bottom: 18px;
+        padding-left: 15px;
+        border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      }
+    }
+    &-description {
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      padding: 20px;
+    }
+    &-infos {
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      padding: 15px;
+      &-date {
+        border-right: 1px solid rgba(4, 4, 4, 0.05);
+      }
+      &-portions {
+
+      }
+    }
+  }
+}
+
+.title {
+  font-family: 'League Script', cursive;
+  font-size: 48px;
+}
+
+.img-menu-show-meal {
+  width: 60px;
+  height: 60px;
+}
+
+.picuser {
+  height: 70px;
+  width: 70px;
+  padding: 8px;
+}
+
+
+
+.card-order {
+  background-color: white;
+  height: auto;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  border: 1px solid rgba(49,49,47,0.18);
+  margin-bottom: 40px;
+}
+
+.card-show-chief {
+  margin-top: 30px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding:4px;
+  margin-top: 10px;
+  margin-left: 30px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-description {
+    padding: 15px;
+  }
+}
+
+
+
+
+.buton-order-show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+
+
+.card-infos {
+  padding: 5px;
+  background-color: white;
+  height: auto;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-map {
+    height: 300px;
+  }
+  &-plus {
+    &-element{
+      padding-top: 20px;
+      position: relative;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      &-position-img {
+        position:absolute;
+        transform: translateY(-50%);
+        left: 10%;
+        top: 50%;
+      }
+    }
+    &-order {
+      position: relative;
+      bottom: -71px;
+    }
+  }
+}
+
+
+.card-feedback {
+  padding: 5px;
+  background-color: white;
+  height: auto;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-element {
+    padding: 20px;
+    border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+  }
+}
+
+

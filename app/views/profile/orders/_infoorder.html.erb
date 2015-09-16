@@ -1,0 +1,45 @@
+<div class="infos">
+  <div class="infos-map">
+    <div id="map" style="width: 100%; height: 100%;"></div>
+  </div>
+  <div class="infos-body">
+    <div class="infos-body-address">
+      Adresse : <%= order.meal.user.address %>
+    </div>
+    <div class="infos-body-hour">
+      <% if order.meal.end_hour.nil? %>
+        <p> Jour et heure du rendez vous</p>
+        <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('%Hh') %>
+      <% else %>
+        Date : <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
+      <% end %>
+    </div>
+    <div class="infos-body-portion">
+      Nombre de menu commandé : <%= order.portion %>
+    </div>
+    <div class="infos-body-takeway text-center">
+      <% if order.meal.end_hour.nil? %>
+        <h3> Repas chez le chef </h3>
+      <% else %>
+        <h3>Take Away</h3>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
+      });
+    })
+  <% end %>
+<% end %>

@@ -1,8 +1,11 @@
-<h1>salut</h1>
 
-<% @ratings.each do |rating| %>
-  <%= rating %>
+<% if @ratings.count == 0 %>
+  <h3>Il n'y a aucun avis pour le moment</h3>
+<% else %>
+  <% @ratings.each do |rating| %>
+    <%= rating %>
+  <% end %>
+  <%= @order.user.firstname %>
+  <%= @order.user.lastname %>
 <% end %>
-<%= @order.user.firstname %>
-<%= @order.user.lastname %>
 

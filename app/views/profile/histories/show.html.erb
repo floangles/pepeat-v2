@@ -6,3 +6,7 @@
   <%= f.input :review, input_html: {value: ""}, label: 'Laisser un commentaire sur votre fabuleux repas' %>
   <%= f.submit 'Post your feedback' %>
 <% end %>
+
+qualite  : <%= rating_for @order, "qualite", :disable_after_rate => true, :cancel => true, :cancel_hint => "Cancel this rating!", :imdb_avg => true %>
+
+

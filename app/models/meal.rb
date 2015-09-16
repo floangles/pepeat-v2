@@ -17,6 +17,7 @@
 #  updated_at      :datetime         not null
 #  start_hour_home :datetime
 #  takeaway        :boolean
+#  title           :string
 #
 # Indexes
 #

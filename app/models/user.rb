@@ -40,9 +40,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  ratyrate_rater
+
   has_many :meals
   has_many :orders
-  has_many :chief_pictures
+  has_many :chief_pictures, dependent: :destroy
 
 
 

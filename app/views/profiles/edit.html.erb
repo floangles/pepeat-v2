@@ -5,6 +5,7 @@
       <tr>
         <td><%= f.input :firstname %></td>
         <td><%= f.input :lastname %></td>
+        <td><%= file_field_tag "chiefpictures[]", type: :file, multiple: true,  id: "chiefpictureInput" %></td>
       </tr>
        <tr>
         <td> <%= f.input :email %></td>

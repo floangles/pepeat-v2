@@ -31,6 +31,7 @@ gem "geocoder"
 gem "gmaps4rails"
 gem "rails-assets-underscore"
 gem "jquery-slick-rails"
+gem 'ratyrate'
 
 
 group :development, :test do
@@ -49,3 +50,4 @@ group :production do
   gem "puma"
   gem "rack-timeout"
 end
+gem 'pundit', github: 'elabs/pundit'

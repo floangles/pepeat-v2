@@ -1,0 +1,34 @@
+ <div class="adjustement meals">
+  <div class="meals-header">
+    <div class= "carousel">
+      <% meal.meal_pictures.each do |picture| %>
+        <%= link_to meal_path(meal) do %>
+          <div> <%= image_tag picture.picture.url(:large)%> </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="meals-header-price">
+      <%= meal.price %>€
+    </div>
+  </div>
+  <div class="meals-body">
+    <div class="meals-body-chef">
+      <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
+      <div class= "meals-body-chef-name">
+      <% @orderrating = meal.orders.all %>
+      chef <%= meal.user.firstname.downcase%> <%= meal.user.lastname.downcase %>( <%=average_rating(meal)%> avis )
+      </div>
+    </div>
+    <div class="meals-body-menu">
+      <div class= "meal-body-menu-starter">
+        <%= image_tag 'starter.svg', class: "img-menu-meal" %> <%= meal.starter %>
+      </div>
+      <div class= "meals-body-menu-starter">
+        <%= image_tag 'main.svg', class: "img-menu-meal" %> <%= meal.main %>
+      </div>
+      <div class= "meals-body-menu-starter">
+        <%= image_tag 'dessert.svg', class: "img-menu-meal" %> <%= meal.dessert %>
+      </div>
+    </div>
+  </div>
+</div>

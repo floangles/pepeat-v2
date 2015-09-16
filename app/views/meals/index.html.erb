@@ -23,52 +23,7 @@
   <div class="row">
     <% @meals.each do |meal| %>
       <div class="col-xs-6">
-        <div class="meal">
-          <div class="meal-header">
-            <div class= "carousel">
-              <% meal.meal_pictures.each do |picture| %>
-                <%= link_to meal_path(meal) do %>
-                  <div> <%= image_tag picture.picture.url(:large)%> </div>
-                <% end %>
-              <% end %>
-            </div>
-            <div class="meal-header-price">
-              <%= meal.price %>€
-            </div>
-          </div>
-          <div class="meal-body">
-            <div class="meal-body-chef">
-              <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
-              <div class= "meal-body-chef-name">
-              chef <%= meal.user.firstname.downcase%> <%= meal.user.lastname.downcase %>( <%=average_rating(meal)%> avis )
-              </div>
-            </div>
-            <div class="meal-body-menu">
-              <div class= "meal-body-menu-starter">
-                <%= image_tag 'starter.svg', class: "img-menu-meal" %> <%= meal.starter %>
-              </div>
-              <div class= "meal-body-menu-starter">
-                <%= image_tag 'main.svg', class: "img-menu-meal" %> <%= meal.main %>
-              </div>
-              <div class= "meal-body-menu-starter">
-                <%= image_tag 'dessert.svg', class: "img-menu-meal" %> <%= meal.dessert %>
-              </div>
-            </div>
-            <div class="meal-body-takeaway">
-              <% if meal.end_hour.nil? %>
-                Rdv à <%= meal.start_hour.strftime('%Hh') %> chez moi
-              <% else %>
-                Take-away <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
-              <% end %>
-              <div class= "meal-body-takeaway-portion">
-                <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
-              </div>
-            </div>
-            <div class="meal-body-order">
-              <%= render "modale", meal: meal %>
-            </div>
-          </div>
-        </div>
+     <%= render "cardmeals", meal: meal %>
       </div>
     <% end %>
   </div>

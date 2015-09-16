@@ -1,0 +1,53 @@
+ <div class="meals">
+  <div class="meals-header">
+    <div class= "carousel">
+      <% meal.meal_pictures.each do |picture| %>
+        <%= link_to meal_path(meal) do %>
+          <div> <%= image_tag picture.picture.url(:large)%> </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="meals-header-price">
+      <%= meal.price %>€
+    </div>
+  </div>
+  <div class="meals-body">
+    <div class="meals-body-chef">
+      <%= link_to (profile_path(meal.user)) do %>
+        <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
+      <% end %>
+      <div class= "meals-body-chef-name">
+        <% @orderrating = meal.orders.all %>
+        chef <%= meal.user.firstname.downcase%> <%= meal.user.lastname.downcase %>( <%=average_rating(meal)%> avis )
+      </div>
+    </div>
+    <div class="meals-body-menu">
+      <div class= "meal-body-menu-starter">
+        <%= image_tag 'starter.svg', class: "img-menu-meal" %> <%= meal.starter %>
+      </div>
+      <div class= "meals-body-menu-starter">
+        <%= image_tag 'main.svg', class: "img-menu-meal" %> <%= meal.main %>
+      </div>
+      <div class= "meals-body-menu-starter">
+        <%= image_tag 'dessert.svg', class: "img-menu-meal" %> <%= meal.dessert %>
+      </div>
+    </div>
+    <div class="meals-body-takeaway">
+      <% if meal.end_hour.nil? %>
+        Rdv à <%= meal.start_hour.strftime('%Hh') %> chez moi
+      <% else %>
+        Take-away <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+      <% end %>
+      <div class= "meals-body-takeaway-portion">
+        <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
+      </div>
+    </div>
+      <% if current_user == meal.user %>
+        <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+      <% else %>
+      <div class="meals-body-order">
+        <%= render "modale", meal: meal %>
+      </div>
+    <% end %>
+  </div>
+</div>

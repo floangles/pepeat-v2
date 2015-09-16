@@ -1,0 +1,52 @@
+.card-history {
+  position: relative;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding:4px;
+  margin: 30px;
+  margin-top: 50px;
+  margin-left: 0px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-pic {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  &-price {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(158, 158, 133, 0.46);
+  font-size: 30px;
+  }
+  &-element-top {
+    padding: 15px;
+    padding-top: 60px;
+    border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+  }
+  &-element {
+    padding: 15px;
+    border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+  }
+  &-element-last {
+    padding: 15px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+  }
+  &-review {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+
+
+.pichistory {
+  height: 70px;
+  width: 70px;
+  border: 1px solid white;
+}

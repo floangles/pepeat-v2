@@ -3,15 +3,24 @@ class ProfilesController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
 
+
   def show
+   skip_authorization
   end
 
   def edit
+    skip_authorization
   end
 
   def update
+    skip_authorization
     @user.update(user_params)
     if @user.save
+     if params[:chiefpictures]
+        params[:chiefpictures].each { |picture|
+        @user.chief_pictures.create(chiefpicture: picture)
+          }
+    end
       redirect_to profile_path
     else
       render :edit
@@ -25,7 +34,7 @@ class ProfilesController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :picture, :email, :address, :description)
+    params.require(:user).permit(:firstname, :lastname, :picture, :email, :address, :description, :chiefpicture)
   end
 
 end

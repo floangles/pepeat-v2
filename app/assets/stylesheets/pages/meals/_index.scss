@@ -25,7 +25,7 @@ box-shadow: 0 0 8px rgba(250, 250, 250, .8);
 }
 
 
-.meal {
+.meals {
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   border-radius: 3px;
@@ -49,7 +49,7 @@ box-shadow: 0 0 8px rgba(250, 250, 250, .8);
   }
   &-body {
     background-color: white;
-    height: 300px;
+    height: auto;
     &-chef {
       position: relative;
       padding: 15px;

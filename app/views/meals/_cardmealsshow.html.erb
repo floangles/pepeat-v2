@@ -1,0 +1,51 @@
+
+
+ <div class="meal">
+  <div class="meal-header">
+    <div class= "carousel">
+      <% meal.meal_pictures.each do |picture| %>
+        <%= link_to meal_path(meal) do %>
+          <div> <%= image_tag picture.picture.url(:extralarge)%> </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="meal-header-price">
+      <%= meal.price %>€
+    </div>
+  </div>
+  <div class="meal-body">
+    <div class="meal-body-menu-first">
+      <%= image_tag 'starter.svg', class: "img-menu-show-meal" %> <%= meal.starter %>
+    </div>
+    <div class="meal-body-menu">
+      <%= image_tag 'main.svg', class: "img-menu-show-meal" %> <%= meal.main %>
+    </div>
+    <div class="meal-body-menu">
+      <%= image_tag 'dessert.svg', class: "img-menu-show-meal" %> <%= meal.dessert %>
+    </div>
+    <div class="meal-body-description">
+      <%= meal.description %>
+    </div>
+    <div class="meal-body-infos">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="meal-body-infos-date">
+            <% if meal.end_hour.nil? %>
+            <p>Chef le chef</p> à <%= meal.start_hour.strftime('%Hh') %> chez moi
+          <% else %>
+            <p>Take-away</p><%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+          <% end %>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="meal-body-infos-portions">
+            <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
+          </div>
+        </div>
+        <div class="meals-body-order">
+        </div>
+      </div>
+    </div>
+    <%= render "modale", meal: meal %>
+  </div>
+</div>

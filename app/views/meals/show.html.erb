@@ -1,1 +1,106 @@
-<h1>salut Louis</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-7">
+      <h3 class= "text-center title">Le menu</h3>
+   <%= render "cardmealsshow", meal: @meal %>
+    </div>
+    <div class="col-xs-12 col-sm-5">
+      <h3 class= "text-center title">Le chef</h3>
+      <div class="card-show-chief">
+        <div class="carousel">
+          <% @meal.user.chief_pictures.each do |picture| %>
+            <div> <%= image_tag picture.chiefpicture.url(:large)%> </div>
+          <% end %>
+        </div>
+        <div class="card-show-chief-img">
+          <%= image_tag @meal.user.picture.url(:medium), class: "img-circle picuser" %>
+        </div>
+        <div class="card-show-chief-description">
+          <%= @meal.user.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 class= "text-center title">Les commandes</h3>
+<div class="container">
+  <div class="card-order text-center">
+    <% @meal.orders.each do |order| %>
+      <%= image_tag order.user.picture.url(:medium), class: "img-circle picuser" %>
+    <% end %>
+  </div>
+</div>
+
+<h3 class= "text-center title">Les infos</h3>
+<div class="container">
+  <div class="card-infos">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class= "card-infos-map">
+          <div id="map" style="width: 100%; height: 100%;"></div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class="card-infos-plus">
+          <div class="card-infos-plus-element text-center">
+            <p>Adresse de <%=@meal.user.firstname %></p>
+            <%= @meal.user.address %>
+            <div class= "card-infos-plus-element-position-img">
+              <i class="fa fa-map-marker fa-3x"></i>
+            </div>
+          </div>
+          <div class="card-infos-plus-element text-center">
+            <% if @meal.end_hour.nil? %>
+              <p> Jour et heure du rendez vous</p>
+              <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.start_hour.strftime('%Hh') %>
+            <% else %>
+              <p>Jour et heure du Takeaway</p>
+              <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.start_hour.strftime('De %Hh') %> <%= @meal.end_hour.strftime('à %Hh')%>
+            <% end %>
+            <div class= "card-infos-plus-element-position-img">
+              <i class="fa fa-calendar fa-3x"></i>
+            </div>
+          </div>
+          <div class="card-infos-plus-order">
+            <div class="card-infos-plus-order-buton">
+              <%= render "modale", meal: @meal %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class= "text-center title">Les avis</h3>
+<div class="container">
+  <div class="card-feedback">
+    <div class="row">
+      <% if @meal.orders.count(:review) == 0 %>
+        <p> Le chef <%= @meal.user.firstname%> n'a pas encore d'avis !</p>
+       <% else %>
+        <% @meal.orders.each do |order| %>
+          <% if !order.review.nil? %>
+            <div class="card-feedback-element">
+              <%= image_tag order.user.picture.url(:thumb), class: "picuser img-circle"%><%= order.review %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
+      });
+    })
+  <% end %>
+<% end %>

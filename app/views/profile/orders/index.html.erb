@@ -1,70 +1,19 @@
-
-
-
-<div class="container">
-  <% @orders.each do |order|%>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8">
-        <div class="card-meal">
-          <div class="card-meal-header text-center">
-            <%=image_tag order.meal.user.picture.url(:medium), class: "card-meal-header-img img-circle" %>
-            Chef
-            <%= order.meal.user.firstname %>
-            <%= order.meal.user.lastname %>
+<% if @orders.count == 0 %>
+  <h3>Vous n'avez fait aucune réservation</h3>
+<% else %>
+  <% @orders.each do |order| %>
+    <div class="card-globale">
+      <h3 class= "text-center title" ><%= order.meal.title %></h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <%= render "ordercard", meal: order.meal %>
           </div>
-          <div class="card-meal-body">
-            <div class= "card-meal-body-menu">
-              <%= image_tag 'starter', class: "card-meal-body-menu-icon" %>
-              <%= order.meal.starter %>
-            </div>
-            <div class= "card-meal-body-menu">
-              <%= image_tag 'main', class: "card-meal-body-menu-icon" %>
-              <%= order.meal.main %>
-            </div>
-            <div class= "card-meal-body-menu">
-              <%= image_tag 'dessert', class: "card-meal-body-menu-icon" %>
-              <%= order.meal.dessert %>
-            </div>
-          </div>
-          <div class="card-meal-body-map">
-            <div id="map" style="width: 100%; height: 100%;"></div>
-          </div>
-          <div class="card-meal-footer text-center">
-            <ul class= "list-inline">
-              <li> <%= order.meal.price %> €</li>
-              <li> <%= order.meal.day.strftime('%d/%m/%Y') %></li>
-              <li><%= order.meal.start_hour.strftime('De %Hh') %></li>
-              <li><%= order.meal.end_hour.strftime('à %Hh') %></li>
-              <li><%= order.meal.portion %>
-                <%= image_tag 'portion', class: "card-meal-footer-icon" %>
-              </li>
-            </ul>
+          <div class="col-xs-6">
+            <%= render "infoorder", order: order %>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= render '/meals/carousel', meal: order.meal %>
-      </div>
     </div>
   <% end %>
-</div>
-
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(15);
-      });
-    })
-  <% end %>
 <% end %>
-
-
-
-
-

@@ -18,6 +18,8 @@
 
 class Order < ActiveRecord::Base
 
+  ratyrate_rateable "qualite"
+
   belongs_to :user
   belongs_to :meal
 

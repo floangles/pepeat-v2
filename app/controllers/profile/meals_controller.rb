@@ -6,6 +6,7 @@ module Profile
 
 
     def index
+      @meals = policy_scope(Meal)
       @meals = current_user.meals
     end
 
@@ -14,10 +15,13 @@ module Profile
 
     def new
       @meal = Meal.new
+      authorize @meal
     end
 
     def create
+
       @meal = current_user.meals.new(meal_params)
+      authorize @meal
       if @meal.save
         if params[:pictures]
           params[:pictures].each { |picture|
@@ -31,10 +35,11 @@ module Profile
     end
 
     def edit
-
+      authorize @meal
     end
 
     def update
+      authorize @meal
       @meal.update(meal_params)
       if @meal.save
         if params[:pictures]
@@ -51,6 +56,7 @@ module Profile
     end
 
     def destroy
+      authorize @meal
     end
 
     def set_meal
@@ -58,7 +64,7 @@ module Profile
     end
 
     def meal_params
-      params.require(:meal).permit(:starter, :main, :dessert, :price, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
+      params.require(:meal).permit(:starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
     end
 
   end

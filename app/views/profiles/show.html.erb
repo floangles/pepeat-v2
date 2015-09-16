@@ -1,21 +1,68 @@
-<div id="profile-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class= "img-profile">
-          <%= image_tag current_user.picture.url(:medium), class: "img-circle size"%>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="left">
+        <div class="image"></div>
+        <div class="no-display text-center">
+          Chef <%= @user.firstname %> <%= @user.lastname%>
+          <%= @user.email %>
+          <div>
+            <%= @user.meals.count %> plats vendu
+          </div>
         </div>
-        <div class= "name-profile">
-          <%= current_user.firstname %> <%= current_user.lastname %> <%= link_to edit_profile_path do %>
-          <i class="fa fa-pencil"></i>
-          <% end %>
-        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="description">
+        <h3>A propos de moi </h3>
+        <p><%= @user.description %></p>
+        <%= link_to "editer", edit_profile_path %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <p> description</p>
-  <%= current_user.description %>
+<h3 class= "text-center title">La cuisine du chef</h3>
+<div class="kitchen">
+  <div class="container">
+    <div class="row">
+      <% @user.chief_pictures.each do |picture|%>
+        <div class="col-xs-3">
+          <div class="img-kitchen"></div>
+          <%= image_tag picture.chiefpicture.url(:medium), class: "kitchen-size" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+<h3 class= "text-center title">Les avis</h3>
+<div class="container">
+  <div class="card-feedback">
+    <div class="row">
+      <% @user.meals.each do |meal| %>
+        <% if meal.orders.count(:review) == 0 %>
+          <p> Le chef <%= meal.user.firstname%> n'a pas encore d'avis !</p>
+        <% else %>
+          <% meal.orders.each do |order| %>
+            <% if !order.review.nil? %>
+              <div class="card-feedback-element">
+              <%= image_tag order.user.picture.url(:thumb), class: "picuser img-circle"%><%= order.review %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<style media="screen">
+  .image { background-image: url(<%= @user.picture.url(:medium) %>); }
+</style>
+
+
