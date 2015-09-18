@@ -1,0 +1,23 @@
+<% if meal.orders.count(:review) == 0 %>
+  <p> Le chef <%= meal.user.firstname%> n'a pas encore d'avis !</p>
+<% else %>
+  <% meal.orders.each do |order| %>
+    <% if !order.review.nil? %>
+      <div class="card-feedback-element">
+      <div class= "card-feedback-element-img">
+        <%= image_tag order.user.picture.url(:thumb), class: "picuser img-circle"%>
+      </div>
+      <div class= "card-feedback-element-name">
+        <b><%= order.user.firstname%> <%= order.user.lastname %></b>
+      </div>
+      <div class= "card-feedback-element-date">
+        <i><%= order.created_at.strftime('%d/%m/%Y') %></i>
+      </div>
+      <div class= "card-feedback-element-review text-center">
+        <p><i class="fa fa-angle-double-left"></i> <%= order.review %> <i class="fa fa-angle-double-right"></i></p>
+      </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+

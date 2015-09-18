@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   resources :meals, only: [:index, :show]
   resource :profile, only: [:show, :edit, :update]
+  resources :publics, only: [:index]
 
 
   namespace :profile do
+    resources :chief_pictures, only: [:destroy, :new, :create]
     resources :meals
     resources :orders
     resources :histories

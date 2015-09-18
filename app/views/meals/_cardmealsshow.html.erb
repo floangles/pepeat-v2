@@ -46,6 +46,12 @@
         </div>
       </div>
     </div>
-    <%= render "modale", meal: meal %>
+    <% if current_user == meal.user %>
+        <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+      <% else %>
+      <div class="meals-body-order">
+        <%= render "modale", meal: meal %>
+      </div>
+    <% end %>
   </div>
 </div>

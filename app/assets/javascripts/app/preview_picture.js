@@ -9,6 +9,10 @@ $(function() {
         console.log(file);
         img.src = file.target.result;
         $('#target').append($('<div/>', {class: 'col-xs-3 preview-js' }, { id: 'r' + i}).html(img));
+        $('#target2').append($('<div/>', {class: 'col-xs-3 salut' }, { id: 'r' + i}).html(img));
+        $(".salut img").addClass("preview-size")
+        $('#target3').addClass( "invisible" );
+        $('.go-btn').removeClass( "invisible" );
       }
       reader.readAsDataURL(image);
       console.log(files);

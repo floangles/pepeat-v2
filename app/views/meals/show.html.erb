@@ -63,7 +63,13 @@
           </div>
           <div class="card-infos-plus-order">
             <div class="card-infos-plus-order-buton">
-              <%= render "modale", meal: @meal %>
+              <% if current_user == @meal.user %>
+                <%= link_to 'Modifier mon annonce', edit_profile_meal_path(@meal), class: "btn btn-success buton-order" %>
+              <% else %>
+                <div class="meals-body-order">
+                  <%= render "modale", meal: @meal %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -72,22 +78,17 @@
   </div>
 </div>
 
-<h3 class= "text-center title">Les avis</h3>
+<h3 class= "text-center title">Les derniers avis du chef</h3>
 <div class="container">
   <div class="card-feedback">
     <div class="row">
-      <% if @meal.orders.count(:review) == 0 %>
-        <p> Le chef <%= @meal.user.firstname%> n'a pas encore d'avis !</p>
-       <% else %>
-        <% @meal.orders.each do |order| %>
-          <% if !order.review.nil? %>
-            <div class="card-feedback-element">
-              <%= image_tag order.user.picture.url(:thumb), class: "picuser img-circle"%><%= order.review %>
-            </div>
-          <% end %>
-        <% end %>
+      <% @meal.user.meals.each do |meal| %>
+        <%= render '/shared/review', meal: meal %>
       <% end %>
     </div>
+  </div>
+  <div class= "text-center avis-btn-position">
+    <%= link_to 'Voir tous les avis', profile_ratings_path, class: "btn btn-pepeat" %>
   </div>
 </div>
 

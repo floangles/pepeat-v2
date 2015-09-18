@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
 
   def show
    skip_authorization
+   @chief_picture = ChiefPicture.new
   end
 
   def edit
@@ -34,7 +35,7 @@ class ProfilesController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :picture, :email, :address, :description, :chiefpicture)
+    params.require(:user).permit(:firstname, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture)
   end
 
 end

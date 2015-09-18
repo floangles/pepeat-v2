@@ -7,3 +7,22 @@
  * [TIPS] Look for cool button design on CodePen
  * ex: http://codepen.io/search?q=buttons
  * ------------------------------------- */
+
+.btn-pepeat {
+  // @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  $color: #fff;
+  $background: $pepeat;
+  $border: #D89B08;
+  @include button-variant($color, $background, $border);
+  // override the default darkening with lightening
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: darkent($background, 1%); //10% default
+    border-color: lighten($border, 22%); // 12% default
+  }
+}

@@ -13,7 +13,7 @@
   </div>
   <div class="meals-body">
     <div class="meals-body-chef">
-      <%= link_to (profile_path(meal.user)) do %>
+      <%= link_to publics_path(meal.user) do %>
         <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
       <% end %>
       <div class= "meals-body-chef-name">
@@ -46,7 +46,7 @@
         <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
       <% else %>
       <div class="meals-body-order">
-        <%= render "modale", meal: meal %>
+
       </div>
     <% end %>
   </div>
