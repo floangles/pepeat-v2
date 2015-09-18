@@ -46,7 +46,7 @@
         <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
       <% else %>
       <div class="meals-body-order">
-
+        <%= render "/shared/modale", meal: meal %>
       </div>
     <% end %>
   </div>
