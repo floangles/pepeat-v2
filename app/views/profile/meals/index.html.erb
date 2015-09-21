@@ -1,56 +1,67 @@
-<%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success" %>
-
-<% @meals.each do |meal| %>
-  <div class="container">
-    <div class="card-offer">
-      <div class="row">
-        <div class="col-xs-6">
-          <div class="card-offer-left">
-            <div class="card-offer-left-title">
-              <%= meal.title%>
-            </div>
-            <div class="card-offer-left-meal">
-              Entrée : <%= meal.starter %>
-            </div>
-            <div class="card-offer-left-meal">
-              Plat : <%= meal.main %>
-            </div>
-            <div class="card-offer-left-meal">
-              Dessert : <%= meal.dessert %>
-            </div>
-            <div class="card-offer-left-announce">
-              <%= link_to "Voir l'annonce", meal_path(meal), class: "btn btn-success" %>
-            </div>
-            <div class="card-offer-left-edit">
-              <%= link_to "Editer l'annonce",  edit_profile_meal_path(meal), class: "btn btn-success" %>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6">
-          <div class="card-offer-right">
-            <div class="card-offer-right-date">
-              <% if meal.end_hour.nil? %>
-              <p> Jour et heure du rendez vous</p>
-              <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('%Hh') %>
-            <% else %>
-              <p>Jour et heure du Takeaway</p>
-              <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh')%>
-            <% end %>
-            </div>
-            <div class="card-offer-right-portion">
-              <p>Vous avez <%= booked_portions(meal) %> réservations</p>
-              <p>Il reste <%= available_portions(meal) %> menus de disponible</p>
-            </div>
-          </div>
-        </div>
+<% if @meals.count == 0 %>
+  <div class="background-default window-height">
+    <div class= "background-default-blur">
+      <div class="background-default-blur-text">
+        <h3 class= "text-center">Vous n'avez pas de menu en cours</h3>
       </div>
-      <div class="row">
-        <div class="card-offer-list text-center">
-          <% meal.orders.each do |order| %>
-            <%= image_tag order.user.picture.url(:medium), class: "img-circle picture-offer"%>
-          <% end %>
-        </div>
+      <div class="background-default-blur-edit">
+        <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-pepeat btn-large" %>
       </div>
     </div>
   </div>
+<% else %>
+  <% @meals.each do |meal| %>
+    <div class="container">
+      <div class="card-offer">
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="card-offer-left">
+              <div class="card-offer-left-title">
+                <%= meal.title%>
+              </div>
+              <div class="card-offer-left-meal">
+                Entrée : <%= meal.starter %>
+              </div>
+              <div class="card-offer-left-meal">
+                Plat : <%= meal.main %>
+              </div>
+              <div class="card-offer-left-meal">
+                Dessert : <%= meal.dessert %>
+              </div>
+              <div class="card-offer-left-announce">
+                <%= link_to "Voir l'annonce", meal_path(meal), class: "btn btn-success" %>
+              </div>
+              <div class="card-offer-left-edit">
+                <%= link_to "Editer l'annonce",  edit_profile_meal_path(meal), class: "btn btn-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="card-offer-right">
+              <div class="card-offer-right-date">
+                <% if meal.end_hour.nil? %>
+                <p> Jour et heure du rendez vous</p>
+                <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('%Hh') %>
+              <% else %>
+                <p>Jour et heure du Takeaway</p>
+                <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh')%>
+              <% end %>
+              </div>
+              <div class="card-offer-right-portion">
+                <p>Vous avez <%= booked_portions(meal) %> réservations</p>
+                <p>Il reste <%= available_portions(meal) %> menus de disponible</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card-offer-list text-center">
+            <% meal.orders.each do |order| %>
+              <%= image_tag order.user.picture.url(:medium), class: "img-circle picture-offer"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>

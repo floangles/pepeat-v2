@@ -1,4 +1,9 @@
-<h3 class= "text-center title">Tous les avis de <%= current_user.surname%></h3>
-<% current_user.meals.each do |meal| %>
-  <%= render '/shared/review', meal: meal %>
+
+<% if current_user.meals.orders.count(:review) == 0 %>
+  <h3 class= "text-center">Vous n'avez pas encore reçu d'avis </h3>
+<% else %>
+  <h3 class= "text-center title">Tous les avis de <%= current_user.surname%></h3>
+  <% current_user.meals.each do |meal| %>
+    <%= render '/shared/review', meal: meal %>
+  <% end %>
 <% end %>

@@ -1,0 +1,7 @@
+<h3 class= "text-center title">Tous les avis de <%= @user.surname%></h3>
+<% @user.meals.each do |meal| %>
+  <%= render '/shared/review', meal: meal %>
+<% end %>
+
+
+

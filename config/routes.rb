@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :meals, only: [:index, :show]
   resource :profile, only: [:show, :edit, :update]
-  resources :publics, only: [:index]
+  resources :publics, only: [:index, :show]
 
 
   namespace :profile do

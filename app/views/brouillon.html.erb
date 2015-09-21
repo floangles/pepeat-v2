@@ -1,0 +1,15 @@
+<h3 class= "text-center title2">Les plats actuellement proposés</h3>
+<div class="container">
+  <div class="row">
+    <% @user.meals.each do |meal| %>
+      <div class="col-xs-6">
+        <%= render "/meals/cardmeals", meal: meal %>
+      </div>
+      <div class= "placeholder-meal">
+        <%= link_to new_profile_meal_path do %>
+          <%= image_tag 'placeholder-meal' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

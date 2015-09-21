@@ -1,3 +1,26 @@
+.background-default {
+  background-image: image-url('default.jpg');
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+
+  &-blur {
+    padding: 30px;
+    position: relative;
+    top: 37%;
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+    &-text {
+
+
+    }
+    &-edit {
+    text-align: center;
+    }
+  }
+}
+
+
 
 .left {
   margin-top: 25px;

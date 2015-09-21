@@ -53,6 +53,8 @@ module Profile
     end
 
     def destroy
+      @order.destroy
+      redirect_to profile_orders_path
     end
 
     def set_order
