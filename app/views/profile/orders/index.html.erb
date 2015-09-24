@@ -10,14 +10,22 @@
     </div>
   </div>
 <% else %>
+  <div class="background-profile-meals">
+    <div class="background-profile-meals-title">
+      <h3>Vos annonces en cours</h3>
+    </div>
+    <div class= "background-profile-meals-add hover" title= "Créer un nouveau menu">
+      <%= link_to new_profile_meal_path do %>
+      <button class="button button-glow button-circle button-action button-jumbo">
+        <i class="fa fa-plus"></i>
+      </button>
+      <% end %>
+    </div>
+  </div>
   <% @orders.each do |order| %>
-    <div class="card-globale">
       <h3 class= "text-center title" ><%= order.meal.title %></h3>
       <div class="container">
         <div class="row">
-          <div class="col-xs-6">
-            <%= render "ordercard", meal: order.meal %>
-          </div>
           <div class="col-xs-6">
             <%= render "infoorder", order: order %>
               <%= link_to profile_order_path(order),
@@ -28,9 +36,10 @@
           </div>
         </div>
       </div>
-    </div>
   <% end %>
 <% end %>
+
+
 
 
 

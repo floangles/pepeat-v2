@@ -19,7 +19,7 @@
         <% if user_signed_in? %>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
+                <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
               Profil <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">
@@ -29,7 +29,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to profile_ratings_path do %>
+                <%= link_to rating_profile_path do %>
                   Vos avis
                 <% end %>
               </li>
@@ -51,7 +51,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to profile_histories_path do %>
+                <%= link_to  history_profile_meals_path do %>
                   Historique
                 <% end %>
               </li>
@@ -68,7 +68,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to profile_histories_path do %>
+                <%= link_to history_profile_orders_path do %>
                   Historique
                 <% end %>
               </li>

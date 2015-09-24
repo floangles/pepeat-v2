@@ -1,12 +1,8 @@
-<h1>salut</h1>
-
-
-<%= simple_form_for @order, :url => { :action => "update" } do |f| %>
+<%= simple_form_for @order, url: { action: "update", id: @order.id } do |f| %>
   <%= f.error_notification %>
   <%= f.input :review, input_html: {value: ""}, label: 'Laisser un commentaire sur votre fabuleux repas' %>
-  <%= f.submit 'Post your feedback' %>
+  <%= f.submit 'Postez votre feedback' %>
 <% end %>
 
 qualite  : <%= rating_for @order, "qualite", :disable_after_rate => true, :cancel => true, :cancel_hint => "Cancel this rating!", :imdb_avg => true %>
-
 

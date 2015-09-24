@@ -1,5 +1,5 @@
 <a data-toggle="modal" data-target="#booking-<%=meal.id%>">
-  <b class= "btn btn-success buton-order">Commander</b>
+  <b class= "btn btn-success buton-order">Je commande ce menu</b>
 </a>
 
 
@@ -8,16 +8,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Commandez ici</h4>
+        <h4 class="modal-title text-center">Commandez ici</h4>
       </div>
       <%= simple_form_for [meal, @order], url: profile_orders_path do |f| %>
         <div class="modal-body">
-          <%= f.input :portion, label: 'Combien de parts ?', collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
+          <%= f.input :portion, label: 'Combien de parts voulez vous commander ?',required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
           <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.button :submit, label: 'Réservez maintenant', class: "btn btn-success btn-lg" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+          <%= f.button :submit, value: 'Réservez maintenant', label: 'Réservez maintenant', class: "btn btn-pepeat btn-lg" %>
         </div><!-- /.modal-content -->
       <% end %>
     </div><!-- /.modal-dialog -->

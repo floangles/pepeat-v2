@@ -9,6 +9,7 @@
 //= require gmaps/google
 //= require jquery.raty
 //= require ratyrate
+//= require tooltipster
 
 //= require_tree ./app
 

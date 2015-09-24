@@ -4,15 +4,26 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :meals, only: [:index, :show]
-  resource :profile, only: [:show, :edit, :update]
+  resource :profile, only: [:show, :edit, :update] do
+    collection do
+      get 'rating'
+    end
+  end
   resources :publics, only: [:index, :show]
 
 
   namespace :profile do
     resources :chief_pictures, only: [:destroy, :new, :create]
-    resources :meals
-    resources :orders
-    resources :histories
-    resources :ratings, only: [:index]
+    resources :meals do
+      collection do
+        get 'history'
+      end
+    end
+    resources :orders do
+      collection do
+        get 'history'
+        get 'rating'
+      end
+    end
   end
 end

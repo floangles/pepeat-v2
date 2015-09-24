@@ -76,22 +76,22 @@
 </div>
 
 
-<h3 class= "text-center title2">Les derniers avis</h3>
+<h3 class= "text-center title2">Vos derniers avis</h3>
 <div class="container">
   <div class="card-feedback">
     <div class="row">
-      <% if @user.meals.orders.count(:review) == 0 %>
-        <h1 class= "text-center">Vous n'avez pas encore d'avis</h1>
+      <% if review(@user) == 0 %>
+          <h3 class= "text-center">Vous n'avez pas encore d'avis</h3>
       <% else %>
         <% @user.meals.each do |meal| %>
           <%= render '/shared/review', meal: meal %>
         <% end %>
+        <div class= "text-center avis-btn-position">
+          <%= link_to 'Voir tous les avis', rating_profile_path, class: "btn btn-pepeat" %>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div class= "text-center avis-btn-position">
-    <%= link_to 'Voir tous les avis', profile_ratings_path, class: "btn btn-pepeat" %>
-  </div>
-  <% end %>
 </div>
 
 

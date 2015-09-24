@@ -67,5 +67,9 @@ module Profile
       params.require(:meal).permit(:starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
     end
 
+    def history
+      @meals = policy_scope(Meal)
+    end
+
   end
 end

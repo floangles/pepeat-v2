@@ -65,13 +65,23 @@ box-shadow: 0 0 8px rgba(250, 250, 250, .8);
       padding-top: 5px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
       &-starter{
+        position: relative;
         height: auto;
+        margin-bottom: 20px;
+        &-element{
+          padding-left: 20%;
+          padding-top: 5px;
+        }
       }
     }
     &-takeaway{
       position: relative;
       padding: 15px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      &-hour {
+        margin-top: 30px;
+        margin-left: 7%;
+      }
       &-portion {
         position:absolute;
         top: 15%;
@@ -85,19 +95,38 @@ box-shadow: 0 0 8px rgba(250, 250, 250, .8);
 }
 
 .size-portion {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
+}
+
+.size-txt-portion {
+  font-size: 35px;
+  position: relative;
+  top: 14px;
+  right: 13px;
 }
 
 .img-chef-meal {
   height: 70px;
   width:70px;
+  border: solid rgba(0,0,0,0.24) 1px;
 }
 
 .img-menu-meal {
+  position: absolute;
+  left: 0px;
+  top: 50%;
   height: 30px;
+  width: 42px;
+  transform: translateY(-50%);
+}
+
+.img-take {
+  position: absolute;
+  top: 6%;
+  left: 21%;
   width: 30px;
-  padding-right: 15px;
+  height: 30px;
 }
 
 .buton-order {

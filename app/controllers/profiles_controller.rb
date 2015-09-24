@@ -28,6 +28,8 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def rating
+  end
 
   def set_user
     @user = current_user

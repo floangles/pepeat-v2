@@ -18,28 +18,42 @@
       <% end %>
       <div class= "meals-body-chef-name">
         <% @orderrating = meal.orders.all %>
-        chef <%= meal.user.firstname.downcase%> <%= meal.user.lastname.downcase %>( <%=average_rating(meal)%> avis )
+        Chef <%= meal.user.surname%> ( <%=average_rating(meal)%> avis )
       </div>
     </div>
     <div class="meals-body-menu">
-      <div class= "meal-body-menu-starter">
-        <%= image_tag 'starter.svg', class: "img-menu-meal" %> <%= meal.starter %>
+      <div class= "meals-body-menu-starter">
+        <%= image_tag 'starter.png', class: "img-menu-meal" %>
+        <div class= "meals-body-menu-starter-element">
+         <i><%= meal.starter %></i>
+        </div>
       </div>
       <div class= "meals-body-menu-starter">
-        <%= image_tag 'main.svg', class: "img-menu-meal" %> <%= meal.main %>
+        <%= image_tag 'main.png', class: "img-menu-meal" %>
+        <div class= "meals-body-menu-starter-element">
+          <i><%= meal.main %></i>
+        </div>
       </div>
       <div class= "meals-body-menu-starter">
-        <%= image_tag 'dessert.svg', class: "img-menu-meal" %> <%= meal.dessert %>
+        <%= image_tag 'dessert.png', class: "img-menu-meal" %>
+        <div class= "meals-body-menu-starter-element">
+          <i><%= meal.dessert %></i>
+        </div>
       </div>
     </div>
     <div class="meals-body-takeaway">
       <% if meal.end_hour.nil? %>
-        Rdv à <%= meal.start_hour.strftime('%Hh') %> chez moi
+        Rdv à <%= meal.start_hour.strftime('%Hh:%M') %> chez moi
       <% else %>
-        Take-away <%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+        <div>
+          <%= image_tag 'take.png', class: "img-take" %>
+        </div>
+        <div class="meals-body-takeaway-hour">
+          <p><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></p>
+        </div>
       <% end %>
       <div class= "meals-body-takeaway-portion">
-        <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
+        <span class= "size-txt-portion"><%= available_portions(meal)%></span> <%= image_tag 'portion.svg', class: "size-portion" %>
       </div>
     </div>
       <% if current_user == meal.user %>

@@ -1,4 +1,4 @@
-<% if meal.orders.count(:review) == 0 %>
+<% if review(meal.user) == 0 %>
   <p> Le chef <%= meal.user.firstname%> n'a pas encore d'avis !</p>
 <% else %>
   <% meal.orders.each do |order| %>

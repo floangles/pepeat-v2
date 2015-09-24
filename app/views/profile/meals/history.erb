@@ -1,0 +1,51 @@
+<% if @meals.count == 0 %>
+  <div class="background-default window-height">
+    <div class= "background-default-blur">
+      <div class="background-default-blur-text">
+        <h3 class= "text-center">Vous n'avez pas de menu en cours</h3>
+      </div>
+      <div class="background-default-blur-edit">
+        <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-pepeat btn-large" %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="background-profile-meals">
+    <div class="background-profile-meals-title">
+      <h3>Vos anciennes annonces</h3>
+    </div>
+    <div class= "background-profile-meals-add hover" title= "Créer un nouveau menu">
+      <%= link_to new_profile_meal_path do %>
+      <button class="button button-glow button-circle button-action button-jumbo">
+        <i class="fa fa-plus"></i>
+      </button>
+      <% end %>
+    </div>
+  </div>
+  <% @meals.each do |meal| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="card-meal-history">
+            <div class="card-meal-history-header">
+              <div class="card-meal-history-header-price">
+                <%= total_recette(meal) %> €
+              </div>
+            </div>
+            <div class="card-meal-history-body">
+              <div class="card-meal-history-body-title text-center">
+                <h3><%= meal.title %></h3>
+              </div>
+              <div class="card-meal-history-body-element">
+                <i class="fa fa-calendar away"></i> <%= meal.day.strftime('%d/%m/%Y') %>
+              </div>
+              <div class="card-meal-history-body-element">
+                <i class="fa fa-cutlery away"></i> <%= booked_portions(meal) %> menus vendu
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -15,13 +15,22 @@
   </div>
   <div class="meal-body">
     <div class="meal-body-menu-first">
-      <%= image_tag 'starter.svg', class: "img-menu-show-meal" %> <%= meal.starter %>
+      <%= image_tag 'starter.png', class: "img-menu-show-meal" %>
+      <div class= "meal-body-menu-first-element">
+        <%= meal.starter %>
+      </div>
     </div>
     <div class="meal-body-menu">
-      <%= image_tag 'main.svg', class: "img-menu-show-meal" %> <%= meal.main %>
+      <%= image_tag 'main.png', class: "img-menu-show-meal" %>
+      <div class= "meal-body-menu-element">
+        <%= meal.main %>
+      </div>
     </div>
     <div class="meal-body-menu">
-      <%= image_tag 'dessert.svg', class: "img-menu-show-meal" %> <%= meal.dessert %>
+      <%= image_tag 'dessert.png', class: "img-menu-show-meal" %>
+      <div class= "meal-body-menu-element">
+        <%= meal.dessert %>
+      </div>
     </div>
     <div class="meal-body-description">
       <%= meal.description %>

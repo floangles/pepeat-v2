@@ -3,9 +3,19 @@
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700|Raleway:300,400");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Montserrat", "sans-serif";
+
+// $base-font: "Open Sans", "Helvetica", "sans-serif";
+$base-font: 'Avenir-Light';
+// $header-font: "Montserrat", "sans-serif";
+$header-font: 'Avenir-Heavy';
 $navbar-font: 'Raleway', "sans-serif";
+
+$title: 'Avenir-Black';
+$subtitle: 'Avenir-Medium';
+
+
+
+
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -33,6 +43,7 @@ $green: #32B796;
 $purple: #6452BD;
 $pepeat: #E7B336;
 $go: #42D9C8;
+$announce: #FF9B19;
 
 // Gray scale
 $gray-darker:  lighten(#000, 13.5%); // #222

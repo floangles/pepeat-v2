@@ -43,15 +43,6 @@ module Profile
        authorize @order
     end
 
-    def update
-      authorize @order
-      if params[:order][:review] != nil
-        @order = Order.find(params[:id])
-        @order.update(order_params)
-        redirect_to profile_orders_path
-      end
-    end
-
     def destroy
       @order.destroy
       redirect_to profile_orders_path
@@ -61,8 +52,35 @@ module Profile
       @order = current_user.orders.find(params[:id])
     end
 
-    def order_params
-      params.require(:order).permit(:portion, :meal_id, :review)
+    def history
+      @orders = policy_scope(Order)
+      @orders = current_user.orders.all
+      @markers = Gmaps4rails.build_markers(@orders) do |order, marker|
+        marker.lat order.meal.user.latitude
+        marker.lng order.meal.user.longitude
+      end
     end
+
+    def rating
+      @order = Order.find(params[:id])
+    end
+
+    def update
+      if params[:order][:review] != nil
+        @order = Order.find(params[:id])
+        authorize @order
+        @order.update(review_params)
+        redirect_to profile_orders_path
+      end
+    end
+
+    def order_params
+      params.require(:order).permit(:portion, :meal_id)
+    end
+
+    def review_params
+      params.require(:order).permit(:review)
+    end
+
   end
 end

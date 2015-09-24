@@ -32,6 +32,8 @@ gem "gmaps4rails"
 gem "rails-assets-underscore"
 gem "jquery-slick-rails"
 gem 'ratyrate'
+gem 'rails-assets-Buttons'
+gem 'rails-assets-tooltipster'
 
 
 group :development, :test do
