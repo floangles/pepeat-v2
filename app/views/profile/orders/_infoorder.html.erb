@@ -1,31 +1,49 @@
 <div class="infos">
   <div class="infos-map">
     <div id="map" style="width: 100%; height: 100%;"></div>
+    <div class="infos-map-picture">
+      <%=image_tag order.meal.user.picture.url(:medium), class: "img-circle infos-map-picture-size" %>
+    </div>
   </div>
   <div class="infos-body">
     <div class="infos-body-address">
-      Adresse : <%= order.meal.user.address %>
+      <i class="fa fa-map-marker awesome"></i> <%= order.meal.user.address %>
     </div>
     <div class="infos-body-hour">
       <% if order.meal.end_hour.nil? %>
         <p> Jour et heure du rendez vous</p>
         <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('%Hh') %>
       <% else %>
-        Date : <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
+        <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
       <% end %>
     </div>
     <div class="infos-body-portion">
-      Nombre de menu commandé : <%= order.portion %>
+      <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
     </div>
-    <div class="infos-body-takeway text-center">
-      <% if order.meal.end_hour.nil? %>
-        <h3> Repas chez le chef </h3>
-      <% else %>
-        <h3>Take Away</h3>
+    <div class="infos-body-portion">
+      <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
+    </div>
+    <div class="infos-body-takeaway text-center">
+      <%= link_to meal_path(order.meal) do %>
+        <button class="button button-highlight button-box button-longshadow-right button-longshadow-expand hover" title= "Voir le menu">
+        <i class="fa fa-eye"></i>
+        </button>
       <% end %>
+        <%= link_to profile_order_path(order),
+          method: :delete,
+          data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
+          <button class="button button-caution button-box button-raised button-longshadow hover" title= "Supprimer votre réservation">
+          <i class="fa fa-trash"></i>
+          </button>
+        <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
 
 
 

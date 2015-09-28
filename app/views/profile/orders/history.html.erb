@@ -10,31 +10,67 @@
     </div>
   </div>
 <% else %>
+  <div class="background-profile-orders">
+    <div class="background-profile-orders-title text-center">
+      <h3>Votre historique de réservation</h3>
+    </div>
+  </div>
+  <div class="container">
+    <div class="global-order">
+    <div class="row">
+      <div class="global-order-header text-center">
+        <h2> Offre à durée limité !</h2>
+      </div>
+      <div class="global-order-body">
+        <div class= "global-order-body-equal">
+          <%= image_tag 'equal', class: "equal" %>
+        </div>
+        <div class="col-xs-6">
+          <div class="global-order-body-left text-center">
+            <h2>10 menus achetés</h2>
+            <div>
+              <%= image_tag 'happy-order.png', class: "happy-order" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="global-order-body-right text-center">
+            <h2>1 menu offert</h2>
+            <div>
+              <%= image_tag 'gift.png', class: "happy-order" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
   <% @orders.each do |order|%>
     <div class="container">
       <div class="row">
         <div class="col-xs-4">
           <div class="card-history">
+            <div class="card-history-header text-center">
+              Chef <%= order.meal.user.surname %>
+            </div>
             <div class="card-history-pic">
               <%= image_tag order.meal.user.picture.url(:medium), class: "img-circle pichistory " %>
             </div>
-            <div class="card-history-price">
-              <%= totalprice(order) %>€
-            </div>
-            <div class="card-history-element-top">
-              <%= order.meal.starter %>
-            </div>
-            <div class="card-history-element">
-              <%= order.meal.main %>
-            </div>
-            <div class="card-history-element">
-              <%= order.meal.dessert %>
-            </div>
-            <div class="card-history-element">
-              Date du repas : <%= order.meal.day.strftime('%d/%m/%Y') %>
-            </div>
-            <div class="card-history-element-last">
-              Nombre de part acheté : <%= order.portion %>
+            <div class="card-history-body">
+              <div class="card-history-body-hour">
+                <% if order.meal.end_hour.nil? %>
+                  <p> Jour et heure du rendez vous</p>
+                  <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('%Hh') %>
+                <% else %>
+                  <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
+                <% end %>
+              </div>
+              <div class="card-history-body-portion">
+                <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
+              </div>
+              <div class="card-history-body-portion">
+                <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
+              </div>
             </div>
             <div class="card-history-review">
               <% if order.review.nil? %>

@@ -16,13 +16,43 @@
     </div>
     <div class= "background-profile-meals-add hover" title= "Créer un nouveau menu">
       <%= link_to new_profile_meal_path do %>
-      <button class="button button-glow button-circle button-action button-jumbo">
-        <i class="fa fa-plus"></i>
-      </button>
+        <button class="button button-glow button-circle button-action button-jumbo">
+          <i class="fa fa-plus"></i>
+        </button>
       <% end %>
     </div>
   </div>
+  <div class="container">
+      <div class="global-order">
+        <div class="row">
+          <div class="global-order-header text-center">
+            <h2> Etat de votre activité</h2>
+          </div>
+          <div class="global-order-body">
+            <div class="col-xs-6">
+              <div class="global-order-body-left text-center">
+                <p> Féliciation vous avez vendu</p>
+                <h2><%= total_meal_sold(@meals)%> plats</h2>
+                <div>
+                  <%= image_tag 'heart.png', class: "happy-order" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="global-order-body-right text-center">
+                <p> Votre chiffre d'affaire est de </p>
+                <h2><%= total_recettes(@meals) %> €</h2>
+                <div>
+                  <%= image_tag 'money.png', class: "happy-order" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <% @meals.each do |meal| %>
+
     <div class="container">
       <div class="row">
         <div class="col-xs-4">

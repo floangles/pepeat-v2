@@ -1,4 +1,7 @@
-<h3 class= "text-center title">Tous les avis de <%= @user.surname%></h3>
+<div class= "text-center banner-review">
+  <h3 class= "text-center title">Tous les avis de <%= @user.surname%></h3>
+  <%= image_tag @user.picture.url(:medium), class: "img-circle banner-review-pic" %>
+</div>
 <% @user.meals.each do |meal| %>
   <%= render '/shared/review', meal: meal %>
 <% end %>
