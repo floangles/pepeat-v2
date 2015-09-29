@@ -1,0 +1,42 @@
+.chief-profile {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 30px;
+  margin: 30px;
+  margin-top: 40px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-left {
+    &-picture {
+      width: 45%;
+    }
+
+  }
+  &-right {
+
+
+  }
+}
+
+
+.chief-infos {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 30px;
+  margin: 30px;
+  margin-top: 40px;
+  border: 1px solid rgba(49,49,47,0.18);
+}
+
+.invisible2 {
+  display: none;
+}
+
+
+.preview-size-kitchen {
+  height: 250px;
+  width: 275px;
+}

@@ -27,6 +27,7 @@
 #  picture_updated_at     :datetime
 #  latitude               :float
 #  longitude              :float
+#  phone_number           :string
 #
 # Indexes
 #
@@ -50,6 +51,8 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true, on: :update
   validates :lastname, presence: true, on: :update
+  validates :address, presence: true, on: :update
+
 
 
 

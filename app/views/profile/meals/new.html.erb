@@ -1,55 +1,127 @@
+<h3 class="text-center">Bienvenue dans votre cuisine virtuelle. Créez ici votre menu ! </h3>
 
 <%= simple_form_for(@meal, url: profile_meals_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
-    <div class="container">
+  <div class="container">
+    <div class="card-menu">
       <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="card-menu">
-            Faites votre menu
-            <%= f.input :title %>
-            <%= f.input :starter %>
-            <%= f.input :main %>
-            <%= f.input :dessert %>
+        <div class="col-sm-5 col-sm-offset-1">
+          <div class="card-menu-left">
+            <h3 class= "text-center">Votre réalisation</h3>
+            <p class= "text-center">Vous n'êtes pas obligé de faire entrée, plat et dessert. A vous de choisir ce que vous voulez
+              cuisiner !</p>
+            <%= f.input :title, label: "Nom de votre menu" %>
+            <%= f.input :starter, label: "Entrée" %>
+            <%= f.input :main, label: "Plat principal" %>
+            <%= f.input :dessert, label: "Dessert" %>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6">
-
-           <div id="target" class= "preview-img-profile img-circle">
+          <div class="card-menu-right">
+            <div class= "card-menu-right-away">
+              <div class= "card-menu-right-away-txt">
+                <h3>A emporter</h3>
+                <p> Les personnes ayant commandés votre plat viennent le chercher chez vous pendant le créneau horaire que vous spécifiez plus bas. Ils repartents ensuite pour le déguster.  </p>
+                <%= f.input :takeaway, label: 'A emporter' %>
+              </div>
+                <%= image_tag 'take_away.png', class: "card-menu-right-away-pic" %>
+            </div>
+            <div class= "card-menu-right-home">
+              <div class= "card-menu-right-home-txt">
+                <h3>Sur place</h3>
+                <p> Vous proposer une table d'hôte. Vos invités arriveront à l'heure que vous spécifierez plus bas. Bonne ambiance et rencontre au rendez-vous  </p>
+                <%= f.input :home, label: 'Sur place' %>
+              </div>
+                <%= image_tag 'home.png', class: "card-menu-right-home-pic" %>
+            </div>
           </div>
-          <%= file_field_tag "pictures[]", type: :file, multiple: true,  id: "pictureInput" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="text-center">Décrivez avec passion ce menu que vous concotez </h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= f.input :description, label: ' Description de votre menu', input_html: { class: 'wysihtml5' } %>
+      </div>
+    </div>
+  </div>
+
+  <h3 class= "text-center"> Publiez des photos de vos plats </h3>
+  <p class= "text-center"> Vous pouvez sélectionner plusieurs photos à la fois</p>
+  <div class="container">
+    <div class="chief-kitchen text-center">
+      <div class="row">
+        <div class= "picture-kitchen">
+          <div id="spacetarget" class="preview-img-profile"></div>
+          <div class="col-xs-3">
+            <%= image_tag 'placeholder.png', id: "placeholder-kitchen", class: "kitchen-size" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Hidden form -->
+
+    <div class="hidden-form">
+      <%= file_field_tag "pictures[]", type: :file, multiple: true,  id: "mealpictureInput" %>
+    </div>
+
+    <!-- Hidden form -->
+
+    <h3 class= "text-center"> Définissez maintenant les caractéristiques de votre offre </h3>
+    <div class= "container">
+      <div class="menu-infos">
+        <div class="row">
+          <div class= "col-xs-12 col-sm-6">
+            <div class="menu-infos-price">
+              <div class= "text-center menu-infos-price-icon">
+                <%= image_tag 'money.png', class: "menu-infos-price-icon-size" %>
+                <h3>Prix pour un menu</h3>
+              </div>
+              <p> Entrez ici le prix auquel vous désirez vendre un menu</p>
+              <b><p>Ordre d'idée</p></b>
+              <p> Dessert / entrée : 3 - 5 €</p>
+              <p>Entrée / dessert et plat : 7 - 10 €</p>
+              <p>Entrée et plat et dessert : 8 - 12 €</p>
+              <%= f.input :price, label: 'Prix (€)',required: false,collection: 1..100, input_html: { style: 'width: 100px' } %>
+            </div>
+          </div>
+          <div class= "col-xs-12 col-sm-6">
+            <div class="menu-infos-portion">
+              <div class="text-center menu-infos-portion-icon">
+                <%= image_tag 'portion.png', class: "menu-infos-portion-icon-size" %>
+                <h3>Combien de menus</h3>
+            </div>
+            <p>Décidez ici combien de menu au maximum vous pouvez proposer</p>
+            <p>En moyenne, nos cuisiniez vendent entre 10 et 50 menus selon leur capacité.</p>
+            <p>A vos fourneaux !</p>
+              <%= f.input :portion,label: 'Nombre de menus',collection: 1..100, required: false, input_html: { style: 'width: 100px' } %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class= "container">
-       <%= f.input :takeaway, label: 'sur place' %>
-      <div class= "col-xs-12 col-sm-6">
 
-      <h4 class= "text-center">Pour combien de personnes cuisinez vous ? </h4>
+<div class="container">
+  <div class="date">
+    <div class="row">
+      <div class="col-xs-6">
+
       </div>
-      <div class= "col-xs-1">
-        <%= f.input :portion,label: false %>
+      <div class="col-xs-6">
+
       </div>
     </div>
+  </div>
+</div>
 
 
-    <div class= "container">
-      <div class= "col-xs-12 col-sm-6">
-      <h4 class= "text-center">Combien vendez vous une part ? </h4>
-      </div>
-      <div class= "col-xs-1">
-         <%= f.input :price, label: false %>
-      </div>
-    </div>
 
-    <div class= "container">
-      <div class= "col-xs-12 col-sm-6">
-      <h4 class= "text-center">Décrivez vous </h4>
-      </div>
-      <div class= "col-xs-4">
-         <%= f.input :description %>
-      </div>
-    </div>
 
 
   <div class="container">
@@ -75,7 +147,7 @@
         <h4>A quel créneau horaire ?</h4>
       </div>
       <div class="col-xs-2 col-xs-offset-1">
-        <div class="form-group text-center">
+        <div class="form-group starthour invisible text-center">
           <div class='input-group date' id='datetimepicker4'>
              <%= f.input :start_hour, as: :string, label: false, class: 'form-control' %>
               <span class="input-group-addon form-control">
@@ -86,8 +158,8 @@
       </div>
 
 
-      <div class="takeawayhour col-xs-2 col-xs-offset-1">
-        <div class="form-group text-center">
+      <div class="col-xs-2 col-xs-offset-1">
+        <div class="form-group endhour invisible text-center">
           <div class='input-group date' id='datetimepicker5'>
              <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
               <span class="input-group-addon form-control">

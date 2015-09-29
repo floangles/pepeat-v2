@@ -34,6 +34,7 @@ gem "jquery-slick-rails"
 gem 'ratyrate'
 gem 'rails-assets-Buttons'
 gem 'rails-assets-tooltipster'
+gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 
 
 group :development, :test do

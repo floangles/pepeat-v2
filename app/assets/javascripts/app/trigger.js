@@ -10,3 +10,31 @@ $(document).ready( function() {
     $("#go").click();
   });
 });
+
+
+
+
+$(document).ready( function() {
+  $('#placeholder-chief').click(function(){
+    $("#profilepictureInput").click();
+  });
+});
+
+$(document).ready( function() {
+  $('#picturechief').click(function(){
+    $("#pictureInput").click();
+  });
+});
+
+
+$(document).ready( function() {
+  $('#placeholder-kitchen').click(function(){
+    $("#kitchenpictureInput").click();
+  });
+});
+
+$(document).ready( function() {
+  $('#placeholder-kitchen').click(function(){
+    $("#mealpictureInput").click();
+  });
+});

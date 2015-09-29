@@ -1,11 +1,31 @@
 $(document).ready(function() {
-
- $('#meal_takeaway').click(function() {
+  $('#meal_takeaway').click(function() {
     if( $(this).is(':checked')) {
-        $(".takeawayhour").hide();
+        $(".endhour").removeClass( "invisible");
+        $(".starthour").removeClass( "invisible");
     } else {
-        $(".takeawayhour").show();
+        $(".endhour").addClass( "invisible");
+        $(".starthour").addClass( "invisible");
     }
-});
-
+  });
+  $('#meal_home').click(function() {
+    if( $(this).is(':checked')) {
+        $(".starthour").removeClass( "invisible");
+    } else {
+      $(".starthour").addClass( "invisible");
+    }
+  });
 })
+
+
+
+
+// $(document).ready(function() {
+//   $('#meal_takeaway').click(function() {
+//     if( $(this).is(':checked')) {
+//         $(".endhour").hide();
+//     } else {
+//         $(".endhour").show();
+//     }
+//   });
+// })

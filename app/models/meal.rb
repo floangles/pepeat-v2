@@ -18,6 +18,7 @@
 #  start_hour_home :datetime
 #  takeaway        :boolean
 #  title           :string
+#  home            :boolean
 #
 # Indexes
 #

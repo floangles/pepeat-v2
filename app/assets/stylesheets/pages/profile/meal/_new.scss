@@ -1,6 +1,104 @@
 .card-menu {
-background-color: white;
-padding: 20px;
-margin: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 26px 5px;
+  margin: 30px;
+  margin-top: 10px;
+  margin-left: 0px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-left {
+    padding-right: 30px;
+    h3 {
+      font-family: $subtitle;
+      font-size: 22px;
+      padding-bottom: 10px;
+    }
+  }
+  &-right {
+    margin: 10px;
+    h3 {
+      font-family: $subtitle;
+      font-size: 22px;
+    }
+    &-away {
+      position: relative;
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      padding-bottom: 30px;
+      &-txt {
+        padding-left: 200px
+      }
+      &-pic {
+        width: 22%;
+        position: absolute;
+        top: 0px;
+        left: 25px;
+      }
+    }
+    &-home {
+      margin-top: 40px;
+      position: relative;
+      &-txt {
+        padding-left: 200px
+      }
+      &-pic {
+        width: 22%;
+        position: absolute;
+        top: 0px;
+        left: 25px;
+      }
+    }
+  }
+}
+
+
+.menu-infos {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 26px 30px;
+  margin: 30px;
+  margin-top: 10px;
+  margin-left: 0px;
+  border: 1px solid rgba(49,49,47,0.18);
+    h3 {
+      font-family: $subtitle;
+    }
+  &-price {
+    &-icon {
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      margin-bottom: 40px;
+      &-size {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  &-portion {
+    padding-left: 32px;
+    &-icon {
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+      margin-bottom: 40px;
+      &-size {
+        width: 100px;
+      height: 100px;
+      }
+    }
+  }
+}
+
+
+.date {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 26px 30px;
+  margin: 30px;
+  margin-top: 10px;
+  margin-left: 0px;
+  border: 1px solid rgba(49,49,47,0.18);
 }
 

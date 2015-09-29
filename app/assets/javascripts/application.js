@@ -10,6 +10,8 @@
 //= require jquery.raty
 //= require ratyrate
 //= require tooltipster
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales
 
 //= require_tree ./app
 
