@@ -93,7 +93,7 @@ $(function() {
 
 
         $('#spacetarget').append($('<div/>', {class: 'col-xs-3 badaboom'}, { id: 'r' + i}).html(img));
-        $(".badaboom img").addClass("preview-size-kitchen");
+        $(".badaboom img").addClass("preview-meal");
 
       }
       reader.readAsDataURL(image);

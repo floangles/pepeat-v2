@@ -1,7 +1,16 @@
-<h3 class="text-center">Bienvenue dans votre cuisine virtuelle. Créez ici votre menu ! </h3>
+<div class="background-meal-new">
+  <div class="background-meal-new-title">
+    <h3>La création de votre menu</h3>
+    <h3 class= "text-center">en 5 étapes</h3>
+  </div>
+</div>
 
 <%= simple_form_for(@meal, url: profile_meals_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
+
+  <div class="step text-center">
+    <h2>1/ Quel est votre menu ? </h2>
+  </div>
   <div class="container">
     <div class="card-menu">
       <div class="row">
@@ -40,7 +49,9 @@
     </div>
   </div>
 
-  <h3 class="text-center">Décrivez avec passion ce menu que vous concotez </h3>
+  <div class="step text-center">
+    <h2>2/ Parlez de votre réalisation </h2>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
@@ -49,15 +60,18 @@
     </div>
   </div>
 
-  <h3 class= "text-center"> Publiez des photos de vos plats </h3>
+  <div class="step text-center">
+    <h2>3/ Publiez des photos de votre menu </h2>
+  </div>
   <p class= "text-center"> Vous pouvez sélectionner plusieurs photos à la fois</p>
+  <p class= "text-center">Essayez de mettre une photo de chacunes de vos réalisations différentes</p>
   <div class="container">
     <div class="chief-kitchen text-center">
       <div class="row">
         <div class= "picture-kitchen">
           <div id="spacetarget" class="preview-img-profile"></div>
           <div class="col-xs-3">
-            <%= image_tag 'placeholder.png', id: "placeholder-kitchen", class: "kitchen-size" %>
+            <%= image_tag 'placeholder_meal.png', id: "placeholder-kitchen", class: "preview-meal"%>
           </div>
         </div>
       </div>
@@ -71,7 +85,9 @@
     </div>
 
     <!-- Hidden form -->
-
+    <div class="step text-center">
+      <h2>4/ Fixez un prix et un nombre de menus </h2>
+    </div>
     <h3 class= "text-center"> Définissez maintenant les caractéristiques de votre offre </h3>
     <div class= "container">
       <div class="menu-infos">
@@ -106,78 +122,90 @@
       </div>
     </div>
 
-
+<div class="step text-center">
+      <h2>5/ Fixez une date </h2>
+    </div>
 <div class="container">
   <div class="date">
+    <div class="text-center">
+      <h3>Quand comptez vous cuisiner ?</h3>
+      <%= image_tag 'calendar.png', class: "date-calendar" %>
+    </div>
     <div class="row">
       <div class="col-xs-6">
-
+        <div class="date-day text-center">
+          <h3 class= "text-center">Quel jour</h3>
+          <p>Indiquez ici quel jour vous comptez cuisiner</p>
+          <div class="form-group date-day-input" align="center">
+            <div class='input-group date' id='datetimepicker3'>
+              <%= f.input :day, as: :string, label: false, class: 'form-control' %>
+              <span class="input-group-addon form-control">
+              <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-xs-6">
-
+        <div class="date-hour text-center">
+          <div class="date-hour-away invisible goaway">
+            <h3>Quel créneau horaire ?</h3>
+            <p>Vous avez choisi de mettre vos menus à emporter</p>
+            <p> Indiquez le créneau horaire dans lequel vos clients peuvent récupérer leurs plats</p>
+            <div class="form-group" align= "center">
+              <div class='input-group date' id='datetimepicker4'>
+                <%= f.input :start_hour, as: :string, label: false, class: 'form-control' %>
+                <span class="input-group-addon form-control">
+                <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+            <div class="form-group" align= "center">
+              <div class='input-group date' id='datetimepicker5'>
+                <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
+                <span class="input-group-addon form-control">
+                <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="date-hour-home invisible gohome text-center">
+            <h3>A quelle heure recevez vous</h3>
+            <p>Vous avez choisi de faire une table d'hôte</p>
+            <p> Indiquez à vos invité à quelle heure ils peuvent se présenter à votre domicile</p>
+            <div class="form-group" align= "center">
+              <div class='input-group date' id='datetimepicker4'>
+                <%= f.input :home_hour, as: :string, label: false, class: 'form-control' %>
+                <span class="input-group-addon form-control">
+                <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4">
-        <h4>Quel jour voulez vous cuisiner ?</h4>
-      </div>
-      <div class="col-xs-4 col-xs-offset-1">
-        <div class="form-group">
-          <div class='input-group date' id='datetimepicker3'>
-             <%= f.input :day, as: :string, label: false, class: 'form-control' %>
-              <span class="input-group-addon form-control">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-          </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="important">
+        <h3 class= "text-center">Important</h3>
+        <p  class= "text-center"> Lorsque vous avez soumis votre plat il sera vérifé par nos équipes</p>
+        <b><p> Assurez vous de bien vérifier :</p></b>
+        <p> - Que vos photos sont de qualités et correspondent aux normes Pepeat</p>
+        <p> - Que le prix soit cohérent</p>
+        <p> - Que vous avez renseigné la bonne date</p>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4">
-        <h4>A quel créneau horaire ?</h4>
-      </div>
-      <div class="col-xs-2 col-xs-offset-1">
-        <div class="form-group starthour invisible text-center">
-          <div class='input-group date' id='datetimepicker4'>
-             <%= f.input :start_hour, as: :string, label: false, class: 'form-control' %>
-              <span class="input-group-addon form-control">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-          </div>
-        </div>
-      </div>
+</div>
 
-
-      <div class="col-xs-2 col-xs-offset-1">
-        <div class="form-group endhour invisible text-center">
-          <div class='input-group date' id='datetimepicker5'>
-             <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
-              <span class="input-group-addon form-control">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <div class= "text-center">
-    <%= f.button :submit, "GO!", class: "btn-lg btn-danger" %>
-  </div>
+<div class= "text-center">
+  <%= f.button :submit, "Je soumet mon plat", class: "btn-lg btn-pepeat" %>
+</div>
 
 <% end %>
 

@@ -1,31 +1,37 @@
 $(document).ready(function() {
   $('#meal_takeaway').click(function() {
     if( $(this).is(':checked')) {
-        $(".endhour").removeClass( "invisible");
-        $(".starthour").removeClass( "invisible");
+        $(".goaway").removeClass( "invisible");
     } else {
-        $(".endhour").addClass( "invisible");
-        $(".starthour").addClass( "invisible");
+        $(".goaway").addClass( "invisible");
     }
   });
   $('#meal_home').click(function() {
     if( $(this).is(':checked')) {
-        $(".starthour").removeClass( "invisible");
+        $(".gohome").removeClass( "invisible");
     } else {
-      $(".starthour").addClass( "invisible");
+      $(".gohome").addClass( "invisible");
     }
   });
 })
 
 
-
-
 // $(document).ready(function() {
 //   $('#meal_takeaway').click(function() {
 //     if( $(this).is(':checked')) {
-//         $(".endhour").hide();
+//         $(".endhour").removeClass( "invisible");
+//         $(".starthour").removeClass( "invisible");
 //     } else {
-//         $(".endhour").show();
+//         $(".endhour").addClass( "invisible");
+//         $(".starthour").addClass( "invisible");
+//     }
+//   });
+//   $('#meal_home').click(function() {
+//     if( $(this).is(':checked')) {
+//         $(".starthour").removeClass( "invisible");
+//     } else {
+//       $(".starthour").addClass( "invisible");
 //     }
 //   });
 // })
+

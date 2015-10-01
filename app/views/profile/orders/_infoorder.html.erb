@@ -9,6 +9,9 @@
     <div class="infos-body-address">
       <i class="fa fa-map-marker awesome"></i> <%= order.meal.user.address %>
     </div>
+    <div class="infos-body-tel">
+      <i class="fa fa-mobile awesome"></i> <%= order.meal.user.phone_number %>
+    </div>
     <div class="infos-body-hour">
       <% if order.meal.end_hour.nil? %>
         <p> Jour et heure du rendez vous</p>
@@ -32,7 +35,7 @@
         <%= link_to profile_order_path(order),
           method: :delete,
           data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
-          <button class="button button-caution button-box button-raised button-longshadow hover" title= "Supprimer votre réservation">
+          <button class="button button-caution button-box button-raised button-longshadow hover" title= "Annuler votre réservation">
           <i class="fa fa-trash"></i>
           </button>
         <% end %>

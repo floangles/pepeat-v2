@@ -10,7 +10,7 @@
   border: 1px solid rgba(49,49,47,0.18);
   &-header {
     h2 {
-      padding: 10px;
+    padding: 10px;
     font-family: $subtitle;
     font-size: 20px;
     border-bottom: 1px solid rgba(4, 4, 4, 0.05);
@@ -60,6 +60,9 @@
     color: white;
     padding-top: 5px;
     text-decoration: underline;
+    p {
+      color: white;
+    }
   }
   &-pic {
     position: absolute;
@@ -68,8 +71,12 @@
     transform: translateX(-50%) translateY(-50%);
   }
   &-body {
-    &-address {
+    &-menu {
       margin-top: 30px;
+      padding: 15px;
+      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+    }
+    &-address {
       padding: 15px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
     }

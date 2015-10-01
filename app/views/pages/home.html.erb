@@ -1,0 +1,9 @@
+<h1>Ca va cartonner</h1>
+
+
+<div class="col-xs-12 col-sm-7 col-sm-offset-3">
+  <%= form_tag(meals_path, method: "get", class: "form-inline") do %>
+    <%= text_field_tag(:user_address, nil, placeholder: 'votre ville ?', class: 'form-control input-lg') %>
+    <%= submit_tag("Search", class: "btn btn-danger btn-lg") %>
+  <% end %>
+</div>

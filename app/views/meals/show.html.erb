@@ -1,3 +1,8 @@
+<div class="background-meals-show">
+  <div class="background-meals-show-title">
+    <h3><%= @meal.title %></h3>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-7">
@@ -17,15 +22,17 @@
           <%= link_to 'Profil du chef', publics_path(@meal.user), class: "button button-glow button-border button-rounded button-highlight" %>
         </div>
         <div class="card-show-chief-description">
-          <%= @meal.user.description %>
+          <h3 class= "text-center">A propos du chef</h3>
+          <%= @meal.user.description.html_safe %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<h3 class= "text-center title">Les commandes</h3>
+<h3 class= "text-center title">Les commandes </h3>
 <div class="container">
   <div class="card-order text-center">
+    <h3 class= "text-center"><%= total_orders(@meal) %> menu(s) commandé(s) </h3>
     <% @meal.orders.each do |order| %>
       <%= image_tag order.user.picture.url(:medium), class: "img-circle picuser" %>
     <% end %>
@@ -80,7 +87,7 @@
 </div>
 
 
-<h3 class= "text-center title2">Les derniers avis de <%@user.surname%></h3>
+<h3 class= "text-center title2">Les derniers avis de <%= @user.surname%></h3>
 <div class="container">
   <div class="card-feedback">
     <div class="row">

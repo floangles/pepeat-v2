@@ -45,18 +45,25 @@
     </div>
     </div>
   </div>
-  <% @orders.each do |order|%>
-    <div class="container">
-      <div class="row">
+  <div class="container">
+    <div class="row">
+      <% @orders.each do |order|%>
         <div class="col-xs-4">
           <div class="card-history">
             <div class="card-history-header text-center">
-              Chef <%= order.meal.user.surname %>
+              <%= link_to publics_path(order.meal.user) do %>
+                <p>Chef <%= order.meal.user.surname %></p>
+              <% end %>
             </div>
             <div class="card-history-pic">
-              <%= image_tag order.meal.user.picture.url(:medium), class: "img-circle pichistory " %>
+              <%= link_to publics_path(order.meal.user) do %>
+                <%= image_tag order.meal.user.picture.url(:medium), class: "img-circle pichistory " %>
+              <% end %>
             </div>
             <div class="card-history-body">
+              <div class="card-history-body-menu">
+                <i class="fa fa-heart awesome"></i> <%= order.meal.title %>
+              </div>
               <div class="card-history-body-hour">
                 <% if order.meal.end_hour.nil? %>
                   <p> Jour et heure du rendez vous</p>
@@ -72,14 +79,14 @@
                 <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
               </div>
             </div>
-            <div class="card-history-review">
+            <div class="card-history-review text-center">
               <% if order.review.nil? %>
                 <%= link_to 'Ajouter un avis', rating_profile_orders_path(id: order.id), class: "btn btn-success" %>
               <% end %>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 <% end %>

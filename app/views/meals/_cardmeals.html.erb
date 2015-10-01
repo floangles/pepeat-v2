@@ -10,6 +10,9 @@
     <div class="meals-header-price">
       <%= meal.price %>€
     </div>
+    <div class="meals-header-date">
+      <%= l(meal.day, format: '%A %d/%m')%>
+    </div>
   </div>
   <div class="meals-body">
     <div class="meals-body-chef">
@@ -17,11 +20,21 @@
         <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
       <% end %>
       <div class= "meals-body-chef-name">
-        <% @orderrating = meal.orders.all %>
-        Chef <%= meal.user.surname%> ( <%=average_rating(meal)%> avis )
+        Chef <%= meal.user.surname%>
+         <%= link_to public_path(meal.user) do %>
+          (<%= user_rating(meal.user)%> avis)
+         <% end %>
+      </div>
+      <div class="meals-body-chef-map">
+
       </div>
     </div>
     <div class="meals-body-menu">
+      <div class="meals-body-menu-title">
+        <%= link_to meal_path(meal) do %>
+          <h3 class= "text-center"><%= meal.title %></h3>
+        <% end %>
+      </div>
       <div class= "meals-body-menu-starter">
         <%= image_tag 'starter.png', class: "img-menu-meal" %>
         <div class= "meals-body-menu-starter-element">
@@ -65,3 +78,4 @@
     <% end %>
   </div>
 </div>
+

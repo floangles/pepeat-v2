@@ -6,6 +6,7 @@ module Profile
 
 
     def index
+      @user = current_user
       @meals = policy_scope(Meal)
       @meals = current_user.meals
     end
@@ -14,6 +15,7 @@ module Profile
     end
 
     def new
+      @user = current_user
       @meal = Meal.new
       authorize @meal
     end
@@ -35,6 +37,7 @@ module Profile
     end
 
     def edit
+      @user = current_user
       authorize @meal
     end
 
@@ -43,7 +46,6 @@ module Profile
       @meal.update(meal_params)
       if @meal.save
         if params[:pictures]
-          @meal.meal_pictures.delete_all
           params[:pictures].each {|picture|
             @meal.meal_pictures.create(picture: picture )
           }
@@ -57,6 +59,8 @@ module Profile
 
     def destroy
       authorize @meal
+      @meal.destroy
+      redirect_to profile_meals_path
     end
 
     def set_meal
@@ -64,11 +68,12 @@ module Profile
     end
 
     def meal_params
-      params.require(:meal).permit(:starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
+      params.require(:meal).permit(:home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
     end
 
     def history
       @meals = policy_scope(Meal)
+      @meals = current_user.meals
     end
 
   end

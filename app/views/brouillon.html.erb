@@ -23,3 +23,14 @@
               <div class="card-offer-left-edit">
                 <%= link_to "Editer l'annonce",  edit_profile_meal_path(meal), class: "btn btn-success" %>
               </div>
+
+
+<div class="container">
+  <div class="row">
+    <% @meals.each do |meal| %>
+      <div class="col-xs-6">
+     <%= render "cardmeals", meal: meal %>
+      </div>
+    <% end %>
+  </div>
+</div>

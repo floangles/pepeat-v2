@@ -19,6 +19,7 @@
 #  takeaway        :boolean
 #  title           :string
 #  home            :boolean
+#  home_hour       :datetime
 #
 # Indexes
 #
@@ -32,7 +33,9 @@ class Meal < ActiveRecord::Base
   has_many :orders
   has_many :meal_pictures, dependent: :destroy
 
-  validates :start_hour, presence: true
+  validates :start_hour, presence: true, if: "takeaway?"
+  validates :end_hour, presence: true, if: "takeaway?"
+  validates :home_hour, presence: true, if: "home?"
   validates :day, presence: true
   validates :portion, presence: true
   validates :price, presence: true

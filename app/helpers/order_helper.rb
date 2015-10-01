@@ -29,6 +29,10 @@ module OrderHelper
   def total_orders(orders)
     orders.count
   end
+
+  def total_orders(meal)
+    meal.orders.sum(:portion)
+  end
 end
 
 

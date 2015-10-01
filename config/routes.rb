@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :profile do
     resources :chief_pictures, only: [:destroy, :new, :create]
+    resources :meal_pictures, only: [:destroy, :new, :create]
     resources :meals do
       collection do
         get 'history'
