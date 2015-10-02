@@ -28,6 +28,14 @@
 #  latitude               :float
 #  longitude              :float
 #  phone_number           :string
+#  admin                  :boolean          default(FALSE), not null
+#  provider               :string
+#  uid                    :string
+#  picture                :string
+#  first_name             :string
+#  last_name              :string
+#  token                  :string
+#  token_expiry           :datetime
 #
 # Indexes
 #
@@ -41,6 +49,22 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  devise :omniauthable, omniauth_providers: [:facebook]
+
+  def self.find_for_facebook_oauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]  # Fake password for validation
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      user.picture = auth.info.image
+      user.token = auth.credentials.token
+      user.token_expiry = Time.at(auth.credentials.expires_at)
+    end
+  end
+
   ratyrate_rater
 
   has_many :meals
@@ -51,7 +75,8 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true, on: :update
   validates :lastname, presence: true, on: :update
-  validates :address, presence: true, on: :update
+  validates :phone_number, presence: true, on: :update
+
 
 
 

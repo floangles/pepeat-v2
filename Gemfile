@@ -35,6 +35,8 @@ gem 'ratyrate'
 gem 'rails-assets-Buttons'
 gem 'rails-assets-tooltipster'
 gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
+gem 'activeadmin', github: 'activeadmin'
+gem 'omniauth-facebook'
 
 
 group :development, :test do

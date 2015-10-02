@@ -4,8 +4,10 @@
   </div>
   <div class="text-center">
     <% @users.each do |user|  %>
-      <%= link_to publics_path(user) do %>
-        <%= image_tag user.picture.url(:medium), class: "cook-picture img-circle" %>
+      <% if user.chief?%>
+        <%= link_to publics_path(user) do %>
+          <%= image_tag user.picture.url(:medium), class: "cook-picture img-circle" %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

@@ -55,10 +55,18 @@
                   <i class="fa fa-eye"></i>
                   </button>
                 <% end %>
-                <%= link_to edit_profile_meal_path(meal) do %>
-                  <button class="button button-action button-box button-longshadow-left">
-                  <i class="fa fa-pencil"></i>
-                  </button>
+                <% if meal.orders.count == 0 %>
+                  <%= link_to edit_profile_meal_path(meal) do %>
+                    <button class="button button-action button-box button-longshadow-left">
+                    <i class="fa fa-pencil"></i>
+                    </button>
+                  <% end %>
+                <% else %>
+                  <span class= "hover" title= "Vous ne pouvez pas éditer un menu lorsque vous avez des réservations">
+                    <button class="button button-action button-box button-longshadow-left">
+                    <i class="fa fa-pencil"></i>
+                    </button>
+                  </span>
                 <% end %>
                 <%= link_to profile_meal_path(meal),
                   method: :delete,

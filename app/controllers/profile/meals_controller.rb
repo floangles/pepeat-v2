@@ -2,8 +2,27 @@ module Profile
   class MealsController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_meal, only: [:show, :edit, :update, :destroy]
+    before_action :is_chief?
+    before_action :set_meal, only: [:is_ordered, :show, :edit, :update, :destroy]
+    before_action :is_ordered?, only: [:edit, :update]
 
+
+    def is_chief?
+      if current_user.chief?
+        true
+      else
+        render :text =>" Ce n'est pas bien de taper des URL au pif. Si vous voulez cuisiner postulez en tant que chef Pepeat"
+      end
+    end
+
+
+    def is_ordered?
+      if @meal.orders.count == 0
+        true
+      else
+        render :text =>" Ce n'est pas bien de taper des URL au pif.Vous ne pouvez supprimer un plat avec des commandes"
+      end
+    end
 
     def index
       @user = current_user

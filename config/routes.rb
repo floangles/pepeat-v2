@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :meals, only: [:index, :show]
   resource :profile, only: [:show, :edit, :update] do
