@@ -34,3 +34,7 @@
     <% end %>
   </div>
 </div>
+
+
+
+<%= link_to t('.sign_in_with_provider', :provider => provider.to_s.titleize, :default => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider) %><br />

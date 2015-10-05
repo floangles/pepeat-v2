@@ -76,14 +76,14 @@
                   Historique
                 <% end %>
               </li>
-              <li>
-              <% if current_user.chief? %>
-                <%= link_to t(".top_call_to_action", default: "Créer un plat"), new_profile_meal_path, class: "btn" %>
-              <% else %>
-                <%= link_to t(".top_call_to_action", default: "Devenir chef Pepeat"), "#", class: "btn" %>
-              <% end %>
-            </li>
             </ul>
+          </li>
+          <li>
+            <% if current_user.chief? %>
+              <%= link_to t(".top_call_to_action", default: "Créer un plat"), new_profile_meal_path, class: "btn" %>
+            <% else %>
+              <%= link_to t(".top_call_to_action", default: "Devenir chef Pepeat"), "#", class: "btn" %>
+            <% end %>
           </li>
         <% else %>
           <li>

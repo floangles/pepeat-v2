@@ -6,6 +6,23 @@ ActiveAdmin.register Meal do
 # permit_params :list, :of, :attributes, :on, :model
 #
 
+index do
+    selectable_column
+    column :id
+    column :title
+    column :starter
+    column :main
+    column :dessert
+    column :price
+    column :portion
+    column :home
+    column :takeaway
+    column :created_at
+    column :admin
+    actions
+
+  end
+
 permit_params :home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway
 
 # or
