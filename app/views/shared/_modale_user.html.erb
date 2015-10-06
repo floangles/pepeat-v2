@@ -1,0 +1,32 @@
+<a data-toggle="modal" data-target="#booked_user-<%=order.id%>">
+  <%= image_tag order.user.picture.url(:medium),role:"button", class: "img-circle picture-offer"%>
+</a>
+
+
+<div class="modal fade" id="booked_user-<%=order.id%>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center"><%=order.user.firstname%> <%=order.user.lastname%></h4>
+        <%= image_tag order.user.picture.url(:medium), class: "img-circle img-modale" %>
+      </div>
+        <div class="modal-body">
+          <div class= "modale-user">
+            <div class= "modale-user-element">
+              <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
+            </div>
+            <div class= "modale-user-element">
+              <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
+            </div>
+            <div class= "modale-user-element">
+              <i class="fa fa-mobile awesome"></i><%= order.user.phone_number %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+</div><!-- /.modal -->

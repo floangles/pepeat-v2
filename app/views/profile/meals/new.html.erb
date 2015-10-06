@@ -174,7 +174,7 @@
             <p>Vous avez choisi de faire une table d'hôte</p>
             <p> Indiquez à vos invité à quelle heure ils peuvent se présenter à votre domicile</p>
             <div class="form-group" align= "center">
-              <div class='input-group date' id='datetimepicker4'>
+              <div class='input-group date' id='datetimepicker6'>
                 <%= f.input :home_hour, as: :string, label: false, class: 'form-control' %>
                 <span class="input-group-addon form-control">
                 <span class="glyphicon glyphicon-time"></span>
@@ -202,7 +202,7 @@
     </div>
   </div>
 </div>
-
+<%= f.input :validation, as: :hidden, input_html: { value: false } %>
 <div class= "text-center">
   <%= f.button :submit, "Je soumet mon plat", class: "btn-lg btn-pepeat" %>
 </div>

@@ -1,0 +1,115 @@
+<div id= "banner" >
+  <div class= "overlay">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class= "content text-center">
+            <h3>Chef Pepeat</h3>
+            <h1> Faites vivre votre talent avec la communauté des chefs Pepeat </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id= "infos" class="infos-chief">
+  <h1 class= "text-center">Qu'est ce qu'un chef Pepeat ?</h1>
+  <div class="container">
+    <div class="row organisation-row">
+      <div class="col-xs-12 col-sm-4">
+        <div class= "position-sticker">
+          <div class="sticker statut" data-sr='enter left over 1.3s scale up 20% reset'>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class= "description-chief text-center">
+          <h1> Un chef Pepeat peut être n'importe qui, tant qu'il ne fait pas n'importe quoi</h1>
+          <p><b>Professionnels :</b> Inscrivez vous en tant que chef Pepeat et profitez d'un réseau de consommateur pour vendre vos réalisations</p>
+          <p><b>Amateur :</b> Vous avez toujours été doué et créatif en cuisine. Faite valoir ce talent en vendant vos réalisations à votre voisinage.</p>
+          <p><b>Etudiant en réstauration : </b> S'inscire chez Pepeat vous permettra enfin de rentabiliser vos études tout en exercant votre passion </p>
+        </div>
+      </div>
+    </div>
+    <div class="row organisation-row">
+      <div class="col-xs-12 col-sm-4">
+        <div class= "position-sticker">
+          <div class="sticker passion" data-sr='enter left over 1.3s scale up 20% reset'>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class= "description-chief text-center">
+          <h1> Un chef Pepeat est sociable, curieux et passionné</h1>
+          <p>Nous voulons former une communauté de passionnés de la cuisine oeuvrant pour ramener la valeur du repas fait maison dans les foyers. Pour cela il faut bien sur savoir cuisiner mais aussi être sociable et désirer rencontrer son quartier. Vous serez un réel ambassadeur Pepeat ! </p>
+        </div>
+      </div>
+    </div>
+    <div class="row organisation-row">
+      <div class="col-xs-12 col-sm-4">
+        <div class= "position-sticker">
+          <div class="sticker hygiene" data-sr='enter left over 1.3s scale up 20% reset'>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class= "description-chief text-center">
+          <h1> Un chef Pepeat met un point d'honneur sur l'hygiène</h1>
+          <p> Nous voulons garantir une qualité maximale pour nos utilisateurs. Pour ça, nous avons besoin de chefs sachant cuisiner dans un environnement sain et respectant les normes classiques d'hygiène. Regle : Ne pas cuisinier ce que sois même on ne mangerait pas </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="choice">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="card-chief-infos">
+          <h1 class= "text-center">A emporter</h1>
+          <div class= "text-center">
+            <%= image_tag 'take_away2.png', class: "size-chief-picture" %>
+          </div>
+          <p>- Vous choisisez le créneau horaire auquel les gens peuvent venir chercher leurs menus</p>
+          <p>- Vous définissez le nombre de menus que vous cuisiniez. Cela peut aller de 1 à 60 menus</p>
+          <p>- Vous fixez vous même vos prix dans une fourchette donnée par Pepeat</p>
+          <p>- Vous suiviez vos commandes dans votre espace réservé sur pepeat.org</p>
+        </div>
+      </div>
+       <div class="col-xs-6">
+        <div class="card-chief-infos">
+          <h1 class= "text-center">Sur place</h1>
+          <div class= "text-center">
+            <%= image_tag 'take_home.png', class: "size-chief-picture" %>
+          </div>
+          <p>- Vous choisissez à quelle heure vos invités arrivent chez vous</p>
+          <p>- Vous définissez combien de personnes vous invitez</p>
+          <p>- Vous fixez vous même vos prix dans une fourchette donnée par Pepeat</p>
+          <p>- Vous suiviez vos réservations dans votre espace réservé sur pepeat.org</p>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="card-chief-infos">
+          <h1 class= "text-center">Tous les repas sont vérifiés</h1>
+          <p>Notre service est synonime de qualité. Pour pouvoir la garantir, nous vérifions avant chaque publication de votre part :</p>
+          <p>Les photos de vos réalisations. Celles ci doivent être appétissantes</p>
+          <p>Les prix de vos menus. Ils doivent reser cohérents</p>
+        </div>
+        </div>
+      </div>
+    </div>
+    <% if current_user %>
+      <div class= "text-center button-chief">
+        <%= link_to 'Go Pepeat', edit_profile_path(chief: true), class: "btn-lg btn-pepeat" %>
+      </div>
+    <% else %>
+    <div class= "text-center button-chief">
+      <%= link_to 'Go Pepeat', new_user_registration_path( boom: 'true'), class: "btn-lg btn-pepeat" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

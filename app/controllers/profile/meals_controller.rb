@@ -87,7 +87,7 @@ module Profile
     end
 
     def meal_params
-      params.require(:meal).permit(:home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
+      params.require(:meal).permit(:validation, :home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
     end
 
     def history

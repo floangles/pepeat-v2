@@ -26,6 +26,15 @@
     <div class="container">
       <div class="card-offer">
         <div class="row">
+          <% if meal.validation? %>
+            <div class="card-offer-header text-center">
+              <h3 class= "hover" title= "Votre menu a été validé et est désormais en ligne.">Votre menu est en ligne</h3>
+            </div>
+          <% else %>
+            <div class="card-offer-header2 text-center">
+              <h3 class= "hover" title= "Votre menu est en cours de validation. Nous vous contacterons sous peu">votre menu est en cours de validation</h3>
+            </div>
+          <% end %>
           <div class="col-xs-12 col-sm-6">
             <div class="card-offer-left">
               <div class="card-offer-left-title text-center">
@@ -85,11 +94,18 @@
                 Infos
               </div>
               <div class="card-offer-right-date">
-                <% if meal.end_hour.nil? %>
-                <p> Jour et heure du rendez vous</p>
-                <%= meal.day.strftime('%d/%m/%Y') %> <%= meal.start_hour.strftime('%Hh:%M') %>
+              <% if meal.home? %>
+                 <%= image_tag 'home2.png', class: "card-offer-right-date-img hover", title: "Sur place" %>
+                <div class= "card-offer-right-date-infos text-center">
+                  <div>
+                    <%= meal.day.strftime('%d/%m/%Y') %>
+                  </div>
+                  <div>
+                    RDV à <%= meal.home_hour.strftime('De %Hh:%M') %>
+                  </div>
+                </div>
               <% else %>
-                <%= image_tag 'take.png', class: "card-offer-right-date-img" %>
+                <%= image_tag 'take.png', class: "card-offer-right-date-img hover", title: "A emporter" %>
                 <div class= "card-offer-right-date-infos text-center">
                   <div>
                     <%= meal.day.strftime('%d/%m/%Y') %>
@@ -114,7 +130,7 @@
         <div class="row">
           <div class="card-offer-list text-center">
             <% meal.orders.each do |order| %>
-              <%= image_tag order.user.picture.url(:medium), class: "img-circle picture-offer"%>
+              <%= render "/shared/modale_user", order: order %>
             <% end %>
           </div>
         </div>
@@ -122,5 +138,8 @@
     </div>
   <% end %>
 <% end %>
+
+
+
 
 

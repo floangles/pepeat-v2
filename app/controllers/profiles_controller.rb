@@ -28,6 +28,7 @@ class ProfilesController < ApplicationController
     end
   end
 
+
   def rating
   end
 
@@ -37,7 +38,11 @@ class ProfilesController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture)
+    params.require(:user).permit(:chief, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture)
+  end
+
+  def chief_params
+    params.require(:user).permit(:chief)
   end
 
 end

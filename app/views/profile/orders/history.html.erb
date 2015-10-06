@@ -78,6 +78,11 @@
               <div class="card-history-body-portion">
                 <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
               </div>
+              <% if order.review? %>
+                <div class="card-history-body-reviewed">
+                  <i class="fa fa-smile-o awesome"></i><%= order.review %>
+                </div>
+              <% end %>
             </div>
             <div class="card-history-review text-center">
               <% if order.review.nil? %>

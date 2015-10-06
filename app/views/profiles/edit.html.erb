@@ -5,8 +5,7 @@
 </div>
 <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
-
-  <% if current_user.chief? %>
+  <% if current_user.chief? || params[:chief] == 'true' %>
     <div class="container">
       <div class="chief-profile">
         <div class="row">
@@ -76,6 +75,9 @@
     </div>
 
     <div class= "text-center">
+      <% if params[:chief] == 'true' %>
+        <%= f.input :chief, as: :hidden, input_html: { value: true } %>
+      <% end %>
       <em><strong><%= f.button :submit, "Je valide mon profil!", class: "btn-lg btn-pepeat" %>
     </div>
   <% else %>

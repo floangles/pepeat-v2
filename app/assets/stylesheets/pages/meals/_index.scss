@@ -93,6 +93,18 @@
       font-size: 30px;
       padding: 8px;
     }
+    &-away {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(2, 2, 2, 0.7);
+      h3 {
+        font-family: $subtitle;
+        font-size: 21px;
+        margin: 4px;
+      }
+    }
     &-date {
       font-size: 30px;
       text-shadow: 2px 2px rgba(136, 133, 126, 0.79);

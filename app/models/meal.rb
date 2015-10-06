@@ -20,6 +20,7 @@
 #  title           :string
 #  home            :boolean
 #  home_hour       :datetime
+#  validation      :boolean
 #
 # Indexes
 #

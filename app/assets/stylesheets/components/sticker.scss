@@ -1,0 +1,34 @@
+.sticker {
+width: 230px;
+height: 230px;
+float: none;
+margin: 0 auto;
+}
+
+.position-sticker {
+  padding-bottom:20px;
+}
+
+
+// add image
+.statut .sticker-img {
+background-image: image-url('statut.png');
+background-size: cover;
+background-position: center center;
+}
+
+.passion .sticker-img {
+background-image: image-url('passion.png');
+background-size: cover;
+background-position: center center;
+}
+
+.hygiene .sticker-img {
+background-image: image-url('hygiene.png');
+background-size: cover;
+background-position: center center;
+}
+
+
+
+

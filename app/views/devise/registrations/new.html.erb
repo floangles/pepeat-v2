@@ -3,6 +3,7 @@
     <div class="card-signin">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
+
           <h2 class= "text-center title-pepeat"> Pepeat</h2>
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
@@ -11,6 +12,9 @@
             <div class= "text-center">
               <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-pepeat" %>
             </div>
+            <% if params[:boom] %>
+              <%= f.input :chief, as: :hidden, input_html: { value: true } %>
+            <% end %>
           <% end %>
           <div class= "links text-center">
             <%= render "devise/shared/links" %>

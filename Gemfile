@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-source 'https://rails-assets.org'
+
 ruby "2.2.2"
 
 gem "rails", "4.2.3"
@@ -23,20 +23,23 @@ gem "font-awesome-sass"
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
-
 gem "coffee-script"
-
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem "geocoder"
 gem "gmaps4rails"
-gem "rails-assets-underscore"
-gem "jquery-slick-rails"
 gem 'ratyrate'
-gem 'rails-assets-Buttons'
-gem 'rails-assets-tooltipster'
 gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem 'omniauth-facebook'
+gem "jquery-slick-rails"
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-scrollReveal.js'
+  gem "rails-assets-underscore"
+  gem 'rails-assets-Buttons'
+  gem 'rails-assets-tooltipster'
+end
+
 
 
 group :development, :test do

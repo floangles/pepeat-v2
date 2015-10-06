@@ -7,6 +7,13 @@
         <% end %>
       <% end %>
     </div>
+    <div class="meals-header-away">
+      <% if meal.home? %>
+        <h3 class= "text-center">Diner chez le chef</h3>
+      <% else %>
+        <h3 class= "text-center">A emporter</h3>
+      <% end %>
+    </div>
     <div class="meals-header-price">
       <%= meal.price %>€
     </div>
@@ -55,11 +62,16 @@
       </div>
     </div>
     <div class="meals-body-takeaway">
-      <% if meal.end_hour.nil? %>
-        Rdv à <%= meal.start_hour.strftime('%Hh:%M') %> chez moi
+      <% if meal.home? %>
+        <div>
+          <%= image_tag 'home2.png', class: "img-take hover", title: "Diner chez le chef" %>
+        </div>
+        <div class="meals-body-takeaway-hour">
+          Rdv à <%= meal.home_hour.strftime('%Hh:%M') %> chez le chef
+        </div>
       <% else %>
         <div>
-          <%= image_tag 'take.png', class: "img-take" %>
+          <%= image_tag 'take.png', class: "img-take hover", title: "A emporter chez sois" %>
         </div>
         <div class="meals-body-takeaway-hour">
           <p><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></p>
@@ -70,7 +82,9 @@
       </div>
     </div>
       <% if current_user == meal.user %>
-        <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+        <% if meal.orders.count == 0 %>
+          <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+        <% end %>
       <% else %>
       <div class="meals-body-order">
         <%= render "/shared/modale", meal: meal %>

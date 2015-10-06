@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  after_create :send_welcome_email
+
+
+
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -76,8 +80,8 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true, on: :update
   validates :lastname, presence: true, on: :update
   validates :phone_number, presence: true, on: :update
-
-
+  validates :address, presence: true, on: :update, if: "chief?"
+  validates :picture, presence: true, on: :update, if: "chief?"
 
 
 
@@ -90,5 +94,11 @@ class User < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 
 end

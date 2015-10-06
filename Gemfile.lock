@@ -245,6 +245,7 @@ GEM
       sprockets-rails
     rails-assets-Buttons (2.0.0)
     rails-assets-jquery (2.1.4)
+    rails-assets-scrollReveal.js (2.3.2)
     rails-assets-tooltipster (3.3.0)
       rails-assets-jquery (>= 1.7)
     rails-assets-underscore (1.8.3)
@@ -347,9 +348,10 @@ DEPENDENCIES
   quiet_assets
   rack-timeout
   rails (= 4.2.3)
-  rails-assets-Buttons
-  rails-assets-tooltipster
-  rails-assets-underscore
+  rails-assets-Buttons!
+  rails-assets-scrollReveal.js!
+  rails-assets-tooltipster!
+  rails-assets-underscore!
   rails-i18n
   rails_12factor
   ratyrate

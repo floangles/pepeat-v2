@@ -15,3 +15,9 @@ $(function () {
           format: 'LT'
       });
   });
+
+$(function () {
+      $('#datetimepicker6').datetimepicker({
+          format: 'LT'
+      });
+  });

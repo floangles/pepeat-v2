@@ -38,3 +38,10 @@
 
 
 <%= link_to t('.sign_in_with_provider', :provider => provider.to_s.titleize, :default => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider) %><br />
+
+
+
+<%= simple_form_for(current_user, url: chief_profile_path, action: 'chief', method: 'patch', html: { multipart: true }) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :chief, as: :hidden, input_html: { value: true } %>
+          <%= f.button :submit, "Go Pepeat !", class: "btn-lg btn-pepeat" %>

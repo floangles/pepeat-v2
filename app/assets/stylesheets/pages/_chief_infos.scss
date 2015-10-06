@@ -1,0 +1,123 @@
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color:rgba(32,23,19,0.6);
+  color: white;
+}
+
+
+#banner {
+
+  background-image: image-url('banner_chief.jpg');
+  background-size: cover;
+  background-position: center center;
+  width:100%;
+  height: 500px;
+}
+
+
+
+.content {
+  h3 {
+  font-size: 95px;
+  padding-top: 90px;
+  color: #E7B336;
+  text-shadow: 1px 1px grey;
+  }
+  h1 {
+  font-size: 40px;
+  line-height: 1.35em;
+  font-weight: 100;
+  text-transform: none;
+  letter-spacing: 0px;
+  padding-bottom: 50px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  }
+}
+
+
+
+.chief_first {
+  margin: 88px 20px;
+}
+
+
+.organisation-row {
+  padding-top: 40px;
+  border-bottom: 1px solid #D4CDCD;
+}
+
+.infos-chief {
+
+  background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
+  h1 {
+    margin-top: 0;
+    padding-top: 61px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #D4CDCD;
+  }
+
+}
+
+.description-chief {
+  padding-right: 100px;
+  h1 {
+    font-size: 26px;
+    padding-bottom: 15px;
+    font-family: $subtitle;
+  }
+  p {
+    font-size: 17px;
+    padding-bottom: 20px;
+  }
+}
+
+
+.choice {
+
+  background: -webkit-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* W3C */
+
+  width: 100%;
+  height: auto;
+}
+
+
+.size-chief-picture {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.card-chief-infos {
+  background-color: white;
+  box-shadow: 1px 1px 1px rgba(25, 24, 24, 0.22);
+  border-radius: 3px;
+  height: auto;
+  padding: 35px;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(49,49,47,0.18);
+  h1 {
+    font-family: $subtitle;
+    font-size: 30px;
+  }
+
+}
+
+
+.button-chief {
+  margin-top: 30px;
+  padding-bottom: 50px;
+}

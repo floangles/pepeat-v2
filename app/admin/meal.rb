@@ -18,12 +18,13 @@ index do
     column :home
     column :takeaway
     column :created_at
+    column :validation
     column :admin
     actions
 
   end
 
-permit_params :home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway
+permit_params :start_hour_home, :user_id, :validation, :home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway
 
 # or
 #
