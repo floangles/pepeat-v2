@@ -44,6 +44,7 @@ module Profile
       @meal = current_user.meals.new(meal_params)
       authorize @meal
       if @meal.save
+        MealMailer.creation(@meal).deliver_now
         if params[:pictures]
           params[:pictures].each { |picture|
             @meal.meal_pictures.create(picture: picture)

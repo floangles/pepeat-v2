@@ -244,6 +244,7 @@ GEM
       railties (= 4.2.3)
       sprockets-rails
     rails-assets-Buttons (2.0.0)
+    rails-assets-hover (2.0.2)
     rails-assets-jquery (2.1.4)
     rails-assets-scrollReveal.js (2.3.2)
     rails-assets-tooltipster (3.3.0)
@@ -349,6 +350,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.2.3)
   rails-assets-Buttons!
+  rails-assets-hover!
   rails-assets-scrollReveal.js!
   rails-assets-tooltipster!
   rails-assets-underscore!

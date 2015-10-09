@@ -38,6 +38,7 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
   gem 'rails-assets-Buttons'
   gem 'rails-assets-tooltipster'
+  gem 'rails-assets-hover'
 end
 
 

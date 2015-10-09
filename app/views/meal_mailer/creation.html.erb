@@ -1,0 +1,22 @@
+<h1 class= "text-center"><%= @meal.user.firstname %> vient de proposer un plat</h1>
+
+
+  <p>user_id: <%= @meal.user.id%></p>
+  <p>meal_id: <%= @meal.id%></p>
+  <p>entrée : <%= @meal.starter %></p>
+  <p>plat : <%= @meal.main %></p>
+  <p> dessert : <%= @meal.dessert %></p>
+
+  <% @meal.meal_pictures.each do |picture| %>
+    <%= image_tag picture.picture.url(:medium) %>
+  <% end %>
+
+<p> <b>description :</b> <%= @meal.description %></p>
+<p>A emporter : <%= @meal.takeaway %></p>
+<p> Sur place : <%= @meal.home %></p>
+<p>Prix : <%= @meal.price %> €</p>
+<p>Nombre de menus : <%= @meal.portion %></p>
+<p>Date : <%= l(@meal.day, format: '%A %d/%m')%></p>
+
+
+
