@@ -17,7 +17,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
-gem "bootstrap-sass"
+gem "bootstrap-sass", '~> 3.3.5'
 gem "font-awesome-sass"
 
 gem "rails-i18n"
