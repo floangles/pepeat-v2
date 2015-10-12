@@ -36,6 +36,8 @@
 #  last_name              :string
 #  token                  :string
 #  token_expiry           :datetime
+#  pro                    :boolean
+#  amateur                :boolean
 #
 # Indexes
 #

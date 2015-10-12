@@ -1,0 +1,73 @@
+
+<div class="homepage-hero-module">
+  <div class="video-container">
+    <div class="filter"></div>
+    <video autoplay loop class="fillWidth">
+      <source src="<%=video_path("cover/cover.mp4")%>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+  <div class="poster hidden">
+    <img src="<%=video_path("cover/cover.jpg")%>" alt="Plats maisons à emporter">
+  </div>
+</div>
+
+
+<div class="banner-content text-center">
+  <h1>Pepeat</h1>
+  <h2>Le fait maison à votre disposition</h2>
+  <h3>La cuisine de vos voisins dans votre assiette, en un clic !</h3>
+</div>
+
+<div class= "banner-button">
+  <%= link_to 'Voir les menus sur Lille', meals_path, class: "btn-lg btn-pepeat-soft" %>
+</div>
+
+<div class="home-infos text-center">
+  <div class="container">
+    <div class="row">
+      <h1 class= "text-center">Comment ça marche</h1>
+      <div class="col-xs-4">
+        <div class= "home-infos-element hvr-fade hvr-grow">
+          <i class="fa fa-search fa-4x home-infos-element-fafa"></i>
+        </div>
+        <h2>Selectionnez</h2>
+        <p>Trouvez le ou les menu(s) qui vous plaisent parmi les réalisations des chefs Pepeat </p>
+      </div>
+      <div class="col-xs-4">
+        <div class= "home-infos-element hvr-fade hvr-grow">
+          <i class="fa fa-shopping-cart fa-4x home-infos-element-fafa"></i>
+        </div>
+        <h2>Commandez</h2>
+        <p>Payez de façon sécurisée en ligne en 2 clicks. Vous pouvez consultez en temps réel votre réservation et les informations associées</p>
+      </div>
+      <div class="col-xs-4">
+        <div class= "home-infos-element hvr-fade hvr-grow">
+          <i class="fa fa-thumbs-o-up fa-4x home-infos-element-fafa"></i>
+        </div>
+        <h2>Récupérez</h2>
+        <p>Récupérez votre menu chef le chef. Profitez en pour échanger avec lui et rencontrer les autres gourmets qui récupèrent leurs commandes </p>
+      </div>
+    </div>
+    <div class="row  home-infos-button">
+      <div class= "col-xs-12">
+        <%= link_to 'Voir les menus', meals_path, class: "btn-lg btn-pepeat" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="bg-meals">
+  <div class="container">
+    <div class="row">
+      <% @meals.each do |meal| %>
+        <% if meal.validation? %>
+          <div class="col-xs-12 col-sm-6">
+            <%= render "meals/cardmeals", meal: meal %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

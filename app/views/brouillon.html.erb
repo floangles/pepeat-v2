@@ -45,3 +45,45 @@
           <%= f.error_notification %>
           <%= f.input :chief, as: :hidden, input_html: { value: true } %>
           <%= f.button :submit, "Go Pepeat !", class: "btn-lg btn-pepeat" %>
+
+
+
+
+<div class="bg-chief">
+  <div class= "overlay-chief">
+    <div class="container">
+      <h1 class= "text-center"> Les chefs Pepeat</h1>
+      <h3 class= "text-center">Pepeat propose un service légal prennant en compte la nouvelle économie collaborative. Nous accompagnons nos cuisiniers dans leur activité Pepeat pour leur permettre un maximum de liberté.</h3>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="bg-chief-amateur">
+            <div class="bg-chief-amateur-header text-center">
+              <%= image_tag 'amateur2.png', class: "icon-pro-amateur" %>
+              <h2 class= "text-center">Amateur</h2>
+              <h4 class= "text-center">Le service Pepeat amateur permet à n'importe qui de devenir chef Pepeat. C'est le meilleur moyen de tester le service avant de prendre la décision de devenir pro ou non. </h4>
+             </div>
+            <div class="bg-chief-amateur-body">
+
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="bg-chief-pro">
+            <div class="bg-chief-pro-header text-center">
+              <%= image_tag 'pro2.png', class: "icon-pro-amateur" %>
+              <h2 class= "text-center text-center">Professionnel</h2>
+              <h4 class= "text-center">Le service Pepeat pro est réservé aux professionnels de la cuisine. Il n'auront pas de limite de chiffre d'affaire et de nombreux outils seront mis à leur disposition pour les aider dans leur activité.</h4>
+            </div>
+            <div class="bg-chief-pro-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center bg-chief-button">
+        <%= link_to 'En savoir plus', '', class: "btn-lg btn-pepeat" %>
+      </div>
+    </div>
+  </div>
+</div>
+
