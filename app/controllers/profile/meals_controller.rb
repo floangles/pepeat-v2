@@ -67,13 +67,12 @@ module Profile
       if @meal.save
         if params[:pictures]
           params[:pictures].each {|picture|
-            @meal.meal_pictures.create(picture: picture )
+          @meal.meal_pictures.create(picture: picture )
           }
         end
         redirect_to profile_meals_path
       else
         render :edit
-
       end
     end
 
