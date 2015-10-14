@@ -237,3 +237,68 @@
   text-decoration-color: $pepeat;
 
 }
+
+
+.meals-home {
+  background-color: white;
+  box-shadow: 2px 2px 3px rgba(56, 48, 48, 0.3);
+  border-radius: 3px;
+  height: auto;
+  padding:4px;
+  margin: 30px;
+  &-header {
+    height: 240px;
+    background-size: cover;
+    position: relative;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+    &-price {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      background-color: rgba(2, 2, 2, 0.7);
+      font-size: 30px;
+      padding: 8px;
+    }
+    &-away {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(2, 2, 2, 0.7);
+      h3 {
+        font-family: $subtitle;
+        font-size: 16px;
+        margin: 4px;
+      }
+    }
+    &-date {
+      font-size: 30px;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      bottom: -3px;
+      transform: translateX(-50%);
+      color: black;
+      font-size: 19px;
+      padding: 1px;
+    }
+    &-pic {
+      position: absolute;
+      right: 9px;
+      bottom: 25px;
+
+    }
+  }
+}
+
+.home-pic {
+  width: 55px;
+  height: 55px;
+  border: solid 2px white;
+
+}
+
+.img-carousel {
+  width: 100%;
+}

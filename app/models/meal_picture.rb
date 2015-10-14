@@ -22,7 +22,7 @@ class MealPicture < ActiveRecord::Base
   belongs_to :meal
 
   has_attached_file :picture,
-    styles: { medium: "300x300", thumb: "100x100>", large: "570x300#", extralarge: "628x300#" }
+    styles: { medium: "350x350>", thumb: "100x100>", large: "570x300>", extralarge: "630x305#" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

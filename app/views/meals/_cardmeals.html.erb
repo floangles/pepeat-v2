@@ -3,7 +3,7 @@
     <div class= "carousel">
       <% meal.meal_pictures.each do |picture| %>
         <%= link_to meal_path(meal) do %>
-          <div> <%= image_tag picture.picture.url(:large)%> </div>
+          <div> <%= image_tag picture.picture.url(:large), class: "img-carousel"%> </div>
         <% end %>
       <% end %>
     </div>

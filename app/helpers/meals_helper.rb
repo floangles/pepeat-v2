@@ -34,11 +34,12 @@ module MealsHelper
       array << meal.orders.sum(:portion)
     end
     array.sum
-
   end
 
 
+  def notification(meals)
 
+  end
 
 
 end

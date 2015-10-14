@@ -135,27 +135,30 @@
       <% @meals.each do |meal| %>
         <% if meal.validation? %>
           <div class="col-xs-12 col-sm-4">
-            <div class="meals">
-              <div class="meals-header">
+            <div class="meals-home">
+              <div class="meals-home-header">
                 <div class= "carousel">
                   <% meal.meal_pictures.each do |picture| %>
                     <%= link_to meal_path(meal) do %>
-                      <div> <%= image_tag picture.picture.url(:large)%> </div>
+                      <div> <%= image_tag picture.picture.url(:medium), class: "img-carousel"%> </div>
                     <% end %>
                   <% end %>
                 </div>
-                <div class="meals-header-away">
+                <div class="meals-home-header-away">
                   <% if meal.home? %>
                     <h3 class= "text-center">Diner chez le chef</h3>
                   <% else %>
                     <h3 class= "text-center">A emporter</h3>
                   <% end %>
                 </div>
-                <div class="meals-header-price">
+                <div class="meals-home-header-price">
                   <%= meal.price %>€
                 </div>
-                <div class="meals-header-date">
+                <div class="meals-home-header-date">
                   <%= l(meal.day, format: '%A %d/%m')%>
+                </div>
+                <div class="meals-home-header-pic">
+                  <%= image_tag meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
                 </div>
               </div>
             </div>

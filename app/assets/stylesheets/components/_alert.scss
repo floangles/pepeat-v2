@@ -3,6 +3,21 @@
 * ------------------------------------- */
 
 .alert {
+  margin: 0;
+  text-align: center;
+  color: white;
+  z-index: 2000;
+  padding: 20px;
+  &-info {
+    background: grey;
+  }
+  &-warning {
+    background: $red;
+  }
+}
+
+
+.alert-home {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,10 +25,10 @@
   margin: 0;
   text-align: center;
   color: white;
-  z-index: 200;
-  padding: 40px;
+  z-index: 2000;
+  padding: 20px;
   &-info {
-    background: grey;
+    background: $pepeat;
   }
   &-warning {
     background: $red;

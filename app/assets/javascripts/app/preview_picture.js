@@ -102,5 +102,13 @@ $(function() {
   });
 });
 
+// $(document).ready( function() {
+//   var mealpictureInput = $("#mealpictureInput");
+
+//   $("#delete").on("click", function () {
+//     mealpictureInput.html(mealpictureInput.html());
+//   });
+// });
+
 
 

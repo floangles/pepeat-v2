@@ -5,7 +5,7 @@
     <div class= "carousel">
       <% meal.meal_pictures.each do |picture| %>
         <%= link_to meal_path(meal) do %>
-          <div> <%= image_tag picture.picture.url(:extralarge)%> </div>
+          <div> <%= image_tag picture.picture.url(:extralarge), class: "img-carousel"%> </div>
         <% end %>
       <% end %>
     </div>

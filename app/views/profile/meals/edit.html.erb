@@ -58,7 +58,6 @@
       </div>
     </div>
   </div>
-
   <div class="step text-center">
     <h2>3/ Publiez des photos de votre menu </h2>
   </div>
@@ -68,10 +67,12 @@
     <div class="chief-kitchen text-center">
       <div class="row">
         <div class= "picture-kitchen">
-          <div id="spacetarget" class="preview-img-profile"></div>
+          <div id="spacetarget" class="preview-img-profile preview-pic"></div>
           <% @meal.meal_pictures.each do |picture| %>
             <div class="col-xs-3">
-              <%=image_tag picture.picture.url(:medium), class: "preview-meal" %>
+              <div>
+                <%=image_tag picture.picture.url(:medium), class: "preview-meal"%>
+              </div>
               <%= link_to profile_meal_picture_path(picture, meal: @meal.id),
                  method: :delete,
                  data: { confirm: "Are you sure?" }, class: "btn btn-sm " do %>
