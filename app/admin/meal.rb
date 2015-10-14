@@ -24,7 +24,7 @@ index do
 
   end
 
-permit_params :start_hour_home, :user_id, :validation, :home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway
+permit_params :start_hour_home, :user_id, :validation, :home_hour, :home, :starter, :main, :dessert, :price, :price_cents, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway
 
 # or
 #

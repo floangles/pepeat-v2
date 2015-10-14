@@ -4,7 +4,7 @@ class CreateMeals < ActiveRecord::Migration
       t.string :main
       t.string :starter
       t.string :dessert
-      t.integer :price
+      t.monetize :price, currency: { present: false }
       t.integer :portion
       t.text :description
       t.datetime :day

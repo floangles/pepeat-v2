@@ -49,7 +49,9 @@
     <div class="row">
       <% @orders.each do |order| %>
         <div class="col-sm-6">
-          <%= render "infoorder", order: order %>
+          <% if order.state == 'paid' %>
+            <%= render "infoorder", order: order %>
+          <% end %>
         </div>
       <% end %>
     </div>

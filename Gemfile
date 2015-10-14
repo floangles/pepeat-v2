@@ -9,7 +9,7 @@ gem "simple_form"
 gem "country_select"
 gem "high_voltage"
 gem "devise"
-# gem "pundit"
+gem 'pundit', github: 'elabs/pundit'
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
 
@@ -32,6 +32,8 @@ gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem 'omniauth-facebook'
 gem "jquery-slick-rails"
+
+gem 'money-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
@@ -59,4 +61,4 @@ group :production do
   gem "puma"
   gem "rack-timeout"
 end
-gem 'pundit', github: 'elabs/pundit'
+

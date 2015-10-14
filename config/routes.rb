@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   ActiveAdmin.routes(self)
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
       end
     end
     resources :orders do
+      resources :payments, only: [:new, :create]
       collection do
         get 'history'
         get 'rating'

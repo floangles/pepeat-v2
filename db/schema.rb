@@ -70,15 +70,15 @@ ActiveRecord::Schema.define(version: 20151012093435) do
     t.string   "main"
     t.string   "starter"
     t.string   "dessert"
-    t.integer  "price"
+    t.integer  "price_cents",     default: 0, null: false
     t.integer  "portion"
     t.text     "description"
     t.datetime "day"
     t.datetime "start_hour"
     t.datetime "end_hour"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.datetime "start_hour_home"
     t.boolean  "takeaway"
     t.string   "title"
@@ -93,8 +93,11 @@ ActiveRecord::Schema.define(version: 20151012093435) do
     t.integer  "portion"
     t.integer  "user_id"
     t.integer  "meal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "state"
+    t.json     "payement"
+    t.integer  "amount_cents", default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "review"
   end
 
