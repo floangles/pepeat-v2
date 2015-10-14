@@ -75,7 +75,7 @@ module Profile
     end
 
     def order_params
-      params.require(:order).permit(:portion, :meal_id)
+      params.require(:order).permit(:portion, :meal_id, :amount, :state )
     end
 
     def review_params

@@ -2,13 +2,16 @@
 #
 # Table name: orders
 #
-#  id         :integer          not null, primary key
-#  portion    :integer
-#  user_id    :integer
-#  meal_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  review     :text
+#  id           :integer          not null, primary key
+#  portion      :integer
+#  user_id      :integer
+#  meal_id      :integer
+#  state        :string
+#  payement     :json
+#  amount_cents :integer          default(0), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  review       :text
 #
 # Indexes
 #
@@ -19,6 +22,8 @@
 class Order < ActiveRecord::Base
 
   ratyrate_rateable "qualite"
+
+  monetize :amount_cents
 
   belongs_to :user
   belongs_to :meal

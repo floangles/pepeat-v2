@@ -6,7 +6,7 @@
 #  main            :string
 #  starter         :string
 #  dessert         :string
-#  price           :integer
+#  price_cents     :integer          default(0), not null
 #  portion         :integer
 #  description     :text
 #  day             :datetime
@@ -29,6 +29,7 @@
 
 class Meal < ActiveRecord::Base
 
+  monetize :price_cents
 
   belongs_to :user
   has_many :orders

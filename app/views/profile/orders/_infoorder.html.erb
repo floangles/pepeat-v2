@@ -26,6 +26,12 @@
     <div class="infos-body-portion">
       <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
     </div>
+    <div class="infos-body-portion">
+      <i class="fa fa-credit-card awesome"></i> <%= order.state %>
+    </div>
+    <div class="infos-body-portion">
+      <i class="fa fa-credit-card awesome"></i> <%= humanized_money_with_symbol(order.amount) %>
+    </div>
     <div class="infos-body-takeaway text-center">
       <%= link_to meal_path(order.meal) do %>
         <button class="button button-highlight button-box button-longshadow-right button-longshadow-expand hover" title= "Voir le menu">

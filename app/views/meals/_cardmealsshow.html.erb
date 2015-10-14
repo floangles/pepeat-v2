@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <div class="meal-header-price">
-      <%= meal.price %>€
+      <%= humanized_money_with_symbol(meal.price) %>
     </div>
   </div>
   <div class="meal-body">
