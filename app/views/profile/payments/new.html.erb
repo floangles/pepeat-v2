@@ -1,0 +1,18 @@
+<h1>Commander du menu<%= @order.meal.title %></h1>
+<%= form_tag profile_order_payments_path(@order) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+    </label>
+  </article>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_AnTNRrYA5hnK0DRMzVqIOMUw"
+      data-name="Mon menu"
+      data-description="Teddy <%= @order.meal.title %>"
+      data-amount= '500'
+      data-currency="EUR">
+  </script>
+
+<% end %>

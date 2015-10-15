@@ -38,6 +38,8 @@
 #  token_expiry           :datetime
 #  pro                    :boolean
 #  amateur                :boolean
+#  publishable_key        :string
+#  access_code            :string
 #
 # Indexes
 #
@@ -51,7 +53,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, omniauth_providers: [:facebook]
+  devise :omniauthable, omniauth_providers: [:facebook, :stripe_connect]
 
   after_create :send_welcome_email
 

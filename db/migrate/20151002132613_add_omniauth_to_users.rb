@@ -9,3 +9,5 @@ class AddOmniauthToUsers < ActiveRecord::Migration
     add_column :users, :token_expiry, :datetime
   end
 end
+
+

@@ -29,7 +29,7 @@ module Profile
       @order.user = current_user
 
       if @order.save
-        redirect_to profile_orders_path
+        redirect_to new_profile_order_payment_path(@order)
       else
         render :new
       end

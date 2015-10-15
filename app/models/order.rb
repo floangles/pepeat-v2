@@ -7,7 +7,7 @@
 #  user_id      :integer
 #  meal_id      :integer
 #  state        :string
-#  payement     :json
+#  payment      :json
 #  amount_cents :integer          default(0), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

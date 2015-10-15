@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :meal, index: true, foreign_key: true
       t.string :state
-      t.json :payement
+      t.json :payment
       t.monetize :amount, currency: { present: false }
 
       t.timestamps null: false
