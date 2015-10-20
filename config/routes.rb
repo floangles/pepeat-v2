@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       collection do
         get 'history'
         get 'rating'
+        get 'charged'
       end
     end
   end

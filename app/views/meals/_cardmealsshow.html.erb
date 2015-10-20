@@ -40,8 +40,8 @@
       <div class="row">
         <div class="col-xs-6">
           <div class="meal-body-infos-date">
-            <% if meal.end_hour.nil? %>
-            <p>Chef le chef</p> à <%= meal.start_hour.strftime('%Hh') %> chez moi
+            <% if meal.home? %>
+            <p>Chef le chef</p> à <%= meal.home_hour.strftime('%Hh') %> chez moi
           <% else %>
             <p>Take-away</p><%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
           <% end %>

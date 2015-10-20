@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.omniauth :stripe_connect, ENV['STRIPE_CONNECT_CLIENT_ID'], ENV['STRIPE_SECRET_KEY'], :scope => 'read_write', :stripe_landing => 'register'
+  config.omniauth :stripe_connect, 'ca_7ATbm44iBE4AsxcmbWjU3Bk4FiXZbOzB', 'sk_test_E09VifanTXsnC6sNtJRxKpjk', :scope => 'read_write', :stripe_landing => 'register'
 
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"], scope: 'email', info_fields: 'email, first_name,last_name', image_size: 'large', secure_image_url: true
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'

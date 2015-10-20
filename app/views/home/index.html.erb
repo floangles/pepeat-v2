@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<%= link_to image_tag('STRIPE_IMAGE_URL'), user_omniauth_authorize_path(:stripe_connect) %>
+
 <div class="banner-content text-center">
   <h1>Pepeat</h1>
   <h2>Le fait maison à votre disposition</h2>
@@ -133,7 +133,7 @@
   <div class="container">
     <div class="row">
       <% @meals.each do |meal| %>
-        <% if meal.validation? %>
+
           <div class="col-xs-12 col-sm-4">
             <div class="meals-home">
               <div class="meals-home-header">
@@ -164,7 +164,7 @@
             </div>
           </div>
         <% end %>
-      <% end %>
+
     </div>
   </div>
 </div>

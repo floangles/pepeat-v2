@@ -1,18 +1,86 @@
-<h1>Commander du menu<%= @order.meal.title %></h1>
+<div class="background-profile-orders">
+  <div class="background-profile-orders-title">
+    <h3>Payement de la commande</h3>
+  </div>
+</div>
+
 <%= form_tag profile_order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+<div class="container">
+  <div class="payment">
+    <div class="row">
+      <div class="col-xs-5 col-xs-offset-1">
+        <div class="payment-left text-center">
+          <h1 class= "text-center">Facture</h1>
+          <div class= "payment-left-price">
+            <h3><%= price(@order) %> €</h3>
+          </div>
+          <div class= "payment-left-commission">
+            <h3><i class="fa fa-plus awesome absolute"></i> <%= commission(@order) %> €</h3>
+          </div>
+          <div class="payment-left-total">
+            <h4><%= total(@order) %> €</h4>
+          </div>
+          <div>
+            <div class= "hidden-form">
+              <script src="https://checkout.stripe.com/checkout.js" class= "stripe-button"
+                  data-key="pk_test_AnTNRrYA5hnK0DRMzVqIOMUw"
+                  data-locale = "fr"
+                  data-email = '<%= current_user.email %>'
+                  data-image="/assets/pepeat.png"
+                  data-name="Ma commande Pepeat"
+                  data-description="<%= @order.meal.title %>"
+                  data-amount= '<%= total_cents(@order) %>'
+                  data-currency="EUR">
+              </script>
+            </div>
+            <button id="customButton" class=" stripe-button stripe-button-el">
+                <span style="display: block; min-height: 30px;">Payez par carte</span>
+            </button>
+            <div class= "payment-left-explanation">
+              <p>La commission prélevée par Pepeat est de 15%. Elle comprend la TVA et les frais de transactions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4 col-xs-offset-1">
+        <div class="payment-right">
+          <div class="payment-right-header text-center">
+            <h1><%= @order.meal.title %></h1>
+            <%= image_tag @order.meal.user.picture.url(:medium), class: "img-chef-meal img-circle" %>
+          </div>
+          <div class="payment-right-menu">
+            <%= image_tag 'starter.png', class: "img-menu-meal" %>
+            <div class= "payment-right-menu-element">
+              <i><%= @order.meal.starter %></i>
+            </div>
+          </div>
+          <div class="payment-right-menu">
+            <%= image_tag 'main.png', class: "img-menu-meal" %>
+            <div class= "payment-right-menu-element">
+              <i><%= @order.meal.main %></i>
+            </div>
+          </div>
+          <div class="payment-right-menu">
+            <%= image_tag 'dessert.png', class: "img-menu-meal" %>
+            <div class= "payment-right-menu-element">
+              <i><%= @order.meal.dessert %></i>
+            </div>
+          </div>
+          <div class="payment-right-portion text-center">
+              <h3><%=@order.portion %> <i class="fa fa-cutlery"></i></h3>
+          </div>
+          <div class="payment-right-infos">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_AnTNRrYA5hnK0DRMzVqIOMUw"
-      data-name="Mon menu"
-      data-description="Teddy <%= @order.meal.title %>"
-      data-amount= '500'
-      data-currency="EUR">
-  </script>
+
+
+
 
 <% end %>

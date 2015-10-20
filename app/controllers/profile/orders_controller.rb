@@ -3,7 +3,7 @@ module Profile
   class OrdersController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_order, only: [:show, :update, :destroy]
+    before_action :set_order, only: [:show, :update, :destroy, :charged]
 
 
     def index
@@ -37,6 +37,10 @@ module Profile
 
     def show
       authorize @order
+      ch = Stripe::Charge.retrieve(@order.charge)
+      if !ch.captured
+        ch.capture
+      end
     end
 
     def edit

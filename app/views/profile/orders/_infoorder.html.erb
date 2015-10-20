@@ -13,9 +13,9 @@
       <i class="fa fa-mobile awesome"></i> <%= order.meal.user.phone_number %>
     </div>
     <div class="infos-body-hour">
-      <% if order.meal.end_hour.nil? %>
+      <% if order.meal.home? %>
         <p> Jour et heure du rendez vous</p>
-        <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('%Hh') %>
+        <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.home_hour.strftime('%Hh') %>
       <% else %>
         <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
       <% end %>
