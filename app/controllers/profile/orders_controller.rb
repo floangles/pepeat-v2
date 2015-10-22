@@ -9,10 +9,6 @@ module Profile
     def index
       @orders = policy_scope(Order)
       @orders = current_user.orders.all
-      @markers = Gmaps4rails.build_markers(@orders) do |order, marker|
-        marker.lat order.meal.user.latitude
-        marker.lng order.meal.user.longitude
-      end
     end
 
 
@@ -36,10 +32,21 @@ module Profile
     end
 
     def show
-      authorize @order
+      @markers = Gmaps4rails.build_markers(@order) do |order, marker|
+        marker.lat order.meal.user.latitude
+        marker.lng order.meal.user.longitude
+      end
+    end
+
+    def validation
+      @order = Order.find(params[:format])
       ch = Stripe::Charge.retrieve(@order.charge)
       if !ch.captured
         ch.capture
+        @order.update(payment_validation: 'true')
+        redirect_to profile_orders_path
+      else
+        redirect_to profile_orders_path
       end
     end
 

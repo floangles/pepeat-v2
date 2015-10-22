@@ -16,18 +16,19 @@
 <div>
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#0" aria-controls="0" role="tab" data-toggle="tab"><b>Tous les plats</b></a></li>
-    <li role="presentation"><a href="#1" aria-controls="1" role="tab" data-toggle="tab"><b>Aujourd'hui</b></a></li>
-    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 1.days, format: '%A %d')%></b></a></li>
-    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 2.days, format: '%A %d')%></b></a></li>
-    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 3.days, format: '%A %d')%></b></a></li>
-    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 4.days, format: '%A %d')%></b></a></li>
-    <li role="presentation"><a href="#6" aria-controls="6" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 5.days, format: '%A %d')%></b></a></li>
-    <li role="presentation"><a href="#7" aria-controls="7" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 6.days, format: '%A %d')%></b></a></li>
-    <li role="presentation"><a href="#8" aria-controls="8" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 7.days, format: '%A %d')%></b></a></li>
-  </ul>
 
+<div class= "week-days">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#0" aria-controls="0" role="tab" data-toggle="tab"><b>Tous les plats</b> <span class= "badge"><%= total_meals(@meals) %></span></a></li>
+    <li role="presentation"><a href="#1" aria-controls="1" role="tab" data-toggle="tab"><b>Aujourd'hui <span class= "badge"> <%= number_meals(@meals, 0) %></span></b></a>  </li>
+    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 1.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 1) %></span></b></a></li>
+    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 2.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 2) %></span></b></a></li>
+    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 3.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 3) %></span></b></a></li>
+    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 4.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 4) %></span></b></a></li>
+    <li role="presentation"><a href="#6" aria-controls="6" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 5.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 5) %></span></b></a></li>
+    <li role="presentation"><a href="#7" aria-controls="7" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 6.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 6) %></span> </b></a></li>
+  </ul>
+</div>
   <!-- Tab panes -->
   <div class="tab-content">
 
@@ -35,12 +36,12 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-
+            <% if meal.validation? %>
               <div class="col-xs-12 col-sm-6">
                 <%= render "cardmeals", meal: meal %>
               </div>
             <% end %>
-
+          <% end %>
         </div>
       </div>
     </div>

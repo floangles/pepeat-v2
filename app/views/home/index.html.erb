@@ -133,7 +133,7 @@
   <div class="container">
     <div class="row">
       <% @meals.each do |meal| %>
-
+        <% if meal.validate %>
           <div class="col-xs-12 col-sm-4">
             <div class="meals-home">
               <div class="meals-home-header">
@@ -164,7 +164,7 @@
             </div>
           </div>
         <% end %>
-
+      <% end %>
     </div>
   </div>
 </div>

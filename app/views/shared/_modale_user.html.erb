@@ -1,5 +1,22 @@
 <a data-toggle="modal" data-target="#booked_user-<%=order.id%>">
-  <%= image_tag order.user.picture.url(:medium),role:"button", class: "img-circle picture-offer"%>
+  <% if order.payment_validation == true %>
+    <span class= "relative">
+      <%= image_tag order.user.picture.url(:medium),role:"button", class: "img-circle picture-offer-validate"%>
+      <i class="fa fa-check-circle check-position"></i>
+    </span>
+  <% else %>
+      <%= image_tag order.user.picture.url(:medium),role:"button", class: "img-circle picture-offer-invalidate"%>
+    <% if order.meal.takeaway %>
+      <% if Time.now == order.day %>
+        <%= link_to 'Valider', validation_profile_meals_path(order), class: "btn btn-pepeat button-validation" %>
+      <% end %>
+    <% end %>
+    <% if order.meal.home %>
+      <% if Time.now == order.day %>
+        <%= link_to 'Valider', validation_profile_meals_path(order), class: "btn btn-pepeat button-validation" %>
+      <% end %>
+    <% end %>
+  <% end %>
 </a>
 
 

@@ -5,7 +5,36 @@ module MealsHelper
   end
 
   def booked_portions(meal)
-    meal.orders.sum(:portion)
+    array= []
+    meal.orders.each do |order|
+      if order.state == 'paid'
+        array << order.portion
+      end
+    end
+    array.sum
+  end
+
+
+  def total_meals(meals)
+    array = []
+    meals.each do |meal|
+      if meal.validation?
+        array << 1
+      end
+    end
+    array.count
+  end
+
+  def number_meals(meals, x)
+    array = []
+    meals.each do |meal|
+      if meal.validation?
+        if (DateTime.now + x.days).day == meal.day.day
+          array << 1
+        end
+      end
+    end
+     array.count
   end
 
   def total_recette(meal)

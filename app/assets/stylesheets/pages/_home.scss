@@ -215,6 +215,9 @@
 .disposition-row {
   padding-top: 30px;
   padding-bottom: 60px;
+  span {
+    color: $pepeat;
+  }
 
 }
 
@@ -276,7 +279,7 @@
       font-size: 30px;
       position: absolute;
       bottom: 0px;
-      left: 50%;
+      left: 55%;
       bottom: -3px;
       transform: translateX(-50%);
       color: black;
