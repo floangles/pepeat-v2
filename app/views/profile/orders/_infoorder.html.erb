@@ -1,62 +1,81 @@
-<div class="infos">
-  <div class="infos-map">
-    <div id="map" style="width: 100%; height: 100%;"></div>
-    <div class="infos-map-picture">
-      <%=image_tag order.meal.user.picture.url(:medium), class: "img-circle infos-map-picture-size" %>
-    </div>
-  </div>
-  <div class="infos-body">
-    <div class="infos-body-address">
-      <i class="fa fa-map-marker awesome"></i> <%= order.meal.user.address %>
-    </div>
-    <div class="infos-body-tel">
-      <i class="fa fa-mobile awesome"></i> <%= order.meal.user.phone_number %>
-    </div>
-    <div class="infos-body-hour">
-      <% if order.meal.end_hour.nil? %>
-        <p> Jour et heure du rendez vous</p>
-        <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('%Hh') %>
-      <% else %>
-        <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
-      <% end %>
-    </div>
-    <div class="infos-body-portion">
-      <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
-    </div>
-    <div class="infos-body-portion">
-      <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
-    </div>
-    <div class="infos-body-portion">
-      <i class="fa fa-credit-card awesome"></i> <%= order.state %>
-    </div>
-    <div class="infos-body-portion">
-      <i class="fa fa-credit-card awesome"></i> <%= humanized_money_with_symbol(order.amount) %>
-    </div>
-    <div class="infos-body-takeaway text-center">
-      <%= link_to meal_path(order.meal) do %>
-        <button class="button button-highlight button-box button-longshadow-right button-longshadow-expand hover" title= "Voir le menu">
-        <i class="fa fa-eye"></i>
-        </button>
-      <% end %>
-        <%= link_to profile_order_path(order),
-          method: :delete,
-          data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
-          <button class="button button-caution button-box button-raised button-longshadow hover" title= "Annuler votre réservation">
-          <i class="fa fa-trash"></i>
-          </button>
-        <% end %>
-    </div>
+<div class="background-order-show">
+  <div class="background-profile-meals-title">
+    <h3>Vos annonces en cours</h3>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
+<div class="bg-order-show">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-xs-offset-3">
+        <div class="infos">
+          <div class="infos-map">
+            <div id="map" style="width: 100%; height: 100%;"></div>
+            <div class="infos-map-picture">
+              <%=image_tag order.meal.user.picture.url(:medium), class: "img-circle infos-map-picture-size" %>
+            </div>
+          </div>
+          <div class="infos-body">
+            <div class="infos-body-address">
+              <i class="fa fa-map-marker awesome"></i> <%= order.meal.user.address %>
+            </div>
+            <div class="infos-body-tel">
+              <i class="fa fa-mobile awesome"></i> <%= order.meal.user.phone_number %>
+            </div>
+            <div class="infos-body-hour">
+              <% if order.meal.home? %>
+                <p> Jour et heure du rendez vous</p>
+                <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.home_hour.strftime('%Hh') %>
+              <% else %>
+                <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
+              <% end %>
+            </div>
+            <div class="infos-body-portion">
+              <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
+            </div>
+            <div class="infos-body-portion">
+              <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
+            </div>
+            <div class="infos-body-portion">
+              <i class="fa fa-credit-card awesome"></i> <%= order.state %>
+            </div>
+            <div class="infos-body-portion">
+              <i class="fa fa-credit-card awesome"></i> <%= humanized_money_with_symbol(order.amount) %>
+            </div>
+            <div class= "text-center">
+              <% if !order.payment_validation %>
+                <% if order.meal.takeaway %>
+                  <% if Time.now == order.meal.day %>
+                    <%= link_to 'Valider', validation_profile_orders(order), class: "btn btn-pepeat button-validation" %>
+                  <% end %>
+                <% end %>
+                <% if order.meal.home %>
+                  <% if Time.now == order.meal.day %>
+                    <%= link_to 'Valider', validation_profile_orders(order), class: "btn btn-pepeat button-validation" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="infos-body-takeaway text-center">
+              <%= link_to meal_path(order.meal) do %>
+                <button class="button button-highlight button-box button-longshadow-right button-longshadow-expand hover" title= "Voir le menu">
+                <i class="fa fa-eye"></i>
+                </button>
+              <% end %>
+                <%= link_to profile_order_path(order),
+                  method: :delete,
+                  data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
+                  <button class="button button-caution button-box button-raised button-longshadow hover" title= "Annuler votre réservation">
+                  <i class="fa fa-trash"></i>
+                  </button>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).on('ready', function() {

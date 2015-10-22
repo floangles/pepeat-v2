@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(window).load(function() {
   $('.carousel').slick({
     dots: true,
     adaptiveHeight: true,

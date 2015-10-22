@@ -24,6 +24,18 @@ module Profile
       end
     end
 
+    def validation
+      @order = Order.find(params[:format])
+      ch = Stripe::Charge.retrieve(@order.charge)
+      if !ch.captured
+        ch.capture
+        @order.update(payment_validation: 'true')
+        redirect_to profile_meals_path
+      else
+        redirect_to profile_meals_path
+      end
+    end
+
     def index
       @user = current_user
       @meals = policy_scope(Meal)

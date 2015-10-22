@@ -34,6 +34,8 @@ gem 'omniauth-facebook'
 gem "jquery-slick-rails"
 
 gem 'money-rails'
+gem 'stripe'
+gem 'omniauth-stripe-connect'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'

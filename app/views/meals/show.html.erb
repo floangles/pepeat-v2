@@ -58,9 +58,9 @@
             </div>
           </div>
           <div class="card-infos-plus-element text-center">
-            <% if @meal.end_hour.nil? %>
+            <% if @meal.home? %>
               <p> Jour et heure du rendez vous</p>
-              <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.start_hour.strftime('%Hh') %>
+              <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.home_hour.strftime('%Hh') %>
             <% else %>
               <p>Jour et heure du Takeaway</p>
               <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.start_hour.strftime('De %Hh') %> <%= @meal.end_hour.strftime('à %Hh')%>

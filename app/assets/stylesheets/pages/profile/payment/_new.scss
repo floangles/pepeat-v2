@@ -1,0 +1,75 @@
+.payment {
+  border: 1px solid rgba(49,49,47,0.18);
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  background-color: white;
+  margin: 30px;
+  &-left {
+    p {
+      font-size: 15px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    h4 {
+      color: $pepeat;
+      font-size: 24px;
+    }
+    h1 {
+      text-shadow: 1px 1px rgba(47, 45, 40, 0.7);
+      box-shadow: 1px 1px 3px rgba(49, 46, 46, 0.45);
+      border-radius: 5px;
+      background-color: #e7b336;
+      color: white;
+      padding: 10px;
+    }
+    padding: 10px;
+    &-price {
+    padding-top: 30px;
+    }
+    &-commission {
+      position: relative;
+      border-bottom: 1px solid rgba(49,49,47,0.18);
+    }
+    &-total {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    &-explanation {
+      padding-top: 30px;
+    }
+  }
+  &-right {
+    padding: 20px;
+    border-left: 1px solid rgba(49,49,47,0.18);
+    &-header {
+      padding-bottom: 30px;
+    }
+    &-menu {
+      position: relative;
+      height: auto;
+      margin-bottom: 20px;
+      &-element{
+        padding-left: 20%;
+        padding-top: 5px;
+      }
+    }
+    &-portion {
+      border-top: 1px solid rgba(49,49,47,0.18);
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    &-infos {
+
+    }
+  }
+}
+
+
+.absolute {
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  left: 41%;
+  top: 37%;
+
+}

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :meals do
       collection do
         get 'history'
+        get 'validation'
       end
     end
     resources :orders do
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       collection do
         get 'history'
         get 'rating'
+        get 'validation'
       end
     end
   end

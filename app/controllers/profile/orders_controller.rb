@@ -3,16 +3,12 @@ module Profile
   class OrdersController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_order, only: [:show, :update, :destroy]
+    before_action :set_order, only: [:show, :update, :destroy, :charged]
 
 
     def index
       @orders = policy_scope(Order)
       @orders = current_user.orders.all
-      @markers = Gmaps4rails.build_markers(@orders) do |order, marker|
-        marker.lat order.meal.user.latitude
-        marker.lng order.meal.user.longitude
-      end
     end
 
 
@@ -29,14 +25,29 @@ module Profile
       @order.user = current_user
 
       if @order.save
-        redirect_to profile_orders_path
+        redirect_to new_profile_order_payment_path(@order)
       else
         render :new
       end
     end
 
     def show
-      authorize @order
+      @markers = Gmaps4rails.build_markers(@order) do |order, marker|
+        marker.lat order.meal.user.latitude
+        marker.lng order.meal.user.longitude
+      end
+    end
+
+    def validation
+      @order = Order.find(params[:format])
+      ch = Stripe::Charge.retrieve(@order.charge)
+      if !ch.captured
+        ch.capture
+        @order.update(payment_validation: 'true')
+        redirect_to profile_orders_path
+      else
+        redirect_to profile_orders_path
+      end
     end
 
     def edit

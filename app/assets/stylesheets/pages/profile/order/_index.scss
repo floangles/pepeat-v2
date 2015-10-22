@@ -1,7 +1,5 @@
 .background-profile-orders {
   position: relative;
-
-
   background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
@@ -29,6 +27,41 @@
     right: 12px;
   }
 }
+
+.bg-order-discount {
+    background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
+}
+
+
+.background-order-show{
+  position: relative;
+  background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
+
+  width: 100%;
+  height: 247px;
+}
+.bg-order-show {
+
+  background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
+
+  background-size: cover;
+  background-position: center center;
+  width:100%;
+  height: auto;
+}
+
 
 
 .infos {
@@ -99,4 +132,88 @@
 
 .awesome {
   padding-right: 20px;
+}
+
+
+.orders {
+  background-color: white;
+  box-shadow: 2px 2px 3px rgba(56, 48, 48, 0.3);
+  border-radius: 3px;
+  height: auto;
+  padding:4px;
+  margin: 30px;
+  &-header {
+    height: 240px;
+    background-size: cover;
+    position: relative;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+    &-price {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      background-color: rgba(2, 2, 2, 0.7);
+      font-size: 30px;
+      padding: 8px;
+    }
+    &-away {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(2, 2, 2, 0.7);
+      h3 {
+        font-family: $subtitle;
+        font-size: 16px;
+        margin: 4px;
+      }
+    }
+    &-date {
+      position: absolute;
+      left: 0px;
+      border-radius: 1px;
+      bottom: 61px;
+      font-size: 19px;
+      padding-top: 5px;
+      padding-left: 9px;
+      padding-right: 9px;
+      p {
+        color: white;
+        text-shadow: 1px 1px black;
+        margin-bottom: 6px;
+      }
+    }
+    &-hour {
+      position: absolute;
+      right: 6px;
+      bottom: -16px;
+        p {
+          color: black;
+          font-size: 19px;
+        }
+      }
+    &-button {
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      top: 96%;
+      left: 50%;
+    }
+    &-pic {
+      position: absolute;
+      right: 9px;
+      bottom: 25px;
+
+    }
+  }
+  &-body {
+    &-show {
+      margin-top: 10px;
+      height:auto;
+      color: white;
+    }
+    &-payment {
+      height:auto;
+      color: white;
+    }
+  }
 }

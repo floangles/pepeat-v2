@@ -2,16 +2,18 @@
 #
 # Table name: orders
 #
-#  id           :integer          not null, primary key
-#  portion      :integer
-#  user_id      :integer
-#  meal_id      :integer
-#  state        :string
-#  payement     :json
-#  amount_cents :integer          default(0), not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  review       :text
+#  id                 :integer          not null, primary key
+#  portion            :integer
+#  user_id            :integer
+#  meal_id            :integer
+#  state              :string
+#  payment            :json
+#  amount_cents       :integer          default(0), not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  review             :text
+#  charge             :string
+#  payment_validation :boolean
 #
 # Indexes
 #
