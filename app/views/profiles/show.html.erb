@@ -114,7 +114,7 @@
           <div class="col-xs-12 col-sm-3">
             <div class="picture-kitchen">
               <%= image_tag picture.chiefpicture.url(:large), class: "kitchen-size" %>
-              <%= link_to 'modifier', croping_profile_path(picture), class: "btn btn-danger" %>
+              <%= link_to 'Redimensionner', croping_profile_path(picture), class: "btn btn-danger" %>
               <%= link_to profile_chief_picture_path(picture),
                  method: :delete,
                  data: { confirm: "Are you sure?" }, class: "btn btn-sm " do %>

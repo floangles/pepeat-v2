@@ -14,7 +14,7 @@
       <div class="card-show-chief">
         <div class="carousel">
           <% @meal.user.chief_pictures.each do |picture| %>
-            <div> <%= image_tag picture.chiefpicture.url(:large)%> </div>
+            <div> <%= image_tag picture.chiefpicture.url(:large), class: "chief-pic-carousel"%> </div>
           <% end %>
         </div>
         <div class="card-show-chief-img">

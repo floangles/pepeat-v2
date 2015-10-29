@@ -104,7 +104,7 @@
 
 .preview-size {
   position: relative;
-  width: 350px;
+  width: 250px;
   box-shadow: 1px 1px rgb(255, 255, 255);
   border: solid 3px rgba(0, 0, 0, 0.11);
 }
@@ -116,14 +116,13 @@
 
 .go-btn {
   position: absolute;
-    left: 59%;
-    bottom: -14%;
-    transform: translateX(-50%) translateY(-50%);
+  left: 53%;
+  bottom: -9%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 
 .picture-kitchen {
-  height: 220px;
   margin: 2px;
   margin-bottom: 30px;
 }

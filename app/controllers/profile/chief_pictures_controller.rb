@@ -8,7 +8,7 @@ module Profile
       @user = current_user
       @chief_picture = @user.chief_pictures.build(chief_picture_params)
       if @chief_picture.save
-        redirect_to profile_path
+        redirect_to croping_profile_path(@chief_picture)
       else
         render :new
       end

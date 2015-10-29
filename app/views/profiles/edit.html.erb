@@ -130,9 +130,13 @@
             <div class="chief-profile-left text-center">
               <h3>Ma photo de profil</h3>
               <% if @user.picture.nil? %>
-                <%= image_tag 'picture-chief.png', class: "chief-profile-left-picture", id:"placeholder-chief" %>
+                <div class= "img-preview">
+                  <%= image_tag 'picture-chief.png', class: "chief-profile-left-picture", id:"placeholder-chief" %>
+                </div>
               <% else %>
-                <%= image_tag @user.picture.url(:large), id: "img-preview" %>
+                <div class= "img-preview">
+                  <%= image_tag @user.picture.url(:large), id: "img-preview" %>
+                </div>
                 <div>
                   <div id="picturechief"></div>
                   <span class="btn btn-success" id= "changepicture">Changer la photo</span>

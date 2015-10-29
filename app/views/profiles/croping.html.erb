@@ -1,6 +1,6 @@
 <h1>salut</h1>
 
 <%= simple_form_for @picture, url: profile_chief_picture_path(@picture) do |f| %>
-  <%= f.cropbox :chiefpicture, :width => 300 %>
+  <%= f.cropbox :chiefpicture, :width => 500 %>
   <%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
 <% end %>
