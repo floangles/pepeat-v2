@@ -22,9 +22,11 @@ Rails.application.routes.draw do
 
   namespace :profile do
     resources :chief_pictures, only: [:destroy, :new, :create, :update]
-    resources :meal_pictures, only: [:destroy, :new, :create]
+    resources :meal_pictures, only: [:destroy, :new, :create, :update]
     resources :meals do
       collection do
+        get 'mealpic'
+        get 'mealcrop'
         get 'history'
         get 'validation'
       end

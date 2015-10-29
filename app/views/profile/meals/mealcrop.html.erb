@@ -1,17 +1,17 @@
-<%= simple_form_for @picture, url: profile_chief_picture_path(@picture) do |f| %>
+<%= simple_form_for @picture, url: profile_meal_picture_path(@picture, meal_id: params[:meal_id]) do |f| %>
   <div class="container">
     <div class="crop-tool">
       <h1 class= "text-center profile-header">Outil sublimation de photo</h1>
       <div class="row">
         <div class="col-xs-8">
           <div class= "crop-tool-picture">
-            <%= f.cropbox :chiefpicture, :width => 680 %>
+            <%= f.cropbox :picture, :width => 680 %>
           </div>
         </div>
         <div class="col-xs-4">
           <div class= "crop-tool-preview text-center">
             <h3 class= "text-center">Photo telle qu'elle apparaitra sur Pepeat</h3>
-            <%= f.crop_preview :chiefpicture, :width => 300 %>
+            <%= f.crop_preview :picture, :width => 300 %>
             <div class= "text-center crop-tool-button">
               <%= f.button :submit, "Ma photo est belle", class: "btn-lg btn-pepeat" %>
             </div>

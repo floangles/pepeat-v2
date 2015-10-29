@@ -98,3 +98,33 @@
                 <% end %>
               </div>
 
+
+
+  <div class="container">
+      <div class="chief-kitchen text-center">
+        <h1 class= "text-center profile-header">Ma gallerie photo</h1>
+        <div class="row">
+          <div class= "picture-kitchen">
+            <% @user.chief_pictures.each do |pic| %>
+              <div class="col-xs-3">
+                <%= image_tag pic.chiefpicture.url(:medium), class: "preview-size-kitchen"%>
+              </div>
+            <% end %>
+              <div id="target11"></div>
+            <% if @user.chief_pictures.count != 0 %>
+              <div class="col-xs-3">
+                <span class= "btn btn-success" id= "placeholder-kitchen">Changer les photos</span>
+              </div>
+            <% else %>
+              <i class="fa fa-plus-square fa-5x" id= "placeholder-kitchen"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden-form">
+      <%= file_field_tag "chiefpictures[]", type: :file, multiple: true,  id: "kitchenpictureInput" %>
+    </div>
+
+

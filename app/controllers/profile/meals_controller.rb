@@ -62,7 +62,7 @@ module Profile
             @meal.meal_pictures.create(picture: picture)
           }
         end
-         redirect_to profile_meals_path
+         redirect_to mealpic_profile_meals_path(meal_id: @meal.id)
       else
         render :new
       end
@@ -86,6 +86,16 @@ module Profile
       else
         render :edit
       end
+    end
+
+    def mealpic
+      @meal_picture = MealPicture.new
+      @meal = current_user.meals.find(params[:meal_id])
+    end
+
+    def mealcrop
+      @meal = current_user.meals.find(params[:meal_id])
+      @picture = @meal.meal_pictures.find(params[:format])
     end
 
     def destroy

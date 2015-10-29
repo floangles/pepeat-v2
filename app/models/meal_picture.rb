@@ -23,6 +23,7 @@ class MealPicture < ActiveRecord::Base
 
   has_attached_file :picture,
     styles: { medium: "350x350>", thumb: "100x100>", large: "570x300>", extralarge: "630x305#" }
+  crop_attached_file :picture, :aspect => "16:10"
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

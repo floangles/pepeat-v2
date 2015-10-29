@@ -215,6 +215,7 @@
 
 <div class= "text-center">
   <%= f.button :submit, "je valide les modifications de mon plat", class: "btn-lg btn-pepeat" %>
+  <%= link_to 'je modifie mes photos', mealpic_profile_meals_path(meal_id: @meal.id), class: "btn btn-success" %>
 </div>
 
 <% end %>

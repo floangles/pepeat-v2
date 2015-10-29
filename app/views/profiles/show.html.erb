@@ -94,6 +94,16 @@
     </div>
   </div>
 
+  <div class="container">
+    <div class= "stripe">
+      <h1 class= "text-center profile-header">Mes informations bancaire</h1>
+      <p class= "text-center">Pour assurer la sécurité des transferts vers votre compte nous passons par un service reconnu et spécialisé. Clicker sur le boutton et créer votre compte Stripe pour récupérer facielement votre argent. Cela ne vous prend que 3 minutes.</p>
+      <div class= "text-center">
+      <%= link_to image_tag('strip-connect.png'), user_omniauth_authorize_path(:stripe_connect) %>
+      </div>
+    </div>
+  </div>
+
   <!-- create chiefpicture hidden form -->
 
   <div class= "hidden-form">
@@ -108,7 +118,7 @@
 
   <div class="container">
     <div class="gallery-kitchen">
-      <h1 class= "text-center profile-header">Ma cuisine en photo</h1>
+      <h1 class= "text-center profile-header">Ma gallerie photo</h1>
       <div class="row">
         <% @user.chief_pictures.each do |picture|%>
           <div class="col-xs-12 col-sm-3">
