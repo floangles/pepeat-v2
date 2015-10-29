@@ -1,0 +1,67 @@
+
+
+ <div class="meal">
+  <div class="meal-header">
+    <div class= "carousel">
+      <% meal.meal_pictures.each do |picture| %>
+        <%= link_to meal_path(meal) do %>
+          <div> <%= image_tag picture.picture.url(:extralarge), class: "img-carousel"%> </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="meal-header-price">
+      <%= humanized_money_with_symbol(meal.price) %>
+    </div>
+  </div>
+  <div class="meal-body">
+    <div class="meal-body-menu-first">
+      <%= image_tag 'starter.png', class: "img-menu-show-meal" %>
+      <div class= "meal-body-menu-first-element">
+        <%= meal.starter %>
+      </div>
+    </div>
+    <div class="meal-body-menu">
+      <%= image_tag 'main.png', class: "img-menu-show-meal" %>
+      <div class= "meal-body-menu-element">
+        <%= meal.main %>
+      </div>
+    </div>
+    <div class="meal-body-menu">
+      <%= image_tag 'dessert.png', class: "img-menu-show-meal" %>
+      <div class= "meal-body-menu-element">
+        <%= meal.dessert %>
+      </div>
+    </div>
+    <div class="meal-body-description">
+      <h3 class= "text-center"> A propos du menu </h3>
+      <%= meal.description.html_safe %>
+    </div>
+    <div class="meal-body-infos">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="meal-body-infos-date">
+            <% if meal.home? %>
+            <p>Chef le chef</p> à <%= meal.home_hour.strftime('%Hh') %> chez moi
+          <% else %>
+            <p>Take-away</p><%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+          <% end %>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="meal-body-infos-portions">
+            <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
+          </div>
+        </div>
+        <div class="meals-body-order">
+        </div>
+      </div>
+    </div>
+    <% if current_user == meal.user %>
+        <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+      <% else %>
+      <div class="meals-body-order">
+        <%= render "/shared/modale", meal: meal %>
+      </div>
+    <% end %>
+  </div>
+</div>

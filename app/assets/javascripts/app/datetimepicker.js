@@ -21,3 +21,12 @@ $(function () {
           format: 'LT'
       });
   });
+
+
+$(function () {
+      $('#datetimepicker7').datetimepicker({
+          viewMode: 'years',
+          format: 'L',
+      });
+  });
+

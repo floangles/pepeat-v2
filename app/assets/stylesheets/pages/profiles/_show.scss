@@ -45,17 +45,27 @@
 }
 
 
-.left {
-  margin-top: 25px;
-  border: 1px solid rgba(49,49,47,0.18);
+.chief-description {
+  position: relative;
+  background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
-
-}
-
-.img-profile {
-  width: 100%;
-  height: 500px;
-
+  border-radius: 3px;
+  height: auto;
+  padding: 30px;
+  margin: 30px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-picture {
+    position: relative;
+    height: 70px;
+    width: 70px;
+    &-fa {
+      position: absolute;
+      top: -25px;
+      right: -17px;
+    }
+  }
 }
 
 .no-display {
@@ -63,20 +73,17 @@
 }
 
 
-.description {
-  border: 1px solid rgba(49,49,47,0.18);
-  box-shadow: 1px 1px 3px rgb(239, 231, 231);
-  margin-top: 25px;
-  margin-bottom: 70px;
-  padding: 30px;
+.gallery-kitchen {
+  position: relative;
   background-color: white;
-  width: 570px;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
   height: auto;
-}
-
-
-.kitchen {
-  margin-top: 10px;
+  padding: 30px;
+  margin: 30px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  border: 1px solid rgba(49,49,47,0.18);
 }
 
 .kitchen-size {
@@ -96,9 +103,10 @@
 
 
 .preview-size {
-position: relative;
-height: 263px;
-width: 21em;
+  position: relative;
+  width: 350px;
+  box-shadow: 1px 1px rgb(255, 255, 255);
+  border: solid 3px rgba(0, 0, 0, 0.11);
 }
 
 

@@ -1,13 +1,13 @@
 <div class="background-order-show">
   <div class="background-profile-meals-title">
-    <h3>Vos annonces en cours</h3>
+    <h3>Votre réservation</h3>
   </div>
 </div>
 
 <div class="bg-order-show">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-xs-offset-3">
+      <div class="col-xs-12 col-sm-6">
         <div class="infos">
           <div class="infos-map">
             <div id="map" style="width: 100%; height: 100%;"></div>
@@ -34,13 +34,13 @@
               <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
             </div>
             <div class="infos-body-portion">
-              <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
+              <i class="fa fa-credit-card awesome"></i> <%= total(order) %> €
             </div>
             <div class="infos-body-portion">
-              <i class="fa fa-credit-card awesome"></i> <%= order.state %>
-            </div>
-            <div class="infos-body-portion">
-              <i class="fa fa-credit-card awesome"></i> <%= humanized_money_with_symbol(order.amount) %>
+              <span><i class="fa fa-shopping-cart awesome"></i>
+              <% if order.state == 'paid' %>
+                Payé</span>
+              <% end %>
             </div>
             <div class= "text-center">
               <% if !order.payment_validation %>
@@ -56,12 +56,33 @@
                 <% end %>
               <% end %>
             </div>
+            <div>
+                <% if !order.payment_validation %>
+                  <% if order.meal.takeaway %>
+                    <% if DateTime.now.day == order.meal.day.day %>
+                      <%= link_to 'Valider la réception', validation_profile_order_path(order), class: "btn btn-success buton-order" %>
+                    <% else %>
+                      <div class= "hover" title= "Vous devez valider votre payement avec ce bouton le jour ou vous irez chercher votre plat.">
+                        <%= link_to 'Valider la réception ( le jour j )', '#', class: " disabled btn btn-warning buton-order" %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <% if order.meal.home %>
+                    <% if DateTime.now.day == order.meal.day.day %>
+                      <%= link_to 'Valider la reception', validation_profile_orders_path(order), class: "btn btn-pepeat buton-order" %>
+                    <% else %>
+                      <div class= "hover" title= "Vous devez valider votre payement avec ce bouton le jour ou vous irez chercher votre plat.">
+                        <%= link_to 'Valider la réception (le jour j)', "#", class: "disabled btn btn-warning buton-order" %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <div class= "check-payment hover" title= "Vous avez validé la reception de votre commande">
+                    <i class="fa fa-check fa-3x "></i>
+                  </div>
+                <% end %>
+            </div>
             <div class="infos-body-takeaway text-center">
-              <%= link_to meal_path(order.meal) do %>
-                <button class="button button-highlight button-box button-longshadow-right button-longshadow-expand hover" title= "Voir le menu">
-                <i class="fa fa-eye"></i>
-                </button>
-              <% end %>
                 <%= link_to profile_order_path(order),
                   method: :delete,
                   data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
@@ -72,6 +93,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <%= render "/shared/ordershow", meal: order.meal %>
       </div>
     </div>
   </div>

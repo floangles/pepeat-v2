@@ -5,9 +5,10 @@ class ProfilesController < ApplicationController
 
 
   def show
-   skip_authorization
-   @chief_picture = ChiefPicture.new
+    @chief_picture = ChiefPicture.new
   end
+
+
 
   def edit
     skip_authorization
@@ -28,6 +29,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def croping
+    @picture = current_user.chief_pictures.find(params[:format])
+  end
+
 
   def rating
   end
@@ -38,8 +43,9 @@ class ProfilesController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:chief, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture)
+    params.require(:user).permit(:chief, :birth, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)
   end
+
 
   def chief_params
     params.require(:user).permit(:chief)

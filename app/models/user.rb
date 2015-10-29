@@ -40,6 +40,7 @@
 #  amateur                :boolean
 #  publishable_key        :string
 #  access_code            :string
+#  birth                  :date
 #
 # Indexes
 #
@@ -73,8 +74,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  ratyrate_rater
-
   has_many :meals
   has_many :orders
   has_many :chief_pictures, dependent: :destroy
@@ -90,8 +89,9 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>", large: "572x500#" },
+    styles: { medium: "300x300>", thumb: "100x100>", large: "550x550>", crop:"300x300#" },
     default_url: "placeholder.png"
+    crop_attached_file :picture
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

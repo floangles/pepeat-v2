@@ -26,16 +26,18 @@
   }
 }
 
+.margin {
+  margin: 30px;
+}
 
 .meal {
+  margin: 20px;
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   border-radius: 3px;
   height: auto;
   padding:4px;
-  margin: 30px;
   margin-top: 10px;
-  margin-left: 0px;
   border: 1px solid rgba(49,49,47,0.18);
 
   &-header {
@@ -46,7 +48,7 @@
     border-radius: 3px 3px 0px 0px;
     &-price {
       position: absolute;
-      bottom: 0px;
+      bottom: 2px;
       left: 0px;
       background-color: rgba(2, 2, 2, 0.7);
       font-size: 30px;
@@ -63,6 +65,7 @@
       padding-left: 15px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
       &-element {
+          padding: 10px;
           position: absolute;
           top: 50%;
           left: 20%;
@@ -143,8 +146,8 @@
   border-radius: 3px;
   height: auto;
   padding:4px;
+  margin: 30px;
   margin-top: 10px;
-  margin-left: 30px;
   border: 1px solid rgba(49,49,47,0.18);
   &-description {
     padding: 15px;
@@ -217,12 +220,14 @@
 }
 
 .card-feedback {
-  padding: 5px;
-  background-color: white;
-  height: auto;
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   border-radius: 3px;
+  height: auto;
+  padding: 30px;
+  margin: 30px;
+  margin-top: 50px;
+  margin-bottom: 70px;
   border: 1px solid rgba(49,49,47,0.18);
   &-element {
     position: relative;

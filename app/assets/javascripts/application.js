@@ -7,12 +7,11 @@
 //= require bootstrap-datetimepicker
 //= require underscore
 //= require gmaps/google
-//= require jquery.raty
-//= require ratyrate
 //= require tooltipster
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
-
+//= require jquery.jcrop
+//= require papercrop
 
 //= require_tree ./app
 

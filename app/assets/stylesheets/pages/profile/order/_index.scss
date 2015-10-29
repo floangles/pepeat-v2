@@ -50,12 +50,6 @@
 }
 .bg-order-show {
 
-  background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
-
   background-size: cover;
   background-position: center center;
   width:100%;
@@ -103,6 +97,9 @@
 
     }
     &-portion {
+      span {
+        color: green;
+      }
       padding: 15px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
 
@@ -150,7 +147,7 @@
     border-radius: 3px 3px 0px 0px;
     &-price {
       position: absolute;
-      bottom: 0px;
+      bottom: -3px;
       left: 0px;
       background-color: rgba(2, 2, 2, 0.7);
       font-size: 30px;
@@ -196,7 +193,7 @@
       transform: translateX(-50%) translateY(-50%);
       position: absolute;
       top: 96%;
-      left: 50%;
+      left: 29%;
     }
     &-pic {
       position: absolute;
@@ -216,4 +213,12 @@
       color: white;
     }
   }
+}
+
+
+.check-payment {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  color: green;
 }

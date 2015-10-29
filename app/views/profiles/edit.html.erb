@@ -8,11 +8,18 @@
   <% if current_user.chief? || params[:chief] == 'true' %>
     <div class="container">
       <div class="chief-profile">
+        <h1 class= "text-center profile-header">Mes informations</h1>
         <div class="row">
           <div class="col-xs-6">
             <div class="chief-profile-left text-center">
-              <h3>Votre photo de chef Pepeat</h3>
-              <%= image_tag 'picture-chief.png', class: "chief-profile-left-picture", id:"placeholder-chief" %>
+              <h3>Ma photo de chef Pepeat</h3>
+                <div>
+                  <div id="picturechief"></div>
+                  <div class= "img-preview">
+                    <%= image_tag @user.picture.url(:large), id: "img-preview" %>
+                  </div>
+                  <span class="btn btn-success" id= "changepicture">Changer la photo</span>
+                </div>
               <div id="picturechief"></div>
 
             <!-- create chiefpicture hidden form -->
@@ -25,50 +32,75 @@
 
             </div>
           </div>
-          <div class="col-xs-2 col-xs-offset-1">
+          <div class="col-xs-4 col-xs-offset-1">
             <div class="chief-profile-right text-center">
-              <%= f.input :surname, label: 'Votre nom de cuisinier',required: false %>
-              <%= f.input :firstname, label: 'Votre prénom', required: false %>
-              <%= f.input :lastname, label: 'Votre nom de famille', required: false %>
+              <div class="chief-profile-right-date">
+                <%= f.input :surname, label: 'Votre nom de cuisinier',required: false %>
+              </div>
+              <div class="chief-profile-right-date">
+                <%= f.input :firstname, label: 'Votre prénom', required: false %>
+              </div>
+              <div class="chief-profile-right-date">
+                <%= f.input :lastname, label: 'Votre nom de famille', required: false %>
+              </div>
+              <div class="chief-profile-right-date">
+                <%= f.input :address, label: 'Votre adresse',required: false %>
+              </div>
+              <div class= "chief-profile-right-date">
+                <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
+              </div>
+              <div class='input-group' id='datetimepicker7'>
+                <%= f.input :birth, as: :string, label: 'Votre date de naissance'%>
+                  <span class="input-group-addon form-control">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <%= f.input :description, input_html: { class: 'wysihtml5' } %>
-        </div>
-      </div>
-    </div>
 
-    <h3 class= "text-center title"> Infos </h3>
     <div class="container">
-      <div class="chief-infos text-center">
+      <div class="chief-description">
+         <h1 class= "text-center profile-header chief-description-title">A propos de moi</h1>
         <div class="row">
-          <div class="col-xs-4 col-xs-offset-4">
-            <%= f.input :address, label: 'Votre adresse',required: false %>
-            <%= f.input :phone_number, label: 'Numéro de téléphone' %>
+          <div class="col-xs-6 col-xs-offset-3">
+            <%= f.input :description, label: false, input_html: { class: 'wysihtml5' } %>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class= "text-center title"> Votre cuisine </h3>
+
     <div class="container">
       <div class="chief-kitchen text-center">
+        <h1 class= "text-center profile-header">Ma cuisine en photos</h1>
         <div class="row">
           <div class= "picture-kitchen">
-            <div id="target11"></div>
-            <div class="col-xs-3">
-              <%= image_tag 'placeholder.png', id: "placeholder-kitchen", class: "kitchen-size" %>
-            </div>
+            <% @user.chief_pictures.each do |pic| %>
+              <div class="col-xs-3">
+                <%= image_tag pic.chiefpicture.url(:medium), class: "preview-size-kitchen"%>
+              </div>
+            <% end %>
+              <div id="target11"></div>
+            <% if @user.chief_pictures.count != 0 %>
+              <div class="col-xs-3">
+                <span class= "btn btn-success" id= "placeholder-kitchen">Changer les photos</span>
+              </div>
+            <% else %>
+              <i class="fa fa-plus-square fa-5x" id= "placeholder-kitchen"></i>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="hidden-form">
+      <%= file_field_tag "chiefpictures[]", type: :file, multiple: true,  id: "kitchenpictureInput" %>
+    </div>
+
 
     <h3 class= "text-center title"> Vos informations bancaires </h3>
     <div class="container">
@@ -80,10 +112,6 @@
       </div>
     </div>
 
-    <div class="hidden-form">
-      <%= file_field_tag "chiefpictures[]", type: :file, multiple: true,  id: "kitchenpictureInput" %>
-    </div>
-
     <div class= "text-center">
       <% if params[:chief] == 'true' %>
         <%= f.input :chief, as: :hidden, input_html: { value: true } %>
@@ -91,14 +119,26 @@
       <em><strong><%= f.button :submit, "Je valide mon profil!", class: "btn-lg btn-pepeat" %>
     </div>
   <% else %>
+
+  <!-- if not chief  -->
+
     <div class="container">
       <div class="chief-profile">
+        <h1 class= "text-center profile-header">Mes informations</h1>
         <div class="row">
           <div class="col-xs-6">
             <div class="chief-profile-left text-center">
-              <h3>votre photo de profil</h3>
-              <%= image_tag 'picture-chief.png', class: "chief-profile-left-picture", id:"placeholder-chief" %>
-              <div id="picturechief"></div>
+              <h3>Ma photo de profil</h3>
+              <% if @user.picture.nil? %>
+                <%= image_tag 'picture-chief.png', class: "chief-profile-left-picture", id:"placeholder-chief" %>
+              <% else %>
+                <%= image_tag @user.picture.url(:large), id: "img-preview" %>
+                <div>
+                  <div id="picturechief"></div>
+                  <span class="btn btn-success" id= "changepicture">Changer la photo</span>
+                </div>
+              <% end %>
+
 
             <!-- create chiefpicture hidden form -->
 
@@ -110,28 +150,30 @@
 
             </div>
           </div>
-          <div class="col-xs-2 col-xs-offset-1">
+          <div class="col-xs-4 col-xs-offset-1">
             <div class="chief-profile-right text-center">
-              <%= f.input :firstname, label: 'Votre prénom', required: false %>
-              <%= f.input :lastname, label: 'Votre nom de famille', required: false %>
+              <div class= "chief-profile-right-date">
+                <%= f.input :firstname, label: 'Votre prénom', required: false %>
+              </div>
+              <div class= "chief-profile-right-date">
+                <%= f.input :lastname, label: 'Votre nom de famille', required: false %>
+              </div>
+              <div class= "chief-profile-right-date">
+                <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
+              </div>
+              <div class='input-group' id='datetimepicker7'>
+                <%= f.input :birth, as: :string, label: 'Votre date de naissance'%>
+                  <span class="input-group-addon form-control">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <h3 class= "text-center title"> Infos </h3>
-    <div class="container">
-      <div class="chief-infos text-center">
-        <div class="row">
-          <div class="col-xs-4 col-xs-offset-4">
-            <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
-          </div>
+        <div class= "chief-profile-submit">
+          <%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
         </div>
       </div>
-    </div>
-    <div class= "text-center">
-      <em><strong><%= f.button :submit, "Je valide mon profil!", class: "btn-lg btn-pepeat" %>
     </div>
   <% end %>
 <% end %>

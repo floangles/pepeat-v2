@@ -1,8 +1,19 @@
-<%= simple_form_for @order, url: { action: "update", id: @order.id } do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :review, input_html: {value: ""}, label: 'Laisser un commentaire sur votre fabuleux repas' %>
-  <%= f.submit 'Postez votre feedback' %>
-<% end %>
+<div class="background-profile-orders">
+  <div class="background-profile-orders-title text-center">
+    <h3>Donnez un commentaire sur votre menu</h3>
+  </div>
+</div>
 
-qualite  : <%= rating_for @order, "qualite", :disable_after_rate => true, :cancel => true, :cancel_hint => "Cancel this rating!", :imdb_avg => true %>
+<div class= "rating text-center">
+  <div class="container">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for @order, url: { action: "update", id: @order.id } do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :review, input_html: {value: ""}, label: "Qu'avez vous pensé de votre menu ? " %>
+        <%= f.submit 'Postez', class: "btn btn-pepeat form-control" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 

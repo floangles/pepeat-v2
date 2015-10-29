@@ -22,6 +22,7 @@ class ChiefPicture < ActiveRecord::Base
 
   has_attached_file :chiefpicture,
     styles: { medium: '300x300>', thumb: "100x100>", large: "570x300#" }
+  crop_attached_file :chiefpicture
 
   validates_attachment_content_type :chiefpicture,
     content_type: /\Aimage\/.*\z/

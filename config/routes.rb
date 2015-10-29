@@ -13,12 +13,15 @@ Rails.application.routes.draw do
     collection do
       get 'rating'
     end
+    collection do
+        get 'croping'
+    end
   end
   resources :publics, only: [:index, :show]
 
 
   namespace :profile do
-    resources :chief_pictures, only: [:destroy, :new, :create]
+    resources :chief_pictures, only: [:destroy, :new, :create, :update]
     resources :meal_pictures, only: [:destroy, :new, :create]
     resources :meals do
       collection do

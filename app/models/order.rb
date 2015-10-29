@@ -23,7 +23,6 @@
 
 class Order < ActiveRecord::Base
 
-  ratyrate_rateable "qualite"
 
   monetize :amount_cents
 

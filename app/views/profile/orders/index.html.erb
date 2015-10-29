@@ -85,13 +85,15 @@
                 <% end %>
                 </div>
                 <div class="orders-header-button">
-                  <%= link_to profile_order_path(order),
-                    method: :delete,
-                    data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
-                    <button class="button button-caution button-box button-raised button-longshadow hover" title= "Annuler votre réservation">
-                      <i class="fa fa-trash"></i>
-                    </button>
-                <% end %>
+                  <% if !order.payment_validation %>
+                    <%= link_to profile_order_path(order),
+                      method: :delete,
+                      data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
+                      <button class="button button-caution button-box button-raised button-longshadow hover" title= "Annuler votre réservation">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    <% end %>
+                  <% end %>
                 </div>
                 <div class="orders-header-pic">
                   <%= image_tag order.meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
@@ -101,23 +103,29 @@
                 <%= link_to 'Voir ma commande', profile_order_path(order), class: "btn btn-success buton-order" %>
               </div>
               <div class="orders-body-payment">
-                <% if order.meal.takeaway %>
-                  <% if Time.now == order.meal.day %>
-                    <%= link_to 'Valider la réception', validation_profile_orders(order), class: "btn btn-success buton-order" %>
-                  <% else %>
-                    <div class= "hover" title= "Vous devez valider votre payement avec ce bouton le jour ou vous irez chercher votre plat.">
-                      <%= link_to 'Valider la réception', '#', class: "btn btn-warning buton-order" %>
-                    </div>
+                <% if !order.payment_validation %>
+                  <% if order.meal.takeaway %>
+                    <% if DateTime.now.day == order.meal.day.day %>
+                      <%= link_to 'Valider la réception', validation_profile_order_path(order), class: "btn btn-success buton-order" %>
+                    <% else %>
+                      <div class= "hover" title= "Vous devez valider la réception avec ce bouton le jour ou vous irez chercher votre plat.">
+                        <%= link_to 'Valider la réception ( le jour j )', '#', class: " disabled btn btn-warning buton-order" %>
+                      </div>
+                    <% end %>
                   <% end %>
-                <% end %>
-                <% if order.meal.home %>
-                  <% if Time.now == order.meal.day %>
-                    <%= link_to 'Valider la reception', validation_profile_orders(order), class: "btn btn-success buton-order" %>
-                  <% else %>
-                    <div class= "hover" title= "Vous devez valider votre payement avec ce bouton le jour ou vous irez chercher votre plat.">
-                      <%= link_to 'Valider la réception', '#', class: "disabled btn btn-warning buton-order" %>
-                    </div>
+                  <% if order.meal.home %>
+                    <% if DateTime.now.day == order.meal.day.day %>
+                      <%= link_to 'Valider la reception', validation_profile_orders_path(order), class: "btn btn-pepeat buton-order" %>
+                    <% else %>
+                      <div class= "hover" title= "Vous devez valider la réception avec ce bouton le jour ou vous irez chercher votre plat.">
+                        <%= link_to 'Valider la réception (le jour j)', "#", class: "disabled btn btn-warning buton-order" %>
+                      </div>
+                    <% end %>
                   <% end %>
+                <% else %>
+                  <div class= "check-payment hover" title= "Vous avez validé la reception de votre commande">
+                    <i class="fa fa-check fa-3x "></i>
+                  </div>
                 <% end %>
               </div>
             </div>

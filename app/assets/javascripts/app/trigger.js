@@ -12,8 +12,6 @@ $(document).ready( function() {
 });
 
 
-
-
 $(document).ready( function() {
   $('#placeholder-chief').click(function(){
     $("#profilepictureInput").click();
@@ -39,4 +37,9 @@ $(document).ready( function() {
   });
 });
 
+$(document).ready( function() {
+  $('#changepicture').click(function(){
+    $("#profilepictureInput").click();
+  });
+});
 

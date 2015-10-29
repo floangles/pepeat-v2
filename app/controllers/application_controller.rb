@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, unless: :pages_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :set_commission
+  def set_commission
+    @client = 0.15
+    @chief = 0.04
+    @client_amount = 1.15
+  end
 
   # Uncomment these lines to get pundit
   include Pundit

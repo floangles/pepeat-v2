@@ -19,8 +19,19 @@ module Profile
       @chief_picture = ChiefPicture.new
     end
 
-    def destroy
+    def update
+      @user = current_user
+      @chief_picture = current_user.chief_pictures.find(params[:id])
+      @chief_picture.update(chief_picture_params)
 
+      if @chief_picture.update(chief_picture_params)
+        redirect_to profile_path
+      else
+        render :new
+      end
+    end
+
+    def destroy
       @chief_picture = current_user.chief_pictures.find(params[:id])
       @chief_picture.destroy
       redirect_to profile_path
@@ -28,7 +39,7 @@ module Profile
 
 
     def chief_picture_params
-      params.require(:chief_picture).permit(:chiefpicture)
+      params.require(:chief_picture).permit(:chiefpicture, :chiefpicture_original_w, :chiefpicture_original_h, :chiefpicture_box_w, :chiefpicture_aspect, :chiefpicture_crop_x, :chiefpicture_crop_y, :chiefpicture_crop_w, :chiefpicture_crop_h)
     end
   end
 end

@@ -87,3 +87,14 @@
   </div>
 </div>
 
+
+
+<div class= "hidden-form cropable">
+                <%= form_for picture, url: profile_chief_picture_path(picture)  do |f| %>
+                  <%= f.cropbox :chiefpicture, :width => 300 %>
+                  <div class= "text-center">
+                    <%= f.submit 'Sauvegarder', class: "btn btn-pepeat" %>
+                  </div>
+                <% end %>
+              </div>
+

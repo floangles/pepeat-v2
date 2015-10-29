@@ -32,6 +32,7 @@ $(function() {
 
 $(function() {
   $('#kitchenpictureInput').on('change', function(event) {
+    $(".bonjour").addClass("invisible");
     var files = event.target.files;
     for (var i = 0; i < files.length; i++) {
       var image = files[i]
@@ -57,6 +58,7 @@ $(function() {
 
 $(function() {
   $('#profilepictureInput').on('change', function(event) {
+    $('.oui-chef').addClass( "invisible2");
     var files = event.target.files;
     for (var i = 0; i < files.length; i++) {
       var image = files[i]
@@ -68,8 +70,9 @@ $(function() {
 
 
         $('#placeholder-chief').addClass( "invisible2" );
+        $('.img-preview').addClass( "invisible2" );
         $('#picturechief').append($('<div/>', {class: 'oui-chef'}, { id: 'r' + i}).html(img));
-        $(".oui-chef img").addClass("preview-size");
+        $(".oui-chef img").addClass("preview-size cropbox");
 
       }
       reader.readAsDataURL(image);

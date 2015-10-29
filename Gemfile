@@ -27,11 +27,12 @@ gem "coffee-script"
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem "geocoder"
 gem "gmaps4rails"
-gem 'ratyrate'
+# gem 'ratyrate'
 gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem 'omniauth-facebook'
 gem "jquery-slick-rails"
+gem 'papercrop'
 
 gem 'money-rails'
 gem 'stripe'
@@ -43,6 +44,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-Buttons'
   gem 'rails-assets-tooltipster'
   gem 'rails-assets-hover'
+  gem 'rails-assets-Jcrop'
 end
 
 
