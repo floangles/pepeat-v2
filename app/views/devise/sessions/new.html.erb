@@ -1,21 +1,25 @@
 <div class="background">
   <div class="container">
-    <div class="card-signin">
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <h2 class= "text-center title-pepeat"> Pepeat</h2>
-          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <%= f.input :email, label: 'mail', required: false, autofocus: true %>
-              <%= f.input :password, required: false %>
-              <div class= "text-center">
-                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-signin">
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3">
+              <h2 class= "text-center title-pepeat"> Pepeat</h2>
+              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <%= f.input :email, label: 'mail', required: false, autofocus: true %>
+                  <%= f.input :password, required: false %>
+                  <div class= "text-center">
+                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  </div>
+                  <div class= "text-center">
+                    <%= f.button :submit, t(".sign_in", default: "Sign in"), class: "btn btn-pepeat" %>
+                  </div>
+              <% end %>
+              <div class= "links text-center">
+                <%= render "devise/shared/links" %>
               </div>
-              <div class= "text-center">
-                <%= f.button :submit, t(".sign_in", default: "Sign in"), class: "btn btn-pepeat" %>
-              </div>
-          <% end %>
-          <div class= "links text-center">
-            <%= render "devise/shared/links" %>
+            </div>
           </div>
         </div>
       </div>
