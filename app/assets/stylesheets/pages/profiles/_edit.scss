@@ -97,7 +97,7 @@
 }
 
 .stripe {
- position: relative;
+position: relative;
 background-color: white;
 box-shadow: 1px 1px 3px rgb(239, 231, 231);
 border-radius: 3px;
@@ -107,6 +107,14 @@ margin: 30px;
 margin-top: 50px;
 margin-bottom: 70px;
 border: 1px solid rgba(49,49,47,0.18);
+  &-button {
+    width: 80%;
+  }
+  a {
+    span {
+      box-sizing: initial;
+    }
+  }
 }
 
 

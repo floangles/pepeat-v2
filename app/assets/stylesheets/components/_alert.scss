@@ -3,13 +3,19 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  margin: 30px;
+  font-size: 20px;
+  font-family: $subtitle;
+  padding: 40px;
   text-align: center;
-  color: white;
+  color: $pepeat;
   z-index: 2000;
-  padding: 20px;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 10px;
+  height: auto;
+  border: 1px solid #e7b336;
   &-info {
-    background: grey;
+    background: white;
   }
   &-warning {
     background: $red;
@@ -17,20 +23,10 @@
 }
 
 
-.alert-home {
+.home-alert {
+  z-index: 2000;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  margin: 0;
-  text-align: center;
-  color: white;
-  z-index: 2000;
-  padding: 20px;
-  &-info {
-    background: $pepeat;
-  }
-  &-warning {
-    background: $red;
-  }
 }

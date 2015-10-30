@@ -4,6 +4,7 @@ module Profile
     before_action :authenticate_user!
     before_action :is_chief?
     before_action :set_meal, only: [:is_ordered, :show, :edit, :update, :destroy]
+    before_action :has_stripe?, only: [:new]
     before_action :is_ordered?, only: [:edit, :update]
 
 
@@ -21,6 +22,14 @@ module Profile
         true
       else
         render :text =>" Ce n'est pas bien de taper des URL au pif.Vous ne pouvez supprimer un plat avec des commandes"
+      end
+    end
+
+    def has_stripe?
+      if current_user.uid && current_user.publishable_key && current_user.access_code && current_user.provider
+        true
+      else
+        redirect_to profile_path, notice: "Vous devez avoir entrer vos données bancaire avant de créer un menu"
       end
     end
 

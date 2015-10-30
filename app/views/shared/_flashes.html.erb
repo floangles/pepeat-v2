@@ -2,15 +2,19 @@
 <% if request.original_url == "http://localhost:3000/" || request.original_url == 'https://pepeat-v2-production.herokuapp.com/' %>
 
   <% if notice %>
-    <div class="alert-home alert-home-info alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert", role:"button", aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= notice %>
+    <div class="home-alert">
+      <div class="alert alert-info alert-dismissible slideDown fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert", role:"button", aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+      </div>
     </div>
   <% end %>
   <% if alert %>
-    <div class="alert-home alert-home-warning alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= alert %>
+    <div class="home-alert">
+      <div class="alert alert-warning alert-dismissible slideDown fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= alert %>
+      </div>
     </div>
   <% end %>
 
@@ -18,13 +22,13 @@
 <% else %>
 
   <% if notice %>
-    <div class="alert alert-info alert-dismissible" role="alert">
+    <div class="alert alert-info alert-dismissible slideDown fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert", role:"button", aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <%= notice %>
     </div>
   <% end %>
   <% if alert %>
-    <div class="alert alert-warning alert-dismissible" role="alert">
+    <div class="alert alert-warning alert-dismissible slideDown fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <%= alert %>
     </div>
