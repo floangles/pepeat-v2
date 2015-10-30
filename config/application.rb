@@ -9,8 +9,10 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require 'autoprefixer-rails'
 
+
+# require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -32,6 +34,8 @@ module PepeatV2
       # generate.test_framework :rspec
       generate.view_specs false
     end
+
+
 
     config.action_controller.action_on_unpermitted_parameters = :raise
     # Settings in config/environments/* take precedence over those specified here.

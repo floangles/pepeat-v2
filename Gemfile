@@ -27,7 +27,8 @@ gem "coffee-script"
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem "geocoder"
 gem "gmaps4rails"
-# gem 'ratyrate'
+gem "autoprefixer-rails"
+
 gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem 'omniauth-facebook'
