@@ -384,7 +384,7 @@ DEPENDENCIES
   quiet_assets
   rack-timeout
   rails (= 4.2.3)
-  rails-assets-Buttons!
+  rails-assets-Buttons (~> 2.0)!
   rails-assets-Jcrop!
   rails-assets-hover!
   rails-assets-scrollReveal.js!

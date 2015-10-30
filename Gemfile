@@ -42,7 +42,7 @@ gem 'omniauth-stripe-connect'
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
   gem "rails-assets-underscore"
-  gem 'rails-assets-Buttons'
+  gem 'rails-assets-Buttons', "~> 2.0"
   gem 'rails-assets-tooltipster'
   gem 'rails-assets-hover'
   gem 'rails-assets-Jcrop'
