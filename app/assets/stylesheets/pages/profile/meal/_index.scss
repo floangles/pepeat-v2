@@ -193,5 +193,15 @@
     text-align: -webkit-left;
     margin-left: 20px;
     padding-top: 16px;
+    &-nonvalidate {
+      p {
+        color: red;
+      }
+    }
+    &-validate {
+      p {
+        color: green;
+      }
+    }
   }
 }

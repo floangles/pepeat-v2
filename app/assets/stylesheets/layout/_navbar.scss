@@ -4,7 +4,7 @@
 $navbar-color: black;
 $navbar-hover-color: $pepeat;
 $navbar-font-family: $navbar-font;
-$navbar-font-size: 14px;
+$navbar-font-size: 15px;
 $navbar-text-transform: capitalize;
 $navbar-font-weight: 400;
 $navbar-letter-spacing: 1.5px;
@@ -141,6 +141,16 @@ $navbar-profile-border-width: 2px;
   }
 }
 
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+text-decoration: none;
+    color: #262626;
+    background-color: rgba(229, 149, 1, 0.51);
+}
+
+.menu-nav {
+
+}
 /* -------------------------------------
  * Navbar profile picture
  * ------------------------------------- */

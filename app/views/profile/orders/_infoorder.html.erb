@@ -60,7 +60,7 @@
                 <% if !order.payment_validation %>
                   <% if order.meal.takeaway %>
                     <% if DateTime.now.day == order.meal.day.day %>
-                      <%= link_to 'Valider la réception', validation_profile_order_path(order), class: "btn btn-success buton-order" %>
+                      <%= link_to 'Valider la réception', validation_profile_orders_path(order), class: "btn btn-success buton-order" %>
                     <% else %>
                       <div class= "hover" title= "Vous devez valider votre payement avec ce bouton le jour ou vous irez chercher votre plat.">
                         <%= link_to 'Valider la réception ( le jour j )', '#', class: " disabled btn btn-warning buton-order" %>

@@ -73,11 +73,11 @@
       </div>
     </div>
 
-    <div class= "text-center">
+    <div class= "text-center button-submit-profile">
       <% if params[:chief] == 'true' %>
         <%= f.input :chief, as: :hidden, input_html: { value: true } %>
       <% end %>
-      <em><strong><%= f.button :submit, "Je valide mon profil!", class: "btn-lg btn-pepeat" %>
+      <em><strong><%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
     </div>
   <% else %>
 

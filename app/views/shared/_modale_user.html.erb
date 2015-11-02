@@ -34,11 +34,21 @@
               <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
             </div>
             <div class= "modale-user-element">
-              <i class="fa fa-credit-card awesome"></i> <%= order_price(order) %> €
-            </div>
-            <div class= "modale-user-element">
               <i class="fa fa-mobile awesome"></i><%= order.user.phone_number %>
             </div>
+            <% if order.payment_validation == true %>
+              <div class= "modale-user-element">
+                <div class="modale-user-element-validate">
+                  <p><i class="fa fa-check awesome"></i> Reception du menu validée</p>
+                </div>
+              </div>
+            <% else %>
+              <div class= "modale-user-element">
+                <div class="modale-user-element-nonvalidate">
+                  <p><i class="fa fa-times awesome"></i> N'a pas encore validé la reception du menu</p>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="modal-footer">

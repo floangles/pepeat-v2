@@ -28,13 +28,13 @@
             <h3>Ma photo de profil</h3>
             <div class= "classic-pic">
               <%= image_tag @user.picture.url(:large), id: "img-preview" %>
-              <span class= "btn btn-danger crop"> Modifier ma photo</span>
+              <span class= "btn btn-danger crop"> Redimenssionner</span>
             </div>
             <div class= "hidden-form cropable">
               <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
                 <%= f.cropbox :picture, :width => 300 %>
                 <div class= "text-center">
-                  <%= f.submit 'Sauvegarder', class: "btn btn-pepeat" %>
+                  <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
                 </div>
               <% end %>
             </div>

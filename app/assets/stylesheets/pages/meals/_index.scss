@@ -86,14 +86,14 @@
   padding:4px;
   margin: 30px;
   &-header {
-    height: 300px;
+    height: auto;
     background-size: cover;
     position: relative;
     color: white;
     border-radius: 3px 3px 0px 0px;
     &-price {
       position: absolute;
-      bottom: 12px;
+      bottom: 0px;
       left: 0px;
       background-color: rgba(2, 2, 2, 0.7);
       font-size: 30px;
@@ -116,7 +116,7 @@
       text-shadow: 2px 2px rgba(136, 133, 126, 0.79);
       position: absolute;
       bottom: 0px;
-      left: 91px;
+      left: 24%;
       font-size: 30px;
       padding: 8px;
     }
