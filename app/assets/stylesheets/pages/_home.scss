@@ -164,6 +164,7 @@
   background-color: white;
   padding-top: 50px;
   &-img {
+    margin: 10px;
     &-size {
       height: 100%;
       width: 83%;
@@ -250,19 +251,11 @@
   padding:4px;
   margin: 30px;
   &-header {
-    height: 256px;
-    background-size: cover;
     position: relative;
+    height: auto;
+    background-size: cover;
     color: white;
     border-radius: 3px 3px 0px 0px;
-    &-price {
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      background-color: rgba(2, 2, 2, 0.7);
-      font-size: 30px;
-      padding: 8px;
-    }
     &-away {
       position: absolute;
       top: 0;
@@ -274,6 +267,22 @@
         font-size: 16px;
         margin: 4px;
       }
+    }
+  }
+  &-body {
+    height: 32px;
+    position: relative;
+    background-size: cover;
+    position: relative;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+    &-price {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      background-color: rgba(2, 2, 2, 0.7);
+      font-size: 30px;
+      padding: 8px;
     }
     &-date {
       font-size: 30px;

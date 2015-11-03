@@ -151,13 +151,15 @@
                     <h3 class= "text-center">A emporter</h3>
                   <% end %>
                 </div>
-                <div class="meals-home-header-price">
+              </div>
+              <div class="meals-home-body">
+                <div class="meals-home-body-price">
                   <%= meal.price %>€
                 </div>
-                <div class="meals-home-header-date">
+                <div class="meals-home-body-date">
                   <%= l(meal.day, format: '%A %d/%m')%>
                 </div>
-                <div class="meals-home-header-pic">
+                <div class="meals-home-body-pic">
                   <%= image_tag meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
                 </div>
               </div>
