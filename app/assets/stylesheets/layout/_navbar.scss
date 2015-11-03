@@ -99,6 +99,22 @@ $navbar-profile-border-width: 2px;
     }
   }
 
+  .navbar-nav > li > a.btn2 {
+    line-height: $navbar-btn-height;
+    padding: 0 $navbar-btn-horizontal-padding;
+    color: $navbar-btn-color;
+    border-radius: $navbar-btn-radius;
+    margin-right: 5px;
+    margin-top: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
+    margin-bottom: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
+    font-weight: bold;
+    background-color: $pepeat;
+    font-size: 12px;
+    &:hover{
+      background-color: darken($pepeat, 10%);
+    }
+  }
+
   .navbar-brand img, .navbar-brand svg {
     height: $navbar-height;
     padding: 0px;
@@ -148,8 +164,8 @@ text-decoration: none;
     background-color: rgba(229, 149, 1, 0.51);
 }
 
-.menu-nav {
-
+.navbtn {
+  padding-right: 5px;
 }
 /* -------------------------------------
  * Navbar profile picture

@@ -11,6 +11,3 @@ $(window).load(function() {
   });
 });
 
-
-
-

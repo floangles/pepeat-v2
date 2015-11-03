@@ -27,20 +27,6 @@
     </div>
   </div>
   <div class="meals-body">
-    <div class="meals-body-chef">
-      <%= link_to publics_path(meal.user) do %>
-        <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
-      <% end %>
-      <div class= "meals-body-chef-name">
-        Chef <%= meal.user.surname%>
-         <%= link_to public_path(meal.user) do %>
-          (<%= user_rating(meal.user)%> avis)
-         <% end %>
-      </div>
-      <div class="meals-body-chef-map">
-
-      </div>
-    </div>
     <div class="meals-body-menu">
       <div class="meals-body-menu-title">
         <%= link_to meal_path(meal) do %>

@@ -56,7 +56,7 @@
   <div class="row">
     <% @user.meals.each do |meal| %>
       <div class="col-xs-6">
-        <%= render "/meals/cardmeals", meal: meal %>
+        <%= render "/shared/cardmeals", meal: meal %>
       </div>
     <% end %>
   </div>
