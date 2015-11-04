@@ -8,6 +8,10 @@ class ProfilesController < ApplicationController
     @chief_picture = ChiefPicture.new
   end
 
+  def age(user)
+    DateTime.now.year - user.birth.year
+  end
+
 
 
   def edit
@@ -34,7 +38,8 @@ class ProfilesController < ApplicationController
     '$Prenom'           => @user.firstname,
     '$Nom'              => @user.lastname,
     '$Tel'              => @user.phone_number,
-    '$Chef'            => @user.chief,
+    '$Chef'             => @user.chief,
+    '$Age'              => age(@user),
 
     });
 

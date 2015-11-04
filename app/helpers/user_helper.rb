@@ -9,4 +9,8 @@ module UserHelper
     array.sum
   end
 
+  def age(user)
+    DateTime.now.year - user.birth.year
+  end
+
 end

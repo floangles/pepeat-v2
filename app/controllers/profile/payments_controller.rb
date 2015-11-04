@@ -33,6 +33,9 @@ module Profile
       application_fee: @commission.to_i
     })
     @order.update(payment: charge.to_json, state: 'paid', charge: charge.id)
+
+    tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
+    tracker.people.track_charge(current_user.id, @commission / 100)
     redirect_to profile_orders_path
 
     rescue Stripe::CardError => e
