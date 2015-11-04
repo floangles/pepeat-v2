@@ -25,7 +25,7 @@
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
                 <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
-              <%= current_user.surname %> <span class="caret"></span>
+              <%= current_user.firstname %> <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <li>
@@ -84,7 +84,7 @@
             </ul>
           </li>
           <li>
-            <%= link_to t(".top_call_to_action", default: "Voir les plats"), meals_path, class: "btn2" %>
+            <%= link_to t(".top_call_to_action", default: "Voir les menus"), meals_path, class: "btn2" %>
           </li>
           <li>
             <% if current_user.chief? %>

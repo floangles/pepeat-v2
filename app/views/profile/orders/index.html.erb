@@ -96,7 +96,10 @@
                   <% end %>
                 </div>
                 <div class="orders-header-pic">
-                  <%= image_tag order.meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
+                  <%= link_to publics_path(order.meal.user) do %>
+                    <%= image_tag order.meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
+                  <% end %>
+
                 </div>
               </div>
               <div class="orders-body-show">

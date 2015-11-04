@@ -26,7 +26,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <div class="col-xs-12 col-sm-6">
                 <%= render "/shared/cardmeals", meal: meal %>
               </div>
@@ -40,7 +40,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if DateTime.now.day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                  <%= render "/shared/cardmeals", meal: meal %>
@@ -56,7 +56,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 1.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -72,7 +72,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 2.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -88,7 +88,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 3.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -103,7 +103,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 4.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -118,7 +118,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 5.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -133,7 +133,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 6.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -148,7 +148,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 7.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -163,7 +163,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 8.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -178,7 +178,7 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? %>
+            <% if meal.validation? && meal_actual(meal) %>
               <% if (DateTime.now + 9.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>

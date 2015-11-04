@@ -12,7 +12,7 @@
 
 
 <div class="banner-content text-center">
-  <h1>Pepeat</h1>
+  <%= image_tag 'pepeat-title', class: "size-pepeat" %>
   <h2>Le fait maison à votre disposition</h2>
   <h3>La cuisine de vos voisins dans votre assiette, en un clic !</h3>
 </div>
@@ -20,6 +20,9 @@
 <div class= "banner-button">
   <%= link_to 'Voir les menus sur Lille', meals_path, class: "btn-lg btn-pepeat-soft" %>
 </div>
+<script type="text/javascript">
+    mixpanel.track("Voir les menus sur Lille");
+</script>
 
 <div class="home-infos text-center">
   <div class="container">
@@ -133,7 +136,7 @@
   <div class="container">
     <div class="row">
       <% @meals.each do |meal| %>
-        <% if meal.validate %>
+        <% if meal.validate && meal_actual(meal) %>
           <div class="col-xs-12 col-sm-4">
             <div class="meals-home">
               <div class="meals-home-header">
@@ -145,7 +148,7 @@
                   <% end %>
                 </div>
                 <div class="meals-home-header-away">
-                  <% if meal.home? %>
+                  <% if meal.home?%>
                     <h3 class= "text-center">Diner chez le chef</h3>
                   <% else %>
                     <h3 class= "text-center">A emporter</h3>

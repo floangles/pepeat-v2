@@ -1,3 +1,31 @@
-.modale-infos {
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: 0;
+}
 
+.modal-body {
+  min-height: 200px;
+  position: relative;
+  &-logo {
+    width: 100px;
+    margin-bottom: 30px;
+  }
+}
+
+.modal-header {
+  padding: 15px;
+  background-color: $pepeat;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.13);
+  min-height: 16.4px;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.53);
+  border-top-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }

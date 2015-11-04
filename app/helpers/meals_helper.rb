@@ -37,6 +37,13 @@ module MealsHelper
      array.count
   end
 
+
+  def meal_actual(meal)
+    if meal.day > DateTime.now - 1.days
+      true
+    end
+  end
+
   def total_recette(meal)
     array = []
     meal.orders.each do |order|
@@ -50,7 +57,7 @@ module MealsHelper
     array = []
     meals.each do |meal|
       meal.orders.each do |order|
-        array << order.meal.price.to_i * order.portion
+        array << order.meal.price.to_i * order.portion - order.meal.price.to_i * order.portion * @chief
       end
     end
 

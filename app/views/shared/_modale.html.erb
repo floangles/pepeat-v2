@@ -3,18 +3,23 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center">Commandez ici</h4>
+        <h4 class="modal-title text-center">Choisissez le nombre de menus</h4>
       </div>
       <%= simple_form_for [meal, @order], url: profile_orders_path do |f| %>
-        <div class="modal-body">
-          <%= f.input :portion, label: 'Combien de parts voulez vous commander ?',required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
-          <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
-          <%= f.input :amount, as: :hidden, :input_html => { :value => meal.price } %>
-          <%= f.input :state, as: :hidden,  :input_html => { :value => 'pending' }%>
+        <div class="modal-body text-center">
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+              <%= image_tag 'pepeat.png', class: "modal-body-logo" %>
+              <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi" %>
+              <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
+              <%= f.input :amount, as: :hidden, :input_html => { :value => meal.price } %>
+              <%= f.input :state, as: :hidden,  :input_html => { :value => 'pending' }%>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-          <%= f.button :submit, value: 'Réservez maintenant', label: 'Réservez maintenant', class: "btn btn-pepeat btn-lg" %>
+          <%= f.button :submit, value: 'Réservez maintenant', label: 'Réservez maintenant', class: "btn btn-success" %>
         </div><!-- /.modal-content -->
       <% end %>
     </div><!-- /.modal-dialog -->

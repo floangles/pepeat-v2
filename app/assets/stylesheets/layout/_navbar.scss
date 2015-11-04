@@ -95,7 +95,7 @@ $navbar-profile-border-width: 2px;
     background-color: $navbar-btn-bg;
     font-size: 12px;
     &:hover{
-      background-color: $go;
+      background-color: darken($navbar-btn-bg, 10%);
     }
   }
 

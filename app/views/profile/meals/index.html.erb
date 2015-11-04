@@ -38,7 +38,7 @@
           <div class="col-xs-12 col-sm-6">
             <div class="card-offer-left">
               <div class="card-offer-left-title text-center">
-                <%= meal.title%>
+                <%= meal.title%> - <%=meal.price%> €
               </div>
               <div class="card-offer-left-meal">
                   <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
@@ -99,7 +99,7 @@
                  <%= image_tag 'home2.png', class: "card-offer-right-date-img hover", title: "Sur place" %>
                 <div class= "card-offer-right-date-infos text-center">
                   <div>
-                    <%= meal.day.strftime('%d/%m/%Y') %>
+                    <b><%= meal.day.strftime('%d/%m/%Y') %></b>
                   </div>
                   <div>
                     RDV à <%= meal.home_hour.strftime('%Hh:%M')%> chez le cuisinier
@@ -109,7 +109,7 @@
                 <%= image_tag 'take.png', class: "card-offer-right-date-img hover", title: "A emporter" %>
                 <div class= "card-offer-right-date-infos text-center">
                   <div>
-                    <%= meal.day.strftime('%d/%m/%Y') %>
+                   <b><%= meal.day.strftime('%d/%m/%Y') %></b>
                   </div>
                   <div>
                     <%= meal.start_hour.strftime('De %Hh:%M') %> <%= meal.end_hour.strftime('à %Hh:%M')%>

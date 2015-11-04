@@ -11,11 +11,15 @@
         <h4 class="modal-title">Commandez ici</h4>
       </div>
       <%= simple_form_for [meal, @order], url: profile_orders_path do |f| %>
-        <div class="modal-body">
+        <div class="modal-body text-center">
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
           <%= f.input :portion, label: 'Combien de parts ?', collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
           <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
           <%= f.input :amount, as: :hidden, :input_html => { :value => meal.price } %>
           <%= f.input :state, as: :hidden,  :input_html => { :value => 'pending' }%>
+          </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -55,9 +55,11 @@
 <div class="container">
   <div class="row">
     <% @user.meals.each do |meal| %>
-      <div class="col-xs-6">
-        <%= render "/shared/cardmeals", meal: meal %>
-      </div>
+      <% if meal.validate && meal_actual(meal) %>
+        <div class="col-xs-6">
+          <%= render "/shared/cardmeals", meal: meal %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -82,8 +84,12 @@
 <div class="container">
   <div class="card-feedback">
     <div class="row">
-      <% @user.meals.each do |meal| %>
-        <%= render '/shared/review', meal: meal %>
+      <% if review(@user) == 0 %>
+        <p> Le chef <%= meal.user.firstname%> n'a pas encore d'avis !</p>
+      <% else %>
+        <% @user.meals.each do |meal| %>
+          <%= render '/shared/review', meal: meal %>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -93,9 +99,6 @@
 </div>
 
 
-<style media="screen">
-  .caca { background-image: url(<%= @user.picture.url(:medium) %>); }
-</style>
 
 
 
