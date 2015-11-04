@@ -27,6 +27,17 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
+
+    tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
+    tracker.people.set(@user.id, {    # we already have user object, setting its ID using the object
+    '$email'            => @user.email,
+    '$Prenom'           => @user.firstname,
+    '$Nom'              => @user.lastname,
+    '$Tel'              => @user.phone_number,
+    '$Chef'            => @user.chief,
+
+    });
+
   end
 
   def croping

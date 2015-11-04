@@ -20,9 +20,6 @@
 <div class= "banner-button">
   <%= link_to 'Voir les menus sur Lille', meals_path, class: "btn-lg btn-pepeat-soft" %>
 </div>
-<script type="text/javascript">
-    mixpanel.track("Voir les menus sur Lille");
-</script>
 
 <div class="home-infos text-center">
   <div class="container">
@@ -173,4 +170,13 @@
     </div>
   </div>
 </div>
+
+  <% if current_user %>
+    <% tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5') %>
+    <% tracker.track(current_user.id, 'Home Page') %>
+  <% end %>
+
+
+
+
 

@@ -75,7 +75,7 @@
                 <%= link_to 'Modifier mon annonce', edit_profile_meal_path(@meal), class: "btn btn-success buton-order" %>
               <% else %>
                 <div class="meals-body-order">
-                  <%= render "modale", meal: @meal %>
+                  <%= render "/shared/modale", meal: @meal %>
                 </div>
               <% end %>
             </div>
@@ -104,6 +104,11 @@
     </div>
   </div>
 </div>
+
+<% if current_user %>
+  <% tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5') %>
+  <% tracker.track(current_user.id, 'Meal show') %>
+<% end %>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>

@@ -13,6 +13,7 @@
 //= require jquery.jcrop
 //= require papercrop
 
+
 //= require_tree ./app
 
 

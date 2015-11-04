@@ -3,7 +3,6 @@
     <h3>Payement de la commande</h3>
   </div>
 </div>
-
 <%= form_tag profile_order_payments_path(@order) do %>
 <div class="container">
   <div class="payment">
@@ -33,9 +32,11 @@
                   data-currency="EUR">
               </script>
             </div>
-            <button id="customButton" class=" stripe-button stripe-button-el">
-                <span style="display: block; min-height: 30px;">Payez par carte</span>
-            </button>
+            <div id= "track">
+              <button id="customButton" class=" stripe-button stripe-button-el">
+                  <span style="display: block; min-height: 30px;">Payez par carte</span>
+              </button>
+            </div>
             <div class= "payment-left-explanation">
               <p>La commission prélevée par Pepeat est de 15%. Elle comprend la TVA et les frais de transactions.</p>
             </div>
@@ -78,9 +79,16 @@
   </div>
 </div>
 
-
-
-
-
-
 <% end %>
+
+
+<% if current_user %>
+  <% tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5') %>
+  <%tracker.track(current_user.id, 'Payment page') %>
+<% end %>
+
+
+
+
+
+

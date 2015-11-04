@@ -39,6 +39,8 @@ gem 'money-rails'
 gem 'stripe'
 gem 'omniauth-stripe-connect'
 
+gem 'mixpanel-ruby'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
   gem "rails-assets-underscore"

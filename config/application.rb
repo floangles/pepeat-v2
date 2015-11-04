@@ -9,6 +9,9 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require 'mixpanel-ruby'
+
+tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
 
 
 # require "rails/test_unit/railtie"
