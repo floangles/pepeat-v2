@@ -192,6 +192,7 @@
   </div>
 
 <script type="text/javascript">
+  mixpanel.identify("<%= current_user.email %>");
   mixpanel.track("Meals index");
 </script>
 

@@ -99,7 +99,7 @@
       <h1 class= "text-center profile-header">Mes informations bancaire</h1>
       <p class= "text-center">Pour assurer la sécurité des transferts vers votre compte nous passons par un service reconnu et spécialisé. Clicker sur le boutton et créer votre compte Stripe pour récupérer facielement votre argent. Cela ne vous prend que 3 minutes.</p>
       <div class= "text-center">
-      <%= link_to user_omniauth_authorize_path(:stripe_connect), class: "stripe-connect" do %>
+      <%= link_to user_omniauth_authorize_path(:stripe_connect, :'stripe_user[first_name]' => current_user.firstname, :'stripe_user[last_name]' => current_user.lastname, :'stripe_user[email]' => current_user.email, :'stripe_user[country]' => 'FR', :'stripe_user[phone_number]' => current_user.phone_number, :'stripe_user[business_name]' => 'Pepeat', :'stripe_user[url]' => 'http://www.pepeat.org/', :'stripe_user[product_description]' => "Cuisinier pour l'entreprise Pepeat", :'stripe_user[street_address]' => '289 boulevard Vauban', :'stripe_user[city]' => 'Lille', :'stripe_user[state]' => 'FR', :'stripe_user[zip]' => '59000'), class: "stripe-connect" do  %>
         <span>Se connecter avec Stripe</span>
       <% end %>
       </div>
@@ -233,6 +233,8 @@
     mixpanel.people.set({
       "$email": "<%= current_user.email %>",
       "$firstname": "<%= current_user.firstname%>"
+      "$lastname": "<%= current_user.lastname%>"
+      "$phonenumber": "<%= current_user.phone_number%>"
     });
   </script>
 <% end %>
