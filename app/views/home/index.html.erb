@@ -171,6 +171,12 @@
   </div>
 </div>
 
+<% if request.referrer == 'http://localhost:3000/users/sign_up' %>
+  <script type="text/javascript">
+    mixpanel.alias("<%= current_user.email %>");
+  </script>
+<% end %>
+
 <% if current_user %>
   <script type="text/javascript">
     mixpanel.identify("<%= current_user.email %>");
@@ -179,6 +185,8 @@
     });
   </script>
 <% end %>
+
+
 
 <script type="text/javascript">
   mixpanel.track("Home-Page");
