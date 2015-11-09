@@ -135,6 +135,8 @@ GEM
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
+    event_tracker (0.3.0)
+      rails (>= 3.0)
     execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -363,6 +365,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  event_tracker
   figaro
   font-awesome-sass
   geocoder

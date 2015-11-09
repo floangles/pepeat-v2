@@ -32,8 +32,7 @@
   </a>
 </div>
 
-<% if current_user %>
-  <% tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5') %>
-  <% tracker.track(current_user.id, 'Booking modale') %>
-<% end %>
+<script type="text/javascript">
+  mixpanel.track("Booking modale");
+</script>
 

@@ -60,6 +60,7 @@ class User < ActiveRecord::Base
 
 
 
+
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

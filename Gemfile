@@ -40,6 +40,7 @@ gem 'stripe'
 gem 'omniauth-stripe-connect'
 
 gem 'mixpanel-ruby'
+gem 'event_tracker'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'

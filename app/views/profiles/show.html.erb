@@ -227,4 +227,14 @@
 
 <% end %>
 
+<% if current_user %>
+  <script type="text/javascript">
+    mixpanel.identify("<%= current_user.email %>");
+    mixpanel.people.set({
+      "$email": "<%= current_user.email %>",
+      "$firstname": "<%= current_user.firstname%>"
+    });
+  </script>
+<% end %>
+
 

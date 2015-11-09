@@ -10,7 +10,10 @@ module UserHelper
   end
 
   def age(user)
-    DateTime.now.year - user.birth.year
+    if user.birth
+      DateTime.now.year - user.birth.year
+    end
   end
+
 
 end

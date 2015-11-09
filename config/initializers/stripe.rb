@@ -10,11 +10,11 @@ if(Rails.env == 'development' || Rails.env == 'staging')
 
 elsif(Rails.env == 'production')
   Rails.configuration.stripe = {
-    publishable_key: 'pk_live_6tGB61xC0159X3pk3kCQnyH2',
-    secret_key:      'sk_live_3nqS8jWNXEeInQ1UtjA9K4GN',
-    connect_client_id:  'ca_7ATb1JCa4Sr4pPPPGhuTJoTcy5RxWR8Q'
+    publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],
+    secret_key:      ENV['STRIPE_SECRET_KEY']
+    connect_client_id:  ENV['STRIPE_CONNECT_CIENT_ID']
   }
 
-  Stripe.api_key = 'sk_test_E09VifanTXsnC6sNtJRxKpjk'
+  Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
 end

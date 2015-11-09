@@ -5,8 +5,8 @@
         <div class="card-signin">
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3">
-              <h2 class= "text-center title-pepeat"> Pepeato</h2>
-              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :remote => true do |f| %>
+              <h2 class= "text-center title-pepeat"> Pepeat</h2>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
                 <%= f.input :email, label: "Mail", required: false, autofocus: true %>
                 <%= f.input :password, required: false %>

@@ -82,10 +82,9 @@
 <% end %>
 
 
-<% if current_user %>
-  <% tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5') %>
-  <%tracker.track(current_user.id, 'Payment page') %>
-<% end %>
+<script type="text/javascript">
+  mixpanel.track("Payment page");
+</script>
 
 
 

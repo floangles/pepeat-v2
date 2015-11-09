@@ -37,7 +37,7 @@ module PepeatV2
       generate.view_specs false
     end
 
-
+    config.event_tracker.mixpanel_key = "bf3c4875bc72ddd445efe161b3d039a5"
 
     config.action_controller.action_on_unpermitted_parameters = :raise
     # Settings in config/environments/* take precedence over those specified here.

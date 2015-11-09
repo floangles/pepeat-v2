@@ -9,7 +9,9 @@ class ProfilesController < ApplicationController
   end
 
   def age(user)
-    DateTime.now.year - user.birth.year
+    if user.birth
+      DateTime.now.year - user.birth.year
+    end
   end
 
 
@@ -32,16 +34,18 @@ class ProfilesController < ApplicationController
       render :edit
     end
 
-    tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
-    tracker.people.set(@user.id, {    # we already have user object, setting its ID using the object
-    '$email'            => @user.email,
-    '$Prenom'           => @user.firstname,
-    '$Nom'              => @user.lastname,
-    '$Tel'              => @user.phone_number,
-    '$Chef'             => @user.chief,
-    '$Age'              => age(@user),
+    # tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
+    # tracker.alias(@user.id, @user.id)
+    # tracker.people.set(@user.id, {    # we already have user object, setting its ID using the object
+    # '$email'            => @user.email,
+    # '$Prenom'           => @user.firstname,
+    # '$Nom'              => @user.lastname,
+    # '$Tel'              => @user.phone_number,
+    # '$Chef'             => @user.chief,
+    # '$Age'              => age(@user),
 
-    });
+    # });
+
 
   end
 
