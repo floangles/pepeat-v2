@@ -41,6 +41,7 @@ gem 'omniauth-stripe-connect'
 
 gem 'mixpanel-ruby'
 gem 'event_tracker'
+gem 'intercom-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
