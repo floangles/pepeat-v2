@@ -41,6 +41,7 @@
   p {
     background-color: rgba(0, 0, 0, 0.06);
     font-size: 20px;
+    border-radius: 5px;
     border: 1px solid rgba(49,49,47,0.18);
   }
 }
@@ -92,6 +93,7 @@
 }
 
 .profile-header {
+  padding-bottom: 20px;
   font-size: 26px;
   text-decoration: overline;
 }

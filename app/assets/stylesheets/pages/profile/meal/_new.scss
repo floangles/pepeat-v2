@@ -1,26 +1,25 @@
 .background-meal-new {
   position: relative;
 
-
-  background: -webkit-linear-gradient(90deg, #00bf8f 10%, #001510 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #00bf8f 10%, #001510 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #00bf8f 10%, #001510 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #00bf8f 10%, #001510 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #00bf8f 10%, #001510 90%); /* W3C */
-
-
-
+  background-image: image-url('banner-test2.png');
+  background-position: center center;
   width: 100%;
   height: 285px;
   &-title {
     color: white;
     position: absolute;
     top: 50%;
+    padding: 20px;
+    border-radius: 4px;
+    // border: solid 1px white;
+    background-color: rgba(0, 0, 0, 0.67);
     left: 50%;
+    text-shadow: 1px 1px rgba(51, 51, 51, 0.56);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     h3 {
       font-size: 44px;
-      text-shadow: 2px 2px rgba(222, 161, 24, 0.79);
     }
   }
 }
@@ -39,8 +38,7 @@
   height: auto;
   padding: 26px 5px;
   margin: 30px;
-  margin-top: 10px;
-  margin-left: 0px;
+  margin-top: 40px;
   border: 1px solid rgba(49,49,47,0.18);
   &-left {
     padding-right: 30px;
@@ -55,6 +53,7 @@
     h3 {
       font-family: $subtitle;
       font-size: 22px;
+      color: $pepeat;
     }
     &-away {
       position: relative;
@@ -64,7 +63,7 @@
         padding-left: 200px
       }
       &-pic {
-        width: 22%;
+        width: 100px;
         position: absolute;
         top: 0px;
         left: 25px;
@@ -77,11 +76,49 @@
         padding-left: 200px
       }
       &-pic {
-        width: 22%;
+        width: 100px;
         position: absolute;
         top: 0px;
         left: 25px;
       }
+    }
+  }
+}
+
+
+
+.card-ingredients {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 26px 5px;
+  margin: 30px;
+  margin-top: 40px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-left {
+    margin: 20px;
+    &-pic {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.card-description-menu {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding: 26px 5px;
+  margin: 30px;
+  margin-top: 40px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-left {
+    margin: 20px;
+    &-pic {
+      width: 100px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -99,6 +136,7 @@
   border: 1px solid rgba(49,49,47,0.18);
     h3 {
       font-family: $subtitle;
+      color: $pepeat;
     }
   &-price {
     &-icon {
@@ -143,6 +181,7 @@
     h3 {
       font-family: $subtitle;
       font-size: 20px;
+      color: $pepeat;
     }
     &-input {
       margin: 0 auto;
@@ -153,6 +192,7 @@
     h3 {
       font-family: $subtitle;
       font-size: 20px;
+      color: $pepeat;
     }
     &-away {
 
@@ -162,15 +202,23 @@
 
 
 .important {
+  position: relative;
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   border-radius: 3px;
   height: auto;
   padding: 26px 30px;
   margin: 30px;
+  margin-bottom: 40px;
   margin-top: 10px;
   margin-left: 0px;
   border: 1px solid rgba(49,49,47,0.18);
+  &-submit {
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+  }
 }
 
 .preview-meal {

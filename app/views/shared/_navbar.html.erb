@@ -88,7 +88,7 @@
           </li>
           <li>
             <% if current_user.chief? %>
-              <%= link_to t(".top_call_to_action", default: "Créer un menu"), new_profile_meal_path, class: "btn" %>
+              <%= link_to t(".top_call_to_action", default: " Créer un menu"), new_profile_meal_path, class: "btn" %>
             <% else %>
               <%= link_to t(".top_call_to_action", default: "Devenir chef Pepeat"), page_path('chief_infos'), class: "btn" %>
             <% end %>
