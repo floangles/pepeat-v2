@@ -15,6 +15,6 @@ elsif(Rails.env == 'production')
     client_id:  ENV['STRIPE_CONNECT_CIENT_ID']
   }
 
-  Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+  Stripe.api_key = ENV[:secret_key]
 
 end
