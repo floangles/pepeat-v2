@@ -35,7 +35,7 @@
             <div class= "card-menu-right-away">
               <div class= "card-menu-right-away-txt">
                 <h3>A emporter</h3>
-                <p> Les personnes ayant commandés votre plat viennent le chercher chez vous pendant le créneau horaire que vous spécifiez plus bas. Ils repartents ensuite pour le déguster.  </p>
+                <p> Les personnes ayant commandées votre plat viennent le chercher chez vous pendant le créneau horaire que vous spécifiez plus bas. Ils repartents ensuite pour le déguster.  </p>
                 <%= f.input :takeaway, label: 'A emporter' %>
               </div>
                 <%= image_tag 'take_away.png', class: "card-menu-right-away-pic" %>
@@ -43,7 +43,7 @@
             <div class= "card-menu-right-home">
               <div class= "card-menu-right-home-txt">
                 <h3>Sur place</h3>
-                <p> Vous proposer une table d'hôte. Vos invités arriveront à l'heure que vous spécifierez plus bas. Bonne ambiance et rencontre au rendez-vous  </p>
+                <p> Vous proposez une table d'hôte. Vos invités arriveront à l'heure que vous spécifierez plus bas. Bonne ambiance et rencontres au rendez-vous  </p>
                 <%= f.input :home, label: 'Sur place' %>
               </div>
                 <%= image_tag 'home.png', class: "card-menu-right-home-pic" %>
@@ -80,7 +80,7 @@
         <div class="col-xs-3 col-xs-offset-1">
             <div class= "card-description-menu-left text-center">
               <%= image_tag 'description.png', class: "card-description-menu-left-pic" %>
-              <p> Faites vivre votre plat et dites nous pourquoi vous avez choisiez de le cuisiner </p>
+              <p> Decrivez votre menu ( ou vous l'avez appris, d'ou il vient, comment vous comptez le cuisiner ...)  </p>
             </div>
           </div>
         <div class="col-xs-5 col-xs-offset-2">
@@ -123,8 +123,8 @@
                 <%= image_tag 'quantity.png', class: "menu-infos-portion-icon-size" %>
                 <h3>Nombre de menus</h3>
             </div>
-            <p>Décidez ici combien de menu au maximum vous pouvez proposer</p>
-            <p>En moyenne, nos cuisiniez vendent entre 10 et 50 menus selon leur capacité.</p>
+            <p>Décidez ici combien de menus au maximum vous pouvez proposer</p>
+            <p>En moyenne, nos cuisiniez vendent entre 10 et 50 menus selon la capacité de leur cuisine.</p>
             <p>A vos fourneaux !</p>
               <%= f.input :portion,label: 'Nombre de menus',collection: 1..100, required: false, input_html: { style: 'width: 100px' } %>
             </div>
@@ -136,7 +136,7 @@
 
 <div class="container">
   <div class="date five">
-    <h1 class= "text-center profile-header">5. Fixer une date</h1>
+    <h1 class= "text-center profile-header">5. Fixez une date</h1>
     <div class="text-center">
       <h3>Quand comptez vous cuisiner ?</h3>
       <%= image_tag 'calendar.png', class: "date-calendar" %>

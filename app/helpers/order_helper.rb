@@ -31,7 +31,7 @@ module OrderHelper
   end
 
   def total_orders(meal)
-    meal.orders.sum(:portion)
+    meal.orders.where(state: "paid").sum(:portion)
   end
 end
 

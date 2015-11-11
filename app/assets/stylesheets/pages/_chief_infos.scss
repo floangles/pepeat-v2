@@ -80,15 +80,9 @@
 
 
 .choice {
-
-  background: -webkit-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #757F9A 10%, #D7DDE8 90%); /* W3C */
-
+  background-color: white;
   width: 100%;
-  height: auto;
+  padding-top: 35px;
 }
 
 
@@ -99,23 +93,40 @@
 }
 
 .card-chief-infos {
-  background-color: white;
-  box-shadow: 1px 1px 1px rgba(25, 24, 24, 0.22);
-  border-radius: 3px;
   height: auto;
   padding: 35px;
-  margin-top: 50px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 40px;
-  border: 1px solid rgba(49,49,47,0.18);
   h1 {
     font-family: $subtitle;
     font-size: 30px;
   }
+  &-img {
+  width: 100px;
+  margin: 20px;
 
+  }
+}
+.stripe-solution {
+  h3 {
+    font-size: 25px;
+    font-family: $subtitle;
+  }
+  p {
+    margin-top: 15px;
+    text-align: -webkit-left;
+  }
 }
 
+#stripe-infos {
+   background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
+  padding: 20px;
+}
 
 .button-chief {
   margin-top: 30px;

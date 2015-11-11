@@ -9,27 +9,41 @@
         <% end %>
       <% end %>
     </div>
+    <div class="meal-header-status">
+      <% if meal.home? %>
+        <h3 class= "text-center">Diner chez le chef</h3>
+      <% else %>
+        <h3 class= "text-center">A emporter</h3>
+      <% end %>
+    </div>
     <div class="meal-header-price">
-      <%= humanized_money_with_symbol(meal.price) %>
+      <%=(meal.price) %> €
+    </div>
+    <div class="meal-header-date">
+      <% if meal.home? %>
+        <%= l(meal.day, format: '%A %d/%m')%> <span><%= meal.home_hour.strftime('%Hh:%M') %></span>
+      <% else %>
+        <%= l(meal.day, format: '%A %d/%m')%> <span><%= meal.start_hour.strftime('%Hh:%M')%> - <%= meal.end_hour.strftime('%Hh:%M') %></span>
+      <% end %>
     </div>
   </div>
   <div class="meal-body">
     <div class="meal-body-menu-first">
       <%= image_tag 'starter.png', class: "img-menu-show-meal" %>
       <div class= "meal-body-menu-first-element">
-        <%= meal.starter %>
+        <b><%= meal.starter %></b>
       </div>
     </div>
     <div class="meal-body-menu">
       <%= image_tag 'main.png', class: "img-menu-show-meal" %>
       <div class= "meal-body-menu-element">
-        <%= meal.main %>
+        <b><%= meal.main %></b>
       </div>
     </div>
     <div class="meal-body-menu">
       <%= image_tag 'dessert.png', class: "img-menu-show-meal" %>
       <div class= "meal-body-menu-element">
-        <%= meal.dessert %>
+        <b><%= meal.dessert %></b>
       </div>
     </div>
     <div class="meal-body-description">
@@ -41,9 +55,9 @@
         <div class="col-xs-6">
           <div class="meal-body-infos-date">
             <% if meal.home? %>
-            <p>Chef le chef</p> à <%= meal.home_hour.strftime('%Hh') %> chez moi
+            <p>Chef le chef</p> à <%= meal.home_hour.strftime('%Hh:%M') %> chez moi
           <% else %>
-            <p>Take-away</p><%= meal.start_hour.strftime('De %Hh') %> <%= meal.end_hour.strftime('à %Hh') %>
+            <p>Take-away</p><%= meal.start_hour.strftime('%Hh:%M')%> - <%= meal.end_hour.strftime('%Hh:%M') %>
           <% end %>
           </div>
         </div>

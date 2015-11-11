@@ -18,7 +18,7 @@ module Profile
 
 
     def is_ordered?
-      if @meal.orders.count == 0
+      if @meal.orders.where(state: "paid").sum(:portion)
         true
       else
         render :text =>" Ce n'est pas bien de taper des URL au pif.Vous ne pouvez supprimer un plat avec des commandes"

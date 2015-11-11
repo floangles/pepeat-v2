@@ -37,7 +37,7 @@
   border-radius: 3px;
   height: auto;
   padding:4px;
-  margin-top: 10px;
+  margin-top: 40px;
   border: 1px solid rgba(49,49,47,0.18);
 
   &-header {
@@ -45,6 +45,18 @@
     position: relative;
     color: white;
     border-radius: 3px 3px 0px 0px;
+    &-status {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(2, 2, 2, 0.7);
+      h3 {
+        font-family: $subtitle;
+        font-size: 21px;
+        margin: 4px;
+      }
+    }
     &-price {
       position: absolute;
       bottom: 0px;
@@ -52,6 +64,17 @@
       background-color: rgba(2, 2, 2, 0.7);
       font-size: 30px;
       padding: 8px;
+    }
+    &-date {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      background-color: rgba(2, 2, 2, 0.7);
+      font-size: 30px;
+      padding: 8px;
+      span {
+        font-size: 20px;
+      }
     }
   }
   &-body {
@@ -127,15 +150,29 @@
 }
 
 
-
-.card-order {
+.card-ingredients {
   background-color: white;
   height: auto;
-  background-color: white;
+  padding:4px;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   border-radius: 3px;
   border: 1px solid rgba(49,49,47,0.18);
   margin-bottom: 40px;
+}
+
+
+.card-order {
+  background-color: white;
+  height: auto;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  border: 1px solid rgba(49,49,47,0.18);
+  margin-bottom: 40px;
+  h3 {
+    font-size: 20px;
+    font-family: $subtitle;
+    color: $pepeat
+  }
 }
 
 .card-show-chief {
@@ -145,8 +182,7 @@
   border-radius: 3px;
   height: auto;
   padding:4px;
-  margin: 30px;
-  margin-top: 10px;
+  margin: 40px;
   border: 1px solid rgba(49,49,47,0.18);
   &-description {
     padding: 15px;
@@ -179,9 +215,15 @@
   border-radius: 3px;
   border: 1px solid rgba(49,49,47,0.18);
   &-map {
-    height: 300px;
+    height: 309px;
   }
   &-plus {
+    span {
+      color: $pepeat;
+    }
+    b {
+      padding-right: 8px;
+    }
     &-element{
       padding-top: 20px;
       position: relative;
@@ -195,8 +237,6 @@
       }
     }
     &-order {
-      position: relative;
-      bottom: -71px;
     }
   }
 }
@@ -223,11 +263,15 @@
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   border-radius: 3px;
   height: auto;
-  padding: 30px;
   margin: 30px;
   margin-top: 50px;
   margin-bottom: 70px;
   border: 1px solid rgba(49,49,47,0.18);
+  h3 {
+    font-family: $subtitle;
+    font-size: 20px;
+    color: $pepeat;
+  }
   &-element {
     position: relative;
     padding: 20px;

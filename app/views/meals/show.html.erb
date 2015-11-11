@@ -1,16 +1,14 @@
-<div class="background-meals-show">
-  <div class="background-meals-show-title">
-    <h3><%= @meal.title %></h3>
+<div class="background-meal-new">
+  <div class="background-meal-new-title">
+    <h3><%= @meal.title%></h3>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-7">
-      <h3 class= "text-center title">Le menu</h3>
    <%= render "/shared/cardmealsshow", meal: @meal %>
     </div>
     <div class="col-xs-12 col-sm-5">
-      <h3 class= "text-center title">Le chef</h3>
       <div class="card-show-chief">
         <div class="carousel">
           <% @meal.user.chief_pictures.each do |picture| %>
@@ -29,17 +27,25 @@
     </div>
   </div>
 </div>
-<h3 class= "text-center title">Les commandes </h3>
+
+<div class="container">
+  <div class="card-ingredients text-center">
+    <h1 class= "text-center profile-header">Les ingrédients</h1>
+    <%= @meal.ingredients.html_safe %>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="card-order text-center">
+    <h1 class= "text-center profile-header">Les commandes</h1>
     <h3 class= "text-center"><%= total_orders(@meal) %> menu(s) commandé(s) </h3>
-    <% @meal.orders.each do |order| %>
+    <% @meal.orders.where(state: "paid").each do |order| %>
       <%= image_tag order.user.picture.url(:medium), class: "img-circle picuser" %>
     <% end %>
   </div>
 </div>
 
-<h3 class= "text-center title">Les infos</h3>
 <div class="container">
   <div class="card-infos">
     <div class="row">
@@ -49,9 +55,10 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-8">
+        <h1 class= "text-center profile-header">Les infos</h1>
         <div class="card-infos-plus">
           <div class="card-infos-plus-element text-center">
-            <p>Adresse de <%=@meal.user.firstname %></p>
+            <span><p>Adresse de <%=@meal.user.surname %></p></span>
             <%= @meal.user.address %>
             <div class= "card-infos-plus-element-position-img">
               <i class="fa fa-map-marker fa-3x"></i>
@@ -59,11 +66,11 @@
           </div>
           <div class="card-infos-plus-element text-center">
             <% if @meal.home? %>
-              <p> Jour et heure du rendez vous</p>
-              <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.home_hour.strftime('%Hh') %>
+              <span><p> Jour et heure du rendez vous</p></span>
+              <b><%= @meal.day.strftime('%d/%m/%Y') %></b> <%= @meal.home_hour.strftime('%Hh:%M') %>
             <% else %>
-              <p>Jour et heure du Takeaway</p>
-              <%= @meal.day.strftime('%d/%m/%Y') %> <%= @meal.start_hour.strftime('De %Hh') %> <%= @meal.end_hour.strftime('à %Hh')%>
+              <span><p>Jour et heure du Takeaway</p></span>
+              <b><%= @meal.day.strftime('%d/%m/%Y') %></b>  <%= @meal.start_hour.strftime('%Hh:%M')%> - <%= @meal.end_hour.strftime('%Hh:%M') %>
             <% end %>
             <div class= "card-infos-plus-element-position-img">
               <i class="fa fa-calendar fa-3x"></i>
@@ -87,9 +94,9 @@
 </div>
 
 
-<h3 class= "text-center title2">Les derniers avis de <%= @user.surname%></h3>
 <div class="container">
   <div class="card-feedback">
+    <h1 class= "text-center profile-header">Les derniers avis de <%= @meal.user.surname %></h1>
     <div class="row">
       <% if review(@user) == 0 %>
           <h3 class= "text-center">Vous n'avez pas encore d'avis</h3>
