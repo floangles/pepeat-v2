@@ -29,7 +29,7 @@ module Profile
       if current_user.uid && current_user.publishable_key && current_user.access_code && current_user.provider
         true
       else
-        redirect_to profile_path, notice: "Vous devez avoir entrer vos données bancaire avant de créer un menu"
+        redirect_to profile_path, notice: "Vous devez entrer vos données bancaire avant de créer un menu"
       end
     end
 
