@@ -176,7 +176,7 @@
   </script>
 <% end %>
 
-<% if current_user && current_user.email %>
+<% if current_user %>
   <script type="text/javascript">
     mixpanel.identify("<%= current_user.email %>");
     mixpanel.people.set({

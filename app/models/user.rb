@@ -95,7 +95,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>", large: "550x550>", crop:"300x300#" },
-    default_url: "placeholder.png"
+    default_url: "default.svg"
     crop_attached_file :picture
 
   validates_attachment_content_type :picture,
