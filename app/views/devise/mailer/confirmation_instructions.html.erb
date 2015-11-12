@@ -1,6 +1,14 @@
-<% require 'devise/version' %>
-<p><%= t('.greeting', :recipient => @resource.email, :default => "Welcome #{@resource.email}!") %></p>
-
-<p><%= t('.instruction', :default => "You can confirm your account email through the link below:") %></p>
-<p><%= link_to t('.action', :default => "Confirm my account"),
-         confirmation_url(@resource, :confirmation_token => (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class= "text-center">
+        <%= image_tag "https://pepeat-v2-production.herokuapp.com/app/assets/images/pepeat-title.png" %>
+        <h1>Bienvenue chez Pepeat !</h1>
+        <p>Nous sommes ravis de vous savoir intéressé par notre concept et nous mettons tout en oeuvre pour que notre service s'améliore de jour en jour.</p>
+        <p>Avant de commencer à commander les superbes menus cuisinés par les chefs de votre quartier, vous devez confirmer votre adresse mail en cliquand ci dessous:</p>
+        <p><%= link_to t('.action', :default => "Confirm my account"),
+           confirmation_url(@resource, :confirmation_token => (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
+      </div>
+    </div>
+  </div>
+</div>

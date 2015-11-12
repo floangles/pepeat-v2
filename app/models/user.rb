@@ -60,9 +60,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook, :stripe_connect]
 
-  after_create :send_welcome_email
-
-
+  after_create :welcome_message
 
 
   def self.find_for_facebook_oauth(auth)
@@ -106,7 +104,7 @@ class User < ActiveRecord::Base
 
   private
 
-  def send_welcome_email
+  def welcome_message
     UserMailer.welcome(self).deliver_now
   end
 
