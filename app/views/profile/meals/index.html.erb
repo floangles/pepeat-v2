@@ -64,7 +64,7 @@
                   <i class="fa fa-eye"></i>
                   </button>
                 <% end %>
-                <% if meal.orders.count == 0 %>
+                <% if meal.orders.where(state: "paid").count == 0 %>
                   <%= link_to edit_profile_meal_path(meal) do %>
                     <button class="button button-action button-box button-longshadow-left">
                     <i class="fa fa-pencil"></i>

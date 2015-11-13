@@ -43,6 +43,11 @@ gem 'mixpanel-ruby'
 gem 'event_tracker'
 gem 'intercom-rails'
 
+gem 'premailer-rails'
+gem 'nokogiri'
+
+
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
   gem "rails-assets-underscore"

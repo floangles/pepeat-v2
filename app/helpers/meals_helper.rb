@@ -18,7 +18,7 @@ module MealsHelper
   def total_meals(meals)
     array = []
     meals.each do |meal|
-      if meal.validation?
+      if meal.validation? && meal_actual(meal)
         array << 1
       end
     end
@@ -28,7 +28,7 @@ module MealsHelper
   def number_meals(meals, x)
     array = []
     meals.each do |meal|
-      if meal.validation?
+      if meal.validation? && meal_actual(meal)
         if (DateTime.now + x.days).day == meal.day.day
           array << 1
         end

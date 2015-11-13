@@ -12,7 +12,7 @@
   <li role="presentation"><a href="#five">5. Date</a></li>
 </ul>
 
-<%= simple_form_for(@meal, url: profile_meals_path, html: { multipart: true }) do |f| %>
+<%= simple_form_for(@meal, url: profile_meal_path(@meal), html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="container">

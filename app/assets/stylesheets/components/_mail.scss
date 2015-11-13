@@ -1,0 +1,6 @@
+%style{type:"text/css"}= Rails.application.assets.find_asset('email_stylesheet').to_s
+
+
+.pepeat-mail {
+  width: 400px;
+}
