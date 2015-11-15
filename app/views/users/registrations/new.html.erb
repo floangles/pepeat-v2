@@ -5,7 +5,10 @@
         <div class="card-signin">
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3">
-              <h2 class= "text-center title-pepeat"> Pepeat</h2>
+              <div class= "text-center">
+                <%= image_tag 'pepeat-title', class: "pepeat-signup" %>
+                <h3>Inscription</h3>
+              </div>
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
                 <%= f.input :email, label: "Mail", required: false, autofocus: true %>

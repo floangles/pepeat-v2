@@ -17,10 +17,16 @@ module Profile
 
     @amount = @order.amount_cents * @order.portion.to_i * @client_amount
 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      card:  params[:stripeToken]
-    )
+    if current_user.customer_id
+      customer = Stripe::Customer.retrieve(current_user.customer_id)
+    else
+
+      customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        card:  params[:stripeToken]
+      )
+      current_user.update(customer_id: customer.id)
+    end
     # You should store this customer id and re-use it.
     @commission = @order.amount_cents * @order.portion.to_i * @client + @order.amount_cents * @order.portion.to_i * @chief
     charge = Stripe::Charge.create({
@@ -34,8 +40,6 @@ module Profile
     })
     @order.update(payment: charge.to_json, state: 'paid', charge: charge.id)
 
-    tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
-    tracker.people.track_charge(current_user.id, @commission / 100)
     redirect_to profile_orders_path
 
     rescue Stripe::CardError => e

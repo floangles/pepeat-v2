@@ -26,7 +26,7 @@ module Profile
     end
 
     def has_stripe?
-      if current_user.uid && current_user.publishable_key && current_user.access_code && current_user.provider
+      if current_user.uid
         true
       else
         redirect_to profile_path, notice: "Vous devez entrer vos données bancaire avant de créer un menu."

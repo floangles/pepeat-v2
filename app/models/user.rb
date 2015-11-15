@@ -2,48 +2,50 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
-#  reset_password_token   :string
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :inet
-#  last_sign_in_ip        :inet
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  firstname              :string
-#  lastname               :string
-#  surname                :string
-#  chief                  :boolean
-#  description            :text
-#  address                :string
-#  picture_file_name      :string
-#  picture_content_type   :string
-#  picture_file_size      :integer
-#  picture_updated_at     :datetime
-#  latitude               :float
-#  longitude              :float
-#  phone_number           :string
-#  admin                  :boolean          default(FALSE), not null
-#  provider               :string
-#  uid                    :string
-#  picture                :string
-#  first_name             :string
-#  last_name              :string
-#  token                  :string
-#  token_expiry           :datetime
-#  pro                    :boolean
-#  amateur                :boolean
-#  publishable_key        :string
-#  access_code            :string
-#  birth                  :date
-#  confirmation_token     :string
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
+#  id                          :integer          not null, primary key
+#  email                       :string           default(""), not null
+#  encrypted_password          :string           default(""), not null
+#  reset_password_token        :string
+#  reset_password_sent_at      :datetime
+#  remember_created_at         :datetime
+#  sign_in_count               :integer          default(0), not null
+#  current_sign_in_at          :datetime
+#  last_sign_in_at             :datetime
+#  current_sign_in_ip          :inet
+#  last_sign_in_ip             :inet
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  firstname                   :string
+#  lastname                    :string
+#  surname                     :string
+#  chief                       :boolean
+#  description                 :text
+#  address                     :string
+#  picture_file_name           :string
+#  picture_content_type        :string
+#  picture_file_size           :integer
+#  picture_updated_at          :datetime
+#  latitude                    :float
+#  longitude                   :float
+#  phone_number                :string
+#  admin                       :boolean          default(FALSE), not null
+#  provider                    :string
+#  uid                         :string
+#  picture                     :string
+#  first_name                  :string
+#  last_name                   :string
+#  token                       :string
+#  token_expiry                :datetime
+#  pro                         :boolean
+#  amateur                     :boolean
+#  publishable_key             :string
+#  access_code                 :string
+#  birth                       :date
+#  confirmation_token          :string
+#  confirmed_at                :datetime
+#  confirmation_sent_at        :datetime
+#  stripe                      :boolean
+#  customer_id                 :string
 #
 # Indexes
 #
@@ -61,6 +63,9 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook, :stripe_connect]
 
   after_create :welcome_message
+
+  attr_accessor :stripe_account
+  attr_accessor :bank_account
 
 
   def self.find_for_facebook_oauth(auth)

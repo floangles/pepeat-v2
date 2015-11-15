@@ -27,6 +27,7 @@ $(function () {
       $('#datetimepicker7').datetimepicker({
           viewMode: 'years',
           format: 'L',
+          viewDate: false,
       });
   });
 

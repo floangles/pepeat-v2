@@ -45,6 +45,12 @@
               </div>
               <div class="chief-profile-right-date">
                 <%= f.input :address, label: 'Votre adresse',required: false %>
+                <input id="street_number" name="street_number" type="hidden">
+                <input id="route" name="route" type="hidden">
+                <input id="postal_code" name="postal_code" type="hidden">
+                <input id="locality" name="locality" type="hidden">
+                <input id="country" name="country" type="hidden">
+                <input id="administrative_area_level_1" name="administrative_area_level_1" type="hidden">
               </div>
               <div class= "chief-profile-right-date">
                 <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
@@ -76,6 +82,7 @@
     <div class= "text-center button-submit-profile">
       <% if params[:chief] == 'true' %>
         <%= f.input :chief, as: :hidden, input_html: { value: true } %>
+        <%= f.input :stripe_account, as: :hidden, input_html: { value: true } %>
       <% end %>
       <em><strong><%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
     </div>

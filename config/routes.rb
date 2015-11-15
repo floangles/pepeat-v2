@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
     collection do
         get 'croping'
+        get 'bank_account'
+        patch 'update_bank_account'
     end
   end
   resources :publics, only: [:index, :show]

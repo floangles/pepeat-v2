@@ -114,7 +114,7 @@
               <p> Dessert / entrée : 3 - 5 €</p>
               <p>Entrée / dessert et plat : 7 - 10 €</p>
               <p>Entrée et plat et dessert : 8 - 12 €</p>
-              <%= f.input :price, label: 'Prix (€)',required: false,collection: 1..100, input_html: { style: 'width: 100px' } %>
+              <%= f.input :price, label: 'Prix (€)',required: false, input_html: { style: 'width: 100px' } %>
             </div>
           </div>
           <div class= "col-xs-12 col-sm-6">
@@ -126,7 +126,7 @@
             <p>Décidez ici combien de menu au maximum vous pouvez proposer</p>
             <p>En moyenne, nos cuisiniez vendent entre 10 et 50 menus selon leur capacité.</p>
             <p>A vos fourneaux !</p>
-              <%= f.input :portion,label: 'Nombre de menus',collection: 1..100, required: false, input_html: { style: 'width: 100px' } %>
+              <%= f.input :portion, label: 'Nombre de menus',collection: 1..100, required: false, input_html: { style: 'width: 100px' } %>
             </div>
           </div>
         </div>

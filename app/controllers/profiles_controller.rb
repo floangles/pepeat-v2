@@ -29,28 +29,53 @@ class ProfilesController < ApplicationController
         @user.chief_pictures.create(chiefpicture: picture)
           }
     end
+
+      if params[:user][:stripe_account] == "true" && @user.stripe == nil
+        stripe = Stripe::Account.create(
+          {
+            country: "FR",
+            managed: true,
+            email: @user.email,
+            legal_entity: {
+              type: "individual",
+              first_name: @user.firstname,
+              last_name: @user.lastname,
+              address: {
+                city: params[:locality],
+                line1: params[:street_number] + ' ' + params[:route],
+                postal_code: params[:postal_code],
+                state: params[:administrative_area_level_1]
+              },
+              dob: {
+                day: @user.birth.day,
+                month: @user.birth.month,
+                year: @user.birth.year
+              }
+            }
+          }
+        )
+        @user.update(uid: stripe.id, stripe: 'true')
+      end
+
+
       redirect_to profile_path
+
     else
       render :edit
     end
-
-    # tracker = Mixpanel::Tracker.new('bf3c4875bc72ddd445efe161b3d039a5')
-    # tracker.alias(@user.id, @user.id)
-    # tracker.people.set(@user.id, {    # we already have user object, setting its ID using the object
-    # '$email'            => @user.email,
-    # '$Prenom'           => @user.firstname,
-    # '$Nom'              => @user.lastname,
-    # '$Tel'              => @user.phone_number,
-    # '$Chef'             => @user.chief,
-    # '$Age'              => age(@user),
-
-    # });
-
 
   end
 
   def croping
     @picture = current_user.chief_pictures.find(params[:format])
+  end
+
+  def update_bank_account
+
+    account = Stripe::Account.retrieve(current_user.uid)
+    account.external_accounts.create(external_account: stripeToken)
+
+    redirect_to profile_path
   end
 
 
@@ -63,7 +88,7 @@ class ProfilesController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:chief, :birth, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)
+    params.require(:user).permit( :customer_id, :stripe_account, :stripe, :chief, :birth, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)
   end
 
 
