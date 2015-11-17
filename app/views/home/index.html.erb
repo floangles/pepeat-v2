@@ -17,7 +17,7 @@
 </div>
 
 <div class= "banner-button">
-  <%= link_to 'Voir les menus à Lille', meals_path, class: "btn-lg btn-pepeat-soft" %>
+  <%= link_to 'Voir les menus à Lille', meals_path, class: "btn-lg btn-pepeat-soft", id:"banner-action" %>
 </div>
 
 <div class="home-infos text-center">
@@ -170,26 +170,21 @@
   </div>
 </div>
 
-<% if request.referrer == 'http://localhost:3000/users/sign_up' && current_user%>
+
+<% if current_user && current_user.sign_in_count == 1 %>
   <script type="text/javascript">
-    mixpanel.alias("<%= current_user.email %>");
+    analytics.alias(<%= current_user.id %>);
+    analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+    anaytics.track('Sign up');
   </script>
 <% end %>
-
-<% if current_user %>
-  <script type="text/javascript">
-    mixpanel.identify("<%= current_user.email %>");
-    mixpanel.people.set({
-      "$email": "<%= current_user.email %>",
-    });
-  </script>
-<% end %>
-
 
 
 <script type="text/javascript">
-  mixpanel.track("Home-Page");
+  var link = document.getElementById('banner-action');
+  analytics.trackLink(link, 'Banner clicked voir les menus');
 </script>
+
 
 
 

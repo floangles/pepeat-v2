@@ -13,6 +13,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   def show
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
     yield resource if block_given?
+    @alias = 'true'
 
     if resource.errors.empty?
       set_flash_message(:notice, :confirmed) if is_flashing_format?

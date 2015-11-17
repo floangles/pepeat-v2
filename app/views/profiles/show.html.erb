@@ -19,8 +19,16 @@
 </div>
 
 <% if current_user.chief? %>
+<ul class="nav nav-pills nav-justified">
+  <li role="presentation"><a href=".1">Mes informations</a></li>
+  <li role="presentation"><a href=".2">A propos de moi</a></li>
+  <li role="presentation"><a href=".3">Mes informations bancaire</a></li>
+  <li role="presentation"><a href=".4">Ma gallerie photo</a></li>
+  <li role="presentation"><a href=".5">Mes avis</a></li>
+</ul>
+
   <div class="container">
-    <div class="chief-profile">
+    <div class="chief-profile 1">
       <h1 class= "text-center profile-header">Mes informations</h1>
       <div class="row">
         <div class="col-xs-12 col-sm-6">
@@ -78,7 +86,7 @@
   </div>
 
   <div class="container">
-    <div class="chief-description">
+    <div class="chief-description 2">
       <h1 class= "text-center profile-header">A propos de moi</h1>
       <div class="row">
         <div class="col-xs-12">
@@ -95,14 +103,10 @@
   </div>
 
   <div class="container">
-    <div class= "stripe" id= "redirect-stripe">
+    <div class= "stripe 3" id= "redirect-stripe">
       <h1 class= "text-center profile-header">Mes informations bancaire</h1>
       <p class= "text-center">Pour assurer la sécurité des transferts vers votre compte nous passons par un service reconnu et spécialisé. Clicker sur le boutton et créer votre compte Stripe pour récupérer facielement votre argent. Cela ne vous prend que 3 minutes.</p>
       <div class= "text-center">
-      <%= link_to user_omniauth_authorize_path(:stripe_connect, :'stripe_user[first_name]' => current_user.firstname, :'stripe_user[last_name]' => current_user.lastname, :'stripe_user[email]' => current_user.email, :'stripe_user[country]' => 'FR', :'stripe_user[phone_number]' => current_user.phone_number, :'stripe_user[business_name]' => current_user.lastname, :'stripe_user[product_description]' => "Cuisinier à son propre domicile",:'stripe_user[state]' => 'FR'), class: "stripe-connect" do  %>
-        <span>Se connecter avec Stripe</span>
-      <% end %>
-
       <%= link_to 'données bancaire', bank_account_profile_path, class: "btn btn-pepeat" %>
       </div>
     </div>
@@ -121,7 +125,7 @@
   <!-- END create chiefpicture hidden form -->
 
   <div class="container">
-    <div class="gallery-kitchen">
+    <div class="gallery-kitchen 4">
       <h1 class= "text-center profile-header">Ma gallerie photo</h1>
       <div class="row">
         <% @user.chief_pictures.each do |picture|%>
@@ -156,7 +160,7 @@
 
 
   <div class="container">
-    <div class="card-feedback">
+    <div class="card-feedback 5">
       <h1 class= "text-center profile-header">Mes avis</h1>
       <div class="row">
         <% if review(@user) == 0 %>
@@ -229,16 +233,10 @@
 
 <% end %>
 
-<% if current_user %>
-  <script type="text/javascript">
-    mixpanel.identify("<%= current_user.email %>");
-    mixpanel.people.set({
-      "$email": "<%= current_user.email %>",
-      "$firstname": "<%= current_user.firstname%>"
-      "$lastname": "<%= current_user.lastname%>"
-      "$phonenumber": "<%= current_user.phone_number%>"
-    });
-  </script>
-<% end %>
 
+
+
+<script type="text/javascript">
+  analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+</script>
 

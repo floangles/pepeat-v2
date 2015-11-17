@@ -112,10 +112,6 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  mixpanel.track("Meal show");
-</script>
-
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).on('ready', function() {
@@ -129,3 +125,16 @@
     })
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  analytics.track('Meal show', {
+  meal_id: '<%= @meal.id %>',
+  meal_name: '<%=@meal.title %>',
+  meal_price: '<%= @meal.price %>',
+  meal_day: '<%= @meal.day %>',
+  meal_portion: '<%= @meal.portion%>',
+  meal_takeaway: '<%= @meal.takeaway%>',
+  meal_chief_id: '<%= @meal.user.id%>'
+
+});
+</script>

@@ -9,7 +9,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
-require 'mixpanel-ruby'
 
 
 # require "rails/test_unit/railtie"
@@ -34,8 +33,6 @@ module PepeatV2
       # generate.test_framework :rspec
       generate.view_specs false
     end
-
-    config.event_tracker.mixpanel_key = "bf3c4875bc72ddd445efe161b3d039a5"
 
     config.action_controller.action_on_unpermitted_parameters = :raise
     # Settings in config/environments/* take precedence over those specified here.

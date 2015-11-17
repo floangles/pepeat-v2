@@ -55,8 +55,18 @@ module Profile
     end
 
     def destroy
-      @order.destroy
-      redirect_to profile_orders_path
+      if @order.meal.day < DateTime.now.to_date
+          @order.destroy
+          redirect_to profile_orders_path
+      else
+        ch = Stripe::Charge.retrieve(@order.charge)
+        if !ch.captured
+          ch.capture
+          @order.update(payment_validation: 'true')
+        end
+        @order.destroy
+        redirect_to profile_orders_path
+      end
     end
 
     def set_order

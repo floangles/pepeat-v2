@@ -191,9 +191,13 @@
     </div>
   </div>
 
-<script type="text/javascript">
-  mixpanel.track("Meals index");
-</script>
+
+<% if current_user %>
+  <script type="text/javascript">
+    analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+    analytics.track('Meals index');
+  </script>
+<% end %>
 
 
 

@@ -84,7 +84,7 @@
             </ul>
           </li>
           <li>
-            <%= link_to t(".top_call_to_action", default: "Voir les menus"), meals_path, class: "btn2" %>
+            <%= link_to t(".top_call_to_action", default: "Voir les menus"), meals_path, class: "btn2", id: 'navbar-action' %>
           </li>
           <li>
             <% if current_user.chief? %>
@@ -108,3 +108,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<script type="text/javascript">
+  var link = document.getElementById('navbar-action');
+
+  analytics.trackLink(link, 'Navbar clicked voir les menus');
+</script>

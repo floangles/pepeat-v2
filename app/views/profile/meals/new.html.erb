@@ -210,6 +210,9 @@
         <p> - Que vous avez inscrit tous les ingrédients composant votre menu</p>
         <p> - Que le prix soit cohérent</p>
         <p> - Que vous avez renseigné la bonne date et heure</p>
+        <div class= " text-center important-cgu">
+          <%= f.input :cgu, label: "Condition générale d'utilisation", required: false %>
+        </div>
         <div class= "text-center important-submit">
           <%= f.button :submit, " Je valide les informations", class: "btn-lg btn-pepeat" %>
         </div>

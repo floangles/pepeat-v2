@@ -52,81 +52,83 @@
     </div>
   </div>
   <% @meals.each do |meal| %>
-    <div class="container">
-      <div class="card-offer">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <div class="card-offer-left">
-              <div class="card-offer-left-title text-center">
-                <%= meal.title%> - <%=meal.price%> €
-              </div>
-              <div class="card-offer-left-meal">
-                  <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
-                <div class="card-offer-left-meal-name">
-                  <%= meal.starter %>
+    <% if meal_history(meal) == true %>
+      <div class="container">
+        <div class="card-offer">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="card-offer-left">
+                <div class="card-offer-left-title text-center">
+                  <%= meal.title%> - <%=meal.price%> €
+                </div>
+                <div class="card-offer-left-meal">
+                    <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
+                  <div class="card-offer-left-meal-name">
+                    <%= meal.starter %>
+                  </div>
+                </div>
+                <div class="card-offer-left-meal">
+                  <%= image_tag 'main.png', class: "card-offer-left-meal-icon"%>
+                  <div class="card-offer-left-meal-name">
+                    <%= meal.main %>
+                  </div>
+                </div>
+                <div class="card-offer-left-meal">
+                  <%= image_tag 'dessert.png', class: "card-offer-left-meal-icon"%>
+                  <div class="card-offer-left-meal-name">
+                    <%= meal.dessert %>
+                  </div>
                 </div>
               </div>
-              <div class="card-offer-left-meal">
-                <%= image_tag 'main.png', class: "card-offer-left-meal-icon"%>
-                <div class="card-offer-left-meal-name">
-                  <%= meal.main %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="card-offer-right">
+                <div class="card-offer-right-title text-center">
+                  Infos
                 </div>
-              </div>
-              <div class="card-offer-left-meal">
-                <%= image_tag 'dessert.png', class: "card-offer-left-meal-icon"%>
-                <div class="card-offer-left-meal-name">
-                  <%= meal.dessert %>
+                <div class="card-offer-right-date">
+                <% if meal.home? %>
+                   <%= image_tag 'home2.png', class: "card-offer-right-date-img hover", title: "Sur place" %>
+                  <div class= "card-offer-right-date-infos text-center">
+                    <div>
+                      <b><%= meal.day.strftime('%d/%m/%Y') %></b>
+                    </div>
+                    <div>
+                      RDV à <%= meal.home_hour.strftime('%Hh:%M')%> chez le cuisinier
+                    </div>
+                  </div>
+                <% else %>
+                  <%= image_tag 'take.png', class: "card-offer-right-date-img hover", title: "A emporter" %>
+                  <div class= "card-offer-right-date-infos text-center">
+                    <div>
+                     <b><%= meal.day.strftime('%d/%m/%Y') %></b>
+                    </div>
+                    <div>
+                      <%= meal.start_hour.strftime('De %Hh:%M') %> <%= meal.end_hour.strftime('à %Hh:%M')%>
+                    </div>
+                  </div>
+                <% end %>
+                </div>
+                <div class="card-offer-right-portion">
+                  <div class= "card-offer-right-portion-infos text-center">
+                    <%= booked_portions(meal)%> menu(s) commandé(s)
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card-offer-right">
-              <div class="card-offer-right-title text-center">
-                Infos
-              </div>
-              <div class="card-offer-right-date">
-              <% if meal.home? %>
-                 <%= image_tag 'home2.png', class: "card-offer-right-date-img hover", title: "Sur place" %>
-                <div class= "card-offer-right-date-infos text-center">
-                  <div>
-                    <b><%= meal.day.strftime('%d/%m/%Y') %></b>
-                  </div>
-                  <div>
-                    RDV à <%= meal.home_hour.strftime('%Hh:%M')%> chez le cuisinier
-                  </div>
-                </div>
-              <% else %>
-                <%= image_tag 'take.png', class: "card-offer-right-date-img hover", title: "A emporter" %>
-                <div class= "card-offer-right-date-infos text-center">
-                  <div>
-                   <b><%= meal.day.strftime('%d/%m/%Y') %></b>
-                  </div>
-                  <div>
-                    <%= meal.start_hour.strftime('De %Hh:%M') %> <%= meal.end_hour.strftime('à %Hh:%M')%>
-                  </div>
-                </div>
+          <div class="row">
+            <div class="card-offer-list text-center">
+              <% meal.orders.each do |order| %>
+                <% if order.state == 'paid' %>
+                  <%= render "/shared/modale_user", order: order %>
+                <% end %>
               <% end %>
-              </div>
-              <div class="card-offer-right-portion">
-                <div class= "card-offer-right-portion-infos text-center">
-                  <%= booked_portions(meal)%> menu(s) commandé(s)
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card-offer-list text-center">
-            <% meal.orders.each do |order| %>
-              <% if order.state == 'paid' %>
-                <%= render "/shared/modale_user", order: order %>
-              <% end %>
-            <% end %>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
 

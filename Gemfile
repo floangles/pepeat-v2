@@ -42,11 +42,9 @@ gem 'omniauth-stripe-connect'
 gem 'mixpanel-ruby'
 gem 'event_tracker'
 gem 'intercom-rails'
+gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 
-gem 'premailer-rails'
-gem 'nokogiri'
-
-
+gem 'roadie', '~> 2.4'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'

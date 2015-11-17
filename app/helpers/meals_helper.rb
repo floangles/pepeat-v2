@@ -39,7 +39,13 @@ module MealsHelper
 
 
   def meal_actual(meal)
-    if meal.day > DateTime.now - 1.days
+    if meal.day > DateTime.now.to_date - 1.days
+      true
+    end
+  end
+
+  def meal_history(meal)
+    if DateTime.now.to_date > meal.day + 1.days
       true
     end
   end

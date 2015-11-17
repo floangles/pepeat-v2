@@ -11,7 +11,7 @@
                 <%= f.input :email, label: "Mail", required: false, autofocus: true %>
                 <%= f.input :password, required: false %>
                 <div class= "text-center">
-                  <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-pepeat" %>
+                  <%= f.button :submit, t('.sign_up', default: "Créer mon compte"), class: "btn btn-pepeat" %>
                 </div>
                 <% if params[:boom] %>
                   <%= f.input :chief, as: :hidden, input_html: { value: true } %>
@@ -27,5 +27,14 @@
     </div>
   </div>
 </div>
+
+<% raise %>
+<script>
+
+  analytics.alias(<%= current_user.id %>);
+  analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+  anaytics.track('Sign up');
+
+</script>
 
 

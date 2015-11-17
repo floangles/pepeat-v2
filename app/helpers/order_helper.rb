@@ -21,6 +21,12 @@ module OrderHelper
   rating_stars.inject{ |sum, el| sum + el }.to_f / rating_stars.size
   end
 
+  def order_history(order)
+    if DateTime.now.to_date > order.meal.day
+      true
+    end
+  end
+
 
   def order_price(order)
     order.meal.price * order.portion

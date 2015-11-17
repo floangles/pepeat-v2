@@ -177,3 +177,31 @@
     </div>
   </div>
 
+
+  <%= image_tag "https://pepeat-v2-production.herokuapp.com/assets/pepeat-title.png", class: "pepeat-mail" %>
+
+
+
+
+
+  <% if current_user %>
+  <script type="text/javascript">
+    mixpanel.identify("<%= current_user.email %>");
+    mixpanel.people.set({
+      "$email": "<%= current_user.email %>",
+    });
+  </script>
+<% end %>
+
+
+
+<script type="text/javascript">
+  mixpanel.track("Home-Page",
+      {"Mail": "<%= current_user.email %>",
+      "Firstname": "<%= current_user.firstname %>",
+      "Lastname": "<%= current_user.lastname %>",
+      "Tel": "<%= current_user.phone_number %>"
+  });
+</script>
+
+

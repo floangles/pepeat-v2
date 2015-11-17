@@ -1,16 +1,37 @@
-<% require 'devise/version' %>
+<% require "devise/version" %>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>mail test welcome and validation</title>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class= "text-center">
-        <%= image_tag "https://pepeat-v2-production.herokuapp.com/assets/pepeat-title.png", class: "pepeat-mail" %>
-        <h1>Bienvenue chez Pepeat !</h1>
-        <p>Nous sommes ravis de vous savoir intéressé par notre concept et nous mettons tout en oeuvre pour que notre service s'améliore de jour en jour.</p>
-        <p>Avant de commencer à commander les superbes menus cuisinés par les chefs de votre quartier, vous devez confirmer votre adresse mail en cliquand ci dessous:</p>
-        <p><%= link_to t('.action', :default => "Confirm my account"),
-           confirmation_url(@resource, :confirmation_token => (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
-      </div>
-    </div>
-  </div>
-</div>
+
+  <style type= "text/css">
+    body{
+      text-align: center;
+      color: black;
+      font-size: 15px;
+      font-family: $subtitle;
+    }
+
+  </style>
+
+  </head>
+
+
+  <body>
+
+    <td>
+
+      <h1> Bienvenue chez Pepeat</h1>
+    <p>Nous sommes ravis de bientôt vous compter parmi notre communauté.</p>
+    <p>Avant de commencer l'aventure , vous devez confirmer votre adresse mail en cliquant sur le lien ci dessous:</p>
+    <p><%= link_to t('.action', :default => "Confirm my account"),
+       confirmation_url(@resource, :confirmation_token => (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
+
+    </td>
+
+  </body>
+</html>
+
+

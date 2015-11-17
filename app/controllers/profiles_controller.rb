@@ -24,11 +24,12 @@ class ProfilesController < ApplicationController
     skip_authorization
     @user.update(user_params)
     if @user.save
-     if params[:chiefpictures]
+      @user.update(chief: 'true')
+      if params[:chiefpictures]
         params[:chiefpictures].each { |picture|
         @user.chief_pictures.create(chiefpicture: picture)
           }
-    end
+      end
 
       if params[:user][:stripe_account] == "true" && @user.stripe == nil
         stripe = Stripe::Account.create(
@@ -56,8 +57,6 @@ class ProfilesController < ApplicationController
         )
         @user.update(uid: stripe.id, stripe: 'true')
       end
-
-
       redirect_to profile_path
 
     else

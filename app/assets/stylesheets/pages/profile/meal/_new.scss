@@ -213,11 +213,14 @@
   margin-top: 10px;
   margin-left: 0px;
   border: 1px solid rgba(49,49,47,0.18);
+  &-cgu {
+    padding: 20px;
+  }
   &-submit {
-  position: absolute;
-  bottom: -23px;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

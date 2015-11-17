@@ -22,6 +22,7 @@
 #  home_hour       :datetime
 #  validation      :boolean
 #  ingredients     :text
+#  cgu             :boolean
 #
 # Indexes
 #
@@ -40,6 +41,7 @@ class Meal < ActiveRecord::Base
   validates :end_hour, presence: true, if: "takeaway?"
   validates :home_hour, presence: true, if: "home?"
   validates :day, presence: true
+  validates :cgu, presence: true
   validates :portion, presence: true
   validates :price, presence: true
   validates :ingredients, presence: true
