@@ -7,6 +7,6 @@ class PaymentMailer < ApplicationMailer
   #
   def confirmation(order)
     @order = order
-    mail(to: current_user.email, subject: 'Recapitulatif de votre commande')
+    mail(to: @order.user.email, subject: 'Recapitulatif de votre commande')
   end
 end
