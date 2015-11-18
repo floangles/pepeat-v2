@@ -27,6 +27,8 @@ module Profile
       )
       current_user.update(customer_id: customer.id)
     end
+
+    PaymentMailer.confirmation(@order).deliver_now
     # You should store this customer id and re-use it.
     @commission = @order.amount_cents * @order.portion.to_i * @client + @order.amount_cents * @order.portion.to_i * @chief
     charge = Stripe::Charge.create({

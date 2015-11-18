@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook, :stripe_connect]
 
-  after_create :welcome_message
+  # after_create :welcome_message
 
   attr_accessor :stripe_account
   attr_accessor :bank_account

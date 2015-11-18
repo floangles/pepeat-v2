@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def age(user)
-    if user.birth
+    if @user.birth
       DateTime.now.year - user.birth.year
     end
   end
