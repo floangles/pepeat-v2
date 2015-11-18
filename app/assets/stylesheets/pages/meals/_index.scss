@@ -319,5 +319,19 @@
   width: 380px;
 }
 
+.not-found {
+  h1 {
+    font-size: 20px;
+    font-family: $subtitle;
+  }
+  &-btn {
+    margin-bottom: 30px;
+  }
+  &-img {
+    width: 200px;
+    margin: 30px;
+  }
+}
+
 
 

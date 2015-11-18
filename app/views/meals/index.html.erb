@@ -26,9 +26,21 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && total_meals(@meals) > 0 %>
               <div class="col-xs-12 col-sm-6">
                 <%= render "/shared/cardmeals", meal: meal %>
+              </div>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés actuelement. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           <% end %>
@@ -40,12 +52,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 0 %>
               <% if DateTime.now.day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                  <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -56,12 +80,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 1 %>
               <% if (DateTime.now + 1.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -72,12 +108,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 2 %>
               <% if (DateTime.now + 2.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -88,12 +136,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 3 %>
               <% if (DateTime.now + 3.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -103,12 +163,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 4 %>
               <% if (DateTime.now + 4.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -118,12 +190,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 5 %>
               <% if (DateTime.now + 5.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -133,12 +217,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 6 %>
               <% if (DateTime.now + 6.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -148,12 +244,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 7 %>
               <% if (DateTime.now + 7.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -163,12 +271,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 8 %>
               <% if (DateTime.now + 8.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -178,12 +298,24 @@
       <div class="container">
         <div class="row">
           <% @meals.each do |meal| %>
-            <% if meal.validation? && meal_actual(meal) %>
+            <% if meal.validation? && meal_actual(meal) && number_meals(@meals, 0) > 9 %>
               <% if (DateTime.now + 9.days).day == meal.day.day %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
                 </div>
               <% end %>
+            <% else %>
+              <div class= "not-found text-center">
+                <h1>Il n'y a pas de menus proposés pour ce jour la. </h1>
+                <%= image_tag 'not_found.png', class: "not-found-img" %>
+                <div>
+                  <% if current_user.chief? %>
+                    <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-success not-found-btn"%>
+                  <% else %>
+                    <%= link_to 'Devenez chef Pepeat', page_path('chief_infos'), class: 'btn btn-success not-found-btn' %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
