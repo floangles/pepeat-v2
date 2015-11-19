@@ -29,7 +29,7 @@
 
   <body>
     <div class= "mail-payment-header">
-      <%= image_tag 'pepeat-title.png', class: "mail-img" -%>
+      <%= asset_path 'pepeat-title.png', class: "mail-img" -%>
       <h1 class= "h1">Merci d'avoir fait une commande chez Pepeat</h1>
       <p class= "p">Vous avez commandé <%= @order.portion %> portion(s) du menu <%= @order.meal.title %> au chef <%= @order.meal.user.firstname %></p>
     </div>
