@@ -8,6 +8,6 @@ class PaymentMailer < ApplicationMailer
   def confirmation(order)
     @order = order
     # attachments.inline['pepeat-title.png'] = File.read('app/assets/images/pepeat-title.png')
-    mail(to: @order.user.email, subject: 'Recapitulatif de votre commande')
+    mail(to: @order.user.email, subject: 'Récapitulatif de votre commande')
   end
 end

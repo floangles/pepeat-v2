@@ -8,20 +8,107 @@
 
       .mail-payment-header{
         text-align: center;
-        color: red;
       }
 
-      .h1 {
-        font-size: 25px;
+      h1 {
+        font-size: 18px;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.16);
+        padding-bottom: 20px;
       }
 
-      .p {
+      p {
         font-size: 14px;
+      }
+
+      h2 {
+        font-size: 16px;
+        margin: 20px;
+        color: #F5BB00;
+      }
+      h5 {
+        font-size: 13px;
+      }
+
+      h3 {
+        font-size: 14px;
+        font-weight: 200;
+        margin: 0px;
+        text-align: -webkit-left;
+      }
+
+      h4 {
+        font-size: 14px;
+        text-align: -webkit-left;
+        margin: 6px;
       }
 
       .mail-img {
         width: 200px;
       }
+
+      table {
+        border: solid 1px rgba(0, 0, 0, 0.41);
+        border-radius: 5px;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.15);
+        margin: 8%;
+        width: 84%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        background-color: #F5F5F5;
+      }
+
+      td {
+        border-bottom: solid 1px #dadee2;
+        box-shadow: 1px 1px rgba(255, 255, 255, 0.94);
+         padding: 5px;
+        padding-left: 20px;
+        vertical-align: middle;
+      }
+
+      tr {
+        vertical-align: middle;
+      }
+
+      .border-mail {
+        border-bottom: solid 1px rgba(0, 0, 0, 0.16);
+      }
+
+      .img-mail-chief {
+        width: 60px;
+        border-radius: 30px;
+        margin-right: 10px;
+      }
+
+      .myButton {
+        background-color: #F5BB00;
+        -moz-border-radius: 28px;
+        -webkit-border-radius: 28px;
+        border-radius: 28px;
+        border: 1px solid #CC9E06;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 17px;
+        padding: 16px 31px;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.3);
+      }
+      .myButton:hover {
+        background-color:#5cbf2a;
+      }
+      .myButton:active {
+        position:relative;
+        top:1px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
 
     </style>
 
@@ -29,14 +116,105 @@
 
   <body>
     <div class= "mail-payment-header">
-      <%= image_tag 'pepeat-title.png', class: "mail-img" -%>
-      <h1 class= "h1">Merci d'avoir fait une commande chez Pepeat</h1>
-      <p class= "p">Vous avez commandé <%= @order.portion %> portion(s) du menu <%= @order.meal.title %> au chef <%= @order.meal.user.firstname %></p>
-    </div>
-    <table>
-      <tr>
+      <%= image_tag 'pepeat-title.png', class: "mail-img" %>
+      <h1>Félicitation <%= @order.user.firstname %>, votre commande est validée</h1>
+      <h2>Détail de la commande</h2>
 
-      </tr>
-    </table>
+        <% if @order.meal.home? %>
+          <h5 class= "text-center">" Diner chez le chef "</h5>
+        <% else %>
+          <h5 class= "text-center">" A emporter "</h5>
+        <% end %>
+
+      <table>
+        <tr>
+          <td>
+            <h4>Entrée: </h4>
+          </td>
+          <td>
+            <h3><%= @order.meal.starter%></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Plat: </h4>
+          </td>
+          <td>
+            <h3><%= @order.meal.main%></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Dessert: </h4>
+          </td>
+          <td>
+            <h3><%= @order.meal.dessert%></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Jour:</h4>
+          </td>
+          <td>
+            <h3><%= l(@order.meal.day, format: '%A %d/%m')%></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Heure:</h4>
+          </td>
+          <td>
+            <% if @order.meal.home?%>
+              <h3><%= @order.meal.home_hour.strftime('%Hh:%M') %></h3>
+            <% else %>
+              <h3><%= @order.meal.start_hour.strftime('%Hh:%M')%> - <%= @order.meal.end_hour.strftime(' %Hh:%M') %></h3>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Nombre de menu(s) commandé(s):</h4>
+          </td>
+          <td>
+            <h3><%= @order.portion%></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Prix total:</h4>
+          </td>
+          <td>
+            <h3><%= @order.amount * @order.portion.to_i + @order.amount * @order.portion.to_i * 0.15 %>€</h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Le chef Pepeat:</h4>
+          </td>
+          <td>
+            <h3 class= "mid"><%= image_tag @order.meal.user.picture.url(:medium), class: "img-mail-chief mid" %> </h3> <h3> <%= @order.meal.user.firstname %> <%= @order.meal.user.lastname %></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Numéro de téléphone du chef:</h4>
+          </td>
+          <td>
+            <h3><%= @order.meal.user.phone_number %></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4>Adresse du chef</h4>
+          </td>
+          <td>
+            <h3><%= @order.meal.user.address %></h3>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <button class= 'myButton'><%= link_to 'Voir ma commande', profile_order_url(@order)%></button>
+      </div>
+    </div>
   </body>
 </html>
