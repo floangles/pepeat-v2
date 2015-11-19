@@ -2,7 +2,12 @@
 <html>
   <head>
 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Votre commande</title>
+
     <style type= "text/css">
+
       .mail-payment-header{
         text-align: center;
         color: red;
@@ -15,13 +20,19 @@
       .p {
         font-size: 14px;
       }
+
+      .mail-img {
+        width: 200px;
+      }
+
     </style>
 
   </head>
 
   <body>
     <div class= "mail-payment-header">
-      <h1 class= "h1">Merci de votre réservation</h1>
+      <%= image_tag 'pepeat-title.png', class: "mail-img" -%>
+      <h1 class= "h1">Merci d'avoir fait une commande chez Pepeat</h1>
       <p class= "p">Vous avez commandé <%= @order.portion %> portion(s) du menu <%= @order.meal.title %> au chef <%= @order.meal.user.firstname %></p>
     </div>
     <table>
