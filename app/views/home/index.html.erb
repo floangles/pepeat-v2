@@ -1,24 +1,45 @@
 
-<div class="homepage-hero-module">
-  <div class="video-container">
-    <div class="filter"></div>
-    <video autoplay loop class="fillWidth">
-      <source src="<%=video_path("cover/cover.mp4")%>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-    </video>
-  <div class="poster hidden">
-    <img src="<%=video_path("cover/cover.jpg")%>" alt="Plats maisons à emporter">
+<div class= "banner-video">
+  <div class="homepage-hero-module">
+    <div class="video-container">
+      <div class="filter"></div>
+        <video autoplay loop class="fillWidth">
+          <source src="<%=video_path("cover/cover.mp4")%>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+      <div class="poster hidden">
+        <img src="<%=video_path("cover/cover.jpg")%>" alt="Plats maisons à emporter">
+      </div>
+      <div class="banner-content text-center">
+      <%= image_tag 'pepeat-title', class: "size-pepeat" %>
+      <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
+      </div>
+
+      <div class= "banner-button">
+        <%= link_to 'Voir les menus à Lille', meals_path, class: "btn-lg btn-pepeat-soft", id:"banner-action" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id= "banner-xs" class= "window-height" >
+  <div class= "overlay">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class= "content text-center">
+            <%= image_tag 'pepeat-title', class: "size-pepeat" %>
+            <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
+            <div class= "banner-xs-button">
+              <%= link_to 'Voir les menus à Lille', meals_path, class: "btn-lg btn-pepeat-soft", id:"banner-action" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 
-<div class="banner-content text-center">
-  <%= image_tag 'pepeat-title', class: "size-pepeat" %>
-  <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
-</div>
-
-<div class= "banner-button">
-  <%= link_to 'Voir les menus à Lille', meals_path, class: "btn-lg btn-pepeat-soft", id:"banner-action" %>
-</div>
 
 <div class="home-infos text-center">
   <div class="container">

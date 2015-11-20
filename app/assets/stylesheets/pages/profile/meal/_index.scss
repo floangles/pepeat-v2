@@ -210,3 +210,23 @@
     }
   }
 }
+
+#banner-xs {
+  background-image: image-url('banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  width:100%;
+  display: none;
+}
+
+.banner-xs-button {
+  margin-top: 40px;
+}
+
+
+@media (max-width: 767px) {
+  .banner-video {display: none;}
+  .size-pepeat {margin-top: 96px; width: 200px;}
+  #banner-xs {display: block}
+  #banner-xs h2 {margin-top: 61px; font-size: 20px; padding: 5px;}
+}
