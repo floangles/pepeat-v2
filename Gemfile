@@ -46,6 +46,10 @@ gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 
 gem 'roadie', '~> 2.4'
 
+gem 'sidekiq'
+gem 'sinatra'  # Dependency of sidekiq
+gem 'sidekiq-failures'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
   gem "rails-assets-underscore"

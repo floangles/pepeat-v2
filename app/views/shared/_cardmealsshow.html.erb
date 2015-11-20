@@ -48,25 +48,31 @@
     </div>
     <div class="meal-body-description">
       <h3 class= "text-center"> A propos du menu </h3>
-      <%= meal.description.html_safe %>
+      <p><%= meal.description.html_safe %></p>
     </div>
-    <div class="meal-body-infos">
+    <div class="meal-body-infos text-center">
       <div class="row">
-        <div class="col-xs-6">
-          <div class="meal-body-infos-date">
-            <% if meal.home? %>
-            <p>Chef le chef</p> à <%= meal.home_hour.strftime('%Hh:%M') %> chez moi
+        <div class="col-xs-12 col-sm-6">
+          <% if meal.home? %>
+            <div>
+              <%= image_tag 'home2.png', class: "img-take hover", title: "Diner chez le chef" %>
+            </div>
+            <div class="meals-body-takeaway-hour">
+              <i>Rdv à <%= meal.home_hour.strftime('%Hh:%M') %> chez le chef</i>
+            </div>
           <% else %>
-            <p>Take-away</p><%= meal.start_hour.strftime('%Hh:%M')%> - <%= meal.end_hour.strftime('%Hh:%M') %>
+            <div>
+              <%= image_tag 'take.png', class: "img-take hover", title: "A emporter chez sois" %>
+            </div>
+            <div class="meals-body-takeaway-hour">
+              <i><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></i>
+            </div>
           <% end %>
-          </div>
         </div>
-        <div class="col-xs-6">
-          <div class="meal-body-infos-portions">
-            <%= available_portions(meal) %> <%= image_tag 'portion.svg', class: "size-portion" %>
+        <div class="col-xs-12 col-sm-6">
+          <div class= "meals-body-takeaway-portion">
+            <span class= "size-txt-portion"><%= available_portions(meal)%></span> <%= image_tag 'portion.svg', class: "size-portion" %>
           </div>
-        </div>
-        <div class="meals-body-order">
         </div>
       </div>
     </div>

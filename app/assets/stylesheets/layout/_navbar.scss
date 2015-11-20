@@ -78,6 +78,7 @@ $navbar-profile-border-width: 2px;
 
   .navbar-brand,
   .navbar-brand:hover {
+    margin: 3px;
     outline: none;
     color: $navbar-color;
     padding-top: $navbar-vertical-padding;
@@ -108,6 +109,7 @@ $navbar-profile-border-width: 2px;
     margin-top: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
     margin-bottom: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
     font-weight: bold;
+    text-align: center;
     background-color: $pepeat;
     font-size: 12px;
     &:hover{

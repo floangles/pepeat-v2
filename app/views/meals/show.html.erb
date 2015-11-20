@@ -1,4 +1,4 @@
-<div class="background-meal-new">
+<div class="background-meal-new background-banner">
   <div class="background-meal-new-title">
     <h3><%= @meal.title%></h3>
   </div>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="container">
-  <div class="card-ingredients text-center">
+  <div class="card-ingredients-meal text-center">
     <h1 class= "text-center profile-header">Les ingrédients</h1>
     <%= @meal.ingredients.html_safe %>
   </div>

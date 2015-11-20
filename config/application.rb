@@ -36,6 +36,8 @@ module PepeatV2
 
     config.action_controller.action_on_unpermitted_parameters = :raise
 
+    config.active_job.queue_adapter = :sidekiq
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

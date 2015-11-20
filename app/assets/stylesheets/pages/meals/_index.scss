@@ -1,24 +1,18 @@
 .background-meals {
   position: relative;
-  background: -webkit-linear-gradient(90deg, #BA8B02 10%, #181818 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #BA8B02 10%, #181818 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #BA8B02 10%, #181818 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #BA8B02 10%, #181818 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #BA8B02 10%, #181818 90%); /* W3C */
-
+  background: -webkit-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* W3C */
   width: 100%;
-  height: 245px;
+  height: 285px;
   &-title {
     color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-
-    h3 {
-      font-size: 44px;
-      text-shadow: 2px 2px rgba(222, 161, 24, 0.79);
-    }
   }
   &-add {
     position: absolute;
@@ -108,7 +102,8 @@
 
 .meals {
   background-color: white;
-  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  box-shadow: 1px 1px 3px rgba(9, 9, 9, 0.12);
+  border: solid 1px rgba(0, 0, 0, 0.16);
   border-radius: 3px;
   height: auto;
   padding:4px;
@@ -202,17 +197,13 @@
       }
     }
     &-takeaway{
-      position: relative;
       padding: 15px;
+      margin: 20px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
       &-hour {
-        margin-top: 30px;
-        margin-left: 7%;
+        margin: 5px;
       }
       &-portion {
-        position:absolute;
-        top: 15%;
-        right: 14%;
       }
     }
     &-order {
@@ -250,11 +241,7 @@
 }
 
 .img-take {
-  position: absolute;
-  top: 6%;
-  left: 21%;
   width: 30px;
-  height: 30px;
 }
 
 .buton-order {
@@ -331,6 +318,48 @@
     width: 200px;
     margin: 30px;
   }
+}
+
+
+@media (max-width: 767px) {
+  .nav-justified > li > a, .nav-tabs.nav-justified > li > a {
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: rgba(128, 128, 128, 0.25);
+    font-size: 5px;
+    font-family: $base-font;
+    border: solid 1px rgba(51, 51, 51, 0.24);
+    border-radius: 2px;
+    color: black;
+    font-size: 10px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: bold;
+    color: black;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 4px;
+    border: solid 1px rgba(9, 9, 9, 0.3);
+    margin-left: 10px;
+  }
+  .meals h3 { font-size: 15px;}
+  .meals-header-price {font-size: 17px;}
+  .meals-header-date {font-size: 17px;}
+  .meals-header-pic {bottom: -20px; right: 10px;}
+  .img-chef-meal {height: 50px;}
+  .meals-body-menu {padding-top: 0px; }
+  i {font-size: 13px;}
+  .meals-body-menu-starter {margin-bottom: 10px;}
+  .img-menu-meal {height: 20px; width: 31px;}
+  .meals-body-menu-title {margin-bottom: 0px;}
+  .meals-body-takeaway {margin: 0px; padding: 3px;}
+  .size-txt-portion {font-size: 20px; top: 5px; right: 7px;}
+  .size-portion {width: 30px; height: 30px;}
 }
 
 
