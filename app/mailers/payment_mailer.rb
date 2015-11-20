@@ -10,4 +10,9 @@ class PaymentMailer < ApplicationMailer
     # attachments.inline['pepeat-title.png'] = File.read('app/assets/images/pepeat-title.png')
     mail(to: @order.user.email, subject: 'Récapitulatif de votre commande')
   end
+
+  def remember(order)
+    @order = order
+    mail(to: @order.user.email, subject: "N'oubliez pas d'aller chercher votre commande")
+  end
 end

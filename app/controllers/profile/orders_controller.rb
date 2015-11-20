@@ -55,9 +55,9 @@ module Profile
     end
 
     def destroy
-      if @order.meal.day < DateTime.now.to_date
-          @order.destroy
-          redirect_to profile_orders_path
+      if @order.meal.day > DateTime.now.to_date
+        @order.destroy
+        redirect_to profile_orders_path
       else
         ch = Stripe::Charge.retrieve(@order.charge)
         if !ch.captured
