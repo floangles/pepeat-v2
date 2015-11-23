@@ -309,7 +309,7 @@
   .meal h3 { font-size: 15px;}
   .meal p {padding: 5px;}
   .meal-header-price {font-size: 17px;}
-  .meal-header-date {font-size: 17px;}
+  .meal-header-date { font-size: 15px;}
   .meal-header-pic {bottom: -20px; right: 10px;}
   .img-chef-meal {height: 50px;}
   .meal-body-menu {padding-top: 0px; }
@@ -327,5 +327,6 @@
   .picuser {height: 25px; width: 25px; margin: 5px; }
   .card-infos-map {height: 200px;}
   .card-infos i {display: none};
+  .meal-header-date span { font-size: 12px;}
 }
 
