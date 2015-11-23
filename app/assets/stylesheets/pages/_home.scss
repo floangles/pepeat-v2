@@ -178,6 +178,7 @@
     h1 {
       font-family: $subtitle;
       font-size: 30px;
+      margin: 5px;
       margin-top: 50px;
     }
 
@@ -305,6 +306,10 @@
   }
 }
 
+.hidden-xs {
+  display: none;
+}
+
 .home-pic {
   width: 55px;
   height: 55px;
@@ -314,4 +319,15 @@
 
 .img-carousel {
   width: 100%;
+}
+
+
+@media (max-width: 767px) {
+  .us-txt h1 {font-size: 24px; text-align: center;}
+  .us-txt p { padding-right: 0px; padding: 10px; text-align: center;}
+  .hidden-sm {display: none;}
+  .hidden-xs {display: block !important;}
+  .us-img { text-align: center;}
+  .decalage {margin-left: 0px;}
+  .meals-home-body-price { font-size: 32px;}
 }
