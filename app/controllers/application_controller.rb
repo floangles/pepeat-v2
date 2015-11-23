@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: :pages_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_commission
+  after_filter :store_location
   def set_commission
     @client = 0.15
     @chief = 0.04
@@ -29,14 +30,24 @@ class ApplicationController < ActionController::Base
     devise_controller? || pages_controller? || params[:controller] =~ /^admin/
   end
 
-  def after_sign_in_path_for(resource)
-    sign_in_url = new_user_session_url
-    if request.referer == sign_in_url
-      super
-    else
-      stored_location_for(resource) || request.referer || root_path
-    end
+  def store_location
+  # store last url - this is needed for post-login redirect to whatever the user last visited.
+  return unless request.get?
+  if (request.path != "/users/sign_in" &&
+      request.path != "/users/sign_up" &&
+      request.path != "/users/password/new" &&
+      request.path != "/users/password/edit" &&
+      request.path != "/users/confirmation" &&
+      request.path != "/users/sign_out" &&
+      !request.xhr?) # don't store ajax calls
+    session[:previous_url] = request.fullpath
   end
+end
+
+def after_sign_in_path_for(resource)
+  session[:previous_url] || root_path
+end
+
 
   def pages_controller?
     controller_name == "pages" || "meals"  # Brought by the `high_voltage` gem

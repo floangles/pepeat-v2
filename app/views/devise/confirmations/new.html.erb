@@ -6,7 +6,6 @@
         <div class="password-card text-center">
           <%= image_tag 'pepeat-title', class: "pepeat-signup" %>
           <h2><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h2>
-
           <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
             <%= devise_error_messages! %>
 

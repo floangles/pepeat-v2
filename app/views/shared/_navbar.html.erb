@@ -101,6 +101,9 @@
             <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path %>
           </li>
           <li>
+            <%= link_to t(".top_call_to_action", default: "Voir les menus"), meals_path, class: "btn2", id: 'navbar-action' %>
+          </li>
+          <li>
             <%= link_to t(".top_call_to_action", default: "Devenir chef Pepeat"), page_path('chief_infos'), class: "btn" %>
           </li>
         <% end %>
