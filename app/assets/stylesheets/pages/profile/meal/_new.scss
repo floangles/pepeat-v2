@@ -229,3 +229,7 @@
   width: 280px;
 }
 
+
+@media (max-width: 767px) {
+  .card-menu-left {padding-right: 0px; margin: 10px;}
+}

@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card-signin">
+        <div class="card-signin text-center">
+          <div class= "text-center">
+            <%= image_tag 'pepeat-title', class: "pepeat-signup" %>
+            <h3>Connexion</h3>
+          </div>
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3">
-              <div class= "text-center">
-                <%= image_tag 'pepeat-title', class: "pepeat-signup" %>
-                <h3>Connexion</h3>
-              </div>
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <%= f.input :email, label: 'mail', required: false, autofocus: true %>
                   <%= f.input :password, required: false %>
@@ -16,14 +16,14 @@
                     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
                   </div>
                   <div class= "text-center">
-                    <%= f.button :submit, t(".sign_in", default: "Sign in"), class: "btn btn-pepeat" %>
+                    <%= f.button :submit, t(".sign_in", default: "Se connecter"), class: "btn btn-pepeat" %>
                   </div>
-              <% end %>
-              <div class= "links text-center">
-                <%= render "devise/shared/links" %>
+                <% end %>
               </div>
             </div>
-          </div>
+            <div class= "links text-center">
+              <%= render "devise/shared/links" %>
+            </div>
         </div>
       </div>
     </div>

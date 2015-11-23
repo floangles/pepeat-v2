@@ -222,3 +222,7 @@
   right: 4px;
   color: green;
 }
+
+@media (max-width: 767px) {
+  .infos { margin-bottom: 0px;}
+}

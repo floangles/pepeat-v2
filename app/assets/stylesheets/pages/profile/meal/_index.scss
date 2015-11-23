@@ -45,7 +45,6 @@
   padding:4px;
   margin: 30px;
   margin-top: 40px;
-  margin-left: 0px;
   border: 1px solid rgba(49,49,47,0.18);
   &-header {
     width: 100%;
@@ -130,6 +129,7 @@
       }
       &-infos {
         margin-bottom: 8px;
+        padding-left: 30px;
       }
     }
     &-portion {
@@ -226,8 +226,12 @@
 
 
 @media (max-width: 767px) {
-  .banner-video {display: none;}
-  .size-pepeat {margin-top: 96px; width: 200px;}
-  #banner-xs {display: block}
-  #banner-xs h2 {margin-top: 61px; font-size: 20px; padding: 5px;}
+  .card-offer-header h3 { font-size: 24px;}
+  .card-offer a {margin: 6px;}
+  .card-offer-right-portion-infos {font-size: 20px;}
+  .card-offer-right-portion { margin-top: 0px; padding: 12px;}
+  .background-profile-meals-title h3 {font-size: 24px;}
+  .card-offer-header2 h3 { font-size: 18px}
+  .background-profile-meals-add { display: none}
+  .button-longshadow-left.button-action { display: none}
 }

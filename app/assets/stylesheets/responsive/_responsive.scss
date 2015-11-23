@@ -1,9 +1,12 @@
 @media (max-width: 767px) {
   .title-banner {font-size: 20px;}
   .background-banner {max-height: 130px;}
+  .background-banner h3 { font-size: 28px;}
   .background-meal-new-title h3 { font-size: 25px;}
   .profile-header { padding-bottom: 10px; font-size: 16px; text-decoration: overline;}
   .home-title { margin: 10px; font-size: 22px; }
   .navbar-nav {background-color: rgb(255, 255, 255);}
+  .absolute {left: 36%;}
+  .navbar-wagon .navbar-nav > li > a.btn { display: none}
 }
 
