@@ -1,5 +1,5 @@
 <div class="background-meal-new background-banner">
-  <div class="background-meal-new-title">
+  <div class="background-meal-new-title text-center">
     <h3><%= @meal.title%></h3>
   </div>
 </div>
@@ -99,7 +99,7 @@
     <h1 class= "text-center profile-header">Les derniers avis de <%= @meal.user.surname %></h1>
     <div class="row">
       <% if review(@user) == 0 %>
-          <h3 class= "text-center">Vous n'avez pas encore d'avis</h3>
+          <h3 class= "text-center">Le chef n'a pas encore d'avis</h3>
       <% else %>
         <% @user.meals.each do |meal| %>
           <%= render '/shared/review', meal: meal %>

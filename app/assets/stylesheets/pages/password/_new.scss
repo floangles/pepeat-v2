@@ -1,0 +1,14 @@
+.password-card {
+  background-color: white;
+  margin: 30px;
+  border-radius: 3px;
+  height: auto;
+  border: 1px solid rgba(49,49,47,0.18);
+  padding: 10px;
+  &-input {
+    margin : 20px;
+  }
+  &-send {
+    margin : 20px;
+  }
+}

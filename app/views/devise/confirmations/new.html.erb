@@ -1,12 +1,29 @@
-<h2><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="background">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="password-card text-center">
+          <%= image_tag 'pepeat-title', class: "pepeat-signup" %>
+          <h2><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h2>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+          <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+            <%= devise_error_messages! %>
 
-  <div><%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></div>
-<% end %>
+            <div class= "password-card-input">
+              <%= f.label :email %><br />
+              <%= f.email_field :email %>
+            </div>
 
-<%= render "devise/shared/links" %>
+            <div class= "password-card-input">
+              <%= f.submit "Envoyer de nouveau", class: "btn btn-pepeat" %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
