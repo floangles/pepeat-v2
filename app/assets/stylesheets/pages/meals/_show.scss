@@ -1,11 +1,9 @@
 .background-meals-show {
+  background-image: image-url('casserole.jpg');
+  background-size: cover;
+  background-position: center center;
   position: relative;
 
-  background: -webkit-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* W3C */
 
   &-title {
     color: white;
@@ -15,7 +13,6 @@
     transform: translateX(-50%) translateY(-50%);
     h3 {
       font-size: 44px;
-      text-shadow: 2px 2px rgba(222, 161, 24, 0.79);
     }
   }
 }
@@ -249,7 +246,7 @@
   &-pic {
   width: 130px;
   height: 130px;
-  border: 1px solid rgba(0, 0, 0, 0.28);
+  border: 1px solid rgb(255, 255, 255);
   }
 }
 
