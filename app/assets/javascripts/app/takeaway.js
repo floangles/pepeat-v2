@@ -4,6 +4,9 @@ $(document).ready(function() {
         $(".goaway").removeClass( "invisible");
         $(".gohome").addClass( "invisible");
         $('#meal_home').prop('checked', false);
+        $(".hidden-field").addClass( "invisible");
+        $(".take-away-txt").removeClass( "invisible");
+        $(".home-txt").addClass( "invisible");
     } else {
         $(".goaway").addClass( "invisible");
 
@@ -14,11 +17,15 @@ $(document).ready(function() {
         $(".gohome").removeClass( "invisible");
         $(".goaway").addClass( "invisible");
         $('#meal_takeaway').prop('checked', false);
+        $(".hidden-field").addClass( "invisible");
+        $(".home-txt").removeClass( "invisible");
+        $(".take-away-txt").addClass( "invisible");
     } else {
       $(".gohome").addClass( "invisible");
     }
   });
 })
+
 
 
 
@@ -29,6 +36,7 @@ $(document).ready(function() {
         $('#meal_takeaway').prop('checked', false);
     } else {
       $(".gohome").addClass( "invisible");
+
     }
 
   if( $('#meal_takeaway').prop('checked') || $(this).value == 1 ) {
@@ -37,5 +45,6 @@ $(document).ready(function() {
         $('#meal_home').prop('checked', false);
     } else {
         $(".goaway").addClass( "invisible");
+
     }
 })

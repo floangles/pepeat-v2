@@ -19,6 +19,7 @@
   }
 }
 
+
 .step {
   border-bottom: 1px solid rgba(49,49,47,0.18);
   margin-bottom: 30px;
@@ -32,7 +33,7 @@
   border-radius: 3px;
   height: auto;
   padding: 26px 5px;
-  margin: 30px;
+  margin: 20px;
   margin-top: 40px;
   border: 1px solid rgba(49,49,47,0.18);
   &-left {
@@ -89,7 +90,7 @@
   height: auto;
   padding: 26px 5px;
   margin: 20px;
-  margin-top: 40px;
+  margin-top: 10px;
   border: 1px solid rgba(49,49,47,0.18);
   &-left {
     margin: 20px;
@@ -106,9 +107,9 @@
   border-radius: 3px;
   height: auto;
   padding: 26px 5px;
-  margin: 30px;
-  margin-top: 40px;
+  margin: 20px;
   border: 1px solid rgba(49,49,47,0.18);
+  margin-top: 10px;
   &-left {
     margin: 20px;
     &-pic {
@@ -125,9 +126,8 @@
   border-radius: 3px;
   height: auto;
   padding: 26px 30px;
-  margin: 30px;
+  margin: 20px;
   margin-top: 10px;
-  margin-left: 0px;
   border: 1px solid rgba(49,49,47,0.18);
     h3 {
       font-family: $subtitle;
@@ -163,9 +163,8 @@
   border-radius: 3px;
   height: auto;
   padding: 26px 30px;
-  margin: 30px;
+  margin: 20px;
   margin-top: 10px;
-  margin-left: 0px;
   border: 1px solid rgba(49,49,47,0.18);
   &-calendar {
     width: 150px;
