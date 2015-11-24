@@ -9,7 +9,7 @@
 
 #banner {
 
-  background-image: image-url('banner_chief.jpg');
+  background-image: image-url('kitchen.jpg');
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -18,21 +18,17 @@
 
 
 .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   h3 {
   font-size: 95px;
-  padding-top: 90px;
   color: #E7B336;
   text-shadow: 1px 1px grey;
   }
   h1 {
-  font-size: 40px;
-  line-height: 1.35em;
-  font-weight: 100;
-  text-transform: none;
-  letter-spacing: 0px;
-  padding-bottom: 50px;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  font-size: 30px;
   }
 }
 
