@@ -10,16 +10,18 @@
     </div>
   </div>
 <% else %>
-  <div class="background-profile-meals">
-    <div class="background-profile-meals-title">
-      <h3>Vos anciennes annonces</h3>
-    </div>
-    <div class= "background-profile-meals-add hover" title= "Créer un nouveau menu">
-      <%= link_to new_profile_meal_path do %>
-        <button class="button button-glow button-circle button-action button-jumbo">
-          <i class="fa fa-plus"></i>
-        </button>
-      <% end %>
+  <div class="background-profile-meals background-banner">
+    <div class="overlay">
+      <div class="background-profile-meals-title">
+        <h3>Vos anciennes annonces</h3>
+      </div>
+      <div class= "background-profile-meals-add hover" title= "Créer un nouveau menu">
+        <%= link_to new_profile_meal_path do %>
+          <button class="button button-glow button-circle button-action button-jumbo">
+            <i class="fa fa-plus"></i>
+          </button>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="container">

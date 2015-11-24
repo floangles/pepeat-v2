@@ -11,8 +11,10 @@
   </div>
 <% else %>
   <div class="background-profile-orders background-banner">
-    <div class="background-profile-orders-title text-center">
-      <h3>Vos réservations en cours</h3>
+    <div class="overlay">
+      <div class="background-profile-orders-title text-center">
+        <h3>Vos réservations en cours</h3>
+      </div>
     </div>
   </div>
 
@@ -71,7 +73,7 @@
                 </div>
               </div>
               <div class="orders-body-show">
-                <%= link_to 'Voir ma commande', profile_order_path(order), class: "btn btn-pepeat buton-order" %>
+                <%= link_to 'Voir ma commande', profile_order_path(order), class: "btn btn-pepeat buton-order", style: "margin-bottom: 5px;" %>
               </div>
               <div class="orders-body-payment">
                 <% if !order.payment_validation %>

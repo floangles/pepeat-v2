@@ -83,11 +83,9 @@
                 <% end %>
             </div>
             <div class="infos-body-takeaway text-center">
-                <%= link_to profile_order_path(order),
-                  method: :delete,
-                  data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
+                <%= link_to profile_order_path(order), method: :delete, data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
                   <button class="button button-caution button-box button-raised button-longshadow hover" title= "Annuler votre réservation">
-                  <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash"></i>
                   </button>
                 <% end %>
             </div>

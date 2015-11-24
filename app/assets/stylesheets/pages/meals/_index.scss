@@ -1,12 +1,9 @@
 .background-meals {
   position: relative;
-  background: -webkit-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #1D2B64 10%, #F8CDDA 90%); /* W3C */
-  width: 100%;
-  height: 285px;
+
+  background-image: image-url('food.jpg');
+  background-size: cover;
+  background-position: center center;
   &-title {
     color: white;
     position: absolute;

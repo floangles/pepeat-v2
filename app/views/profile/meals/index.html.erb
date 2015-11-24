@@ -11,6 +11,7 @@
   </div>
 <% else %>
   <div class="background-profile-meals background-banner">
+    <div class= "overlay">
     <div class="background-profile-meals-title text-center">
       <h3>Vos annonces en cours</h3>
     </div>
@@ -21,6 +22,7 @@
       </button>
       <% end %>
     </div>
+     </div>
   </div>
   <% @meals.each do |meal| %>
     <div class="container">
@@ -84,7 +86,7 @@
                   <i class="fa fa-trash"></i>
                   </button>
                 <% end %>
-                <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-success" %>
+                <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-success2" %>
 
               </div>
             </div>

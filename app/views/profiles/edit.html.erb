@@ -1,6 +1,8 @@
-<div class="background-profile-show">
-  <div class="background-profile-show-title">
-    <h3>Edition du profil</h3>
+<div class="background-profile-show background-banner">
+  <div class="overlay">
+    <div class="background-profile-show-title">
+      <h3>Edition du profil</h3>
+    </div>
   </div>
 </div>
 <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
