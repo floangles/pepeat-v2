@@ -29,7 +29,7 @@ module Profile
     end
 
     PaymentMailer.confirmation(@order).deliver_now
-    PaymentMailer.delay_until(5.minutes.from_now).remember(@order.id)
+    PaymentMailer.delay_for(5.minutes).remember(@order)
     # You should store this customer id and re-use it.
     @commission = @order.amount_cents * @order.portion.to_i * @client + @order.amount_cents * @order.portion.to_i * @chief
     charge = Stripe::Charge.create({
