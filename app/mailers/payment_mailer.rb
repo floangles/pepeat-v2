@@ -11,8 +11,8 @@ class PaymentMailer < ApplicationMailer
     mail(to: @order.user.email, subject: 'Récapitulatif de votre commande')
   end
 
-  def remember(order)
-    @order = order
+  def remember(order_id)
+    @order = Order.find(params[:id])
     mail(to: @order.user.email, subject: "N'oubliez pas d'aller chercher votre commande")
   end
 end
