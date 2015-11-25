@@ -73,7 +73,7 @@ $(function() {
         $('#placeholder-chief').addClass( "invisible2" );
         $('.img-preview').addClass( "invisible2" );
         $('#picturechief').append($('<div/>', {class: 'oui-chef'}, { id: 'r' + i}).html(img));
-        $(".oui-chef img").addClass("preview-size cropbox");
+        $(".oui-chef img").addClass("preview-size-profile cropbox");
 
       }
       reader.readAsDataURL(image);
