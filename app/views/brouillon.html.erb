@@ -228,4 +228,23 @@
 
 <% else %>
 
+<!-- Ultra important à garder-->
+
+<div class= "week-days">
+  <ul class="nav nav-pills nav-justified" role="tablist">
+    <li role="presentation" class= 'active'><a href="#0" aria-controls="0" role="tab" data-toggle="tab"><b>Tout</b> <span class= "badge"><%= total_meals(@meals) %></span></a></li>
+    <li role="presentation"><a href="#1" aria-controls="1" role="tab" data-toggle="tab"><b>Aujourd'hui <span class= "badge"> <%= number_meals(@meals, 0) %></span></b></a> </li>
+    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 1.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 1) %></span></b></a></li>
+    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 2.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 2) %></span></b></a></li>
+    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 3.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 3) %></span></b></a></li>
+    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 4.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 4) %></span></b></a></li>
+    <li role="presentation"><a href="#6" aria-controls="6" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 5.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 5) %></span></b></a></li>
+    <li role="presentation"><a href="#7" aria-controls="7" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 6.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 6) %></span> </b></a></li>
+  </ul>
+</div>
+
+<!-- Ultra important à garder-->
+
+
+
 

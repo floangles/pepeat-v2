@@ -12,15 +12,16 @@
 <div class= "week-days">
   <ul class="nav nav-pills nav-justified" role="tablist">
     <li role="presentation" class= 'active'><a href="#0" aria-controls="0" role="tab" data-toggle="tab"><b>Tout</b> <span class= "badge"><%= total_meals(@meals) %></span></a></li>
-    <li role="presentation"><a href="#1" aria-controls="1" role="tab" data-toggle="tab"><b>Aujourd'hui <span class= "badge"> <%= number_meals(@meals, 0) %></span></b></a> </li>
-    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 1.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 1) %></span></b></a></li>
-    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 2.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 2) %></span></b></a></li>
-    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 3.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 3) %></span></b></a></li>
-    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 4.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 4) %></span></b></a></li>
-    <li role="presentation"><a href="#6" aria-controls="6" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 5.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 5) %></span></b></a></li>
-    <li role="presentation"><a href="#7" aria-controls="7" role="tab" data-toggle="tab"><b><%= l(DateTime.now + 6.days, format: '%A %d')%> <span class= "badge"> <%= number_meals(@meals, 6) %></span> </b></a></li>
+    <li role="presentation"><a href="#1" aria-controls="1" role="tab" data-toggle="tab"><b>Mercredi 6 janvier </b></a> </li>
+    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab"><b>Jeudi 7 janvier</b></a></li>
+    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab"><b> Vendredi 8 janvier</b></a></li>
+    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab"><b>Samedi 9 janvier</b></a></li>
+    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab"><b>Dimanche 10 janvier</b></a></li>
+    <li role="presentation"><a href="#6" aria-controls="6" role="tab" data-toggle="tab"><b>Lundi 11 janvier</b></a></li>
+    <li role="presentation"><a href="#7" aria-controls="7" role="tab" data-toggle="tab"><b>Mardi 12 janvier</b></a></li>
   </ul>
 </div>
+
   <!-- Tab panes -->
   <div class="tab-content">
 
@@ -55,10 +56,10 @@
     <div role="tabpanel" class="tab-pane in" id="1">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 0) > 0 %>
+          <% if number_meals(@meals, 0) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if DateTime.now.day == meal.day.day %>
+                <% if DateTime.now.day == meal.day.day || 6 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                    <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -85,10 +86,10 @@
     <div role="tabpanel" class="tab-pane " id="2">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 1) > 0 %>
+          <% if number_meals(@meals, 1) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 1.days).day == meal.day.day %>
+                <% if (DateTime.now + 1.days).day == meal.day.day || 7 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -115,10 +116,10 @@
     <div role="tabpanel" class="tab-pane in" id="3">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 2) > 0 %>
+          <% if number_meals(@meals, 2) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 2.days).day == meal.day.day %>
+                <% if (DateTime.now + 2.days).day == meal.day.day || 8 == meal.day.day  %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -145,10 +146,10 @@
     <div role="tabpanel" class="tab-pane in" id="4">
       <div class="container">
         <div class="row">
-            <% if number_meals(@meals, 3) > 0 %>
+            <% if number_meals(@meals, 3) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 3.days).day == meal.day.day %>
+                <% if (DateTime.now + 3.days).day == meal.day.day || 9 == meal.day.day%>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -174,10 +175,10 @@
     <div role="tabpanel" class="tab-pane in" id="5">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 4) > 0 %>
+          <% if number_meals(@meals, 4) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
-              <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 4.days).day == meal.day.day %>
+              <% if meal.validation? && meal_actual(meal)  %>
+                <% if (DateTime.now + 4.days).day == meal.day.day || 10 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -203,10 +204,10 @@
     <div role="tabpanel" class="tab-pane in" id="6">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 5) > 0 %>
+          <% if number_meals(@meals, 5) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 5.days).day == meal.day.day %>
+                <% if (DateTime.now + 5.days).day == meal.day.day || 11 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -232,10 +233,10 @@
     <div role="tabpanel" class="tab-pane in" id="7">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 6) > 0 %>
+          <% if number_meals(@meals, 6) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal)%>
-                <% if (DateTime.now + 6.days).day == meal.day.day %>
+                <% if (DateTime.now + 6.days).day == meal.day.day || 12 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -261,10 +262,10 @@
     <div role="tabpanel" class="tab-pane in" id="8">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 7) > 0  %>
+          <% if number_meals(@meals, 7) > 0 || @meals.count > 0  %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal)%>
-                <% if (DateTime.now + 7.days).day == meal.day.day %>
+                <% if (DateTime.now + 7.days).day == meal.day.day || 13 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -290,10 +291,10 @@
     <div role="tabpanel" class="tab-pane in" id="9">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 8) > 0 %>
+          <% if number_meals(@meals, 8) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 8.days).day == meal.day.day %>
+                <% if (DateTime.now + 8.days).day == meal.day.day || 14 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
@@ -319,10 +320,10 @@
     <div role="tabpanel" class="tab-pane in" id="10">
       <div class="container">
         <div class="row">
-          <% if number_meals(@meals, 9) > 0 %>
+          <% if number_meals(@meals, 9) > 0 || @meals.count > 0 %>
             <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
-                <% if (DateTime.now + 9.days).day == meal.day.day %>
+                <% if (DateTime.now + 9.days).day == meal.day.day || 15 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
