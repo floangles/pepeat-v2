@@ -18,37 +18,42 @@
 <div class="container">
   <div class="gallery-kitchen">
     <h1 class= "text-center profile-header">Les photos de mon menu</h1>
-    <div class="row">
-      <% @meal.meal_pictures.each do |picture|%>
-        <div class="col-xs-12 col-sm-4">
-          <div class="picture-kitchen">
-            <%= image_tag picture.picture.url(:large), class: "kitchen-size" %>
-            <div class= "text-center">
-              <%= link_to 'Redimensionner', mealcrop_profile_meals_path(picture, meal_id: params[:meal_id]), class: "button button-highlight button-tiny" %>
-              <%= link_to profile_meal_picture_path(picture, meal_id: params[:meal_id]),
+    <div class="gallery-kitchen-row">
+      <div class="row">
+        <% @meal.meal_pictures.each do |picture|%>
+          <div class="col-xs-12 col-sm-4">
+            <div class="picture-kitchen">
+              <%= image_tag picture.picture.url(:large), class: "kitchen-size" %>
+              <div class= "text-center">
+                <%= link_to 'Redimensionner', mealcrop_profile_meals_path(picture, meal_id: params[:meal_id]), class: "button button-highlight button-tiny" %>
+                <%= link_to profile_meal_picture_path(picture, meal_id: params[:meal_id]),
                 method: :delete,
                 data: { confirm: "Etes vous certain de vouloir supprimer la photo ?" } do %>
-                <button class="button button-caution button-square button-tiny">
-                <i class="fa fa-trash"></i>
-                </button>
-              <% end %>
+                  <button class="button button-caution button-square button-tiny">
+                  <i class="fa fa-trash"></i>
+                  </button>
+                <% end %>
+              </div>
             </div>
           </div>
+        <% end %>
+        <div class= "col-xs-12 col-sm-3">
+          <div id= "target3", class= "picture-kitchen">
+            <%= image_tag 'placeholder.png', id: "placeholder", class: "kitchen-size" %>
+          </div>
+          <div id= 'target2' class= "picture-kitchen"></div>
+          <div class= "go-btn invisible" id= "space-btn">
+            <%=link_to 'Valider', '#', class: 'btn btn-success' %>
+          </div>
+          <div class= "go-btn invisible modify-btn" id= "change-btn">
+            <%=link_to 'Changer', '#', class: 'btn btn-danger' %>
+          </div>
         </div>
-      <% end %>
-      <div class= "col-xs-12 col-sm-3">
-        <div id= "target3", class= "picture-kitchen">
-          <%= image_tag 'placeholder.png', id: "placeholder", class: "kitchen-size" %>
-        </div>
-        <div id= 'target2'></div>
-        <div class= "go-btn invisible" id= "space-btn">
-          <%=link_to 'Je valide la photo', '#', class: 'btn btn-success' %>
-        </div>
+      </div>
+      <div class= "gallery-kitchen-row-submit">
+        <%= link_to 'Je confirme mes photos', profile_meals_path, class: "btn btn-success2 btn-lg" %>
       </div>
     </div>
-      <div class= "gallery-kitchen-submit">
-        <%= link_to 'Je valide', profile_meals_path, class: "btn btn-success btn-lg" %>
-      </div>
   </div>
 </div>
 

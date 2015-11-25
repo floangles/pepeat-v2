@@ -55,7 +55,7 @@ class ProfilesController < ApplicationController
             }
           }
         )
-        @user.update(uid: stripe.id, stripe: 'true')
+        @user.update(stripe_id: stripe.id, stripe: 'true')
       end
       redirect_to profile_path
 
@@ -71,7 +71,7 @@ class ProfilesController < ApplicationController
 
   def update_bank_account
 
-    account = Stripe::Account.retrieve(current_user.uid)
+    account = Stripe::Account.retrieve(current_user.stripe_id)
     account.external_accounts.create(external_account: stripeToken)
 
     redirect_to profile_path

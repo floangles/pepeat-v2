@@ -37,7 +37,7 @@ module Profile
       amount:       @amount.to_i,  # in cents
       description:  "#{@order.user.firstname} a commandé #{@order.portion} menus #{@order.meal.title} au cuisniner #{@order.meal.user.surname}",
       currency:     'eur',
-      destination: @order.meal.user.uid,
+      destination: @order.meal.user.stripe_id,
       capture: 'false',
       application_fee: @commission.to_i
     })

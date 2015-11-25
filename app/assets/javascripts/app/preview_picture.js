@@ -16,7 +16,8 @@ $(function() {
 
 
         $('#target3').addClass( "invisible" ); // Make invisible the placeholder
-        $('#target2').append($('<div/>', {class: 'col-xs-3 salut' }, { id: 'r' + i}).html(img)); // pictures place
+        $('.salut').addClass( "invisible2" );
+        $('#target2').append($('<div/>', {class: 'salut' }, { id: 'r' + i}).html(img)); // pictures place
         $(".salut img").addClass("preview-size") // css class for img
         $('.go-btn').removeClass( "invisible" ); // The go button appear
 
@@ -104,14 +105,6 @@ $(function() {
     }
   });
 });
-
-// $(document).ready( function() {
-//   var mealpictureInput = $("#mealpictureInput");
-
-//   $("#delete").on("click", function () {
-//     mealpictureInput.html(mealpictureInput.html());
-//   });
-// });
 
 
 

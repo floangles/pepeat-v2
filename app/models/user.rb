@@ -46,6 +46,7 @@
 #  confirmation_sent_at   :datetime
 #  stripe                 :boolean
 #  customer_id            :string
+#  stripe_id              :string
 #
 # Indexes
 #

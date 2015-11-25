@@ -11,6 +11,12 @@ $(document).ready( function() {
   });
 });
 
+$(document).ready( function() {
+  $('#change-btn').click(function(){
+    $("#pictureInput").click();
+  });
+});
+
 
 $(document).ready( function() {
   $('#placeholder-chief').click(function(){
