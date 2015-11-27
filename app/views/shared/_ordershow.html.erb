@@ -10,24 +10,30 @@
       </div>
     </div>
     <div class="meal-body">
-      <div class="meal-body-menu-first">
-        <%= image_tag 'starter.png', class: "img-menu-show-meal" %>
-        <div class= "meal-body-menu-first-element">
-          <%= meal.starter %>
+      <% if meal.starter? %>
+        <div class="meal-body-menu-first">
+          <%= image_tag 'starter.png', class: "img-menu-show-meal" %>
+          <div class= "meal-body-menu-first-element">
+            <%= meal.starter %>
+          </div>
         </div>
-      </div>
-      <div class="meal-body-menu">
-        <%= image_tag 'main.png', class: "img-menu-show-meal" %>
-        <div class= "meal-body-menu-element">
-          <%= meal.main %>
+      <% end %>
+      <% if meal.main? %>
+        <div class="meal-body-menu">
+          <%= image_tag 'main.png', class: "img-menu-show-meal" %>
+          <div class= "meal-body-menu-element">
+            <%= meal.main %>
+          </div>
         </div>
-      </div>
-      <div class="meal-body-menu">
-        <%= image_tag 'dessert.png', class: "img-menu-show-meal" %>
-        <div class= "meal-body-menu-element">
-          <%= meal.dessert %>
+      <% end %>
+      <% if meal.dessert? %>
+        <div class="meal-body-menu">
+          <%= image_tag 'dessert.png', class: "img-menu-show-meal" %>
+          <div class= "meal-body-menu-element">
+            <%= meal.dessert %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <div class="meal-body-description">
         <h3 class= "text-center"> A propos du menu </h3>
         <%= meal.description.html_safe %>

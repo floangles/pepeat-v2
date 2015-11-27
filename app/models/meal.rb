@@ -37,10 +37,13 @@ class Meal < ActiveRecord::Base
   has_many :orders
   has_many :meal_pictures, dependent: :destroy
 
+  validates :takeaway, presence: true, unless: "home?"
+  validates :home, presence: true, unless: "takeaway?"
   validates :start_hour, presence: true, if: "takeaway?"
   validates :end_hour, presence: true, if: "takeaway?"
   validates :home_hour, presence: true, if: "home?"
   validates :day, presence: true
+  validates :title, presence: true
   validates :cgu, presence: true
   validates :portion, presence: true
   validates :price, presence: true

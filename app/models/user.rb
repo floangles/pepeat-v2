@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true, on: :update
   validates :lastname, presence: true, on: :update
-  validates :phone_number, presence: true, on: :update
+  validates :phone_number, presence: true, uniqueness: true,  on: :update
   validates :address, presence: true, on: :update, if: "chief?"
   validates :picture, presence: true, on: :update
 

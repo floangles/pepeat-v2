@@ -63,24 +63,30 @@
                 <div class="card-offer-left-title text-center">
                   <%= meal.title%> - <%=meal.price%> €
                 </div>
-                <div class="card-offer-left-meal">
-                    <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
-                  <div class="card-offer-left-meal-name">
-                    <%= meal.starter %>
+                <% if meal.starter? %>
+                  <div class="card-offer-left-meal">
+                      <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
+                    <div class="card-offer-left-meal-name">
+                      <%= meal.starter %>
+                    </div>
                   </div>
-                </div>
-                <div class="card-offer-left-meal">
-                  <%= image_tag 'main.png', class: "card-offer-left-meal-icon"%>
-                  <div class="card-offer-left-meal-name">
-                    <%= meal.main %>
+                <% end %>
+                <% if meal.main? %>
+                  <div class="card-offer-left-meal">
+                    <%= image_tag 'main.png', class: "card-offer-left-meal-icon"%>
+                    <div class="card-offer-left-meal-name">
+                      <%= meal.main %>
+                    </div>
                   </div>
-                </div>
-                <div class="card-offer-left-meal">
-                  <%= image_tag 'dessert.png', class: "card-offer-left-meal-icon"%>
-                  <div class="card-offer-left-meal-name">
-                    <%= meal.dessert %>
+                <% end %>
+                <% if meal.dessert? %>
+                  <div class="card-offer-left-meal">
+                    <%= image_tag 'dessert.png', class: "card-offer-left-meal-icon"%>
+                    <div class="card-offer-left-meal-name">
+                      <%= meal.dessert %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6">

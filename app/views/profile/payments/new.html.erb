@@ -49,24 +49,30 @@
             <h1><%= @order.meal.title %></h1>
             <%= image_tag @order.meal.user.picture.url(:medium), class: "img-chef-meal img-circle" %>
           </div>
-          <div class="payment-right-menu">
-            <%= image_tag 'starter.png', class: "img-menu-meal" %>
-            <div class= "payment-right-menu-element">
-              <i><%= @order.meal.starter %></i>
+          <% if @order.meal.starter? %>
+            <div class="payment-right-menu">
+              <%= image_tag 'starter.png', class: "img-menu-meal" %>
+              <div class= "payment-right-menu-element">
+                <i><%= @order.meal.starter %></i>
+              </div>
             </div>
-          </div>
-          <div class="payment-right-menu">
-            <%= image_tag 'main.png', class: "img-menu-meal" %>
-            <div class= "payment-right-menu-element">
-              <i><%= @order.meal.main %></i>
+          <% end %>
+          <% if @order.meal.main? %>
+            <div class="payment-right-menu">
+              <%= image_tag 'main.png', class: "img-menu-meal" %>
+              <div class= "payment-right-menu-element">
+                <i><%= @order.meal.main %></i>
+              </div>
             </div>
-          </div>
-          <div class="payment-right-menu">
-            <%= image_tag 'dessert.png', class: "img-menu-meal" %>
-            <div class= "payment-right-menu-element">
-              <i><%= @order.meal.dessert %></i>
+          <% end %>
+          <% if @order.meal.dessert? %>
+            <div class="payment-right-menu">
+              <%= image_tag 'dessert.png', class: "img-menu-meal" %>
+              <div class= "payment-right-menu-element">
+                <i><%= @order.meal.dessert %></i>
+              </div>
             </div>
-          </div>
+          <% end %>
           <div class="payment-right-portion text-center">
               <h3><%=@order.portion %> <i class="fa fa-cutlery"></i></h3>
           </div>

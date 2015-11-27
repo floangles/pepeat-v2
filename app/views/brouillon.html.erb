@@ -246,5 +246,115 @@
 <!-- Ultra important à garder-->
 
 
+<!-- cardmeal -->
+
+ <div class="meals">
+  <div class="meals-header">
+    <div class= "carousel">
+      <% meal.meal_pictures.each do |picture| %>
+        <%= link_to meal_path(meal) do %>
+          <div> <%= image_tag picture.picture.url(:large), class: "img-carousel"%> </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="meals-header-away">
+      <% if meal.home? %>
+        <h3 class= "text-center">Diner chez le chef</h3>
+      <% else %>
+        <h3 class= "text-center">A emporter</h3>
+      <% end %>
+    </div>
+    <div class="meals-header-price">
+      <%= meal.price %>€
+    </div>
+    <div class="meals-header-date">
+      <%= l(meal.day, format: '%A %d/%m')%>
+    </div>
+    <div class="meals-header-pic">
+      <%= link_to publics_path(meal.user) do %>
+        <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="meals-body">
+    <div class="meals-body-chef">
+      <%= link_to publics_path(meal.user) do %>
+        <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
+      <% end %>
+      <div class= "meals-body-chef-name">
+        Chef <%= meal.user.surname%>
+         <%= link_to public_path(meal.user) do %>
+          (<%= user_rating(meal.user)%> avis)
+         <% end %>
+      </div>
+      <div class="meals-body-chef-map">
+
+      </div>
+    </div>
+    <div class="meals-body-menu">
+      <div class="meals-body-menu-title">
+        <%= link_to meal_path(meal) do %>
+          <h3 class= "text-center"><%= meal.title %></h3>
+        <% end %>
+      </div>
+      <% if meal.starter? %>
+        <div class= "meals-body-menu-starter">
+          <%= image_tag 'starter.png', class: "img-menu-meal" %>
+          <div class= "meals-body-menu-starter-element">
+           <i><%= meal.starter %></i>
+          </div>
+        </div>
+      <% end %>
+      <% if meal.main? %>
+        <div class= "meals-body-menu-starter">
+          <%= image_tag 'main.png', class: "img-menu-meal" %>
+          <div class= "meals-body-menu-starter-element">
+            <i><%= meal.main %></i>
+          </div>
+        </div>
+      <% end %>
+      <% if meal.dessert? %>
+        <div class= "meals-body-menu-starter">
+          <%= image_tag 'dessert.png', class: "img-menu-meal" %>
+          <div class= "meals-body-menu-starter-element">
+            <i><%= meal.dessert %></i>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="meals-body-takeaway">
+      <% if meal.home? %>
+        <div>
+          <%= image_tag 'home2.png', class: "img-take hover", title: "Diner chez le chef" %>
+        </div>
+        <div class="meals-body-takeaway-hour">
+          Rdv à <%= meal.home_hour.strftime('%Hh:%M') %> chez le chef
+        </div>
+      <% else %>
+        <div>
+          <%= image_tag 'take.png', class: "img-take hover", title: "A emporter chez sois" %>
+        </div>
+        <div class="meals-body-takeaway-hour">
+          <p><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></p>
+        </div>
+      <% end %>
+      <div class= "meals-body-takeaway-portion">
+        <span class= "size-txt-portion"><%= available_portions(meal)%></span> <%= image_tag 'portion.svg', class: "size-portion" %>
+      </div>
+    </div>
+      <% if current_user == meal.user %>
+        <% if meal.orders.count == 0 %>
+          <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+        <% end %>
+      <% else %>
+      <div class="meals-body-order">
+        <%= render "/shared/modale", meal: meal %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- cardmeal -->
+
 
 
