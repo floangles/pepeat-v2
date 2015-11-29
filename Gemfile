@@ -10,8 +10,8 @@ gem "country_select"
 gem "high_voltage"
 gem "devise"
 gem 'pundit', github: 'elabs/pundit'
-gem "paperclip"
 gem "aws-sdk", "< 2.0"
+gem "paperclip"
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem "jquery-rails"

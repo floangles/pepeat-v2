@@ -47,6 +47,7 @@
 #  stripe                 :boolean
 #  customer_id            :string
 #  stripe_id              :string
+#  bank_account_id        :string
 #
 # Indexes
 #
@@ -109,7 +110,6 @@ class User < ActiveRecord::Base
   validates :lastname, presence: true, on: :update
   validates :phone_number, presence: true, uniqueness: true,  on: :update
   validates :address, presence: true, on: :update, if: "chief?"
-  validates :picture, presence: true, on: :update
 
 
 

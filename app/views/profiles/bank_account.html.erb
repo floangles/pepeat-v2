@@ -1,51 +1,66 @@
-<h1> c'est parti !!!!</h1>
-
-<%= simple_form_for(current_user, url: update_bank_account_profile_path, id: "payment-form") do |f| %>
-  <input data-stripe= "account-number"/>
-  <%= f.submit "Enregistrement du compte",  class: "btn" %>
-<% end %>
-
-
-
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
-<% content_for(:after_js) do %>
-
 <script type="text/javascript">
-
-  function stripeResponseHandler(status, response) {
-      var $form = $('#payment-form');
-
-      if (response.error) {
-        // Show the errors on the form
-        $form.find('.bank-errors').text(response.error.message);
-        $form.find('button').prop('disabled', false);
-      } else {
-        // response contains id and bank_account, which contains additional bank account details
-        var token = response.id;
-        // Insert the token into the form so it gets submitted to the server
-        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-        // and submit
-        $form.get(0).submit();
-      }
-    }
-
-
-      jQuery(function($) {
-       $('#payment-form').submit(function(e) {
-         var $form = $(this);
-
-         // Disable the submit button to prevent repeated clicks
-         $form.find('button').prop('disabled', true);
-
-         Stripe.bankAccount.createToken($form, stripeResponseHandler);
-
-         // Prevent the form from submitting with the default action
-         return false;
-       });
-     });
-
+Stripe.setPublishableKey('pk_test_AnTNRrYA5hnK0DRMzVqIOMUw')
 </script>
 
-<% end %>
+<div class="background-bank window-height">
+  <div class="overlay">
+    <div class="background-bank-title text-center">
+      <h3>Votre compte bancaire</h3>
+      <% if current_user.bank_account_id %>
+        <% account = Stripe::Account.retrieve(current_user.stripe_id) %>
+        <% bank_account = account.external_accounts.retrieve(current_user.bank_account_id) %>
+        <h4>Actuel : ********<%= bank_account.last4 %></h4>
+        <p>Changer de compte bancaire</p>
+        <div class="background-bank-form">
+        <%= form_for(current_user, url: update_bank_account_profile_path, html: { id: "bank_account_form"} ) do |f| %>
+            <div class= "bank-input">
+              <input type="text" class= "account-number form-control" />
+            </div>
+            <div id="notice"></div>
+            <%= f.submit "Enregistrement du nouveau compte",  class: "btn btn-pepeat " %>
+            <p>En enregistrant votre compte bancaire vous agréez à nos <%= link_to 'CGU', '#' %> et à <%= link_to "l'agrément des des comptes connectés Stripe", 'https://stripe.com/connect/account-terms', target: 'blank' %></p>
+          <% end %>
+        </div>
+      <% else %>
+        <p>Ajouter un compte bancaire</p>
+        <div class="background-bank-form">
+          <%= form_for(current_user, url: update_bank_account_profile_path, html: { id: "bank_account_form"} ) do |f| %>
+              <div class= "bank-input">
+                <input type="text" class= "account-number" />
+              </div>
+              <div id="notice"></div>
+              <%= f.submit "Enregistrement du compte",  class: "btn btn-pepeat " %>
+              <p>En enregistrant votre compte bancaire vous agréez à nos <%= link_to 'CGU', '#' %> et à <%= link_to "l'agrément des des comptes connectés Stripe", 'https://stripe.com/connect/account-terms' %></p>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+
+<!--
+<div class="container">
+  <div class="bank text-center">
+    <div class="row">
+      <div class="col-xs-6">
+
+      </div>
+      <div class="col-xs-6">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ -->
+
+
+
+
+
+
 

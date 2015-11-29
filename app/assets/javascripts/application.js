@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.slick
+//= require jquery.jcrop
 //= require bootstrap-sprockets
 //= require moment
 //= require moment/fr.js
@@ -10,7 +11,6 @@
 //= require tooltipster
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
-//= require jquery.jcrop
 //= require papercrop
 
 

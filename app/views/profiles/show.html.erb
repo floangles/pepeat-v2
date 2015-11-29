@@ -41,14 +41,16 @@
               <%= image_tag @user.picture.url(:large), id: "img-preview" %>
               <span class= "btn btn-danger crop"> Redimenssionner</span>
             </div>
-            <div class= "hidden-form cropable">
-              <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
+            <% if @user.picture? %>
+              <div class= "hidden-form cropable">
+                <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
                 <%= f.cropbox :picture, :width => 300 %>
-                <div class= "text-center">
-                  <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
-                </div>
-              <% end %>
-            </div>
+                  <div class= "text-center">
+                    <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-sm-offset-1">

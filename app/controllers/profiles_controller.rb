@@ -57,6 +57,7 @@ class ProfilesController < ApplicationController
         )
         @user.update(stripe_id: stripe.id, stripe: 'true')
       end
+
       redirect_to profile_path
 
     else
@@ -70,11 +71,24 @@ class ProfilesController < ApplicationController
   end
 
   def update_bank_account
-
+    token = params[:stripeToken]
     account = Stripe::Account.retrieve(current_user.stripe_id)
-    account.external_accounts.create(external_account: stripeToken)
+    if account.external_accounts.count == 0
+      bank_account = account.external_accounts.create(external_account: token)
+      @user.update(bank_account_id: bank_account.id)
 
-    redirect_to profile_path
+      account.tos_acceptance.date = Time.now.to_i
+      account.tos_acceptance.ip = request.remote_ip # Assumes you're not using a proxy
+      account.save
+      flash[:notice] = 'Votre compte a été ajouté avec succès'
+    else
+      bank_account = account.external_accounts.create(external_account: token, default_for_currency: 'true')
+      account.external_accounts.retrieve(current_user.bank_account_id).delete
+      @user.update(bank_account_id: bank_account.id)
+      bank_account.save
+      flash[:notice] = 'Votre compte a été changé avec succès'
+    end
+    redirect_to bank_account_profile_path
   end
 
 

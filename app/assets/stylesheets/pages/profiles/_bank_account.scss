@@ -1,0 +1,56 @@
+.background-bank {
+  position: relative;
+  background-image: image-url('bank.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+  &-form {
+    color: black;
+    margin: 20px;
+    p {
+      color: white;
+      font-size: 10px;
+      margin-top: 20px;
+    }
+    a {
+      color: #008AE0;
+      text-decoration: underline;
+    }
+  }
+  &-title {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    h3 {
+      font-size: 44px;
+    }
+    h4 {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+#notice {
+  margin: 20px;
+  color: red;
+}
+
+#bank_account_form {
+
+}
+
+.bank {
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  padding:4px;
+  border: 1px solid rgba(49,49,47,0.18);
+  &-input {
+    margin: 20px;
+  }
+}
