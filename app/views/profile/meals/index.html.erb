@@ -68,19 +68,19 @@
               <% end %>
               <div class="card-offer-left-announce text-center">
                 <%= link_to meal_path(meal) do %>
-                  <button class="button button-highlight button-box button-longshadow-right button-longshadow-expand">
+                  <button class="btn btn-pepeat2 hvr-grow">
                   <i class="fa fa-eye"></i>
                   </button>
                 <% end %>
                 <% if meal.orders.where(state: "paid").count == 0 %>
                   <%= link_to edit_profile_meal_path(meal) do %>
-                    <button class="button button-action button-box button-longshadow-left">
+                    <button class="btn btn-success2 hvr-grow">
                     <i class="fa fa-pencil"></i>
                     </button>
                   <% end %>
                 <% else %>
                   <span class= "hover" title= "Vous ne pouvez pas éditer un menu lorsque vous avez des réservations">
-                    <button class="button button-action button-box button-longshadow-left">
+                    <button class="btn btn-success2 hvr-grow">
                     <i class="fa fa-pencil"></i>
                     </button>
                   </span>
@@ -88,12 +88,11 @@
                 <%= link_to profile_meal_path(meal),
                   method: :delete,
                   data: { confirm: "Etes vous certain de vouloir supprimer votre menu ?" } do %>
-                  <button class="button button-caution button-box button-raised button-longshadow">
+                  <button class="btn btn-danger2 hvr-grow">
                   <i class="fa fa-trash"></i>
                   </button>
                 <% end %>
-                <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-success2" %>
-
+                <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-primary2" %>
               </div>
             </div>
           </div>

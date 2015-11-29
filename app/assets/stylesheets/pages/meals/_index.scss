@@ -170,17 +170,25 @@
       padding-top: 5px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
       &-title {
-        background-color: $pepeat;
+        margin-top: 12px;
         margin-bottom: 25px;
         margin-right: 15px;
         border-radius: 3px;
+        border: solid 1px $pepeat;
 
         h3 {
-        text-shadow: 1px 1px rgba(136, 133, 126, 0.79);
+        text-shadow: 1px 1px rgba(33, 32, 29, 0.16);
         font-family: $subtitle;
-        font-size: 25px;
-        color: white;
+        font-size: 20px;
+        color: $pepeat;
+        margin: 0px;
         padding: 3px;
+        }
+        &:hover {
+          background-color: $pepeat;
+          h3 {
+            color: white;
+          }
         }
       }
       &-starter{
@@ -194,7 +202,7 @@
       }
     }
     &-takeaway{
-      padding: 15px;
+      padding: 2px;
       margin: 20px;
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
       &-hour {
