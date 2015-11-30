@@ -1,7 +1,6 @@
 $(function () {
       $('#datetimepicker3').datetimepicker({
           format: 'L',
-          minDate: '01/06/2016'
       });
   });
 
