@@ -100,8 +100,8 @@ class User < ActiveRecord::Base
     }
   end
 
-  has_many :meals
-  has_many :orders
+  has_many :meals, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_many :chief_pictures, dependent: :destroy
 
 
