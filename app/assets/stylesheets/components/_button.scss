@@ -65,3 +65,10 @@
     border-color: lighten($border, 22%); // 12% default
   }
 }
+
+
+.button-action, .button-action-flat {
+    background-color: #5BBEA0;
+    border-color: #5BBEA0;
+    color: white;
+}
