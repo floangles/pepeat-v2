@@ -3,6 +3,16 @@ module Profile
 
   class PaymentsController < ApplicationController
     before_action :set_order
+    before_action :filled_profile?
+
+    def filled_profile?
+      if current_user.picture && current_user.firstname && current_user.lastname && current_user.phone_number
+        true
+      else
+        flash[:notice] = 'Vous devez remplir votre profil pour commander un plat'
+        redirect_to edit_profile_path
+      end
+    end
 
     def new
       @client = 0.15

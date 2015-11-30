@@ -47,6 +47,12 @@ class ProfilesController < ApplicationController
                 postal_code: params[:postal_code],
                 state: params[:administrative_area_level_1]
               },
+              personal_address: {
+                city: params[:locality],
+                line1: params[:street_number] + ' ' + params[:route],
+                postal_code: params[:postal_code],
+                state: params[:administrative_area_level_1]
+              },
               dob: {
                 day: @user.birth.day,
                 month: @user.birth.month,

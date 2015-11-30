@@ -85,11 +85,13 @@
                 <% end %>
             </div>
             <div class="infos-body-takeaway text-center">
+              <% if order.payment_validation.nil? %>
                 <%= link_to profile_order_path(order), method: :delete, data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
-                  <button class="btn btn-danger2 hover" title= "Annuler votre réservation">
+                  <button class="btn btn-danger2 hvr-grow hover" title= "Annuler votre réservation">
                     <i class="fa fa-trash"></i>
                   </button>
                 <% end %>
+              <% end %>
             </div>
           </div>
         </div>

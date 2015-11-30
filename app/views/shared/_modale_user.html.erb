@@ -31,7 +31,7 @@
         <div class="modal-body">
           <div class= "modale-user">
             <div class= "modale-user-element">
-              <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menus
+              <i class="fa fa-cutlery awesome"></i> <%= order.portion %> menu(s)
             </div>
             <div class= "modale-user-element">
               <i class="fa fa-mobile awesome"></i><%= order.user.phone_number %>
@@ -39,13 +39,13 @@
             <% if order.payment_validation == true %>
               <div class= "modale-user-element">
                 <div class="modale-user-element-validate">
-                  <p><i class="fa fa-check awesome"></i> Reception du menu validée</p>
+                  <p><i class="fa fa-check awesome"></i> Reception de la commande validée</p>
                 </div>
               </div>
             <% else %>
               <div class= "modale-user-element">
                 <div class="modale-user-element-nonvalidate">
-                  <p><i class="fa fa-times awesome"></i> N'a pas encore validé la reception du menu</p>
+                  <p><i class="fa fa-times awesome"></i> N'a pas encore validé la reception de la commande</p>
                 </div>
               </div>
             <% end %>
