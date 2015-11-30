@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128143104) do
+ActiveRecord::Schema.define(version: 20151130140926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,15 +61,15 @@ ActiveRecord::Schema.define(version: 20151128143104) do
     t.string   "main"
     t.string   "starter"
     t.string   "dessert"
-    t.integer  "price_cents",     default: 0, null: false
+    t.integer  "price_cents",     default: 0,     null: false
     t.integer  "portion"
     t.text     "description"
     t.datetime "day"
     t.datetime "start_hour"
     t.datetime "end_hour"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.datetime "start_hour_home"
     t.boolean  "takeaway"
     t.string   "title"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20151128143104) do
     t.datetime "home_hour"
     t.boolean  "validation"
     t.text     "ingredients"
-    t.boolean  "cgu"
+    t.boolean  "cgu",             default: false
   end
 
   add_index "meals", ["user_id"], name: "index_meals_on_user_id", using: :btree
@@ -88,12 +88,12 @@ ActiveRecord::Schema.define(version: 20151128143104) do
     t.integer  "meal_id"
     t.string   "state"
     t.json     "payment"
-    t.integer  "amount_cents",       default: 0, null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "amount_cents",       default: 0,     null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.text     "review"
     t.string   "charge"
-    t.boolean  "payment_validation"
+    t.boolean  "payment_validation", default: false
   end
 
   add_index "orders", ["meal_id"], name: "index_orders_on_meal_id", using: :btree
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20151128143104) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "surname"
-    t.boolean  "chief"
+    t.boolean  "chief",                  default: false
     t.text     "description"
     t.string   "address"
     t.string   "picture_file_name"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20151128143104) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "stripe"
+    t.boolean  "stripe",                 default: false
     t.string   "customer_id"
     t.string   "stripe_id"
     t.string   "bank_account_id"

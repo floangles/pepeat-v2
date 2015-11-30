@@ -4,6 +4,14 @@
   background-image: image-url('food.jpg');
   background-size: cover;
   background-position: center center;
+  &-tampon {
+    position : absolute;
+    left: 20px;
+    bottom: 63px;
+    img {
+      width: 300px;
+    }
+  }
   &-title {
     color: white;
     position: absolute;

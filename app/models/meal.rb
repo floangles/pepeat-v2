@@ -22,7 +22,7 @@
 #  home_hour       :datetime
 #  validation      :boolean
 #  ingredients     :text
-#  cgu             :boolean
+#  cgu             :boolean          default(FALSE)
 #
 # Indexes
 #

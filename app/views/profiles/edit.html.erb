@@ -48,6 +48,7 @@
               <div class="chief-profile-right-date">
                 <%= f.input :address, label: 'Votre adresse',required: false %>
                 <input id="street_number" name="street_number" type="hidden">
+                <%= f.input :phone_number, name: "street_number", as: :hidden %>
                 <input id="route" name="route" type="hidden">
                 <input id="postal_code" name="postal_code" type="hidden">
                 <input id="locality" name="locality" type="hidden">

@@ -13,7 +13,7 @@
 #  updated_at         :datetime         not null
 #  review             :text
 #  charge             :string
-#  payment_validation :boolean
+#  payment_validation :boolean          default(FALSE)
 #
 # Indexes
 #

@@ -12,6 +12,8 @@
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
 //= require papercrop
+//= require jquery.countdown
+//= require jquery.countdown-es
 
 
 //= require_tree ./app

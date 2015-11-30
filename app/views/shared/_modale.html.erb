@@ -10,7 +10,12 @@
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
               <%= image_tag 'pepeat.png', class: "modal-body-logo" %>
-              <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi" %>
+              <div class= "hidden-form">
+                <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi" %>
+              </div>
+              <div>
+                <h3>Commande disponible à partir de janvier 2016</h3>
+              </div>
               <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
               <%= f.input :amount, as: :hidden, :input_html => { :value => meal.price } %>
               <%= f.input :state, as: :hidden,  :input_html => { :value => 'pending' }%>
@@ -19,7 +24,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-          <%= f.button :submit, value: 'Réservez maintenant', label: 'Réservez maintenant', class: "btn btn-success" %>
+          <div class= "hidden-form">
+            <%= f.button :submit, value: 'Réservez maintenant', label: 'Réservez maintenant', class: "btn btn-success" %>
+          </div>
         </div><!-- /.modal-content -->
       <% end %>
     </div><!-- /.modal-dialog -->

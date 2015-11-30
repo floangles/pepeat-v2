@@ -82,12 +82,16 @@
         </div>
       </div>
     </div>
-    <% if current_user == meal.user %>
-        <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
-      <% else %>
-      <div class="meals-body-order">
-        <%= render "/shared/modale", meal: meal %>
-      </div>
+    <% if DateTime.now.day == meal.day.day && ((meal.takeaway && DateTime.now.hour + 3 > meal.start_hour.hour) || (meal.home && DateTime.now.hour + 3 > meal.home_hour.hour)) %>
+      <%= link_to "Trop tard pour commander le menu", '', class: "disabled btn btn-danger buton-order" %>
+    <% else %>
+      <% if current_user == meal.user %>
+          <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+        <% else %>
+        <div class="meals-body-order">
+          <%= render "/shared/modale", meal: meal %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

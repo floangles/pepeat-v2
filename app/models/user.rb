@@ -18,7 +18,7 @@
 #  firstname              :string
 #  lastname               :string
 #  surname                :string
-#  chief                  :boolean
+#  chief                  :boolean          default(FALSE)
 #  description            :text
 #  address                :string
 #  picture_file_name      :string
@@ -44,7 +44,7 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
-#  stripe                 :boolean
+#  stripe                 :boolean          default(FALSE)
 #  customer_id            :string
 #  stripe_id              :string
 #  bank_account_id        :string
