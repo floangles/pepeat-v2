@@ -45,7 +45,7 @@ module MealsHelper
   end
 
   def meal_history(meal)
-    if DateTime.now.to_date > meal.day + 1.days
+    if DateTime.now.to_date > meal.day
       true
     end
   end
@@ -62,7 +62,7 @@ module MealsHelper
   def total_recettes(meals)
     array = []
     meals.each do |meal|
-      meal.orders.each do |order|
+      meal.orders.where(state: "paid").each do |order|
         array << order.meal.price.to_i * order.portion - order.meal.price.to_i * order.portion * @chief
       end
     end
@@ -73,7 +73,7 @@ module MealsHelper
   def total_meal_sold(meals)
     array = []
     current_user.meals.each do |meal|
-      array << meal.orders.sum(:portion)
+      array << meal.orders.where(state: "paid").sum(:portion)
     end
     array.sum
   end
