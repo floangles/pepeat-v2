@@ -21,7 +21,7 @@
     <div class="row">
       <% @orders.each do |order|%>
         <% if order_history(order) && order.state == 'paid' %>
-          <div class="col-xs-4">
+          <div class="col-xs-4 col-sm-6 col-md-4">
             <div class="card-history">
               <div class="card-history-header text-center">
                 <%= link_to publics_path(order.meal.user) do %>
