@@ -103,6 +103,14 @@
               </div>
             </div>
           </div>
+        <% else %>
+          <div class= "not-found text-center">
+            <h1>Quel dommage, vous n'avez pas de commande en cours </h1>
+            <%= image_tag 'not_found.png', class: "not-found-img" %>
+            <div>
+              <%= link_to 'Voir les menus', meals_path, class: 'btn btn-success not-found-btn' %>
+            </div>
+          </div>
         <% end %>
       <% end %>
      </div>
