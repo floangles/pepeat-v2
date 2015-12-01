@@ -25,127 +25,129 @@
      </div>
   </div>
   <% @meals.each do |meal| %>
-    <div class="container">
-      <div class="card-offer">
-        <div class="row">
-          <% if meal.validation? %>
-            <div class="card-offer-header text-center">
-              <h3 class= "hover" title= "Votre menu a été validé et est désormais en ligne.">Votre menu est en ligne</h3>
-            </div>
-          <% else %>
-            <div class="card-offer-header2 text-center">
-              <h3 class= "hover" title= "Votre menu est en cours de validation. Nous vous contacterons sous peu">votre menu est en cours de validation</h3>
-            </div>
-          <% end %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card-offer-left">
-              <div class="card-offer-left-title text-center">
-                <%= meal.title%> - <%=meal.price%> €
+    <% if meal_actual(meal) %>
+      <div class="container">
+        <div class="card-offer">
+          <div class="row">
+            <% if meal.validation? %>
+              <div class="card-offer-header text-center">
+                <h3 class= "hover" title= "Votre menu a été validé et est désormais en ligne.">Votre menu est en ligne</h3>
               </div>
-              <% if meal.starter? %>
-                <div class="card-offer-left-meal">
-                    <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
-                  <div class="card-offer-left-meal-name">
-                    <%= meal.starter %>
-                  </div>
+            <% else %>
+              <div class="card-offer-header2 text-center">
+                <h3 class= "hover" title= "Votre menu est en cours de validation. Nous vous contacterons sous peu">votre menu est en cours de validation</h3>
+              </div>
+            <% end %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="card-offer-left">
+                <div class="card-offer-left-title text-center">
+                  <%= meal.title%> - <%=meal.price%> €
                 </div>
-              <% end %>
-              <% if meal.main? %>
-                <div class="card-offer-left-meal">
-                  <%= image_tag 'main.png', class: "card-offer-left-meal-icon"%>
-                  <div class="card-offer-left-meal-name">
-                    <%= meal.main %>
+                <% if meal.starter? %>
+                  <div class="card-offer-left-meal">
+                      <%= image_tag 'starter.png', class: "card-offer-left-meal-icon"%>
+                    <div class="card-offer-left-meal-name">
+                      <%= meal.starter %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-              <% if meal.dessert %>
-                <div class="card-offer-left-meal">
-                  <%= image_tag 'dessert.png', class: "card-offer-left-meal-icon"%>
-                  <div class="card-offer-left-meal-name">
-                    <%= meal.dessert %>
-                  </div>
-                </div>
-              <% end %>
-              <div class="card-offer-left-announce text-center">
-                <%= link_to meal_path(meal) do %>
-                  <button class="btn btn-pepeat2 hvr-grow">
-                  <i class="fa fa-eye"></i>
-                  </button>
                 <% end %>
-                <% if meal.orders.where(state: "paid").count == 0 %>
-                  <%= link_to edit_profile_meal_path(meal) do %>
-                    <button class="btn btn-success2 hvr-grow">
-                    <i class="fa fa-pencil"></i>
+                <% if meal.main? %>
+                  <div class="card-offer-left-meal">
+                    <%= image_tag 'main.png', class: "card-offer-left-meal-icon"%>
+                    <div class="card-offer-left-meal-name">
+                      <%= meal.main %>
+                    </div>
+                  </div>
+                <% end %>
+                <% if meal.dessert %>
+                  <div class="card-offer-left-meal">
+                    <%= image_tag 'dessert.png', class: "card-offer-left-meal-icon"%>
+                    <div class="card-offer-left-meal-name">
+                      <%= meal.dessert %>
+                    </div>
+                  </div>
+                <% end %>
+                <div class="card-offer-left-announce text-center">
+                  <%= link_to meal_path(meal) do %>
+                    <button class="btn btn-pepeat2 hvr-grow">
+                    <i class="fa fa-eye"></i>
                     </button>
                   <% end %>
-                <% else %>
-                  <span class= "hover" title= "Vous ne pouvez pas éditer un menu lorsque vous avez des réservations">
-                    <button class="btn btn-success2 hvr-grow">
-                    <i class="fa fa-pencil"></i>
+                  <% if meal.orders.where(state: "paid").count == 0 %>
+                    <%= link_to edit_profile_meal_path(meal) do %>
+                      <button class="btn btn-success2 hvr-grow">
+                      <i class="fa fa-pencil"></i>
+                      </button>
+                    <% end %>
+                  <% else %>
+                    <span class= "hover" title= "Vous ne pouvez pas éditer un menu lorsque vous avez des réservations">
+                      <button class="btn btn-success2 hvr-grow">
+                      <i class="fa fa-pencil"></i>
+                      </button>
+                    </span>
+                  <% end %>
+                  <%= link_to profile_meal_path(meal),
+                    method: :delete,
+                    data: { confirm: "Etes vous certain de vouloir supprimer votre menu ?" } do %>
+                    <button class="btn btn-danger2 hvr-grow">
+                    <i class="fa fa-trash"></i>
                     </button>
-                  </span>
-                <% end %>
-                <%= link_to profile_meal_path(meal),
-                  method: :delete,
-                  data: { confirm: "Etes vous certain de vouloir supprimer votre menu ?" } do %>
-                  <button class="btn btn-danger2 hvr-grow">
-                  <i class="fa fa-trash"></i>
-                  </button>
-                <% end %>
-                <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-primary2" %>
+                  <% end %>
+                  <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-primary2" %>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card-offer-right">
-              <div class="card-offer-right-title text-center">
-                Infos
-              </div>
-              <div class="card-offer-right-date">
-              <% if meal.home? %>
-                 <%= image_tag 'home2.png', class: "card-offer-right-date-img hover", title: "Sur place" %>
-                <div class= "card-offer-right-date-infos text-center">
-                  <div>
-                    <b><%= meal.day.strftime('%d/%m/%Y') %></b>
-                  </div>
-                  <div>
-                    RDV à <%= meal.home_hour.strftime('%Hh:%M')%> chez le cuisinier
-                  </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="card-offer-right">
+                <div class="card-offer-right-title text-center">
+                  Infos
                 </div>
-              <% else %>
-                <%= image_tag 'take.png', class: "card-offer-right-date-img hover", title: "A emporter" %>
-                <div class= "card-offer-right-date-infos text-center">
-                  <div>
-                   <b><%= meal.day.strftime('%d/%m/%Y') %></b>
+                <div class="card-offer-right-date">
+                <% if meal.home? %>
+                   <%= image_tag 'home2.png', class: "card-offer-right-date-img hover", title: "Sur place" %>
+                  <div class= "card-offer-right-date-infos text-center">
+                    <div>
+                      <b><%= meal.day.strftime('%d/%m/%Y') %></b>
+                    </div>
+                    <div>
+                      RDV à <%= meal.home_hour.strftime('%Hh:%M')%> chez le cuisinier
+                    </div>
                   </div>
-                  <div>
-                    <%= meal.start_hour.strftime('De %Hh:%M') %> <%= meal.end_hour.strftime('à %Hh:%M')%>
+                <% else %>
+                  <%= image_tag 'take.png', class: "card-offer-right-date-img hover", title: "A emporter" %>
+                  <div class= "card-offer-right-date-infos text-center">
+                    <div>
+                     <b><%= meal.day.strftime('%d/%m/%Y') %></b>
+                    </div>
+                    <div>
+                      <%= meal.start_hour.strftime('De %Hh:%M') %> <%= meal.end_hour.strftime('à %Hh:%M')%>
+                    </div>
                   </div>
+                <% end %>
                 </div>
-              <% end %>
-              </div>
-              <div class="card-offer-right-portion">
-                <div class= "card-offer-right-portion-infos text-center">
-                  <%= available_portions(meal)%> menus restants
-                </div>
-                <div class= "card-offer-right-portion-infos text-center">
-                  <%= booked_portions(meal)%> menu(s) commandé(s)
+                <div class="card-offer-right-portion">
+                  <div class= "card-offer-right-portion-infos text-center">
+                    <%= available_portions(meal)%> menus restants
+                  </div>
+                  <div class= "card-offer-right-portion-infos text-center">
+                    <%= booked_portions(meal)%> menu(s) commandé(s)
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="card-offer-list text-center">
-            <% meal.orders.each do |order| %>
-              <% if order.state == 'paid' %>
-                <%= render "/shared/modale_user", order: order %>
+          <div class="row">
+            <div class="card-offer-list text-center">
+              <% meal.orders.each do |order| %>
+                <% if order.state == 'paid' %>
+                  <%= render "/shared/modale_user", order: order %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
 
