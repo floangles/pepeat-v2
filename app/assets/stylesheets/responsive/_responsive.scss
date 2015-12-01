@@ -14,3 +14,9 @@
   .navbar-wagon2 .navbar-nav > li > a, .navbar-wagon2 .navbar-nav > .open > a, .navbar-wagon2 .navbar-nav > li > a:focus, .navbar-wagon2 .navbar-nav > .open > a:focus {color:white;}
 }
 
+@media (max-width: 1025px) {
+.navbar-nav > li > a,
+  .navbar-nav > .open > a,
+  .navbar-nav > li > a:focus,
+  .navbar-nav > .open > a:focus { color: white !important; }
+}
