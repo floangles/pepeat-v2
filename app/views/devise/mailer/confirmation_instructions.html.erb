@@ -26,13 +26,15 @@
 
     <td>
       <%= image_tag 'pepeat-title.png', class: "mail-img" %>
-      <h1> Bienvenue chez Pepeat</h1>
-    <p>Nous sommes ravis de bientôt vous compter parmi notre communauté.</p>
-    <p>Avant de commencer l'aventure , vous devez confirmer votre adresse mail en cliquant sur le lien ci dessous:</p>
+      <h1> Wouhou !</h1>
+      <h1>Pepeat vous souhaite la bienvenue !</h1>
+    <p>Nous sommes ravis de vous accueillir parmi notre communauté de gourmands et de passionnés de cuisine.</p>
+    <p>Il ne vous reste plus qu'à confirmer votre adresse mail en cliquant sur le lien suivant :</p>
     <p><%= link_to t('.action', :default => "Confirm my account"),
        confirmation_url(@resource, :confirmation_token => (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
 
     </td>
+    <p> À très vite !</p>
 
   </body>
 </html>

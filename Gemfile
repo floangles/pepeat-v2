@@ -41,7 +41,6 @@ gem 'omniauth-stripe-connect'
 
 gem 'mixpanel-ruby'
 gem 'event_tracker'
-gem 'intercom-rails'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 
 gem 'roadie', '~> 2.4'

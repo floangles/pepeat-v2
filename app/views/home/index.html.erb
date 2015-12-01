@@ -19,11 +19,10 @@
       <div class= "banner-button">
         <%= link_to 'Voir les menus', meals_path, class: "btn-lg btn-pepeat2 hvr-grow", id:"banner-action" %>
       </div>
-      <div class="banner-infos">
-        <p>Sur Lille dans</p>
-      </div>
-      <div id="countdown">
-      </div>
+      <!-- <div class="countdown text-center">
+        <span>Passez votre 1ère commande dans</span>
+        <div id="countdown"> <span>Jour</span></div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -237,8 +236,13 @@
     analytics.alias(<%= current_user.id %>);
     analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
     analytics.track('Sign up');
+    </script>
+<% elsif current_user %>
+  <script type="text/javascript">
+    analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
   </script>
 <% end %>
+
 
 
 <script type="text/javascript">

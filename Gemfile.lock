@@ -168,8 +168,6 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 5)
       responders
-    intercom-rails (0.2.29)
-      activesupport (> 3.0)
     jquery-countdown-rails (2.0.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
@@ -397,7 +395,6 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   high_voltage
-  intercom-rails
   jquery-countdown-rails (~> 2.0, >= 2.0.2)
   jquery-rails
   jquery-slick-rails
