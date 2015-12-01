@@ -13,7 +13,7 @@
       <%= image_tag 'pepeat-title', class: "size-pepeat" %>
       <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
       </div>
-      <% if current_user.chief %>
+      <% if current_user && current_user.chief %>
         <div class= "banner-soon">
           <%= image_tag 'soon_chief.png'%>
         </div>
@@ -89,23 +89,23 @@
   <h1 class= "text-center home-title">Pourquoi Pepeat ?</h1>
   <div class="container">
     <div class="row disposition-row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="us-img text-center">
           <%= image_tag 'unexpensive.jpg', class: "us-img-size" %>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="us-txt">
           <h1> Des menus de qualités</h1>
           <p>Pepeat, c'est une alternative innovante pour se procurer des plats de qualité frais et variés. </p>
           <div class="row">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12 col-md-6">
               <span class="us-txt-element hvr-fade hvr-grow">
                 <i class="fa fa-cutlery fa-1x us-txt-element-fafa"></i>
               </span>
               <span>Menus diversifiés</span>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12 col-md-6">
               <span class="us-txt-element hvr-fade hvr-grow">
                 <i class="fa fa-thumbs-o-up fa-1x us-txt-element-fafa"></i>
               </span>
@@ -117,7 +117,7 @@
     </div>
     <div class="row disposition-row">
       <div class= "hidden-sm">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-12 col-md-6">
           <div class="us-txt">
             <h1 class= "text-center">Des cuisiniers de confiance</h1>
             <p class= "decalage">Des passionnés de votre quartier sélectionnés par Pepeat vous proposent des plats à déguster sur place ou à emporter.</p>
@@ -134,24 +134,24 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="us-img">
           <%= image_tag 'trust.jpg', class: "us-img-size" %>
         </div>
       </div>
       <div class= "hidden-xs">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-12 col-md-6">
           <div class="us-txt">
             <h1 class= "text-center">Des cuisiniers de confiance</h1>
             <p class= "decalage">Des passionnés de votre quartier sélectionnés par Pepeat vous proposent des plats à déguster sur place ou à emporter.</p>
             <div class="row">
-              <div class="col-xs-12 col-xs-6">
+              <div class="col-xs-12 col-sm-12 col-md-6">
                 <span class="us-txt-element hvr-fade hvr-grow">
                   <i class="fa fa-check fa-1x us-txt-element-fafa"></i>
                 </span>
                 <span>Pepeato validé</span>
               </div>
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-12 col-md-6">
                  <span class="us-txt-element hvr-fade hvr-grow">
                   <i class="fa fa-heart fa-1x us-txt-element-fafa"></i>
                 </span>
@@ -163,23 +163,23 @@
       </div>
     </div>
     <div class="row disposition-row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="us-img text-center">
           <%= image_tag 'happy.jpg', class: "us-img-size" %>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <div class="us-txt">
           <h1>Des économies</h1>
           <p>30 à 40% moins cher qu'en restaurant, Pepeat vous offre un service économique. N'hésitez plus à bien manger.</p>
           <div class="row">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12 col-md-6">
               <span class="us-txt-element hvr-fade hvr-grow">
                 <i class="fa fa-money fa-1x us-txt-element-fafa"></i>
               </span>
               <span>Faîtes des économies</span>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12 col-md-6">
                <span class="us-txt-element hvr-fade hvr-grow">
                 <i class="fa fa-calendar-o fa-1x us-txt-element-fafa"></i>
               </span>
@@ -199,7 +199,7 @@
     <div class="row">
       <% @meals.each do |meal| %>
         <% if meal.validation? && meal_actual(meal) %>
-          <div class="col-xs-12 col-sm-4">
+          <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="meals-home">
               <div class="meals-home-header">
                 <div class= "carousel">
