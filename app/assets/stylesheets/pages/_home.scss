@@ -34,13 +34,23 @@
   position : absolute;
   transform: translateX(-50%) translateY(-50%);
   bottom : 100px;
-  top: 70%;
-  left: 50%;
+  top: 95%;
+  left: 85%;
   width: 300px;
   height: 62px;
   padding: 5px;
 }
 
+.banner-infos {
+  position : absolute;
+  top: 88%;
+  left: 85%;
+  transform: translateX(-50%) translateY(-50%);
+  p {
+    color: white;
+    font-size: 20px;
+  }
+}
 
 .is-countdown {
   color: white;

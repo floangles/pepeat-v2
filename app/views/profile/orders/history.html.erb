@@ -20,7 +20,7 @@
   <div class="container">
     <div class="row">
       <% @orders.each do |order|%>
-        <% if order_history(order) %>
+        <% if order_history(order) && order.state == 'paid' %>
           <div class="col-xs-4">
             <div class="card-history">
               <div class="card-history-header text-center">
