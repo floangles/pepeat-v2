@@ -13,9 +13,16 @@
       <%= image_tag 'pepeat-title', class: "size-pepeat" %>
       <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
       </div>
-      <div class= "banner-soon">
-        <%= image_tag 'soon.png', class: "" %>
-      </div>
+      <% if current_user.chief %>
+        <div class= "banner-soon">
+          <%= image_tag 'soon_chief.png'%>
+        </div>
+      <% else %>
+        <div class= "banner-soon">
+          <%= image_tag 'soon.png'%>
+        </div>
+      <% end %>
+
       <div class= "banner-button">
         <%= link_to 'Voir les menus', meals_path, class: "btn-lg btn-pepeat2 hvr-grow", id:"banner-action" %>
       </div>

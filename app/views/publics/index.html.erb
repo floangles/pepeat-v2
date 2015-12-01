@@ -8,49 +8,49 @@
 
 
 <div class="container">
-    <div class="chief-profile">
-      <h1 class= "text-center profile-header">Informations</h1>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="chief-profile-left text-center">
-            <div class= "classic-pic">
-              <%= image_tag @user.picture.url(:large), id: "img-preview" %>
-            </div>
+  <div class="chief-profile">
+    <h1 class= "text-center profile-header">Informations</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="chief-profile-left text-center">
+          <div class= "classic-pic">
+            <%= image_tag @user.picture.url(:large), id: "img-preview" %>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-          <div class="chief-profile-right text-center">
-            <p> Nom de chef</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.surname %>
-            </div>
-            <p> Prénom</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.firstname %>
-            </div>
-            <p>Nom</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.lastname %>
-            </div>
-            <p> Adresse</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.address %>
-            </div>
-            <p> Numéro de téléphone</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.phone_number %>
-            </div>
-            <p> Date de naissance</p>
-            <div class= "chief-profile-right-date">
-              <% if  @user.birth %>
-                <%= l(@user.birth, format: '%d / %m / %Y') %>
-              <% end %>
-            </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <div class="chief-profile-right text-center">
+          <p> Nom de chef</p>
+          <div class= "chief-profile-right-date">
+            <%= @user.surname %>
+          </div>
+          <p> Prénom</p>
+          <div class= "chief-profile-right-date">
+            <%= @user.firstname %>
+          </div>
+          <p>Nom</p>
+          <div class= "chief-profile-right-date">
+            <%= @user.lastname %>
+          </div>
+          <p> Adresse</p>
+          <div class= "chief-profile-right-date">
+            <%= @user.address %>
+          </div>
+          <p> Numéro de téléphone</p>
+          <div class= "chief-profile-right-date">
+            <%= @user.phone_number %>
+          </div>
+          <p> Date de naissance</p>
+          <div class= "chief-profile-right-date">
+            <% if  @user.birth %>
+              <%= l(@user.birth, format: '%d / %m / %Y') %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
 <h3 class= "text-center title2">Les plats actuellement proposés</h3>

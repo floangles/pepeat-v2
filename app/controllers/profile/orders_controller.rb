@@ -91,7 +91,7 @@ module Profile
         @order = Order.find(params[:id])
         authorize @order
         @order.update(review_params)
-        redirect_to profile_orders_path
+        redirect_to history_profile_orders_path
       end
     end
 
