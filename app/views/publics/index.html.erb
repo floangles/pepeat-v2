@@ -87,7 +87,7 @@
   <div class="card-feedback">
     <div class="row">
       <% if review(@user) == 0 %>
-        <p> Le chef <%= @user.firstname%> n'a pas encore d'avis !</p>
+        <p class= "text-center"> Le chef <%= @user.firstname%> n'a pas encore d'avis !</p>
       <% else %>
         <% @user.meals.each do |meal| %>
           <%= render '/shared/review', meal: meal %>

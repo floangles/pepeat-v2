@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           <% if total_meals(@meals) > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal)%>
                 <div class="col-xs-12 col-sm-6">
                   <%= render "/shared/cardmeals", meal: meal %>
@@ -61,7 +61,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 0) > 0 || @meals.count > 0 %>
-            <% @meals.order(:day).each do |meal| %>
+            <% @meals.each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if DateTime.now.day == meal.day.day || 15 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
