@@ -244,21 +244,18 @@
     analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
     analytics.track('Sign up');
     </script>
-<% elsif current_user %>
+<% end %>
+
+<% if current_user %>
   <script type="text/javascript">
     analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
   </script>
 <% end %>
 
 
-
 <script type="text/javascript">
   analytics.track('Home')
 </script>
-
-
-
-
 
 
 <script type="text/javascript">
