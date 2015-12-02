@@ -246,12 +246,6 @@
     </script>
 <% end %>
 
-<% if current_user %>
-  <script type="text/javascript">
-    analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
-  </script>
-<% end %>
-
 
 <script type="text/javascript">
   analytics.track('Home')

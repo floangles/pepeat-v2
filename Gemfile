@@ -39,7 +39,6 @@ gem 'money-rails'
 gem 'stripe'
 gem 'omniauth-stripe-connect'
 
-gem 'mixpanel-ruby'
 gem 'event_tracker'
 gem 'analytics-ruby', :require => "segment"
 
