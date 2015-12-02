@@ -13,8 +13,8 @@
               <div class= "hidden-form">
                 <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi" %>
               </div>
-              <div>
-                <h3>Commande disponible à partir de janvier 2016</h3>
+              <div class= "modal-body-soon">
+                <h3>Commande disponible à partir de <span>janvier 2016</span></h3>
                 <p>encore un peu de patience ;)</p>
               </div>
               <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>

@@ -16,6 +16,15 @@
     width: 100px;
     margin-bottom: 30px;
   }
+  &-soon {
+    h3 {
+      font-size: 25px;
+      font-style: italic;
+    }
+    span {
+      color: $pepeat;
+    }
+  }
 }
 
 .modal-header {

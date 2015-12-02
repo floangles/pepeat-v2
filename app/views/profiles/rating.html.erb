@@ -10,12 +10,14 @@
     </div>
   </div>
 <% else %>
-  <div class="background-meals-show">
-    <div class="background-meals-show-title text-center">
-    <h3>Tout vos avis</h3>
-    <%= image_tag @user.picture.url(:medium), class: "img-circle banner-review-pic" %>
+  <div class="background-meals-show background-banner">
+    <div class="overlay">
+      <div class="background-meals-show-title text-center">
+        <h3>Tous mes avis</h3>
+        <%= image_tag @user.picture.url(:medium), class: "img-circle banner-review-pic" %>
+      </div>
+    </div>
   </div>
-</div>
   <% @user.meals.each do |meal| %>
     <%= render '/shared/review', meal: meal %>
   <% end %>

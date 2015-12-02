@@ -61,7 +61,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 0) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if DateTime.now.day == meal.day.day || 15 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -91,7 +91,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 1) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 1.days).day == meal.day.day || 16 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -121,7 +121,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 2) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 2.days).day == meal.day.day || 17 == meal.day.day  %>
                   <div class="col-xs-12 col-sm-6">
@@ -151,7 +151,7 @@
       <div class="container">
         <div class="row">
             <% if number_meals(@meals, 3) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 3.days).day == meal.day.day || 18 == meal.day.day%>
                   <div class="col-xs-12 col-sm-6">
@@ -180,7 +180,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 4) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal)  %>
                 <% if (DateTime.now + 4.days).day == meal.day.day || 19 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -209,7 +209,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 5) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 5.days).day == meal.day.day || 20 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -238,7 +238,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 6) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal)%>
                 <% if (DateTime.now + 6.days).day == meal.day.day || 21 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -267,7 +267,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 7) > 0 || @meals.count > 0  %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal)%>
                 <% if (DateTime.now + 7.days).day == meal.day.day || 22 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -296,7 +296,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 8) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 8.days).day == meal.day.day || 23 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
@@ -325,7 +325,7 @@
       <div class="container">
         <div class="row">
           <% if number_meals(@meals, 9) > 0 || @meals.count > 0 %>
-            <% @meals.each do |meal| %>
+            <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 9.days).day == meal.day.day || 24 == meal.day.day %>
                   <div class="col-xs-12 col-sm-6">
