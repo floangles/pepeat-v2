@@ -33,6 +33,12 @@
     <p><%= link_to t('.action', :default => "Confirm my account"),
        confirmation_url(@resource, :confirmation_token => (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
 
+    <p><b>Informations importantes :</b>
+
+    - Parce que Pepeat recherche actuellement les meilleurs cuisiniers de votre quartier pour satisfaire vos envies culinaires, vous pourrez passer vos premières commandes aux Pepeato à partir de janvier 2016 ! Restez attentif :)
+
+    - Les Pepeato peuvent d'ores et déjà s'inscrire et proposer des menus, aller hop aux fourneaux !</p>
+
     </td>
     <p> À très vite !</p>
 

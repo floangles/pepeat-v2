@@ -24,7 +24,7 @@
         <div class="col-sm-5 col-sm-offset-1">
           <div class="card-menu-left">
             <p class= "text-center">Entrée et/ou plat et/ou dessert, à vous de choisir ce que vous cuisinez !</p>
-            <%= f.input :title, label: "Nom de votre menu" %>
+            <%= f.input :title, label: "Nom de votre menu", required: false %>
             <%= f.input :starter, label: "Entrée" %>
             <%= f.input :main, label: "Plat principal" %>
             <%= f.input :dessert, label: "Dessert" %>
@@ -214,9 +214,6 @@
         <p> - Que vous avez inscrit la totalité des ingrédients composant votre menu</p>
         <p> - Que le prix soit cohérent</p>
         <p> - Que vous avez renseigné la bonne date et heure</p>
-        <div class= " text-center important-cgu">
-          <%= f.input :cgu, label: "Condition générale d'utilisation", required: false %>
-        </div>
         <div class= "text-center important-submit">
           <%= f.button :submit, " Je valide les informations", class: "btn-lg btn-pepeat" %>
         </div>

@@ -44,7 +44,6 @@ class Meal < ActiveRecord::Base
   validates :home_hour, presence: true, if: "home?"
   validates :day, presence: true
   validates :title, presence: true
-  validates :cgu, presence: true
   validates :portion, presence: true
   validates :price, presence: true
   validates :ingredients, presence: true
