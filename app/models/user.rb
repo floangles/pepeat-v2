@@ -90,7 +90,6 @@ class User < ActiveRecord::Base
       email: email,
       firstname: firstname,
       lastname: lastname,
-      description: description,
       stripe: stripe,
       id: id,
       tel: phone_number,
