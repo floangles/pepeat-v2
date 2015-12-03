@@ -199,7 +199,7 @@
             <h3>Ma photo de profil</h3>
             <div class= "classic-pic">
               <%= image_tag @user.picture.url(:large), id: "img-preview" %>
-              <span class= "btn btn-danger crop"> Redimenssionner</span>
+              <span class= "btn btn-danger crop"> Redimensionner</span>
             </div>
             <div class= "hidden-form cropable">
               <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
