@@ -111,6 +111,7 @@ class User < ActiveRecord::Base
   validates :phone_number, presence: true, uniqueness: true,  on: :update
   validates :address, presence: true, on: :update
   validates :birth, presence: true, on: :update
+  validates :picture, presence: true, on: :update
 
 
 

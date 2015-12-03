@@ -243,7 +243,9 @@
     analytics.alias(<%= current_user.id %>);
     analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
     analytics.track('Sign up');
-    </script>
+  </script>
+<% elsif current_user %>
+  analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
 <% end %>
 
 
