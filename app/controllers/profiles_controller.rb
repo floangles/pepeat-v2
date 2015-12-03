@@ -24,14 +24,16 @@ class ProfilesController < ApplicationController
     skip_authorization
     @user.update(user_params)
     if @user.save
-      @user.update(chief: 'true')
+      if params[:user][:stripe_account] == "true"
+        @user.update(chief: 'true')
+      end
       if params[:chiefpictures]
         params[:chiefpictures].each { |picture|
         @user.chief_pictures.create(chiefpicture: picture)
           }
       end
 
-      if params[:user][:stripe_account] == "true" && @user.stripe == nil
+      if params[:user][:stripe_account] == "true" && @user.stripe == false
         stripe = Stripe::Account.create(
           {
             country: "FR",

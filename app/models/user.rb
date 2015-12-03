@@ -96,6 +96,7 @@ class User < ActiveRecord::Base
       address: address,
       chief: chief,
       birth: birth,
+      avatar: picture,
     }
   end
 
@@ -108,7 +109,8 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true, on: :update
   validates :lastname, presence: true, on: :update
   validates :phone_number, presence: true, uniqueness: true,  on: :update
-  validates :address, presence: true, on: :update, if: "chief?"
+  validates :address, presence: true, on: :update
+  validates :birth, presence: true, on: :update
 
 
 

@@ -7,7 +7,7 @@
 </div>
 <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
-  <% if current_user.chief? || params[:chief] == 'true' || params[:user].present?%>
+  <% if current_user.chief? || params[:chief] == 'true' || (params[:user].present? && params[:user].count > 5)%>
     <div class="container">
       <div class="chief-profile">
         <h1 class= "text-center profile-header">Mes informations</h1>
@@ -59,7 +59,7 @@
                 <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
               </div>
               <div class='input-group' id='datetimepicker7'>
-                <%= f.input :birth, as: :string, label: 'Votre date de naissance'%>
+                <%= f.input :birth, as: :string, required: false, label: 'Votre date de naissance'%>
                   <span class="input-group-addon form-control">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -69,8 +69,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="container">
       <div class="chief-description">
          <h1 class= "text-center profile-header chief-description-title">A propos de moi</h1>
@@ -81,6 +79,7 @@
         </div>
       </div>
     </div>
+
     <div class= "text-center button-submit-profile">
       <% if !current_user.chief && (params[:chief] == 'true' || params[:user][:stripe_account] == 'true')%>
         <%= f.input :stripe_account, as: :hidden, input_html: { value: true } %>
@@ -134,8 +133,11 @@
               <div class= "chief-profile-right-date">
                 <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
               </div>
+              <div class="chief-profile-right-date">
+                <%= f.input :address, label: 'Votre adresse',required: false %>
+              </div>
               <div class='input-group' id='datetimepicker7'>
-                <%= f.input :birth, as: :string, label: 'Votre date de naissance'%>
+                <%= f.input :birth, as: :string, required: false, label: 'Votre date de naissance'%>
                   <span class="input-group-addon form-control">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -151,5 +153,8 @@
   <% end %>
 <% end %>
 
+<script type="text/javascript">
+  document.getElementById("user_address").reset();
+</script>
 
 
