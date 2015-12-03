@@ -86,9 +86,9 @@
           </li>
           <li>
             <% if current_user.chief? %>
-              <%= link_to t(".top_call_to_action", default: " Créer un menu"), new_profile_meal_path, class: "btn" %>
+              <%= link_to t(".top_call_to_action", default: " Créer un menu"), new_profile_meal_path, class: "btn", id: 'create-menu' %>
             <% else %>
-              <%= link_to t(".top_call_to_action", default: "Devenir Pepeato"), page_path('chief_infos'), class: "btn" %>
+              <%= link_to t(".top_call_to_action", default: "Devenir Pepeato"), page_path('chief_infos'), class: "btn", id: "pepeato-in-action" %>
             <% end %>
           </li>
         <% else %>
@@ -102,7 +102,7 @@
             <%= link_to t(".top_call_to_action", default: "Voir les menus"), meals_path, class: "btn2", id: 'navbar-action' %>
           </li>
           <li>
-            <%= link_to t(".top_call_to_action", default: "Devenir Pepeato"), page_path('chief_infos'), class: "btn" %>
+            <%= link_to t(".top_call_to_action", default: "Devenir Pepeato"), page_path('chief_infos'), class: "btn", id: 'pepeato-out-action' %>
           </li>
         <% end %>
       </ul>
@@ -112,6 +112,22 @@
 
 <script type="text/javascript">
   var link = document.getElementById('navbar-action');
-
   analytics.trackLink(link, 'Navbar clicked voir les menus');
 </script>
+
+<script type="text/javascript">
+  var link = document.getElementById('pepeato-out-action');
+  analytics.trackLink(link, 'Pepeato out navbar');
+</script>
+
+<script type="text/javascript">
+  var link = document.getElementById('pepeato-in-action');
+  analytics.trackLink(link, 'Pepeato in navbar');
+</script>
+
+<script type="text/javascript">
+  var link = document.getElementById('create-menu');
+  analytics.trackLink(link, 'Create menu');
+</script>
+
+

@@ -121,7 +121,7 @@
       </div>
     </div>
     <div class= "text-center button-chief">
-      <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat" %>
+      <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
     </div>
   </div>
 
@@ -129,4 +129,8 @@
   </div>
 </div>
 
+<script type="text/javascript">
+  var link = document.getElementById('Pepeato action create');
+  analytics.trackLink(link, 'Pepeato action create');
+</script>
 

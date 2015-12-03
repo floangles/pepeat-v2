@@ -82,14 +82,16 @@
 
     <div class= "text-center button-submit-profile">
       <% if !current_user.chief && (params[:chief] == 'true' || params[:user][:stripe_account] == 'true')%>
+
       <% content_for(:after_js) do %>
         <script type="text/javascript">
           $('#user_address').val('')
         </script>
       <% end %>
+
         <%= f.input :stripe_account, as: :hidden, input_html: { value: true } %>
       <% end %>
-      <em><strong><%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
+      <em><strong><%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat", id: "new-pepeato" %>
     </div>
   <% else %>
 
@@ -160,5 +162,8 @@
 
 
 
-
+ <script type="text/javascript">
+  var link = document.getElementById('new-pepeato');
+  analytics.trackLink(link, 'new-pepeato');
+</script>
 
