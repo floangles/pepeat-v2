@@ -225,10 +225,12 @@
             <div class= "chief-profile-right-date">
               <%= @user.phone_number %>
             </div>
-            <p> Adresse</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.address %>
-            </div>
+            <% if current_user.address %>
+              <p> Adresse</p>
+              <div class= "chief-profile-right-date">
+                <%= @user.address %>
+              </div>
+            <% end %>
             <p> Date de naissance</p>
             <div class= "chief-profile-right-date">
               <% if  @user.birth %>

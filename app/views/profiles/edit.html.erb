@@ -138,11 +138,9 @@
               <div class= "chief-profile-right-date">
                 <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
               </div>
-              <% if current_user.address%>
-                <div class="chief-profile-right-date">
-                  <%= f.input :address, label: 'Votre adresse',required: false %>
-                </div>
-              <% end %>
+              <div class="chief-profile-right-date">
+                <%= f.input :address, label: 'Votre adresse',required: false %>
+              </div>
               <div class='input-group' id='datetimepicker7'>
                 <%= f.input :birth, as: :string, required: false, label: 'Votre date de naissance'%>
                   <span class="input-group-addon form-control">
