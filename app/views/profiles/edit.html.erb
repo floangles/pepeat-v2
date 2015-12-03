@@ -82,6 +82,11 @@
 
     <div class= "text-center button-submit-profile">
       <% if !current_user.chief && (params[:chief] == 'true' || params[:user][:stripe_account] == 'true')%>
+      <% content_for(:after_js) do %>
+        <script type="text/javascript">
+          $('#user_address').val('')
+        </script>
+      <% end %>
         <%= f.input :stripe_account, as: :hidden, input_html: { value: true } %>
       <% end %>
       <em><strong><%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
@@ -153,8 +158,7 @@
   <% end %>
 <% end %>
 
-<script type="text/javascript">
-  document.getElementById("user_address").reset();
-</script>
+
+
 
 
