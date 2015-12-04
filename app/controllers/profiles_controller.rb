@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
           }
       end
 
-      if params[:user][:stripe_account] == "true" && @user.stripe == false
+      if params[:user][:stripe_account] == "true" && ( @user.stripe == 'false' || @user.stripe == nil)
         stripe = Stripe::Account.create(
           {
             country: "FR",
@@ -64,6 +64,7 @@ class ProfilesController < ApplicationController
           }
         )
         @user.update(stripe_id: stripe.id, stripe: 'true')
+        flash[:notice] = 'Félicitation, vous êtes désormais chef Pepeat !'
       end
 
       redirect_to profile_path

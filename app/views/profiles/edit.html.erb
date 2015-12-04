@@ -7,7 +7,7 @@
 </div>
 <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
-  <% if current_user.chief? || params[:chief] == 'true' || (params[:user].present? && params[:user].count > 5)%>
+  <% if current_user.chief? || params[:chief] == 'true' || (params[:user].present? && !params[:user][:description].nil? )%>
     <div class="container">
       <div class="chief-profile">
         <h1 class= "text-center profile-header">Mes informations</h1>
@@ -162,7 +162,7 @@
 
 
 
- <script type="text/javascript">
+<script type="text/javascript">
   var link = document.getElementById('new-pepeato');
   analytics.trackLink(link, 'new-pepeato');
 </script>
