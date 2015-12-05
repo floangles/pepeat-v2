@@ -38,7 +38,7 @@
                 <p>Vous distribuez directement vos préparations à vos clients, depuis votre domicile, dans des lunch box à votre charge. Vous fixez la date et l'heure à laquelle ils pourront se rendre chez vous.  </p>
                 <%= f.input :takeaway, label: 'À emporter' %>
               </div>
-                <%= image_tag 'take_away.png', class: "card-menu-right-away-pic" %>
+                <%= image_tag 'emporter.png', class: "card-menu-right-away-pic" %>
             </div>
             <div class= "card-menu-right-home">
               <div class= "card-menu-right-home-txt">
@@ -46,7 +46,7 @@
                 <p>D'humeur sociable ? recevez vos clients à votre table et partagez un moment privilégié autour de votre cuisine.</p>
                 <%= f.input :home, label: 'Sur place' %>
               </div>
-                <%= image_tag 'home.png', class: "card-menu-right-home-pic" %>
+                <%= image_tag 'chez-le-chef.png', class: "card-menu-right-home-pic" %>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@
           <p>Indiquez le jour auquel votre menu sera disponible, le jour où vous souhaitez cuisiner.</p>
           <div class="form-group date-day-input" align="center">
             <div class='input-group date' id='datetimepicker3'>
-              <%= f.input :day, as: :string, label: false, class: 'form-control' %>
+              <%= f.input :day, as: :string, label: false, class: 'form-control'%>
               <span class="input-group-addon form-control">
               <span class="glyphicon glyphicon-calendar"></span>
               </span>

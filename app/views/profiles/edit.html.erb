@@ -37,18 +37,17 @@
           <div class="col-xs-4 col-xs-offset-1">
             <div class="chief-profile-right text-center">
               <div class="chief-profile-right-date">
-                <%= f.input :surname, label: 'Votre nom de cuisinier',required: false %>
+                <i class="fa fa-cutlery"></i> <%= f.input :surname, placeholder: 'Nom de chef',required: false, label: false %>
               </div>
               <div class="chief-profile-right-date">
-                <%= f.input :firstname, label: 'Votre prénom', required: false %>
+                <i class="fa fa-user"></i><%= f.input :firstname, label: false, placeholder: "Prénom", required: false %>
               </div>
               <div class="chief-profile-right-date">
-                <%= f.input :lastname, label: 'Votre nom de famille', required: false %>
+                <i class="fa fa-user"></i><%= f.input :lastname, label: 'Nom de famille', label: false, placeholder: 'Nom de famille', required: false %>
               </div>
               <div class="chief-profile-right-date">
-                <%= f.input :address, label: 'Votre adresse',required: false %>
+                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse' %>
                 <input id="street_number" name="street_number" type="hidden">
-                <%= f.input :phone_number, name: "street_number", as: :hidden %>
                 <input id="route" name="route" type="hidden">
                 <input id="postal_code" name="postal_code" type="hidden">
                 <input id="locality" name="locality" type="hidden">
@@ -56,14 +55,23 @@
                 <input id="administrative_area_level_1" name="administrative_area_level_1" type="hidden">
               </div>
               <div class= "chief-profile-right-date">
-                <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
+                <i class="fa fa-mobile"></i><%= f.input :phone_number, label: false, placeholder: 'Téléphone', required: false %>
               </div>
-              <div class='input-group' id='datetimepicker7'>
-                <%= f.input :birth, as: :string, required: false, label: 'Votre date de naissance'%>
-                  <span class="input-group-addon form-control">
-                  <span class="glyphicon glyphicon-calendar"></span>
+                <% if current_user.birth %>
+                <div class='input-group' id='datetimepicker7'>
+                  <i class="fa fa-birthday-cake"></i><%= f.input :birth, as: :string, required: false, label: false, :input_html => { :value => localize(f.object.birth) }%>
+                    <span class="input-group-addon form-control">
+                    <span class="glyphicon glyphicon-calendar"></span>
                 </span>
-              </div>
+                </div>
+              <% else %>
+                <div class='input-group' id='datetimepicker7'>
+                  <i class="fa fa-birthday-cake"></i><%= f.input :birth, as: :string, required: false, label: false%>
+                    <span class="input-group-addon form-control">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -114,7 +122,7 @@
                 </div>
                 <div>
                   <div id="picturechief"></div>
-                  <span class="btn btn-success" id= "changepicture">Changer la photo</span>
+                  <span class="btn btn-success2" id= "changepicture">Changer la photo</span>
                 </div>
               <% end %>
 
@@ -131,29 +139,38 @@
           </div>
           <div class="col-xs-4 col-xs-offset-1">
             <div class="chief-profile-right text-center">
-              <div class= "chief-profile-right-date">
-                <%= f.input :firstname, label: 'Votre prénom', required: false %>
-              </div>
-              <div class= "chief-profile-right-date">
-                <%= f.input :lastname, label: 'Votre nom de famille', required: false %>
-              </div>
-              <div class= "chief-profile-right-date">
-                <%= f.input :phone_number, label: 'Numéro de téléphone', required: false %>
+              <div class="chief-profile-right-date">
+                <i class="fa fa-user"></i><%= f.input :firstname, label: false, placeholder: "Prénom", required: false %>
               </div>
               <div class="chief-profile-right-date">
-                <%= f.input :address, label: 'Votre adresse',required: false %>
+                <i class="fa fa-user"></i><%= f.input :lastname, label: 'Nom de famille', label: false, placeholder: 'Nom de famille', required: false %>
               </div>
-              <div class='input-group' id='datetimepicker7'>
-                <%= f.input :birth, as: :string, required: false, label: 'Votre date de naissance'%>
-                  <span class="input-group-addon form-control">
-                  <span class="glyphicon glyphicon-calendar"></span>
+              <div class="chief-profile-right-date">
+                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse' %>
+              </div>
+              <div class= "chief-profile-right-date">
+                <i class="fa fa-mobile"></i><%= f.input :phone_number, label: false, placeholder: 'Téléphone', required: false %>
+              </div>
+              <% if current_user.birth %>
+                <div class='input-group' id='datetimepicker7'>
+                  <i class="fa fa-birthday-cake"></i><%= f.input :birth, as: :string, required: false, label: false, :input_html => { :value => localize(f.object.birth) }%>
+                    <span class="input-group-addon form-control">
+                    <span class="glyphicon glyphicon-calendar"></span>
                 </span>
-              </div>
+                </div>
+              <% else %>
+                <div class='input-group' id='datetimepicker7'>
+                  <i class="fa fa-birthday-cake"></i><%= f.input :birth, as: :string, required: false, label: false%>
+                    <span class="input-group-addon form-control">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
         <div class= "chief-profile-submit">
-          <%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat" %>
+          <%= f.button :submit, "Je valide mon profil", class: "btn-lg btn-pepeat2" %>
         </div>
       </div>
     </div>
@@ -161,9 +178,10 @@
 <% end %>
 
 
-
-<script type="text/javascript">
-  var link = document.getElementById('new-pepeato');
-  analytics.trackLink(link, 'new-pepeato');
-</script>
+<% if current_user && (current_user.chief == 'false' || current_user.chief == nil) %>
+  <script type="text/javascript">
+    var link = document.getElementById('new-pepeato');
+    analytics.trackLink(link, 'new-pepeato');
+  </script>
+<% end %>
 

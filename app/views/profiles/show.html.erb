@@ -24,7 +24,6 @@
 <% if current_user.chief? %>
 <ul class="nav nav-pills nav-justified">
   <li role="presentation"><a href=".1">Mes informations</a></li>
-  <li role="presentation"><a href=".2">A propos de moi</a></li>
   <li role="presentation"><a href=".3">Mes informations bancaire</a></li>
   <li role="presentation"><a href=".4">Ma gallerie photo</a></li>
   <li role="presentation"><a href=".5">Mes avis</a></li>
@@ -36,84 +35,71 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <div class="chief-profile-left text-center">
-            <h3>Ma photo de profil</h3>
             <div class= "classic-pic">
-              <%= image_tag @user.picture.url(:large), id: "img-preview" %>
-              <span class= "btn btn-danger crop"> Redimensionner</span>
-            </div>
-            <% if @user.picture? %>
-              <div class= "hidden-form cropable">
-                <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
-                <%= f.cropbox :picture, :width => 300 %>
-                  <div class= "text-center">
-                    <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
-                  </div>
-                <% end %>
+              <%= image_tag @user.picture.url(:large), class: "user-img img-circle" %>
+              </br>
+              <div class= "btn btn-success2 crop">
+                Redimensionner
               </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-          <div class="chief-profile-right text-center">
-            <p> Nom de chef</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.surname %>
             </div>
-            <p> Prénom</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.firstname %>
-            </div>
-            <p>Nom</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.lastname %>
-            </div>
-            <p> Adresse</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.address %>
-            </div>
-            <p> Numéro de téléphone</p>
-            <div class= "chief-profile-right-date">
-              <%= @user.phone_number %>
-            </div>
-            <p> Date de naissance</p>
-            <div class= "chief-profile-right-date">
-              <% if  @user.birth %>
-                <%= l(@user.birth, format: '%d / %m / %Y') %>
+            <div class= "hidden-form cropable">
+              <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
+                <%= f.cropbox :picture, :width => 400 %>
+                <div class= "text-center mtop-10">
+                  <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
+                </div>
               <% end %>
             </div>
           </div>
         </div>
-      </div>
-      <div class= "chief-profile-submit">
-        <%= link_to "Modifier mes informations", edit_profile_path, class: "btn-lg btn-pepeat" %>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="chief-description 2">
-      <h1 class= "text-center profile-header">A propos de moi</h1>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class= "chief-description-picture">
-            <%= image_tag @user.picture.url(:crop), class: "img-circle img-chef-meal" %>
-            <div class= "chief-description-picture-fa">
-              <i class="fa fa-comment fa-2x"></i>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+          <div class="chief-profile-right">
+            <div class= "chief-profile-right-date">
+              <i class="fa fa-cutlery awesome"></i> <span><%= @user.surname %></span>
+            </div>
+          <!-- <p> Prénom</p> -->
+            <div class= "chief-profile-right-date">
+              <i class="fa fa-user awesome"></i> <span><%= @user.firstname %></span>
+            </div>
+            <!-- <p>Nom</p> -->
+            <div class= "chief-profile-right-date">
+              <i class="fa fa-user awesome"></i> <%= @user.lastname %>
+            </div>
+            <!-- <p> Numéro de téléphone</p> -->
+            <div class= "chief-profile-right-date">
+              <i class="fa fa-mobile awesome"></i> <%= @user.phone_number %>
+            </div>
+            <% if current_user.address %>
+              <!-- <p> Adresse</p> -->
+              <div class= "chief-profile-right-date">
+                <i class="fa fa-map-marker awesome"></i><%= @user.address %>
+              </div>
+            <% end %>
+            <!-- <p> Date de naissance</p> -->
+            <div class= "chief-profile-right-date">
+              <% if  @user.birth %>
+                <i class="fa fa-birthday-cake awesome"></i> <%= l(@user.birth, format: '%d / %m / %Y') %>
+              <% end %>
             </div>
           </div>
-           <p><%= @user.description.html_safe %></p>
+        </div>
+        <div class=" col-xs-12 col-sm-8 col-sm-offset-2 ">
+          <p><%= @user.description.html_safe %> </p>
+          <div class= "text-center chief-profile-modify">
+          <%= link_to "Modifier mes informations", edit_profile_path, class: "btn btn-pepeat2" %>
+        </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <div class="container">
     <div class= "stripe 3 text-center" id= "redirect-stripe">
       <h1 class= "text-center profile-header">Mes informations bancaire</h1>
       <p>Pour pouvoir transférer vos revenus sur votre compte nous avons besoin de votre RIB.</p>
-      <p>Votre numéro de sécurité social sera aussi demandé, obligation légale contre la lutte anti blanchissement d'argent.</p>
       <div class= "text-center">
-      <%= link_to 'Informations bancaire', bank_account_profile_path, class: "btn btn-pepeat" %>
+      <%= link_to 'Informations bancaire', bank_account_profile_path, class: "btn btn-pepeat2" %>
       </div>
     </div>
   </div>
@@ -190,21 +176,23 @@
 
   <!-- no chief -->
 
-<div class="container">
+  <div class="container">
     <div class="chief-profile 1">
       <h1 class= "text-center profile-header">Mes informations</h1>
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <div class="chief-profile-left text-center">
-            <h3>Ma photo de profil</h3>
             <div class= "classic-pic">
-              <%= image_tag @user.picture.url(:large), id: "img-preview" %>
-              <span class= "btn btn-danger crop"> Redimensionner</span>
+              <%= image_tag @user.picture.url(:large), class: "user-img img-circle" %>
+              </br>
+              <div class= "btn btn-success2 crop">
+                Redimensionner
+              </div>
             </div>
             <div class= "hidden-form cropable">
               <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
-                <%= f.cropbox :picture, :width => 300 %>
-                <div class= "text-center">
+                <%= f.cropbox :picture, :width => 400 %>
+                <div class= "text-center mtop-10">
                   <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
                 </div>
               <% end %>
@@ -212,41 +200,42 @@
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-          <div class="chief-profile-right text-center">
-            <p> Prénom</p>
+          <div class="chief-profile-right">
+            <!-- <p> Prénom</p> -->
             <div class= "chief-profile-right-date">
-              <%= @user.firstname %>
+              <i class="fa fa-user awesome"></i> <span><%= @user.firstname %></span>
             </div>
-            <p>Nom</p>
+            <!-- <p>Nom</p> -->
             <div class= "chief-profile-right-date">
-              <%= @user.lastname %>
+              <i class="fa fa-user awesome"></i> <%= @user.lastname %>
             </div>
-            <p> Numéro de téléphone</p>
+            <!-- <p> Numéro de téléphone</p> -->
             <div class= "chief-profile-right-date">
-              <%= @user.phone_number %>
+              <i class="fa fa-mobile awesome"></i> <%= @user.phone_number %>
             </div>
             <% if current_user.address %>
-              <p> Adresse</p>
+              <!-- <p> Adresse</p> -->
               <div class= "chief-profile-right-date">
-                <%= @user.address %>
+                <i class="fa fa-map-marker awesome"></i><%= @user.address %>
               </div>
             <% end %>
-            <p> Date de naissance</p>
+            <!-- <p> Date de naissance</p> -->
             <div class= "chief-profile-right-date">
               <% if  @user.birth %>
-                <%= l(@user.birth, format: '%d / %m / %Y') %>
+                <i class="fa fa-birthday-cake awesome"></i> <%= l(@user.birth, format: '%d / %m / %Y') %>
               <% end %>
+            </div>
+            <div class= "text-center">
+              <%= link_to "Modifier mes informations", edit_profile_path, class: "btn btn-pepeat2" %>
             </div>
           </div>
         </div>
       </div>
       <div class= "chief-profile-submit">
-        <%= link_to "Modifier mes informations", edit_profile_path, class: "btn-lg btn-pepeat" %>
       </div>
     </div>
   </div>
 <% end %>
-
 <% end %>
 
 

@@ -7,10 +7,12 @@
   padding: 30px;
   margin: 30px;
   border: 1px solid rgba(49,49,47,0.18);
-
   h3 {
     font-family: $subtitle;
     font-size: 21px;
+  }
+  &-modify {
+    margin-top: 30px;
   }
   &-left {
     margin: 30px;
@@ -25,22 +27,17 @@
   }
   &-right {
   margin: 30px;
-  margin-left: 60px;
+  margin-bottom: 70px;
     &-date {
       margin-bottom: 35px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.22);
     }
   }
   &-submit {
     position: absolute;
     transform: translateY(-50%) translateX(-50%);
     left: 50%;
-    bottom: -4%;
-  }
-  p {
-    background-color: rgba(0, 0, 0, 0.02);
-    font-size: 20px;
-    border-radius: 2px;
-    border: 1px solid rgba(49,49,47,0.18);
+    bottom: 0px;
   }
 }
 
