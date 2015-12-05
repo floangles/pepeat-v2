@@ -37,14 +37,14 @@
         <div class= "meals-body-menu-starter">
           <%= image_tag 'starter.png', class: "img-menu-meal" %>
           <div class= "meals-body-menu-starter-element">
-           <i><%= meal.starter %></i>
+            <i><%= meal.starter %></i>
           </div>
         </div>
       <% else %>
         <div class= "meals-body-menu-starter">
           <%= image_tag 'starter.png', class: "img-menu-meal" %>
           <div class= "meals-body-menu-starter-element">
-           <p><i>Pas d'entrée proposée</i></p>
+           <span><i>Pas d'entrée proposée</i></span>
           </div>
         </div>
       <% end %>
@@ -59,7 +59,7 @@
         <div class= "meals-body-menu-starter">
           <%= image_tag 'main.png', class: "img-menu-meal" %>
           <div class= "meals-body-menu-starter-element">
-            <p><i>Pas de plat principal proposé</i></p>
+            <span><i>Pas de plat principal proposé</i></span>
           </div>
         </div>
       <% end %>
@@ -74,7 +74,7 @@
         <div class= "meals-body-menu-starter">
           <%= image_tag 'dessert.png', class: "img-menu-meal" %>
           <div class= "meals-body-menu-starter-element">
-            <p><i>Pas de dessert proposé</i></p>
+            <span><i>Pas de dessert proposé</i></span>
           </div>
         </div>
       <% end %>
