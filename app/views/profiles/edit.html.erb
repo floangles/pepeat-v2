@@ -12,7 +12,7 @@
       <div class="chief-profile">
         <h1 class= "text-center profile-header">Mes informations</h1>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-sm-6">
             <div class="chief-profile-left text-center">
               <h3>Ma photo de chef Pepeat</h3>
                 <div>
@@ -34,7 +34,7 @@
 
             </div>
           </div>
-          <div class="col-xs-4 col-xs-offset-1">
+          <div class="col-xs-12 col-sm-4 col-sm-offset-1">
             <div class="chief-profile-right text-center">
               <div class="chief-profile-right-date">
                 <i class="fa fa-cutlery"></i> <%= f.input :surname, placeholder: 'Nom de chef',required: false, label: false %>
@@ -81,7 +81,7 @@
       <div class="chief-description">
          <h1 class= "text-center profile-header chief-description-title">A propos de moi</h1>
         <div class="row">
-          <div class="col-xs-6 col-xs-offset-3">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
             <%= f.input :description, label: false, input_html: { class: 'wysihtml5' } %>
           </div>
         </div>
@@ -109,7 +109,7 @@
       <div class="chief-profile">
         <h1 class= "text-center profile-header">Mes informations</h1>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-sm-6">
             <div class="chief-profile-left text-center">
               <h3>Ma photo de profil</h3>
               <% if @user.picture.nil? %>
@@ -137,7 +137,7 @@
 
             </div>
           </div>
-          <div class="col-xs-4 col-xs-offset-1">
+          <div class="col-xs-12 col-sm-4 col-sm-offset-1">
             <div class="chief-profile-right text-center">
               <div class="chief-profile-right-date">
                 <i class="fa fa-user"></i><%= f.input :firstname, label: false, placeholder: "Prénom", required: false %>

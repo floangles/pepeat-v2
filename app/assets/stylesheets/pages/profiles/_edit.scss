@@ -124,3 +124,8 @@ border: 1px solid rgba(49,49,47,0.18);
 .button-submit-profile {
   padding-bottom: 40px;
 }
+
+
+@media (max-width: 767px) {
+.preview-size-profile {width: 150px;}
+}
