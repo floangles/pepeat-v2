@@ -21,7 +21,15 @@
           <%= image_tag 'vendre.png'%>
         </div>
       <% end %>
-
+      <div class= "signup-home">
+        <% if current_user && !current_user.chief %>
+          <%= link_to "Devenir Pepeato", page_path('chief_infos'), class: 'btn-lg btn-success2 hvr-grow' %>
+        <% elsif current_user && current_user.chief %>
+          <%= link_to "Créer un menu", new_profile_meal_path, class: 'btn-lg btn-success2 hvr-grow' %>
+        <% else %>
+          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn-lg btn-success2 hvr-grow' %>
+        <% end %>
+      </div>
       <div class= "banner-button">
         <%= link_to 'Voir les menus', meals_path, class: "btn-lg btn-pepeat2 hvr-grow", id:"banner-action" %>
       </div>
