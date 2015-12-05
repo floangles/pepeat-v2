@@ -4,6 +4,12 @@ $(document).ready( function() {
   });
 });
 
+$(document).ready( function() {
+  $('#placeholder').click(function(){
+    $("#user-pic").click();
+  });
+});
+
 
 $(document).ready( function() {
   $('#space-btn').click(function(){

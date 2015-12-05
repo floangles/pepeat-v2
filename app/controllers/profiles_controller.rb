@@ -79,6 +79,10 @@ class ProfilesController < ApplicationController
     @picture = current_user.chief_pictures.find(params[:format])
   end
 
+  def crop_user
+
+  end
+
   def update_bank_account
     token = params[:stripeToken]
     account = Stripe::Account.retrieve(current_user.stripe_id)
