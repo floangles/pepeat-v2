@@ -16,6 +16,10 @@
               <div class= "modal-body-soon">
                 <h3>Commande disponible à partir de <span>janvier 2016</span></h3>
                 <p>encore un peu de patience ;)</p>
+                <p> Pour plus d'informations, créez un profil sur Pepeat</p>
+                <% if !current_user %>
+                  <%= link_to 'Créer un profil',new_user_registration_path, class: "btn btn-pepeat2" %>
+                <% end %>
               </div>
               <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
               <%= f.input :amount, as: :hidden, :input_html => { :value => meal.price } %>
@@ -36,9 +40,14 @@
 
 <div>
   <a data-toggle="modal" data-target="#booking-<%=meal.id%>">
-    <b class= "btn btn-success buton-order">Je commande ce menu</b>
+    <b class= "btn btn-success buton-order" id="order-click">Je commande ce menu</b>
   </a>
 </div>
+
+<script type="text/javascript">
+  var link = document.getElementById('order-click');
+  analytics.trackLink(link, 'I purchase this menu');
+</script>
 
 
 
