@@ -376,6 +376,37 @@ position: relative;
 }
 
 
+.background-home-chief {
+  position: relative;
+  background-image: image-url('chef.jpg');
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  &-title {
+    color: white;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    h3 {
+      font-size: 44px;
+      text-shadow: 1px 1px rgba(9, 9, 9, 0.28);
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+  }
+  &-alias {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+
 @media (max-width: 1025px) {
   .banner-video {display: none;}
   .size-pepeat {margin-top: 80px; width: 200px !important;}
