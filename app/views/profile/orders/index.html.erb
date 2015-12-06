@@ -109,3 +109,7 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+</script>
