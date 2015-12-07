@@ -14,6 +14,16 @@
   <li role="presentation"><a href=".five">5. Date</a></li>
 </ul>
 
+
+<div class="container">
+  <div class="card-warning text-center">
+    <h1>N'oubliez pas de tester votre menu avant de le mettre en ligne sur Pepeat</h1>
+    <p>Ce sera l'occasion de prendre les photos nécessaires à la publication de votre menu.</p>
+    <p>Suivez ce guide pour que vos photos soient belles et vendeuses. .</p>
+    <%= link_to 'Guide photos', photo_publics_path, class: "btn btn-pepeat2", :target => "_blank" %>
+  </div>
+</div>
+
 <%= simple_form_for(@meal, url: profile_meals_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 

@@ -16,5 +16,10 @@ class PublicsController < ApplicationController
     send_file(pdf_filename, :filename => "FAQ", :disposition => 'inline', :type => "application/pdf")
   end
 
+  def photo
+    pdf_filename = File.join(Rails.root, "app/assets/images/photo.pdf")
+    send_file(pdf_filename, :filename => "photo", :disposition => 'inline', :type => "application/pdf")
+  end
+
 
 end

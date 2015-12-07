@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :publics, only: [:index, :show] do
     collection do
       get 'faq'
+      get 'photo'
     end
   end
 
