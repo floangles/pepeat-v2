@@ -78,7 +78,7 @@
 .choice {
   background-color: white;
   width: 100%;
-  padding-top: 35px;
+  padding: 35px;
   h3 {
     margin: 20px 30px;
     font-size: 20px;
@@ -130,6 +130,18 @@
 }
 
 .button-chief {
+
   margin-top: 30px;
   padding-bottom: 50px;
+}
+
+.convaincu {
+ background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
+  h3 {
+    font-size: 18px;
+  }
 }

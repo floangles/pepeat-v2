@@ -3,6 +3,9 @@
     <div class= "content text-center">
       <h3>Pepeato</h3>
       <h1>Partagez votre passion de la cuisine et vendez vos menus avec Pepeat</h1>
+       <div class= "text-center button-chief">
+        <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat2", id: "Pepeato action create" %>
+      </div>
       </div>
     </div>
   </div>
@@ -10,7 +13,7 @@
 
 
 <div id= "infos" class="infos-chief">
-  <h1 class= "text-center">Qu'est ce qu'un Pepeato ?</h1>
+  <h1 class= "text-center home-title">Qu'est ce qu'un Pepeato ?</h1>
   <div class="container">
     <div class="row organisation-row">
       <div class="col-xs-12 col-sm-4">
@@ -61,7 +64,7 @@
 
 <div class="choice">
   <div class="container">
-    <h1 class= "text-center">Comment ça fonctionne ?</h1>
+    <h1 class= "text-center home-title">Comment ça fonctionne ?</h1>
     <h3 class= "text-center">Le Pepeato choisit de distribuer les menus en mains propres à ses clients ou de recevoir ses convives à sa table.</h3>
     <div class="row">
       <div class="col-xs-6">
@@ -99,9 +102,14 @@
       </div>
     </div>
   </div>
+  <div class= "text-center">
+    <h3>Pour en savoir plus lisez notre foire aux questions</h3>
+    <%= link_to 'Foire aux questions', faq_publics_path, :target => "_blank",  class: "btn btn-success2"%>
+  </div>
+</div>
   <div id="stripe-infos">
     <div class="container">
-      <h1 class= "text-center">Recevez les paiements directement sur votre compte</h1>
+      <h1 class= "home-title text-center">Recevez les paiements directement sur votre compte</h1>
       <div class="row">
         <div class="col-xs-6">
           <div class="card-chief-infos text-center">
@@ -115,19 +123,22 @@
             <h3>La solution Stripe</h3>
             <p><i class="fa fa-check-square-o"></i> Paiement sécurisé </p>
             <p><i class="fa fa-check-square-o"></i> Recevez vos revenus une semaine après avoir vendu vos menus. </p>
-            <p><i class="fa fa-check-square-o"></i> Vous avez juste besoin de votre numéro de sécurité sociale et de votre RIB</p>
+            <p><i class="fa fa-check-square-o"></i> Vous avez seulement besoin de renseigner votre RIB</p>
           </div>
         </div>
       </div>
     </div>
-    <div class= "text-center button-chief">
-      <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
+  </div>
+  <div class="convaincu text-center">
+    <div class="container">
+      <h1 class= "home-title">Convaincu ?</h1>
+      <h3>N'attendez plus et créez votre profil en 2 minutes.</h3>
+      <div class= "text-center button-chief">
+        <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
+      </div>
     </div>
   </div>
 
-
-  </div>
-</div>
 
 <script type="text/javascript">
   analytics.track('Pepeato-infos')

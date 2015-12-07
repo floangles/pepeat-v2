@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
   ActiveAdmin.routes(self)
-  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations", confirmations: "users/confirmations" }
 
   root to: "home#index"
@@ -19,7 +18,11 @@ Rails.application.routes.draw do
         patch 'update_bank_account'
     end
   end
-  resources :publics, only: [:index, :show]
+  resources :publics, only: [:index, :show] do
+    collection do
+      get 'faq'
+    end
+  end
 
 
   namespace :profile do
