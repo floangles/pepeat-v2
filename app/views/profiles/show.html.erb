@@ -96,10 +96,30 @@
 
   <div class="container">
     <div class= "stripe 3 text-center" id= "redirect-stripe">
-      <h1 class= "text-center profile-header">Mes informations bancaire</h1>
-      <p>Pour pouvoir transférer vos revenus sur votre compte nous avons besoin de votre RIB.</p>
-      <div class= "text-center">
-      <%= link_to 'Informations bancaire', bank_account_profile_path, class: "btn btn-pepeat2" %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="stripe-left">
+            <div><%= image_tag 'stripe-logo.png' %></div>
+            <%= image_tag 'credit-cards_visa', class: "card-chief-infos-img" %>
+            <%= image_tag 'credit-cards_maestro', class: "card-chief-infos-img" %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <h1 class= "text-center profile-header">Mes informations bancaire</h1>
+          <p>Pour pouvoir transférer vos revenus sur votre compte nous avons besoin de votre RIB.</p>
+          <% if current_user.bank_account_id %>
+            <% account = Stripe::Account.retrieve(current_user.stripe_id) %>
+            <% bank_account = account.external_accounts.retrieve(current_user.bank_account_id) %>
+            <h4>Compte actuel : ********<%= bank_account.last4 %></h4>
+            <div class= "text-center">
+            <%= link_to 'Modifier mon compte bancaire', bank_account_profile_path, class: "btn btn-pepeat2" %>
+            </div>
+          <% else %>
+            <div class= "text-center">
+            <%= link_to 'Informations bancaire', bank_account_profile_path, class: "btn btn-pepeat2" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

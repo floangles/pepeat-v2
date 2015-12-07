@@ -1,6 +1,8 @@
 $(document).ready( function() {
   $('#placeholder').click(function(){
     $("#pictureInput").click();
+    $('.validation').addClass( "hidden-form" );
+    $('.refresh').removeClass( "hidden-form" );
   });
 });
 

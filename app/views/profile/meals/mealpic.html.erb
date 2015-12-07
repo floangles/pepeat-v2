@@ -46,11 +46,14 @@
             <%=link_to 'Valider', 'javascript:;', class: 'btn btn-success' %>
           </div>
           <div class= "go-btn invisible modify-btn" id= "change-btn">
-            <%=link_to 'Changer', 'javascript:;', class: 'btn btn-danger' %>
+            <%=link_to 'Changer', 'javascript:;', class: 'btn btn-pepeat' %>
+          </div>
+          <div class= "go-btn invisible cancel-btn" id= "change-btn">
+            <%= link_to "Annuler", '', class: "btn btn-danger" %>
           </div>
         </div>
       </div>
-      <div class= "gallery-kitchen-row-submit">
+      <div class= "gallery-kitchen-row-submit validation">
         <%= link_to 'Je confirme mes photos', profile_meals_path, class: "btn btn-success2 btn-lg" %>
       </div>
     </div>

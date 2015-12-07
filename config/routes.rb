@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     collection do
         get 'croping'
+        get 'webhook'
         get 'bank_account'
         patch 'update_bank_account'
     end
