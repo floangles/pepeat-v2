@@ -22,12 +22,36 @@
         </div>
       <% end %>
       <div class= "signup-home">
-        <% if current_user && !current_user.chief %>
-          <%= link_to "Devenir Pepeato", page_path('chief_infos'), class: 'btn-lg btn-success2 hvr-grow' %>
-        <% elsif current_user && current_user.chief %>
-          <%= link_to "Créer un menu", new_profile_meal_path, class: 'btn-lg btn-success2 hvr-grow' %>
-        <% else %>
-          <%= link_to "Créer un compte", new_user_registration_path, class: 'btn-lg btn-success2 hvr-grow' %>
+        <% if !current_user %>
+          <div class= "home-signup text-center su">
+            <h3>Créer un compte</h3>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :email, label: false, required: false, autofocus: true, class: "form-control", placeholder: "Email" %>
+              <%= f.input :password, required: false, label: false, placeholder: "Mot de passe" %>
+              <div class= "text-center">
+                <%= f.button :submit, t('.sign_up', default: "S'inscrire"), class: "btn btn-pepeat form-control" %>
+              </div>
+              <% if params[:boom] %>
+                <%= f.input :chief, as: :hidden, input_html: { value: true }, class: "form-control" %>
+              <% end %>
+            <% end %>
+            <p><%=link_to 'Se connecter', 'javascript:;', id:"su-trigger" %></p>
+          </div>
+          <div class= "home-signup text-center hidden-form si">
+            <h3>Se connecter</h3>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.input :email, label: false, required: false, autofocus: true, placeholder: "Email" %>
+              <%= f.input :password, required: false, label: false, placeholder: "Mot de passe" %>
+              <div class= "text-center">
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+              <div class= "text-center">
+                <%= f.button :submit, t(".sign_in", default: "Se connecter"), class: "btn btn-pepeat form-control" %>
+              </div>
+            <% end %>
+            <p><%=link_to 'Créer un compte', 'javascript:;', id: "si-trigger" %></p>
+          </div>
         <% end %>
       </div>
       <div class= "banner-button">

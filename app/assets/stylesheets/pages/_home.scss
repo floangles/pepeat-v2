@@ -3,7 +3,6 @@
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
 
-
 .banner-content {
   position: absolute;
   top: 40%;
@@ -30,6 +29,31 @@
   }
 }
 
+.home-signup {
+  background-color: rgba(255, 255, 255, 0.43);
+  box-shadow: 1px 1px 3px rgba(9, 9, 9, 0.12);
+  border: solid 1px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  height: auto;
+  padding:20px;
+  margin: 30px;
+  h3 {
+    font-size: 24px;
+    color: $pepeat;
+    margin-top: 3px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.13);
+    margin-bottom: 20px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.16);
+    padding-bottom: 10px;
+  }
+  p {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+}
+
 .countdown {
   position : absolute;
   transform: translateX(-50%) translateY(-50%);
@@ -50,9 +74,9 @@
 
 .signup-home {
   position: absolute;
-  bottom: 60px;
-  left: 41%;
-  transform: translateX(-50%) translateY(-50%);
+  bottom: 50px;
+  right: 20px;
+  // transform: translateX(-50%) translateY(-50%);
 }
 
 .banner-infos {
@@ -86,7 +110,7 @@
 .banner-button {
   position: absolute;
   bottom: 60px;
-  left: 56%;
+  left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -421,4 +445,5 @@ position: relative;
   .decalage {margin-left: 0px;}
   .meals-home-body-price { font-size: 25px;}
   .meals-home-body {height: 24px;}
+  .signup-home {display: block;}
 }
