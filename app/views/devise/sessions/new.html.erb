@@ -10,8 +10,8 @@
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3">
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <%= f.input :email, label: 'mail', required: false, autofocus: true %>
-                  <%= f.input :password, required: false %>
+                  <%= f.input :email, label: false, required: false, autofocus: true, placeholder: "Email" %>
+                  <%= f.input :password, required: false, label: false, placeholder: "Mot de passe" %>
                   <div class= "text-center">
                     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
                   </div>
