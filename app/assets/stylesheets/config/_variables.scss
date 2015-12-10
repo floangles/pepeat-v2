@@ -2,17 +2,21 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700|Raleway:300,400|Fredoka+One");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,200,700|Montserrat:400,700|Raleway:300,400|Fredoka+One|Varela+Round");
 
 // $base-font: "Open Sans", "Helvetica", "sans-serif";
-$base-font: 'Avenir-Light';
+$base-font: "Open Sans", "Helvetica", "sans-serif";
 // $header-font: "Montserrat", "sans-serif";
-$header-font: 'Avenir-Heavy';
+$header-font: 'Raleway', "sans-serif";
 $navbar-font: 'Raleway', "sans-serif";
 
 $pepeat-font: 'Fredoka One', cursive;
-$title: 'Avenir-Black';
-$subtitle: 'Avenir-Medium';
+$title: 'Raleway', "sans-serif";
+$subtitle: 'Varela Round';
+
+body {
+  font-weight: 300;
+}
 
 
 
@@ -20,11 +24,11 @@ $subtitle: 'Avenir-Medium';
 
 // Local fonts (uncomment following lines)
 // @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
+//   font-family: "Avenir";
+//   src: font-url('Avenir.eot');
+//   src: font-url('Avenir.eot?#iefix') format('embedded-opentype'),
+//        font-url('Avenir.woff') format('woff'),
+//        font-url('Avenir.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
 
