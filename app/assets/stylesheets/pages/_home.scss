@@ -29,6 +29,14 @@
   }
 }
 
+.overlay-home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 23, 19, 0.06);
+  color: white;
+}
+
 .home-signup {
   background-color: white;
   box-shadow: 0px 0px 2px black;
@@ -433,9 +441,9 @@ position: relative;
 }
 
 
-@media (max-width: 1025px) {
+@media (max-width: 767px) {
+  .size-pepeat {margin-top: 40px; width: 250px !important;}
   .banner-video {display: none;}
-  .size-pepeat {margin-top: 80px; width: 200px !important;}
   #banner-xs {display: block !important;}
   #banner-xs h2 {margin-top: 23px; font-size: 20px; padding: 5px;}
   .us-txt h1 {font-size: 24px; text-align: center;}
@@ -448,3 +456,19 @@ position: relative;
   .meals-home-body {height: 24px;}
   .signup-home {display: block;}
 }
+@media (min-width: 768px) and (max-width: 1025px) {
+  .size-pepeat {width: 400px !important;}
+  .banner-video {display: none;}
+  #banner-xs {display: block !important;}
+  #banner-xs h2 {margin-top: 23px; font-size: 30px; padding: 5px;}
+  .us-txt h1 {font-size: 24px; text-align: center;}
+  .us-txt p { padding-right: 0px; padding: 10px; text-align: center;}
+  .hidden-sm {display: none;}
+  .hidden-xs {display: block !important;}
+  .us-img { text-align: center;}
+  .decalage {margin-left: 0px;}
+  .meals-home-body-price { font-size: 25px;}
+  .meals-home-body {height: 24px;}
+  .signup-home {display: block;}
+}
+
