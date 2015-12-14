@@ -32,7 +32,6 @@ class ProfilesController < ApplicationController
         @user.chief_pictures.create(chiefpicture: picture)
           }
       end
-      raise
       if params[:user][:stripe_account] == "true" && ( @user.stripe == 'false' || @user.stripe == false || @user.stripe == nil)
         stripe = Stripe::Account.create(
           {
