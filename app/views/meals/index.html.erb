@@ -358,6 +358,10 @@
     analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
     analytics.track('Meals index');
   </script>
+<% else %>
+  <script type="text/javascript">
+    analytics.track('Meals index');
+  </script>
 <% end %>
 
 

@@ -49,6 +49,11 @@
         <div class=" col-xs-12 col-sm-8 col-sm-offset-2 ">
           <p><%= @user.description.html_safe %> </p>
         </div>
+        <div class=" col-xs-12 col-sm-8 col-sm-offset-2 ">
+          <div class= "card-infos-map map-margin">
+            <div id="map2" style="width: 100%; height: 100%;"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -102,6 +107,23 @@
 </div>
 
 
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      circle = [{lng: <%= @user.longitude %>, lat: <%= @user.latitude %>, radius: 200}]
+      circle_options = { strokeColor:"#FECC1F",strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent' }
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map2' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.addCircles(circle, circle_options);
+        handler.addCircles(circle);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(14);
+      });
+    })
+  <% end %>
+<% end %>
 
 
 

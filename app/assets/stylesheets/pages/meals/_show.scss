@@ -1,3 +1,10 @@
+#map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}
+
 .background-meals-show {
   background-image: image-url('casserole.jpg');
   background-size: cover;

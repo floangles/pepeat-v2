@@ -4,6 +4,16 @@ class PublicsController < ApplicationController
   def index
     @user = User.find(params[:format])
     @order = Order.new
+
+    @markers = Gmaps4rails.build_markers(@user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.picture({
+       "url" => "/assets/marker.png",
+       "width" =>  0,
+       "height" => 0,
+       })
+    end
   end
 
 

@@ -6,6 +6,15 @@ class ProfilesController < ApplicationController
 
   def show
     @chief_picture = ChiefPicture.new
+    @markers = Gmaps4rails.build_markers(@user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.picture({
+       "url" => "/assets/marker.png",
+       "width" =>  0,
+       "height" => 0,
+       })
+    end
   end
 
   def age(user)

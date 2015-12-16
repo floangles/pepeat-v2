@@ -61,7 +61,7 @@
         <div class="card-infos-plus">
           <div class="card-infos-plus-element text-center">
             <span><p>Adresse de <%=@meal.user.surname %></p></span>
-            <%= @meal.user.address %>
+            <p>L'adresse exacte sera disponible après commande.</p>
             <div class= "card-infos-plus-element-position-img">
               <i class="fa fa-map-marker fa-3x"></i>
             </div>
@@ -121,18 +121,39 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).on('ready', function() {
+      circle = [{lng: <%= @user.longitude %>, lat: <%= @user.latitude %>, radius: 200}]
+      circle_options = { strokeColor:"#FECC1F",strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent' }
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.addCircles(circle, circle_options);
+        handler.addCircles(circle);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(15);
+        handler.getMap().setZoom(14);
       });
     })
   <% end %>
 <% end %>
 
-<script type="text/javascript">
+
+<% if current_user %>
+  <script type="text/javascript">
+    analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+    analytics.track('Meal show', {
+  meal_id: '<%= @meal.id %>',
+  meal_name: '<%=@meal.title %>',
+  meal_price: '<%= @meal.price %>',
+  meal_day: '<%= @meal.day %>',
+  meal_portion: '<%= @meal.portion%>',
+  meal_takeaway: '<%= @meal.takeaway%>',
+  meal_chief_id: '<%= @meal.user.id%>',
+  meal_chief_id: '<%= @meal.user.surname%>'
+
+});
+  </script>
+<% else %>
+  <script type="text/javascript">
   analytics.track('Meal show', {
   meal_id: '<%= @meal.id %>',
   meal_name: '<%=@meal.title %>',
@@ -145,3 +166,4 @@
 
 });
 </script>
+<% end %>
