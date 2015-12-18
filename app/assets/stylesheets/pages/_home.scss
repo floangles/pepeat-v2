@@ -83,8 +83,8 @@
 
 .signup-home {
   z-index: 1000;
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
+  bottom: 25px;
   right: 20px;
   // transform: translateX(-50%) translateY(-50%);
 }

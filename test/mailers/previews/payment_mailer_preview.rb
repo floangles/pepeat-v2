@@ -1,10 +1,10 @@
 class PaymentMailerPreview < ActionMailer::Preview
   def confirmation
     order = Order.first
-    PaymentMailer.confirmation(order)
+    PaymentMailer.confirmation(order.id)
   end
   def remember
     order = Order.first
-    PaymentMailer.remember(order)
+    PaymentMailer.remember(order.id)
   end
 end

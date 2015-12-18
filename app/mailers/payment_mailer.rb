@@ -5,14 +5,14 @@ class PaymentMailer < ApplicationMailer
   #
   #   en.payment_mailer.confirmation.subject
   #
-  def confirmation(order)
-    @order = order
+  def confirmation(order_id)
+    @order = Order.find(order_id)
     # attachments.inline['pepeat-title.png'] = File.read('app/assets/images/pepeat-title.png')
     mail(to: @order.user.email, subject: 'Récapitulatif de votre commande')
   end
 
   def remember(order_id)
-    @order = Order.find(params[:id])
+    @order = Order.find(order_id)
     mail(to: @order.user.email, subject: "N'oubliez pas d'aller chercher votre commande")
   end
 end

@@ -5,9 +5,8 @@ class MealMailer < ApplicationMailer
   #
   #   en.meal_mailer.creation.subject
   #
-  def creation(meal)
-    @meal = meal
+  def creation(meal_id)
+    @meal = Meal.find(meal_id)
     mail(to: 'team@pepeat.org', subject: 'Nouveau menu proposé')
   end
-
 end

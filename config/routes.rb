@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-
-
   ActiveAdmin.routes(self)
+
+  authenticate :user, lambda { |user| user.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations", confirmations: "users/confirmations" }
 
   root to: "home#index"
+
   resources :meals, only: [:index, :show]
 
   resource :profile, only: [:show, :edit, :update] do
@@ -46,10 +50,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  require "sidekiq/web"
-    authenticate :user, lambda { |u| u.admin } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
-
 end

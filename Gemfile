@@ -9,6 +9,7 @@ gem "simple_form"
 gem "country_select"
 gem "high_voltage"
 gem "devise"
+gem "foreman"
 gem 'pundit', github: 'elabs/pundit'
 gem "aws-sdk", "< 2.0"
 gem "paperclip"
@@ -58,8 +59,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-hover'
   gem 'rails-assets-Jcrop'
 end
-
-
 
 group :development, :test do
   gem "spring"
