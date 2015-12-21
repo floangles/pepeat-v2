@@ -117,6 +117,18 @@
   }
 }
 
+.lille {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  h3 {
+    color: white;
+    font-size: 60px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.33);
+  }
+}
+
 .banner-button {
   position: absolute;
   bottom: 60px;
@@ -443,7 +455,7 @@ position: relative;
 
 
 @media (max-width: 767px) {
-  .size-pepeat {margin-top: 40px; width: 250px !important;}
+  .size-pepeat {margin-top: 0px; width: 250px !important;}
   .banner-video {display: none;}
   #banner-xs {display: block !important;}
   #banner-xs h2 {margin-top: 23px; font-size: 20px; padding: 5px;}

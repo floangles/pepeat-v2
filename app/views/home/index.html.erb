@@ -20,6 +20,9 @@
         <div class= "banner-soon">
           <%= image_tag 'vendre.png'%>
         </div>
+        <div class= "lille">
+          <h3>Lancement à Lille</h3>
+        </div>
       <% end %>
       <div class= "signup-home">
         <% if !current_user %>
@@ -70,6 +73,9 @@
     <div class= "content text-center">
       <%= image_tag 'pepeat-title', class: "size-pepeat" %>
       <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
+      <div class= "xs-lille">
+        <h3>Lancement à Lille</h3>
+      </div>
       <div class= "banner-xs-button">
         <%= link_to 'Menus prochainements à Lille', meals_path, class: "btn btn-pepeat2", id:"banner-action" %>
       </div>
