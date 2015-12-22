@@ -9,4 +9,18 @@ class MealMailer < ApplicationMailer
     @meal = Meal.find(meal_id)
     mail(to: 'team@pepeat.org', subject: 'Nouveau menu proposé')
   end
+
+  def validation(meal_id)
+    @meal = Meal.find(meal_id)
+    mail(to: @meal.user.email, subject: "Félicitation #{@meal.user.firstname}, ton menu est en cours de validation")
+  end
+
+
+  def cancel(meal_id)
+    @meal = Meal.find(meal_id)
+    @meal.orders.each do |order|
+      mail(to: order.user.email, subject: "#{order.user.firstname}, votre repas Pepeat du #{l(order.meal.day, format: '%A %d')} est annulé ")
+    end
+  end
 end
+

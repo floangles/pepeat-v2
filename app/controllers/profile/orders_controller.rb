@@ -58,6 +58,8 @@ module Profile
 
     def destroy
       if @order.meal.day > DateTime.now.to_date
+        PaymentMailer.cancel_before(@order.id).deliver_now
+        PaymentMailer.cancel_before_user(@order.id).deliver_now
         @order.destroy
         redirect_to profile_orders_path
       else
@@ -66,6 +68,8 @@ module Profile
           ch.capture
           @order.update(payment_validation: 'true')
         end
+        PaymentMailer.cancel_after(@order.id).deliver_now
+        PaymentMailer.cancel_after_user(@order.id).deliver_now
         @order.destroy
         redirect_to profile_orders_path
       end

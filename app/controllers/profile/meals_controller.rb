@@ -65,7 +65,8 @@ module Profile
       @meal = current_user.meals.new(meal_params)
       authorize @meal
       if @meal.save
-        MealMailer.creation(@meal.id).deliver_later
+        MealMailer.creation(@meal.id).deliver_now
+        MealMailer.delay_for(4.minutes).validation(@meal.id)
         current_user.update(last_meal: DateTime.now)
 
         if params[:pictures]
@@ -109,14 +110,15 @@ module Profile
       @picture = @meal.meal_pictures.find(params[:format])
     end
 
-    def destroy
-      authorize @meal
-      @meal.destroy
-      redirect_to profile_meals_path
-    end
-
     def set_meal
       @meal = current_user.meals.find(params[:id])
+    end
+
+    def destroy
+      authorize @meal
+      MealMailer.cancel(@meal.id).deliver_now
+      @meal.destroy
+      redirect_to profile_meals_path
     end
 
     def meal_params

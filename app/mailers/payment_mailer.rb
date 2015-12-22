@@ -15,4 +15,27 @@ class PaymentMailer < ApplicationMailer
     @order = Order.find(order_id)
     mail(to: @order.user.email, subject: " #{@order.user.firstname}, n'oublie pas d'aller chercher ta commande Pepeat")
   end
+
+
+  def cancel_before(order_id)
+    @order = Order.find(order_id)
+    mail(to: @order.meal.user.email, subject: "#{@order.user.firstname} a annulé sa commande")
+  end
+
+  def cancel_before_user(order_id)
+    @order = Order.find(order_id)
+    mail(to: @order.user.email, subject: "#{@order.user.firstname}, ta commande est bien annulée")
+  end
+
+  def cancel_after(order_id)
+    @order = Order.find(order_id)
+    mail(to: @order.meal.user.email, subject: "#{@order.user.firstname} a annulé sa commande")
+  end
+
+  def cancel_after_user(order_id)
+    @order = Order.find(order_id)
+    mail(to: @order.user.email, subject: "#{@order.user.firstname}, ta commande est bien annulée")
+  end
+
+
 end

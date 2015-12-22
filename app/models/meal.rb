@@ -34,7 +34,7 @@ class Meal < ActiveRecord::Base
   monetize :price_cents
 
   belongs_to :user
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :meal_pictures, dependent: :destroy
 
   validates :takeaway, presence: true, unless: "home?"
