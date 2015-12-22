@@ -53,11 +53,8 @@ module Profile
       application_fee: @commission.to_i
     })
     @order.update(payment: charge.to_json, state: 'paid', charge: charge.id)
-    Analytics.track(
-      user_id: current_user.id,
-      event: 'Purchased menu',
-      properties: { price: @amount / 100, menu: @order.meal.title, portion: @order.portion, charge: charge.id }
-    )
+    current_user.update(number_orders: current_user.number_orders.to_i + 1, last_order: DateTime.now)
+    @order.meal.user.update(number_meals_sold: @order.meal.user.number_meals_sold.to_i + @order.portion.to_i, ca: @order.meal.user.ca.to_i + @order.portion.to_i * (@order.amount_cents.to_i / 100 ))
 
     redirect_to profile_orders_path
 

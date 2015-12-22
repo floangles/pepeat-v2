@@ -48,6 +48,11 @@
 #  customer_id            :string
 #  stripe_id              :string
 #  bank_account_id        :string
+#  number_meals_sold      :integer
+#  ca                     :integer
+#  last_meal              :datetime
+#  number_orders          :integer
+#  last_order             :datetime
 #
 # Indexes
 #
@@ -91,12 +96,16 @@ class User < ActiveRecord::Base
       firstname: firstname,
       lastname: lastname,
       stripe: stripe,
-      id: id,
       tel: phone_number,
       address: address,
       chief: chief,
       birth: birth,
       avatar: picture,
+      ca: ca,
+      last_meal: last_meal,
+      number_meals_sold: number_meals_sold,
+      number_orders: number_orders,
+      last_order: last_order
     }
   end
 

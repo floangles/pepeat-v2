@@ -66,6 +66,7 @@ module Profile
       authorize @meal
       if @meal.save
         MealMailer.creation(@meal.id).deliver_later
+        current_user.update(last_meal: DateTime.now)
 
         if params[:pictures]
           params[:pictures].each { |picture|
