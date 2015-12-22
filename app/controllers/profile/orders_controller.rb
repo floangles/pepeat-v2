@@ -45,8 +45,10 @@ module Profile
         ch.capture
         @order.update(payment_validation: 'true')
         redirect_to profile_orders_path
+        flash[:notice] = 'La réception a été validé'
       else
         redirect_to profile_orders_path
+        flash[:notice] = 'Vous avez déja validé la réception'
       end
     end
 

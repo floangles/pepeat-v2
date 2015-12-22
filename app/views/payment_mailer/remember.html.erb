@@ -10,6 +10,8 @@
         text-align: center;
       }
 
+      body {text-align:center;}
+
       h1 {
         font-size: 18px;
         border-bottom: solid 1px rgba(0, 0, 0, 0.16);
@@ -46,6 +48,7 @@
         width: 200px;
       }
 
+
       table {
         border: solid 1px rgba(0, 0, 0, 0.41);
         border-radius: 5px;
@@ -55,7 +58,8 @@
         margin-bottom: 30px;
         height: auto;
         padding: 20px;
-        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
         background-color: #F5F5F5;
       }
 
@@ -116,18 +120,17 @@
   <body>
     <div class= "mail-payment-header">
       <%= image_tag 'pepeat-title.png', class: "mail-img" %>
-      <h1><%= @order.user.firstname.capitalize %>, N'oubliez pas votre commande !</h1>
-      <p>Cliquez sur le bouton ci-dessous pour valider la réception et payer le chef Pepeat. Et bon appétit ;)</p>
+      <h1><%= @order.user.firstname.capitalize %>, N'oublie pas ta commande !</h1>
+      <p>Clique sur le bouton ci-dessous pour valider la réception et payer ton Pepeato. Bon appétit ;)</p>
       <button class= 'myButton'><%= link_to 'Je valide la réception',validation_profile_orders_url(@order) %></button>
       <h2>Détail de la commande</h2>
 
         <% if @order.meal.home? %>
           <h5 class= "text-center">" Diner chez le chef "</h5>
         <% else %>
-          <h5 class= "text-center">" A emporter "</h5>
+          <h5 class= "text-center">"A emporter"</h5>
         <% end %>
-
-      <table>
+      <table class="center">
         <tr>
           <td>
             <h4>Entrée: </h4>
