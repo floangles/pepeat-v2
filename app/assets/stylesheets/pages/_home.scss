@@ -119,13 +119,11 @@
 
 .lille {
   position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  h3 {
-    color: white;
-    font-size: 38px;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.33);
+  left: 13%;
+  top: 14%;
+  img {
+    width: 200px;
+    height: 200px;
   }
 }
 
