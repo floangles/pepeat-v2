@@ -80,7 +80,7 @@
                       </button>
                     <% end %>
                   <% else %>
-                    <span class= "hover" title= "Vous ne pouvez pas éditer un menu lorsque vous avez des réservations">
+                    <span class= "hover" title= "Vous ne pouvez pas modifier un menu lorsque vous avez des réservations">
                       <button class="btn btn-success2 hvr-grow">
                       <i class="fa fa-pencil"></i>
                       </button>
@@ -90,7 +90,9 @@
                     method: :delete,
                     data: { confirm: "Etes vous certain de vouloir supprimer votre menu ?" } do %>
                     <button class="btn btn-danger2 hvr-grow">
-                    <i class="fa fa-trash"></i>
+                      <span class= "hover" title= "Supprimer votre menu. Cette action est irréversible. Les personnes ayant commandés seront prévenues par mail">
+                        <i class="fa fa-trash"></i>
+                      </span>
                     </button>
                   <% end %>
                   <%= link_to 'Changer les photos', mealpic_profile_meals_path(meal_id: meal.id), class: "btn btn-primary2" %>

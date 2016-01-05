@@ -56,13 +56,7 @@
                 </div>
                 <div class="orders-header-button">
                   <% if !order.payment_validation %>
-                    <%= link_to profile_order_path(order),
-                      method: :delete,
-                      data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
-                      <button class="btn btn-danger2 hover" title= "Annuler votre réservation">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                    <% end %>
+                   <%= render "/shared/modale_delete", order: order %>
                   <% end %>
                 </div>
                 <div class="orders-header-pic">

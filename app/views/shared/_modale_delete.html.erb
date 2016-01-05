@@ -1,0 +1,33 @@
+<div class="modal fade" id="delete-<%=order.id%>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">Modalité d'annulation de commandes</h4>
+      </div>
+      <div class= "modale-delete text-center">
+        <p> Si vous annulez votre commande avant minuit du jour de votre réservation</p>
+         <h3><b>Vous ne payez aucuns frais.</b></h3>
+        <p> Si vous annulez votre commande le jour même</p>
+        <h3><i><b>Vous payez la totalité de votre commande</b></i></h3>
+       <%= link_to profile_order_path(order),
+        method: :delete,
+        data: { confirm: "Etes vous certain de vouloir supprimer votre réservation ?" } do %>
+        <button class="btn btn-danger2">
+          Je supprime ma réservation
+        </button>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div><!-- /.modal-dialog -->
+  </div>
+</div><!-- /.modal -->
+
+
+<a data-toggle="modal" data-target="#delete-<%=order.id%>">
+  <button class="btn btn-danger2 hover" title= "Annuler votre réservation">
+    <i class="fa fa-trash"></i>
+  </button>
+</a>

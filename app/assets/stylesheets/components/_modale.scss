@@ -38,3 +38,25 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+
+.modale-delete {
+  margin: 10px;
+  padding: 5px;
+  p {
+    color: black;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  h3 {
+    color: black;
+    margin: 10px;
+    padding: 5px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.27);
+  }
+
+  span {
+    border-bottom: 1px solid black;
+  }
+}
