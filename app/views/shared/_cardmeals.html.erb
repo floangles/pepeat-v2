@@ -87,7 +87,7 @@
               <%= image_tag 'home2.png', class: "img-take hover", title: "Diner chez le chef" %>
             </div>
             <div class="meals-body-takeaway-hour">
-              <i>Rdv à <%= meal.home_hour.strftime('%Hh:%M') %> chez le chef</i>
+              <i><%= meal.home_hour.strftime('%Hh:%M') %> chez le chef</i>
             </div>
           <% else %>
             <div>

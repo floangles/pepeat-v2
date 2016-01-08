@@ -276,6 +276,8 @@ GEM
       sprockets-rails
     rails-assets-Buttons (2.0.0)
     rails-assets-Jcrop (2.0.4)
+    rails-assets-ScrollToFixed (1.0.6)
+      rails-assets-jquery (>= 1.6)
     rails-assets-hover (2.0.2)
     rails-assets-jquery (2.1.4)
     rails-assets-scrollReveal.js (2.3.2)
@@ -417,6 +419,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   rails-assets-Buttons (~> 2.0)!
   rails-assets-Jcrop!
+  rails-assets-ScrollToFixed!
   rails-assets-hover!
   rails-assets-scrollReveal.js!
   rails-assets-tooltipster!

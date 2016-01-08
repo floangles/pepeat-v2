@@ -14,6 +14,7 @@
 //= require papercrop
 //= require jquery.countdown
 //= require jquery.countdown-es
+//= require ScrollToFixed
 
 
 //= require_tree ./app

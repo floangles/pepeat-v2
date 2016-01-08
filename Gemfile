@@ -58,6 +58,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tooltipster'
   gem 'rails-assets-hover'
   gem 'rails-assets-Jcrop'
+  gem 'rails-assets-ScrollToFixed'
 end
 
 group :development, :test do

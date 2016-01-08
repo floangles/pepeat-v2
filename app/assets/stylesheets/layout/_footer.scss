@@ -5,6 +5,9 @@
   background-color: #233240;
   height: auto;
   padding: 30px;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
 
   i {
     color: red;

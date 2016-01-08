@@ -29,6 +29,7 @@ $(function () {
           viewMode: 'years',
           format: 'L',
           viewDate: false,
+          widgetPositioning: {vertical: 'top'}
       });
   });
 
