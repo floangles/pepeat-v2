@@ -19,6 +19,11 @@ class MealsController < ApplicationController
     @meals_selection = []
     @users_0 = []
     @users_1 = []
+    @users_2 = []
+    @users_3 = []
+    @users_4 = []
+    @users_5 = []
+    @users_6 = []
 
     Meal.all.each do |meal|
 
