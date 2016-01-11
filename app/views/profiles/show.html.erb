@@ -271,9 +271,10 @@
         markers = handler.addMarkers(<%= raw @markers.to_json %>);
         handler.addCircles(circle, circle_options);
         handler.addCircles(circle);
+        handler.getMap().setOptions({ scrollwheel: false });
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(14);
+        handler.getMap().setZoom(13);
       });
     })
   <% end %>

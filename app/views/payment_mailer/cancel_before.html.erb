@@ -1,1 +1,66 @@
-annulation sans paiement
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Votre commande</title>
+
+    <style type= "text/css">
+
+
+    body {
+      text-align: center;
+      margin-left:auto;
+      margin-right:auto;
+      margin: 20px;
+    }
+
+    table {
+      text-align: center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .myButton {
+        background-color: #F5BB00;
+        -moz-border-radius: 28px;
+        -webkit-border-radius: 28px;
+        border-radius: 28px;
+        border: 1px solid #CC9E06;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        margin: 10px;
+        font-family: Arial;
+        font-size: 17px;
+        padding: 16px 31px;
+        text-decoration: none !important;
+        text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.3);
+      }
+
+
+    </style>
+
+  </head>
+
+  <body>
+
+  <table>
+    <h3>Bonjour <%= @order.meal.user.firstname %>,</h3>
+
+    <p>
+      <%= @order.user.firstname %> a malheureusement annulé sa commande du menu <%= @order.meal.title %>.
+    </p>
+
+     <p>
+      Consulte tes commandes sur ton espace annonce:
+    </p>
+      <br>
+        <button class= 'myButton'> <%= link_to 'Mon annonce', profile_meals_url %> </button>
+      <br>
+
+
+  </table>
+
+
+  </body>
+</html>

@@ -45,16 +45,19 @@
   <body>
 
   <table>
-    <h3>Bonjour <%= @order.user.firstname %>,</h3>
+    <h3>Bonjour <%= @order.meal.user.firstname %>,</h3>
 
     <p>
-      Ta demande d'annulation du menu <%= @order.meal.title %> a bien été prise en compte.
+      Félicitation, tu as reçu une commande de la part de <%= @order.user.firstname %> pour <%= @order.portion %> portion(s) du menu <%= @order.meal.title %>.
+
     </p>
     <p>
-      Comme tu as annulé plus de un jour avant tu ne sera pas débité.
+      Reste informé et suis tes commandes en direct sur ton espace annonce:
     </p>
+      <br>
+        <button class= 'myButton'> <%= link_to 'Mon annonce', profile_meals_url %> </button>
+      <br>
 
-    <h3>À bientôt sur Pepeat.</h3>
 
   </table>
 

@@ -39,6 +39,7 @@ module Profile
     end
 
     PaymentMailer.confirmation(@order.id).deliver_later
+    PaymentMailer.new_order(@order.id).deliver_later
     PaymentMailer.delay_until(@order.meal.day).remember(@order.id)
 
     # You should store this customer id and re-use it.

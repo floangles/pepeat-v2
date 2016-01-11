@@ -17,6 +17,11 @@ class PaymentMailer < ApplicationMailer
   end
 
 
+  def new_order(order_id)
+    @order = Order.find(order_id)
+    mail(to: @order.meal.user.email, subject: "Féliciation #{@order.meal.user.firstname}, tu as une commande")
+  end
+
   def cancel_before(order_id)
     @order = Order.find(order_id)
     mail(to: @order.meal.user.email, subject: "#{@order.user.firstname} a annulé sa commande")

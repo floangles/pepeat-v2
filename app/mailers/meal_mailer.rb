@@ -12,7 +12,7 @@ class MealMailer < ApplicationMailer
 
   def validation(meal_id)
     @meal = Meal.find(meal_id)
-    mail(to: @meal.user.email, subject: "Félicitation #{@meal.user.firstname}, ton menu est en cours de validation")
+    mail(to: @meal.user.email, subject: "Félicitation #{@meal.user.firstname}, ton menu '#{@meal.title}' est créé")
   end
 
 
