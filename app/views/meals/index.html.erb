@@ -37,10 +37,11 @@
           <% if total_meals(@meals) > 0 %>
             <div class="col-xs-12 col-sm-8">
               <div class="sidebar">
+
                 <% @meals.order(day: :asc).each do |meal| %>
                   <% if meal.validation? && meal_actual(meal)%>
                     <div class="col-sm-6">
-                      <%= render "/shared/cardmeals", meal: meal %>
+                        <%= render "/shared/cardmeals", meal: meal %>
                     </div>
                   <% end %>
                 <% end %>
@@ -409,21 +410,67 @@
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
+
+    hoverPicture = {
+      url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+      width: 33,
+      height: 33
+    };
+
     $(document).on('ready', function() {
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map-index' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(14);
-        google.maps.event.addListener(markers, "mouseover", function() {
-          markers.setIcon(gicons["yellow"]);
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+
+      _.each(<%=raw @markers.to_json %>, function(json, index){
+        var gr;
+        json.marker = markers[index];
+        gr = {};
+        gr.marker = void 0;
+        $(".location-"+json.id).on('mouseover', function() {
+          gr = {
+            lat: json.lat,
+            lng: json.lng,
+            picture: hoverPicture
+          };
+
+          handler.removeMarker(json.marker);
+          gr.marker = handler.addMarker(gr);
+        }).on("mouseout", function() {
+          handler.removeMarker(gr.marker);
+          json.marker = handler.addMarker(json);
         });
       });
+
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(14);
+    });
 
       handler2 = Gmaps.build('Google');
         handler2.buildMap({ internal: { id: 'map-index_0' } }, function(){
           markers = handler2.addMarkers(<%= raw @markers_0.to_json %>);
+
+          _.each(<%=raw @markers_0.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+
+              handler2.removeMarker(json.marker);
+              gr.marker = handler2.addMarker(gr);
+            }).on("mouseout", function() {
+              handler2.removeMarker(gr.marker);
+              json.marker = handler2.addMarker(json);
+            });
+          });
+
           handler2.bounds.extendWith(markers);
           handler2.fitMapToBounds();
           handler2.getMap().setZoom(14);
@@ -432,6 +479,26 @@
         handler3 = Gmaps.build('Google');
         handler3.buildMap({ internal: { id: 'map-index_1' } }, function(){
           markers = handler3.addMarkers(<%= raw @markers_1.to_json %>);
+
+          _.each(<%=raw @markers_1.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+              handler3.removeMarker(json.marker);
+              gr.marker = handler3.addMarker(gr);
+            }).on("mouseout", function() {
+              handler3.removeMarker(gr.marker);
+              json.marker = handler3.addMarker(json);
+            });
+          });
+
           handler3.bounds.extendWith(markers);
           handler3.fitMapToBounds();
           handler3.getMap().setZoom(14);
@@ -440,6 +507,26 @@
         handler4 = Gmaps.build('Google');
         handler4.buildMap({ internal: { id: 'map-index_2' } }, function(){
           markers = handler4.addMarkers(<%= raw @markers_2.to_json %>);
+
+          _.each(<%=raw @markers_2.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+              handler4.removeMarker(json.marker);
+              gr.marker = handler4.addMarker(gr);
+            }).on("mouseout", function() {
+              handler4.removeMarker(gr.marker);
+              json.marker = handler4.addMarker(json);
+            });
+          });
+
           handler4.bounds.extendWith(markers);
           handler4.fitMapToBounds();
           handler4.getMap().setZoom(14);
@@ -448,6 +535,26 @@
         handler5 = Gmaps.build('Google');
         handler5.buildMap({ internal: { id: 'map-index_3' } }, function(){
           markers = handler5.addMarkers(<%= raw @markers_3.to_json %>);
+
+          _.each(<%=raw @markers_3.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+              handler5.removeMarker(json.marker);
+              gr.marker = handler5.addMarker(gr);
+            }).on("mouseout", function() {
+              handler5.removeMarker(gr.marker);
+              json.marker = handler5.addMarker(json);
+            });
+          });
+
           handler5.bounds.extendWith(markers);
           handler5.fitMapToBounds();
           handler5.getMap().setZoom(14);
@@ -456,6 +563,26 @@
         handler6 = Gmaps.build('Google');
         handler6.buildMap({ internal: { id: 'map-index_4' } }, function(){
           markers = handler6.addMarkers(<%= raw @markers_4.to_json %>);
+
+          _.each(<%=raw @markers_4.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+              handler6.removeMarker(json.marker);
+              gr.marker = handler6.addMarker(gr);
+            }).on("mouseout", function() {
+              handler6.removeMarker(gr.marker);
+              json.marker = handler6.addMarker(json);
+            });
+          });
+
           handler6.bounds.extendWith(markers);
           handler6.fitMapToBounds();
           handler6.getMap().setZoom(14);
@@ -464,6 +591,26 @@
         handler7 = Gmaps.build('Google');
         handler7.buildMap({ internal: { id: 'map-index_5' } }, function(){
           markers = handler7.addMarkers(<%= raw @markers_5.to_json %>);
+
+          _.each(<%=raw @markers_5.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+              handler7.removeMarker(json.marker);
+              gr.marker = handler7.addMarker(gr);
+            }).on("mouseout", function() {
+              handler7.removeMarker(gr.marker);
+              json.marker = handler7.addMarker(json);
+            });
+          });
+
           handler7.bounds.extendWith(markers);
           handler7.fitMapToBounds();
           handler7.getMap().setZoom(14);
@@ -472,6 +619,26 @@
         handler8 = Gmaps.build('Google');
         handler8.buildMap({ internal: { id: 'map-index_6' } }, function(){
           markers = handler8.addMarkers(<%= raw @markers_6.to_json %>);
+
+          _.each(<%=raw @markers_6.to_json %>, function(json, index){
+            var gr;
+            json.marker = markers[index];
+            gr = {};
+            gr.marker = void 0;
+            $(".location-"+json.id).on('mouseover', function() {
+              gr = {
+                lat: json.lat,
+                lng: json.lng,
+                picture: hoverPicture
+              };
+              handler8.removeMarker(json.marker);
+              gr.marker = handler8.addMarker(gr);
+            }).on("mouseout", function() {
+              handler8.removeMarker(gr.marker);
+              json.marker = handler8.addMarker(json);
+            });
+          });
+
           handler8.bounds.extendWith(markers);
           handler8.fitMapToBounds();
           handler8.getMap().setZoom(14);

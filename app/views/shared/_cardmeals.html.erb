@@ -1,123 +1,129 @@
- <div class="meals">
-  <div class="meals-header">
-    <div class= "carousel">
-      <% meal.meal_pictures.each do |picture| %>
-        <%= link_to meal_path(meal) do %>
-          <div> <%= image_tag picture.picture.url(:large), class: "img-carousel"%> </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="meals-header-away">
-      <% if meal.home? %>
-        <h3 class= "text-center">Diner chez le Pepeato</h3>
-      <% else %>
-        <h3 class= "text-center">À emporter</h3>
-      <% end %>
-    </div>
-    <div class="meals-header-price">
-      <%= meal.price %>€
-    </div>
-    <div class="meals-header-date">
-      <%= l(meal.day, format: '%A %d/%m')%>
-    </div>
-    <div class="meals-header-pic">
-      <%= link_to publics_path(meal.user) do %>
-        <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="meals-body">
-    <div class="meals-body-menu">
-      <div class="meals-body-menu-title">
-        <%= link_to meal_path(meal) do %>
-          <h3 class= "text-center"><%= meal.title %></h3>
+<div class="meals">
+  <div class= <%= "location-#{meal.user.id}" %>>
+    <div class="meals-header">
+      <div class= "carousel">
+        <% meal.meal_pictures.each do |picture| %>
+          <%= link_to meal_path(meal) do %>
+            <div> <%= image_tag picture.picture.url(:large), class: "img-carousel"%> </div>
+          <% end %>
         <% end %>
       </div>
-      <% if meal.starter? %>
-        <div class= "meals-body-menu-starter">
-          <%= image_tag 'starter.png', class: "img-menu-meal" %>
-          <div class= "meals-body-menu-starter-element">
-            <i><%= meal.starter %></i>
-          </div>
-        </div>
-      <% else %>
-        <div class= "meals-body-menu-starter">
-          <%= image_tag 'starter.png', class: "img-menu-meal" %>
-          <div class= "meals-body-menu-starter-element">
-           <span><i>Pas d'entrée proposée</i></span>
-          </div>
-        </div>
-      <% end %>
-      <% if meal.main? %>
-        <div class= "meals-body-menu-starter">
-          <%= image_tag 'main.png', class: "img-menu-meal" %>
-          <div class= "meals-body-menu-starter-element">
-            <i><%= meal.main %></i>
-          </div>
-        </div>
-      <% else %>
-        <div class= "meals-body-menu-starter">
-          <%= image_tag 'main.png', class: "img-menu-meal" %>
-          <div class= "meals-body-menu-starter-element">
-            <span><i>Pas de plat principal proposé</i></span>
-          </div>
-        </div>
-      <% end %>
-      <% if meal.dessert? %>
-        <div class= "meals-body-menu-starter">
-          <%= image_tag 'dessert.png', class: "img-menu-meal" %>
-          <div class= "meals-body-menu-starter-element">
-            <i><%= meal.dessert %></i>
-          </div>
-        </div>
-      <% else %>
-        <div class= "meals-body-menu-starter">
-          <%= image_tag 'dessert.png', class: "img-menu-meal" %>
-          <div class= "meals-body-menu-starter-element">
-            <span><i>Pas de dessert proposé</i></span>
-          </div>
-        </div>
-      <% end %>
+      <div class="meals-header-away">
+        <% if meal.home? %>
+          <h3 class= "text-center">Diner chez le Pepeato</h3>
+        <% else %>
+          <h3 class= "text-center">À emporter</h3>
+        <% end %>
+      </div>
+      <div class="meals-header-price">
+        <%= meal.price %>€
+      </div>
+      <div class="meals-header-date">
+        <%= l(meal.day, format: '%A %d/%m')%>
+      </div>
+      <div class="meals-header-pic">
+        <%= link_to publics_path(meal.user) do %>
+          <%=image_tag meal.user.picture.url(:medium), class: "img-circle img-chef-meal" %>
+        <% end %>
+      </div>
     </div>
-    <div class="meals-body-takeaway text-center">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <% if meal.home? %>
-            <div>
-              <%= image_tag 'home2.png', class: "img-take hover", title: "Diner chez le chef" %>
-            </div>
-            <div class="meals-body-takeaway-hour">
-              <i><%= meal.home_hour.strftime('%Hh:%M') %> chez le chef</i>
-            </div>
-          <% else %>
-            <div>
-              <%= image_tag 'take.png', class: "img-take hover", title: "A emporter chez soi" %>
-            </div>
-            <div class="meals-body-takeaway-hour">
-              <i><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></i>
-            </div>
+    <div class="meals-body">
+      <div class="meals-body-menu">
+        <div class="meals-body-menu-title">
+          <%= link_to meal_path(meal) do %>
+            <h3 class= "text-center"><%= meal.title %></h3>
           <% end %>
         </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class= "meals-body-takeaway-portion">
-            <span class= "size-txt-portion"><%= available_portions(meal)%></span> <%= image_tag 'portion.svg', class: "size-portion" %>
+        <% if meal.starter? %>
+          <div class= "meals-body-menu-starter">
+            <%= image_tag 'starter.png', class: "img-menu-meal" %>
+            <div class= "meals-body-menu-starter-element">
+              <i><%= meal.starter %></i>
+            </div>
+          </div>
+        <% else %>
+          <div class= "meals-body-menu-starter">
+            <%= image_tag 'starter.png', class: "img-menu-meal" %>
+            <div class= "meals-body-menu-starter-element">
+             <span><i>Pas d'entrée proposée</i></span>
+            </div>
+          </div>
+        <% end %>
+        <% if meal.main? %>
+          <div class= "meals-body-menu-starter">
+            <%= image_tag 'main.png', class: "img-menu-meal" %>
+            <div class= "meals-body-menu-starter-element">
+              <i><%= meal.main %></i>
+            </div>
+          </div>
+        <% else %>
+          <div class= "meals-body-menu-starter">
+            <%= image_tag 'main.png', class: "img-menu-meal" %>
+            <div class= "meals-body-menu-starter-element">
+              <span><i>Pas de plat principal proposé</i></span>
+            </div>
+          </div>
+        <% end %>
+        <% if meal.dessert? %>
+          <div class= "meals-body-menu-starter">
+            <%= image_tag 'dessert.png', class: "img-menu-meal" %>
+            <div class= "meals-body-menu-starter-element">
+              <i><%= meal.dessert %></i>
+            </div>
+          </div>
+        <% else %>
+          <div class= "meals-body-menu-starter">
+            <%= image_tag 'dessert.png', class: "img-menu-meal" %>
+            <div class= "meals-body-menu-starter-element">
+              <span><i>Pas de dessert proposé</i></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="meals-body-takeaway text-center">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <% if meal.home? %>
+              <div>
+                <%= image_tag 'home2.png', class: "img-take hover", title: "Diner chez le chef" %>
+              </div>
+              <div class="meals-body-takeaway-hour">
+                <i><%= meal.home_hour.strftime('%Hh:%M') %> chez le chef</i>
+              </div>
+            <% else %>
+              <div>
+                <%= image_tag 'take.png', class: "img-take hover", title: "A emporter chez soi" %>
+              </div>
+              <div class="meals-body-takeaway-hour">
+                <i><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></i>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class= "meals-body-takeaway-portion">
+              <span class= "size-txt-portion"><%= available_portions(meal)%></span> <%= image_tag 'portion.svg', class: "size-portion" %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && DateTime.now.hour + 3 > meal.start_hour.hour) || (meal.home && DateTime.now.hour + 3 > meal.home_hour.hour)) %>
-      <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
-    <% else %>
-      <% if current_user == meal.user %>
-        <% if meal.orders.count == 0 %>
-          <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
-        <% end %>
+      <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && DateTime.now.hour + 4 > meal.start_hour.hour) || (meal.home && DateTime.now.hour + 3 > meal.home_hour.hour)) %>
+        <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
       <% else %>
-      <div class="meals-body-order">
-        <%= render "/shared/modale", meal: meal %>
-      </div>
+        <% if current_user == meal.user %>
+          <% if meal.orders.count == 0 %>
+            <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+          <% end %>
+        <% elsif (meal.day.day - DateTime.now.day) > 7  %>
+          <div class= "hover" title= "Vous ne pouvez pas commander plus de 7 jours avant">
+            <%= link_to 'Réservation bientôt disponible', "#", class: "disabled btn btn-success buton-order" %>
+          </div>
+        <% else %>
+          <div class="meals-body-order">
+            <%= render "/shared/modale", meal: meal %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 

@@ -65,6 +65,7 @@ class MealsController < ApplicationController
         marker.lat user.latitude
         marker.lng user.longitude
         marker.infowindow "#{user.firstname} #{user.lastname}"
+        marker.json({ id: user.id })
     end
 
     # all
@@ -75,6 +76,7 @@ class MealsController < ApplicationController
     @markers_0 = Gmaps4rails.build_markers(@users_0) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
 
     # day 1
@@ -84,6 +86,7 @@ class MealsController < ApplicationController
     @markers_1 = Gmaps4rails.build_markers(@users_1) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 2
 
@@ -92,6 +95,7 @@ class MealsController < ApplicationController
     @markers_2 = Gmaps4rails.build_markers(@users_2) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 3
 
@@ -100,6 +104,7 @@ class MealsController < ApplicationController
     @markers_3 = Gmaps4rails.build_markers(@users_3) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 4
 
@@ -108,6 +113,7 @@ class MealsController < ApplicationController
     @markers_4 = Gmaps4rails.build_markers(@users_4) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 5
 
@@ -116,6 +122,7 @@ class MealsController < ApplicationController
     @markers_5 = Gmaps4rails.build_markers(@users_5) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 6
 
@@ -124,6 +131,7 @@ class MealsController < ApplicationController
     @markers_5 = Gmaps4rails.build_markers(@users_5) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 7
 
@@ -132,6 +140,7 @@ class MealsController < ApplicationController
     @markers_6 = Gmaps4rails.build_markers(@users_6) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
+        marker.json({ id: user.id })
     end
     # day 8
 
