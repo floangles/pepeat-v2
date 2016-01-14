@@ -243,8 +243,10 @@
   <h1 class= "home-title text-center">Les menus disponibles</h1>
   <div class="container">
     <div class="row">
+      <% z = 0.0 %>
       <% @meals.order(day: :asc).each do |meal| %>
         <% if meal.validation? && meal_actual(meal) %>
+          <% z += 1.0 %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="meals-home">
               <div class="meals-home-header">
@@ -276,6 +278,9 @@
               </div>
             </div>
           </div>
+          <% if (z / 3.0).is_a? Integer%>
+            <div class="clearfix"></div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
