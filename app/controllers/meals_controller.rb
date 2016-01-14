@@ -48,9 +48,6 @@ class MealsController < ApplicationController
         @users_5 << meal.user
       elsif i == 6
         @users_6 << meal.user
-      elsif i == 7
-        @users_7 << meal.user
-      end
     end
   end
 
