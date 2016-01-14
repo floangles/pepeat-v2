@@ -115,14 +115,17 @@ class User < ActiveRecord::Base
 
 
 
-  validates :firstname, presence: true, on: :update
-  validates :lastname, presence: true, on: :update
-  validates :phone_number, presence: true, uniqueness: true,  on: :update
-  validates :address, presence: true, on: :update
-  validates :birth, presence: true, on: :update
-  validates :picture, presence: true, on: :update
+  validates :firstname, presence: true, on: :update, if: :not_recovering_password
+  validates :lastname, presence: true, on: :update, if: :not_recovering_password
+  validates :phone_number, presence: true, uniqueness: true,  on: :update, if: :not_recovering_password
+  validates :address, presence: true, on: :update, if: :not_recovering_password
+  validates :birth, presence: true, on: :update, if: :not_recovering_password
+  validates :picture, presence: true, on: :update, if: :not_recovering_password
 
 
+  def not_recovering_password
+    password_confirmation.nil?
+  end
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>", large: "550x550>", crop:"300x300#" },

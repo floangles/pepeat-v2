@@ -57,4 +57,4 @@ fr:
       not_locked: "N'était pas bloqué"
       not_saved:
         one: "1 erreure empèche cette %{resource} d'être sauvegardée:"
-        other: "%{count} erreures empèches cette %{resource} d'être sauvegardée:"
+        other: "%{count} erreures empèches cet(te) %{resource} d'être sauvegardé(e):"

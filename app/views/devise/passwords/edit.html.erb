@@ -5,7 +5,7 @@
         <div class="password-card text-center">
         <%= image_tag 'pepeat-title', class: "pepeat-signup" %>
 
-          <h2><%= t('.change_your_password', :default => 'Change your password') %></h2>
+          <h4><%= t('.change_your_password', :default => 'Change your password') %></h4>
 
           <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
             <%= devise_error_messages! %>
