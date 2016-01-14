@@ -474,12 +474,11 @@
           json.marker = handler.addMarker(json);
         });
       });
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
       handler.getMap().setOptions({ scrollwheel: false });
       handler.getMap().setOptions({ disableDoubleClickZoom: true });
       handler.getMap().setOptions({ maxZoom: 14 });
-      handler.getMap().setZoom(14);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
     });
 
       <% if number_meals(@meals, 0) > 0 %>
