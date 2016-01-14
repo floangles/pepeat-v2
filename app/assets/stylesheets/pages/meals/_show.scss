@@ -82,6 +82,7 @@
     background-color: white;
     height: auto;
     &-menu {
+      font-size: 14px;
       position: relative;
       margin-top: 18px;
       padding-bottom: 18px;
@@ -94,6 +95,7 @@
           transform: translateY(-50%);
         }
       &-first {
+        font-size: 14px;
         position: relative;
         margin-top: 41px;
         padding-left: 15px;
