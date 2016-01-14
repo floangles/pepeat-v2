@@ -36,11 +36,16 @@
         <div class="row">
           <% if total_meals(@meals) > 0 %>
             <div class="col-xs-12 col-sm-8">
+              <% i = 0 %>
               <% @meals.order(day: :asc).each do |meal| %>
                 <% if meal.validation? && meal_actual(meal)%>
+                  <% i += 1 %>
                   <div class="col-sm-6">
-                      <%= render "/shared/cardmeals", meal: meal %>
+                    <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if i.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
@@ -69,12 +74,17 @@
       <div class="row">
         <% if number_meals(@meals, 0) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% j = 0 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if DateTime.now.day == meal.day.day || 15 == meal.day.day %>
+                  <% j += 1 %>
                   <div class="col-xs-12 col-sm-6">
-                   <%= render "/shared/cardmeals", meal: meal %>
+                    <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if j.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -104,12 +114,17 @@
       <div class="row">
         <% if number_meals(@meals, 1) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% k = 0 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 1.days).day == meal.day.day || 16 == meal.day.day %>
+                  <% k += 1 %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if k.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -139,12 +154,17 @@
       <div class="row">
         <% if number_meals(@meals, 2) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% l = 0 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 2.days).day == meal.day.day || 17 == meal.day.day  %>
+                  <% l += 1 %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if l.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -174,12 +194,17 @@
       <div class="row">
         <% if number_meals(@meals, 3) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% m = 0 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 3.days).day == meal.day.day || 18 == meal.day.day%>
                   <div class="col-xs-12 col-sm-6">
+                    <% m += 1 %>
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if m.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -204,16 +229,22 @@
         <% end %>
       </div>
     </div>
+
     <div role="tabpanel" class="tab-pane in" id="5">
       <div class="row">
         <% if number_meals(@meals, 4) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% n = 0 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal)  %>
                 <% if (DateTime.now + 4.days).day == meal.day.day || 19 == meal.day.day %>
+                  <% n += 1 %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if n.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -242,12 +273,17 @@
       <div class="row">
         <% if number_meals(@meals, 5) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% o = 1 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal) %>
                 <% if (DateTime.now + 5.days).day == meal.day.day || 20 == meal.day.day %>
+                  <% o += 1 %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if o.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
@@ -276,12 +312,17 @@
       <div class="row">
         <% if number_meals(@meals, 6) > 0 || @meals.count > 0 %>
           <div class="col-xs-12 col-sm-8">
+            <% p = 0 %>
             <% @meals.order(day: :asc).each do |meal| %>
               <% if meal.validation? && meal_actual(meal)%>
                 <% if (DateTime.now + 6.days).day == meal.day.day || 21 == meal.day.day %>
+                  <% p += 1 %>
                   <div class="col-xs-12 col-sm-6">
                     <%= render "/shared/cardmeals", meal: meal %>
                   </div>
+                  <% if p.even? %>
+                    <div class="clearfix"></div>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>

@@ -86,12 +86,18 @@
       <%= link_to "Trop tard pour commander le menu", '', class: "disabled btn btn-danger buton-order" %>
     <% else %>
       <% if current_user == meal.user %>
-          <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+          <% if meal.orders.count == 0 %>
+            <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+          <% end %>
+        <% elsif (meal.day.day - DateTime.now.day) > 7  %>
+          <div class= "hover" title= "Vous ne pouvez pas commander plus de 7 jours avant">
+            <%= link_to 'Réservation bientôt disponible', "#", class: "disabled btn btn-success buton-order" %>
+          </div>
         <% else %>
-        <div class="meals-body-order">
-          <%= render "/shared/modale", meal: meal %>
-        </div>
-      <% end %>
+          <div class="meals-body-order">
+            <%= render "/shared/modale", meal: meal %>
+          </div>
+        <% end %>
     <% end %>
   </div>
 </div>
