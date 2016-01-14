@@ -89,7 +89,7 @@
           <% if meal.orders.count == 0 %>
             <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
           <% end %>
-        <% elsif (meal.day.day - DateTime.now.day) > 6  %>
+        <% elsif (meal.day.to_date - DateTime.now.to_date).to_i > 6  %>
           <div class= "hover" title= "Vous ne pouvez pas commander plus de 7 jours avant">
             <%= link_to 'Réservation bientôt disponible', "#", class: "disabled btn btn-success buton-order" %>
           </div>
