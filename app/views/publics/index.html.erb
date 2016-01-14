@@ -77,13 +77,13 @@
 <div class="kitchen">
   <div class="container">
     <div class="row">
-      <% @user.chief_pictures.each do |picture|%>
-        <div class="col-xs-4">
-          <div class="picture-kitchen">
-            <%= image_tag picture.chiefpicture.url(:large), class: "kitchen-size" %>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class= "carousel">
+            <% @user.chief_pictures.each do |picture|%>
+              <div> <%= image_tag picture.chiefpicture.url(:large), class: "img-carousel"%> </div>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

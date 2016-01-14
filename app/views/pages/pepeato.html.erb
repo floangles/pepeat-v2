@@ -1,0 +1,146 @@
+<div id= "banner" class= "background-banner" >
+  <div class= "overlay">
+    <div class= "content text-center">
+      <h3>Pepeato</h3>
+       <div class= "text-center button-chief">
+        <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat2", id: "Pepeato action create" %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3">
+    <div class="before-sidebar">
+    <div class="sidebar">
+      <ul class="nav nav-pills nav-stacked" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Créer un menu</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Gérer ses commandes</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Recevoir ses revenus</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Recevoir ses clients</a></li>
+        <li role="presentation"><a href="#pepeatbox" aria-controls="pepeatbox" role="tab" data-toggle="tab">PepeatBox</a></li>
+        <li role="presentation"><a href="#picture" aria-controls="picture" role="tab" data-toggle="tab">Photos et présentation</a></li>
+        <li role="presentation"><a href="#cancel" aria-controls="cancel" role="tab" data-toggle="tab">En cas d'annulation</a></li>
+        <li role="presentation"><a href="#when" aria-controls="when" role="tab" data-toggle="tab">À quel moment cuisiner</a></li>
+        <li role="presentation"><a href="#price" aria-controls="price" role="tab" data-toggle="tab">Prix et quantité</a></li>
+        <li role="presentation"><a href="#hygiene" aria-controls="hygiene" role="tab" data-toggle="tab">Hygiène et sécurité</a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="col-xs-9">
+    <div class="tab-content">
+
+      <div role="tabpanel" class="tab-pane fade in active" id="home">
+        <div class="container-fluid">
+          <div class="menu text-center">
+            <div class="row">
+              <h1 class= "text-center">Créer un menu</h1>
+                <div class="col-xs-6">
+                  <div class="menu-item">
+                    <%= image_tag 'picture.png'%>
+                    <h2 class= "text-center">Règle numéro 1</h2>
+                    <p>Toujours avoir des photos de son menu avant de le créer.</p>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="menu-item">
+                    <%= image_tag 'place.png'%>
+                    <h2 class= "text-center">Règle numéro 2</h2>
+                    <p>Faire très attention au choix "sur place" ou "à emporter".</p>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="menu-item">
+                    <%= image_tag 'prix.png'%>
+                    <h2 class= "text-center">Règle numéro 3</h2>
+                    <p>Ne pas fixer des prix trop élevé pour rester attractif.</p>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="menu-item">
+                    <%= image_tag 'capacity.png'%>
+                    <h2 class= "text-center">Règle numéro 4</h2>
+                    <p>Prévoir un nombre de menus en addéquation avec la taille de sa cuisine.</p>
+                  </div>
+                </div>
+            </div>
+            <div>
+              <h4>À vous de jouer</h4>
+              <% if current_user.chief? %>
+                <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-lg btn-pepeat2" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="profile">
+        <div class="container-fluid">
+          <div class="p-order text-center">
+            <h1>Gérer une commande</h1>
+            <p>Accédez à votre annonce dans votre espace cuisine</p>
+            <%= image_tag 'annonce'%>
+            <p>Vous pouvez voir en bas de la carte les personnes ayant commandées votre menu. La photo a une bordure rouge ce qui signifie que votre client n'a pas validé la reception de son menu.</p>
+            <p>Ce dernier devra la valider lorsqu'il récuperera sa commande chez vous.</p>
+            <%= image_tag 'annonce-2'%>
+            <p>En cliquant sur sa photo, vous obtenez les informations nécessaires sur votre client et sur sa commande.</p>
+            <%= image_tag 'annonce-3'%>
+            <p><i class="fa fa-trash"></i> Supprimer une commande est irreversible. Un mail automatique sera envoyé pour prévenir les personnes ayant réservé votre menu. </p>
+            <p><i class="fa fa-pencil"></i> Vous pouvez uniquement modifier votre menu si vous avez aucune réservation. Le cas échéant, vous êtes obligé de le supprimer pour ensuite en créer un nouveau. Faites donc bien attention lors de votre première création. </p>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="messages">
+        <div class="container-fluid">
+          <div class="p-revenus text-center">
+            <h1>Recevoir ses revenus sur son compte bancaire</h1>
+            <%= image_tag 'revenu'%>
+            <p>Pour recevoir vos revenus sur votre compte <b>il vous suffit d'indiquer votre IBAN </b> sur votre compte. Cela ne vous prendra que quelques secondes </p>
+            <p>Vous recevrez vos revenus <b>une semaine </b> après avoir cuisiner votre menu.</p>
+            <%= link_to 'Ajouter mon IBAN', bank_account_profile_path, class: "btn btn-lg btn-pepeat2" %>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="settings">
+        <div class="container-fluid">
+          <div class="p-customer text-center">
+            <h1>Accueillir vos clients avec le sourir</h1>
+            <%= image_tag 'jade' %>
+            <p>Comme vous l'avez surement compris vous êtes le chef de votre cuisine et vous vous faîtes</p>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="pepeatbox">
+        test3
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="picture">
+        test3
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="cancel">
+        test3
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="when">
+        test3
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="price">
+        test3
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade" id="hygiene">
+        test3
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

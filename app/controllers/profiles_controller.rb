@@ -34,6 +34,7 @@ class ProfilesController < ApplicationController
     @user.update(user_params)
     if @user.save
       if params[:user][:stripe_account] == "true"
+
         @user.update(chief: 'true')
       end
       if params[:chiefpictures]

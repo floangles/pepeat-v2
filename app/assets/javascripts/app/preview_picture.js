@@ -18,7 +18,7 @@ $(function() {
         $('#target3').addClass( "invisible" ); // Make invisible the placeholder
         $('.salut').addClass( "invisible2" );
         $('#target2').append($('<div/>', {class: 'salut' }, { id: 'r' + i}).html(img)); // pictures place
-        $(".salut img").addClass("preview-size") // css class for img
+        $(".salut img").addClass("preview-size-chief") // css class for img
         $('.go-btn').removeClass( "invisible" ); // The go button appear
 
 

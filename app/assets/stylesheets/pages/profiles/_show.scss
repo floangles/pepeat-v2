@@ -100,7 +100,7 @@
 }
 
 .kitchen-size {
-  height: 100%;
+  height: 200px;
   border: solid 1px rgba(0, 0, 0, 0.42);
   width: 100%;
 }
@@ -124,12 +124,25 @@
   border: solid 3px rgba(0, 0, 0, 0.11);
 }
 
+.preview-size-chief {
+  position: relative;
+  width: 253px;
+  height: 194px;
+  box-shadow: 1px 1px white;
+  border: solid 3px rgba(0, 0, 0, 0.11);
+}
+
 .preview-size-profile {
  position: relative;
   width: 335px;
   box-shadow: 1px 1px rgb(255, 255, 255);
   border: solid 3px rgba(0, 0, 0, 0.11);
 }
+
+.absolute-chief {
+  position: absolute;
+}
+
 
 .hidden-form {
   display: none;

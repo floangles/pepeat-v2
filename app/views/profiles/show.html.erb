@@ -146,10 +146,11 @@
       <h1 class= "text-center profile-header">Ma gallerie photo</h1>
       <div class="row">
         <p class= "text-center"> Mettez ici des photos de votre environnement de travail ainsi que des rencontres que vous avez faites avec Pepeat.</p>
+        <p class= "text-center"><b>Important:</b> N'hésitez pas à utiliser l'outil fournit par Pepeat pour redimensionner vos photos.</p>
         <% @user.chief_pictures.each do |picture|%>
           <div class="col-xs-12 col-sm-3">
             <div class="picture-kitchen">
-              <%= image_tag picture.chiefpicture.url(:large), class: "kitchen-size" %>
+              <%= image_tag picture.chiefpicture.url(:medium), class: "kitchen-size" %>
               <div class= "text-center">
                 <%= link_to 'Redimensionner', croping_profile_path(picture), class: "button button-highlight button-tiny" %>
                 <%= link_to profile_chief_picture_path(picture),

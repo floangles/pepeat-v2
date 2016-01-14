@@ -36,16 +36,13 @@
         <div class="row">
           <% if total_meals(@meals) > 0 %>
             <div class="col-xs-12 col-sm-8">
-              <div class="sidebar">
-
-                <% @meals.order(day: :asc).each do |meal| %>
-                  <% if meal.validation? && meal_actual(meal)%>
-                    <div class="col-sm-6">
-                        <%= render "/shared/cardmeals", meal: meal %>
-                    </div>
-                  <% end %>
+              <% @meals.order(day: :asc).each do |meal| %>
+                <% if meal.validation? && meal_actual(meal)%>
+                  <div class="col-sm-6">
+                      <%= render "/shared/cardmeals", meal: meal %>
+                  </div>
                 <% end %>
-              </div>
+              <% end %>
             </div>
             <div class="col-sm-4">
               <div class="map-container">

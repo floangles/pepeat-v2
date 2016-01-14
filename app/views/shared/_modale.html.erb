@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
               <%= image_tag 'pepeat.png', class: "modal-body-logo" %>
-              <div class= "hidden-form">
+              <div class= "">
                 <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi" %>
               </div>
               <div class= "modal-body-soon">
@@ -29,7 +29,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-          <div class= "hidden-form">
+          <div class= "">
             <%= f.button :submit, value: 'Réservez maintenant', label: 'Réservez maintenant', class: "btn btn-success" %>
           </div>
         </div><!-- /.modal-content -->

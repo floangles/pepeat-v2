@@ -46,7 +46,7 @@
                 <i class="fa fa-user"></i><%= f.input :lastname, label: 'Nom de famille', label: false, placeholder: 'Nom de famille', required: false %>
               </div>
               <div class="chief-profile-right-date">
-                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse' %>
+                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse exacte obligatoire',label: 'Choisissez obligatoirement votre adresse dans le menu déroulant', hint: 'Si votre adresse comporte un bis: écrivez seulement b' %>
                 <input id="street_number" name="street_number" type="hidden">
                 <input id="route" name="route" type="hidden">
                 <input id="postal_code" name="postal_code" type="hidden">
