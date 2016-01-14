@@ -1,22 +1,9 @@
-.col-xs-6:nth-child(odd) {
-    clear: both;
-}
-
-
 .background-meals {
   position: relative;
 
   background-image: image-url('food.jpg');
   background-size: cover;
   background-position: center center;
-  &-tampon {
-    position : absolute;
-    left: 20px;
-    bottom: 63px;
-    img {
-      width: 300px;
-    }
-  }
   &-title {
     color: white;
     position: absolute;
@@ -379,7 +366,6 @@
   }
   .meals h3 { font-size: 15px;}
   .meals-header-price {font-size: 17px;}
-  .background-meals-tampon img {width: 100px;}
   .meals-header-date {font-size: 17px;}
   .meals-header-pic {bottom: -20px; right: 10px;}
   .img-chef-meal {height: 50px;}

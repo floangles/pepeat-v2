@@ -14,7 +14,7 @@ class MealsController < ApplicationController
     end
   end
 
-  def who_cook(i, j)
+  def who_cook(i)
     @people = []
     @meals_selection = []
     @users_0 = []
@@ -48,6 +48,8 @@ class MealsController < ApplicationController
         @users_5 << meal.user
       elsif i == 6
         @users_6 << meal.user
+      elsif i == 7
+        @users_7 << meal.user
       end
     end
   end
@@ -72,7 +74,7 @@ class MealsController < ApplicationController
 
     # day 1
 
-    who_cook(0, 15)
+    who_cook(0)
     @markers_0 = Gmaps4rails.build_markers(@users_0) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
@@ -82,7 +84,7 @@ class MealsController < ApplicationController
     # day 1
 
     # day 2
-    who_cook(1, 16)
+    who_cook(1)
     @markers_1 = Gmaps4rails.build_markers(@users_1) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
@@ -91,7 +93,7 @@ class MealsController < ApplicationController
     # day 2
 
     # day 3
-    who_cook(2, 17)
+    who_cook(2)
     @markers_2 = Gmaps4rails.build_markers(@users_2) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
@@ -100,7 +102,7 @@ class MealsController < ApplicationController
     # day 3
 
     # day 4
-    who_cook(3, 18)
+    who_cook(3)
     @markers_3 = Gmaps4rails.build_markers(@users_3) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
@@ -109,7 +111,7 @@ class MealsController < ApplicationController
     # day 4
 
     # day 5
-    who_cook(4, 19)
+    who_cook(4)
     @markers_4 = Gmaps4rails.build_markers(@users_4) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
@@ -118,7 +120,7 @@ class MealsController < ApplicationController
     # day 5
 
     # day 6
-    who_cook(5, 20)
+    who_cook(5)
     @markers_5 = Gmaps4rails.build_markers(@users_5) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
@@ -127,8 +129,8 @@ class MealsController < ApplicationController
     # day 6
 
     # day 7
-    who_cook(6, 21)
-    @markers_5 = Gmaps4rails.build_markers(@users_5) do |user, marker|
+    who_cook(6)
+    @markers_6 = Gmaps4rails.build_markers(@users_6) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
         marker.json({ id: user.id })
@@ -136,8 +138,8 @@ class MealsController < ApplicationController
     # day 7
 
     # day 8
-    who_cook(7, 22)
-    @markers_6 = Gmaps4rails.build_markers(@users_6) do |user, marker|
+    who_cook(7)
+    @markers_7 = Gmaps4rails.build_markers(@users_7) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
         marker.json({ id: user.id })
