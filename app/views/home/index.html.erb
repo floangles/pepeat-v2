@@ -21,9 +21,6 @@
           <%= image_tag 'vendre.png'%>
         </div>
       <% end %>
-      <div class= "lille">
-        <%= image_tag "lille.png" %>
-      </div>
       <div class= "signup-home">
         <% if !current_user %>
           <div class= "home-signup text-center su">
@@ -74,10 +71,10 @@
       <%= image_tag 'pepeat_christmas', class: "size-pepeat" %>
       <h2>La cuisine de vos voisins dans votre assiette, en un clic !</h2>
       <div class= "xs-lille">
-        <h3>Bientôt à Lille</h3>
+        <h3>À Lille</h3>
       </div>
       <div class= "banner-xs-button">
-        <%= link_to 'Voir les menus à Lille', meals_path, class: "btn btn-pepeat2", id:"banner-action" %>
+        <%= link_to 'Voir les menus', meals_path, class: "btn btn-pepeat2", id:"banner-action" %>
       </div>
     </div>
   </div>
