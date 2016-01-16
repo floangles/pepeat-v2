@@ -11,7 +11,7 @@
             <div class="col-xs-6 col-xs-offset-3">
               <%= image_tag 'pepeat.png', class: "modal-body-logo" %>
               <div class= "">
-                <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi" %>
+                <%= f.input :portion, label: false,required: false, collection: 1..available_portions(meal), input_html: {class: "input-lg"}, prompt: "aucun menu choisi", selected: 1 %>
               </div>
               <%= f.input :meal_id, as: :hidden, :input_html => { :value => meal.id }%>
               <%= f.input :amount, as: :hidden, :input_html => { :value => meal.price } %>
