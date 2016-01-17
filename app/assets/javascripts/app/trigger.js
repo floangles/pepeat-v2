@@ -12,6 +12,12 @@ $(document).ready( function() {
   });
 });
 
+$(document).ready( function() {
+  $('#placeholder-meal').click(function(){
+    $("#mealpictureInput").click();
+  });
+});
+
 
 $(document).ready( function() {
   $('#space-btn').click(function(){
@@ -22,6 +28,12 @@ $(document).ready( function() {
 $(document).ready( function() {
   $('#change-btn').click(function(){
     $("#pictureInput").click();
+  });
+});
+
+$(document).ready( function() {
+  $('#change-btn-meal').click(function(){
+    $("#mealpictureInput").click();
   });
 });
 

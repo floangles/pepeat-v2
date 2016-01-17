@@ -12,15 +12,11 @@ $(function() {
         console.log(file);
         img.src = file.target.result;
 
-
-
-
         $('#target3').addClass( "invisible" ); // Make invisible the placeholder
         $('.salut').addClass( "invisible2" );
         $('#target2').append($('<div/>', {class: 'salut' }, { id: 'r' + i}).html(img)); // pictures place
         $(".salut img").addClass("preview-size-chief") // css class for img
         $('.go-btn').removeClass( "invisible" ); // The go button appear
-
 
       }
       reader.readAsDataURL(image);
@@ -96,8 +92,11 @@ $(function() {
         img.src = file.target.result;
 
 
-        $('#spacetarget').append($('<div/>', {class: 'col-xs-3 badaboom'}, { id: 'r' + i}).html(img));
-        $(".badaboom img").addClass("preview-meal");
+        $('#spacetarget').addClass( "invisible" ); // Make invisible the placeholder
+        $('.badaboom').addClass( "invisible2" );
+        $('#target-meal').append($('<div/>', {class: 'badaboom' }, { id: 'r' + i}).html(img)); // pictures place
+        $(".badaboom img").addClass("preview-size-meal") // css class for img
+        $('.go-btn').removeClass( "invisible" ); // The go button appear
 
       }
       reader.readAsDataURL(image);

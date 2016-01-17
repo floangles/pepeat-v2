@@ -1,7 +1,7 @@
 <div class= "hidden-form">
   <%= simple_form_for(@meal_picture, url: profile_meal_pictures_path(meal_id: params[:meal_id]), html: { multipart: true }) do |f| %>
     <%= f.error_notification %>
-    <%= f.file_field :picture, id: "pictureInput"%>
+    <%= f.file_field :picture, id: "mealpictureInput"%>
     <%= f.button :submit, "GO!", id:"go", class: "btn-lg btn-danger" %>
   <% end %>
 </div>
@@ -38,14 +38,14 @@
           </div>
         <% end %>
         <div class= "col-xs-12 col-sm-3">
-          <div id= "target3", class= "picture-kitchen">
-            <%= image_tag 'placeholder.png', id: "placeholder", class: "kitchen-size" %>
+          <div id= "spacetarget", class= "picture-kitchen">
+            <%= image_tag 'placeholder.png', id: "placeholder-meal", class: "kitchen-size" %>
           </div>
-          <div id= 'target2' class= "picture-kitchen"></div>
+          <div id= 'target-meal' class= "picture-kitchen"></div>
           <div class= "go-btn invisible" id= "space-btn">
             <%=link_to 'Valider', 'javascript:;', class: 'btn btn-success' %>
           </div>
-          <div class= "go-btn invisible modify-btn" id= "change-btn">
+          <div class= "go-btn invisible modify-btn" id= "change-btn-meal">
             <%=link_to 'Changer', 'javascript:;', class: 'btn btn-pepeat' %>
           </div>
           <div class= "go-btn invisible cancel-btn" id= "change-btn">

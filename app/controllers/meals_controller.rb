@@ -115,6 +115,7 @@ class MealsController < ApplicationController
         marker.lng user.longitude
         marker.json({ id: user.id })
     end
+
     # day 5
 
     # day 6
