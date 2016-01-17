@@ -2,6 +2,11 @@
   background-color: #E0E0E0;
 }
 
+.construction {
+  margin-top: 100px;
+  width: 400px;
+}
+
 .sidebar {
   background-color: #E0E0E0;
   height: 100%;
@@ -13,7 +18,16 @@
     font-weight: 900 !important;
   }
   a {
-    margin-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  a:hover, a:focus {
+    color: #F5BB00;
+    text-decoration: none;
+  }
+  .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: rgb(238, 238, 238);
   }
 }
 
@@ -73,6 +87,7 @@
 
 //  End Recevoir ses revenus
 .p-revenus {
+  margin-bottom: 60px;
   img {
     width: 400px;
     margin-top: 30px;
@@ -100,7 +115,47 @@
     margin-top: 30px;
     width: 70%;
   }
+
+  p {
+    margin: 30px 100px;
+    font-size: 17px;
+  }
 }
 // End recevoir ses clients
+
+
+// Photos et présentation
+.p-picture {
+  margin-bottom: 60px;
+  img {
+      width: 400px;
+      margin-top: 30px;
+    }
+  h3 {
+    margin: 40px 100px;
+  }
+  p {
+    margin: 0px 100px;
+    margin-bottom: 30px;
+  }
+}
+// Photos et présentation
+
+// cancel
+.p-cancel {
+  img {
+      width: 400px;
+      margin-top: 30px;
+    }
+  h3 {
+    margin: 40px 100px;
+  }
+  p {
+    margin: 0px 100px;
+    margin-bottom: 30px;
+  }
+}
+// cancel
+
 
 

@@ -13,7 +13,7 @@
 <div class="row">
   <div class="col-xs-3">
     <div class="before-sidebar">
-    <div class="sidebar">
+    <div class="sidebar window-height">
       <ul class="nav nav-pills nav-stacked" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Créer un menu</a></li>
         <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Gérer ses commandes</a></li>
@@ -68,8 +68,10 @@
             </div>
             <div>
               <h4>À vous de jouer</h4>
-              <% if current_user.chief? %>
+              <% if current_user && current_user.chief? %>
                 <%= link_to 'Créer un menu', new_profile_meal_path, class: "btn btn-lg btn-pepeat2" %>
+              <% else %>
+                <%= link_to 'Devenir Pepeato', page_path('chief_infos'), class: "btn btn-lg btn-pepeat2" %>
               <% end %>
             </div>
           </div>
@@ -82,10 +84,10 @@
             <h1>Gérer une commande</h1>
             <p>Accédez à votre annonce dans votre espace cuisine</p>
             <%= image_tag 'annonce'%>
-            <p>Vous pouvez voir en bas de la carte les personnes ayant commandées votre menu. La photo a une bordure rouge ce qui signifie que votre client n'a pas validé la reception de son menu.</p>
-            <p>Ce dernier devra la valider lorsqu'il récuperera sa commande chez vous.</p>
+            <p>Vous pouvez voir en bas de la carte les personnes ayant commandé votre menu. La photo a une bordure rouge ce qui signifie que votre client n'a pas validé la reception de son menu.</p>
+            <p>Ce dernier devra la valider <b>lorsqu'il récuperera sa commande chez vous.</b></p>
             <%= image_tag 'annonce-2'%>
-            <p>En cliquant sur sa photo, vous obtenez les informations nécessaires sur votre client et sur sa commande.</p>
+            <p>En cliquant sur sa photo, vous obtenez les informations nécessaires sur votre client et sa commande.</p>
             <%= image_tag 'annonce-3'%>
             <p><i class="fa fa-trash"></i> Supprimer une commande est irreversible. Un mail automatique sera envoyé pour prévenir les personnes ayant réservé votre menu. </p>
             <p><i class="fa fa-pencil"></i> Vous pouvez uniquement modifier votre menu si vous avez aucune réservation. Le cas échéant, vous êtes obligé de le supprimer pour ensuite en créer un nouveau. Faites donc bien attention lors de votre première création. </p>
@@ -98,7 +100,7 @@
           <div class="p-revenus text-center">
             <h1>Recevoir ses revenus sur son compte bancaire</h1>
             <%= image_tag 'revenu'%>
-            <p>Pour recevoir vos revenus sur votre compte <b>il vous suffit d'indiquer votre IBAN </b> sur votre compte. Cela ne vous prendra que quelques secondes </p>
+            <p>Pour recevoir vos revenus sur votre compte <b>il vous suffit d'indiquer votre IBAN </b>. Cela ne vous prendra que quelques secondes. </p>
             <p>Vous recevrez vos revenus <b>une semaine </b> après avoir cuisiner votre menu.</p>
             <%= link_to 'Ajouter mon IBAN', bank_account_profile_path, class: "btn btn-lg btn-pepeat2" %>
           </div>
@@ -110,33 +112,55 @@
           <div class="p-customer text-center">
             <h1>Accueillir vos clients avec le sourir</h1>
             <%= image_tag 'jade' %>
-            <p>Comme vous l'avez surement compris vous êtes le chef de votre cuisine et vous vous faîtes</p>
+            <p>Comme vous l'avez surement compris <b>vous êtes le chef de votre cuisine</b> et vous gérez votre clientelle vous même. </p>
+            <p>Au-delà du manger frais, maison, moins cher, diversifié et local, les valeurs de Pepeat sont aussi le rapprochement social entres voisins. Nous mettons donc un point d'honneur à ce que nos Pepeato partagent ces mêmes valeurs et <b>accueillent leurs clients dans la bonne humeur et la bienveillance.</b></p>
           </div>
         </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="pepeatbox">
-        test3
+        <div class="text-center">
+          <%= image_tag 'construction', class: "construction" %>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="picture">
-        test3
+       <div class="container-fluid">
+          <div class="p-picture text-center">
+            <%= image_tag "picture" %>
+            <h3>Prendre des photos de plats n'est pas aussi simple que l'on croit</h3>
+            <p>Pour vous aider, nous vous avons concocté les bonnes pratiques pour <b>faire des photos vendeuses et jolies</b> qui feront tomber vos menus comme des petits pains.</p>
+            <%= link_to 'Tutoriel photos', photo_publics_path, :target => "_blank", class: "btn btn-lg btn-pepeat2" %>
+          </div>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="cancel">
-        test3
+        <div class="container-fluid">
+          <div class="b-cancel">
+            <div class="text-center">
+              <%= image_tag 'construction', class: "construction" %>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="when">
-        test3
+        <div class="text-center">
+          <%= image_tag 'construction', class: "construction" %>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="price">
-        test3
+        <div class="text-center">
+          <%= image_tag 'construction', class: "construction" %>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="hygiene">
-        test3
+        <div class="text-center">
+          <%= image_tag 'construction', class: "construction" %>
+        </div>
       </div>
 
     </div>

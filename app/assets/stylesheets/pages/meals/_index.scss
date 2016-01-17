@@ -108,13 +108,19 @@
 
 
 .meals {
-  background-color: white;
   box-shadow: 1px 1px 3px rgba(9, 9, 9, 0.12);
+  background-color: white;
   border: solid 1px rgba(0, 0, 0, 0.16);
   border-radius: 3px;
   height: auto;
   padding:4px;
   margin: 30px;
+  @include transition(opacity, 0.3s ease-out);
+
+  &:hover {
+
+    box-shadow: 3px 3px 3px rgba(9, 9, 9, 0.25);
+  }
   &-header {
     height: auto;
     background-size: cover;
