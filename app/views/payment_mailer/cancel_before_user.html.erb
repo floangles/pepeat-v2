@@ -37,6 +37,10 @@
         text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.3);
       }
 
+      .mail-img {
+        width: 200px;
+      }
+
 
     </style>
 
@@ -45,13 +49,15 @@
   <body>
 
   <table>
+    <%= image_tag 'pepeat-title.png', class: "mail-img" %>
+
     <h3>Bonjour <%= @order.user.firstname %>,</h3>
 
     <p>
       Ta demande d'annulation du menu <%= @order.meal.title %> a bien été prise en compte.
     </p>
     <p>
-      Comme tu as annulé plus de un jour avant tu ne sera pas débité.
+      Comme tu as annulé plus de un jour avant tu ne seras pas débité.
     </p>
 
     <h3>À bientôt sur Pepeat.</h3>

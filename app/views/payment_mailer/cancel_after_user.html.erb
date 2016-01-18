@@ -37,6 +37,10 @@
         text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.3);
       }
 
+      .mail-img {
+        width: 200px;
+      }
+
 
     </style>
 
@@ -45,6 +49,8 @@
   <body>
 
   <table>
+    <%= image_tag 'pepeat-title.png', class: "mail-img" %>
+
     <h3>Bonjour <%= @order.user.firstname %>,</h3>
 
     <p>

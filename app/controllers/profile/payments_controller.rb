@@ -57,6 +57,8 @@ module Profile
     current_user.update(number_orders: current_user.number_orders.to_i + 1, last_order: DateTime.now)
     @order.meal.user.update(number_meals_sold: @order.meal.user.number_meals_sold.to_i + @order.portion.to_i, ca: @order.meal.user.ca.to_i + @order.portion.to_i * (@order.amount_cents.to_i / 100 ))
 
+    StripeJob.delay_until(@order.meal.day + 23.hour).perform_later(@order.id)
+
     redirect_to profile_orders_path
 
     rescue Stripe::CardError => e
