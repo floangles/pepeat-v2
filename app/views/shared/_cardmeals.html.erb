@@ -36,14 +36,12 @@
         </div>
         <% if meal.starter? %>
           <div class= "meals-body-menu-starter">
-            <%= image_tag 'starter.png', class: "img-menu-meal" %>
             <div class= "meals-body-menu-starter-element">
-              <i><%= meal.starter %></i>
+              <b>Entrée: </b> <i> <%= meal.starter %></i>
             </div>
           </div>
         <% else %>
           <div class= "meals-body-menu-starter">
-            <%= image_tag 'starter.png', class: "img-menu-meal" %>
             <div class= "meals-body-menu-starter-element">
              <span><i>Pas d'entrée proposée</i></span>
             </div>
@@ -51,14 +49,12 @@
         <% end %>
         <% if meal.main? %>
           <div class= "meals-body-menu-starter">
-            <%= image_tag 'main.png', class: "img-menu-meal" %>
             <div class= "meals-body-menu-starter-element">
-              <i><%= meal.main %></i>
+              <b>Plat: </b><i><%= meal.main %></i>
             </div>
           </div>
         <% else %>
           <div class= "meals-body-menu-starter">
-            <%= image_tag 'main.png', class: "img-menu-meal" %>
             <div class= "meals-body-menu-starter-element">
               <span><i>Pas de plat principal proposé</i></span>
             </div>
@@ -66,14 +62,12 @@
         <% end %>
         <% if meal.dessert? %>
           <div class= "meals-body-menu-starter">
-            <%= image_tag 'dessert.png', class: "img-menu-meal" %>
             <div class= "meals-body-menu-starter-element">
-              <i><%= meal.dessert %></i>
+              <b>Dessert: </b><i><%= meal.dessert %></i>
             </div>
           </div>
         <% else %>
           <div class= "meals-body-menu-starter">
-            <%= image_tag 'dessert.png', class: "img-menu-meal" %>
             <div class= "meals-body-menu-starter-element">
               <span><i>Pas de dessert proposé</i></span>
             </div>
