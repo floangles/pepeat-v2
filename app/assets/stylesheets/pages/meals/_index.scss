@@ -187,7 +187,7 @@
       border-bottom: 1px solid rgba(4, 4, 4, 0.05);
       &-title {
         margin-top: 12px;
-        margin-bottom: 25px;
+        margin-bottom: 14px;
         margin-right: 15px;
         border-radius: 3px;
         border: solid 1px $pepeat;
@@ -209,7 +209,7 @@
       &-starter{
         position: relative;
         height: auto;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         &-element{
           padding-top: 5px;
           span {
@@ -219,6 +219,7 @@
           b {
             font-weight: 400;
             font-size: 14px;
+            margin-right: 10px;
           }
           i {
             font-size: 14px;
@@ -381,7 +382,7 @@
   .meals-header-price {font-size: 17px;}
   .meals-header-date {font-size: 17px;}
   .meals-header-pic {bottom: -20px; right: 10px;}
-  .img-chef-meal {height: 50px;}
+  .img-chef-meal {height: 60px; width: 60px;}
   .meals-body-menu {padding-top: 0px; }
   i {font-size: 13px;}
   .meals-body-menu-starter {margin-bottom: 10px;}
