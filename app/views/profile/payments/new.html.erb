@@ -22,7 +22,7 @@
           <div>
             <div class= "hidden-form">
               <script src="https://checkout.stripe.com/checkout.js" class= "stripe-button"
-                  data-key="pk_live_sWVpuv2ZeZ89PDsjU7Lx678w"
+                  data-key="pk_test_AnTNRrYA5hnK0DRMzVqIOMUw"
                   data-locale = "fr"
                   data-email = '<%= current_user.email %>'
                   data-image="/assets/pepeat.png"
@@ -88,7 +88,8 @@
 <% end %>
 
 <script type="text/javascript">
-  analytics.track('payment page');
+  analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+  analytics.track('Payment Page');
 </script>
 
 
