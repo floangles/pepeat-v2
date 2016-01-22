@@ -32,5 +32,4 @@ module UserHelper
   end
 
 
-
 end
