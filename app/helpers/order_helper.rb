@@ -27,6 +27,16 @@ module OrderHelper
     end
   end
 
+  def orders_history(orders)
+    res = 0
+    orders.each do |order|
+      if DateTime.now.to_date > order.meal.day
+        res += 1
+      end
+    end
+    res
+  end
+
 
   def order_price(order)
     order.meal.price * order.portion

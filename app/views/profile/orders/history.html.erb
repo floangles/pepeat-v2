@@ -1,24 +1,21 @@
-<% if @orders.count == 0 %>
-  <div class="background-default window-height">
-    <div class= "background-default-blur">
-      <div class="background-default-blur-text">
-        <h3 class= "text-center">Vous n'avez encore jamais commandé de plat chez Pepeat ! Il faut y remedier !</h3>
-      </div>
-      <div class="background-default-blur-edit">
-        <%= link_to 'Voir les plats disponibles', meals_path, class: "btn btn-pepeat btn-lg" %>
-      </div>
+
+<div class="background-profile-orders background-banner">
+  <div class="overlay">
+    <div class="background-profile-orders-title text-center">
+      <h3>Votre historique de réservation</h3>
     </div>
   </div>
-<% else %>
-  <div class="background-profile-orders background-banner">
-    <div class="overlay">
-      <div class="background-profile-orders-title text-center">
-        <h3>Votre historique de réservation</h3>
+</div>
+<h1 class= "home-title text-center">Votre historique</h1>
+<div class="container">
+  <div class="row">
+    <% if @orders.where(state: 'paid') && orders_history(@orders) == 0 %>
+      <div class="text-center">
+        <p>Votre historique est vide</p>
+        <%= image_tag 'not_found.png', class: "not-found-img" %>
+        <p><%= link_to 'Voir les menus', meals_path, class: "btn btn-pepeat2" %></p>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
+    <% else %>
       <% @orders.each do |order|%>
         <% if order_history(order) && order.state == 'paid' %>
           <div class="col-xs-4 col-sm-6 col-md-4">
@@ -66,9 +63,10 @@
           </div>
         <% end %>
       <% end %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
 
 
 <script type="text/javascript">

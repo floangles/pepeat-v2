@@ -1,108 +1,105 @@
-<% if @orders.where(state: "paid").count == 0 %>
-  <div class="background-default window-height">
-    <div class= "background-default-blur">
-      <div class="background-default-blur-text">
-        <h3 class= "text-center">Vous n'avez aucune réservation</h3>
-      </div>
-      <div class="background-default-blur-edit">
-        <%= link_to 'Voir les plats disponibles', meals_path, class: "btn btn-pepeat btn-lg" %>
-      </div>
+
+<div class="background-profile-orders background-banner">
+  <div class="overlay">
+    <div class="background-profile-orders-title text-center">
+      <h3>Vos réservations en cours</h3>
     </div>
   </div>
-<% else %>
-  <div class="background-profile-orders background-banner">
-    <div class="overlay">
-      <div class="background-profile-orders-title text-center">
-        <h3>Vos réservations en cours</h3>
-      </div>
-    </div>
-  </div>
+</div>
 
 <div id="bg-meals">
   <h1 class= "home-title text-center">Vos commandes</h1>
   <div class="container">
     <div class="row">
-      <% @orders.each do |order| %>
-        <% if order.state == 'paid' && !order_history(order) %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="orders">
-              <div class="orders-header">
-                <div class= "carousel">
-                  <% order.meal.meal_pictures.each do |picture| %>
-                    <%= link_to profile_order_path(order) do %>
-                      <div> <%= image_tag picture.picture.url(:medium), class: "img-carousel"%> </div>
+      <% if @orders.where(state: 'paid') && orders_history(@orders) == 0 %>
+        <div class="text-center">
+          <p>Vous n'avez pas encore de commandes en cours</p>
+          <%= image_tag 'not_found.png', class: "not-found-img" %>
+          <p><%= link_to 'Voir les menus', meals_path, class: "btn btn-pepeat2" %></p>
+        </div>
+      <% else %>
+        <% @orders.each do |order| %>
+          <% if order.state == 'paid' && !order_history(order) %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="orders">
+                <div class="orders-header">
+                  <div class= "carousel">
+                    <% order.meal.meal_pictures.each do |picture| %>
+                      <%= link_to profile_order_path(order) do %>
+                        <div> <%= image_tag picture.picture.url(:medium), class: "img-carousel"%> </div>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </div>
-                <div class="orders-header-away">
-                  <% if order.meal.home? %>
-                    <h3 class= "text-center">Diner chez le chef</h3>
-                  <% else %>
-                    <h3 class= "text-center">A emporter</h3>
-                  <% end %>
-                </div>
-                <div class="orders-header-price">
-                  <%= order.portion %> <i class="fa fa-cutlery"></i>
-                </div>
-                <div class="orders-header-date">
-                  <p><%= l(order.meal.day, format: '%A %d/%m')%></p>
-                </div>
-                <div class="orders-header-hour">
-                <% if order.meal.home?%>
-                  <p><%= order.meal.home_hour.strftime('%Hh:%M') %></p>
-                <% else %>
-                  <p><%= order.meal.start_hour.strftime('%Hh:%M')%> - <%= order.meal.end_hour.strftime(' %Hh:%M') %></p>
-                <% end %>
-                </div>
-                <div class="orders-header-button">
-                  <% if !order.payment_validation %>
-                   <%= render "/shared/modale_delete", order: order %>
-                  <% end %>
-                </div>
-                <div class="orders-header-pic">
-                  <%= link_to publics_path(order.meal.user) do %>
-                    <%= image_tag order.meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
-                  <% end %>
-
-                </div>
-              </div>
-              <div class="orders-body-show">
-                <%= link_to 'Voir ma commande', profile_order_path(order), class: "btn btn-pepeat buton-order", style: "margin-bottom: 5px;" %>
-              </div>
-              <div class="orders-body-payment">
-                <% if !order.payment_validation %>
-                  <% if order.meal.takeaway %>
-                    <% if DateTime.now.day == order.meal.day.day %>
-                      <%= link_to 'Valider la réception', validation_profile_orders_path(order), class: "btn btn-success buton-order" %>
-                    <% else %>
-                      <div class= "hover" title= "Vous devez valider la réception avec ce bouton le jour ou vous irez chercher votre plat.">
-                        <%= link_to 'Valider la réception ( le jour j )', '#', class: " disabled btn btn-warning buton-order" %>
-                      </div>
-                    <% end %>
-                  <% end %>
-                  <% if order.meal.home %>
-                    <% if DateTime.now.day == order.meal.day.day %>
-                      <%= link_to 'Valider la reception', validation_profile_orders_path(order), class: "btn btn-success buton-order" %>
-                    <% else %>
-                      <div class= "hover" title= "Vous devez valider la réception avec ce bouton le jour ou vous irez chercher votre plat.">
-                        <%= link_to 'Valider la réception (le jour j)', "#", class: "disabled btn btn-warning buton-order" %>
-                      </div>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <div class= "check-payment hover" title= "Vous avez validé la reception de votre commande">
-                    <i class="fa fa-check fa-3x "></i>
                   </div>
-                <% end %>
+                  <div class="orders-header-away">
+                    <% if order.meal.home? %>
+                      <h3 class= "text-center">Diner chez le chef</h3>
+                    <% else %>
+                      <h3 class= "text-center">A emporter</h3>
+                    <% end %>
+                  </div>
+                  <div class="orders-header-price">
+                    <%= order.portion %> <i class="fa fa-cutlery"></i>
+                  </div>
+                  <div class="orders-header-date">
+                    <p><%= l(order.meal.day, format: '%A %d/%m')%></p>
+                  </div>
+                  <div class="orders-header-hour">
+                  <% if order.meal.home?%>
+                    <p><%= order.meal.home_hour.strftime('%Hh:%M') %></p>
+                  <% else %>
+                    <p><%= order.meal.start_hour.strftime('%Hh:%M')%> - <%= order.meal.end_hour.strftime(' %Hh:%M') %></p>
+                  <% end %>
+                  </div>
+                  <div class="orders-header-button">
+                    <% if !order.payment_validation %>
+                     <%= render "/shared/modale_delete", order: order %>
+                    <% end %>
+                  </div>
+                  <div class="orders-header-pic">
+                    <%= link_to publics_path(order.meal.user) do %>
+                      <%= image_tag order.meal.user.picture.url(:thumb), class: "img-circle home-pic" %>
+                    <% end %>
+
+                  </div>
+                </div>
+                <div class="orders-body-show">
+                  <%= link_to 'Voir ma commande', profile_order_path(order), class: "btn btn-pepeat buton-order", style: "margin-bottom: 5px;" %>
+                </div>
+                <div class="orders-body-payment">
+                  <% if !order.payment_validation %>
+                    <% if order.meal.takeaway %>
+                      <% if DateTime.now.day == order.meal.day.day %>
+                        <%= link_to 'Valider la réception', validation_profile_orders_path(order), class: "btn btn-success buton-order" %>
+                      <% else %>
+                        <div class= "hover" title= "Vous devez valider la réception avec ce bouton le jour ou vous irez chercher votre plat.">
+                          <%= link_to 'Valider la réception ( le jour j )', '#', class: " disabled btn btn-warning buton-order" %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                    <% if order.meal.home %>
+                      <% if DateTime.now.day == order.meal.day.day %>
+                        <%= link_to 'Valider la reception', validation_profile_orders_path(order), class: "btn btn-success buton-order" %>
+                      <% else %>
+                        <div class= "hover" title= "Vous devez valider la réception avec ce bouton le jour ou vous irez chercher votre plat.">
+                          <%= link_to 'Valider la réception (le jour j)', "#", class: "disabled btn btn-warning buton-order" %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <div class= "check-payment hover" title= "Vous avez validé la reception de votre commande">
+                      <i class="fa fa-check fa-3x "></i>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
      </div>
     </div>
   </div>
-<% end %>
+
 
 <script type="text/javascript">
   analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
