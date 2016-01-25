@@ -9,7 +9,7 @@
 <h1 class= "home-title text-center">Votre historique</h1>
 <div class="container">
   <div class="row">
-    <% if @orders.where(state: 'paid') && orders_history(@orders) == 0 %>
+    <% if @orders.where(state: 'paid').count == 0 && %>
       <div class="text-center">
         <p>Votre historique est vide</p>
           <%= image_tag 'not_found.png', class: "not-found-img" %>
