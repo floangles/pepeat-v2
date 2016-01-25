@@ -1,7 +1,8 @@
 .img-pepeato {
-  width: 150px;
+  width: 140px;
   margin: 30px;
-  height: 150px;
+  height: 140px;
+  margin-bottom: 5px;
   border: solid 1px white;
   &:hover {
     opacity: 0.9;
@@ -23,6 +24,19 @@
 }
 
 
+
+.name-show {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.44);
+  margin-bottom: 20px;
+  margin-top: 5px;
+  text-decoration: overline;
+}
+
+.text-show {
+  display: block;
+}
+
 @media (max-width: 767px) {
-  .img-pepeato { width: 70px; height: 70px}
+  .img-pepeato { width: 60px; height: 60px}
 }

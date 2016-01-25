@@ -11,10 +11,11 @@
   <div class="row">
     <% @pepeatos.each do |pepeato| %>
       <div class="col-xs-6 col-sm-3">
-        <div class="text-center">
+        <div class="text-center name-pepeato">
           <%= link_to publics_path(pepeato) do %>
-            <%= image_tag pepeato.picture.url(:medium), class: "img-circle img-pepeato hvr-fadeIn hvr-grow" %>
+            <%= image_tag pepeato.picture.url(:medium), class: "img-circle img-pepeato hvr-fadeIn hvr-grow img-pepeato" %>
           <% end %>
+          <p class= "name-show"><i><%= pepeato.firstname %> <%= pepeato.lastname %></i></p>
         </div>
       </div>
     <% end %>
