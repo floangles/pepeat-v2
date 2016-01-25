@@ -14,7 +14,7 @@
       <% if orders_history(@orders) == 0 %>
         <div class="text-center">
           <p>Vous n'avez pas encore de commandes en cours</p>
-          <%= image_tag 'not_found.png', class: "not-found-img" %>
+            <%= image_tag 'not_found.png', class: "not-found-img" %>
           <p><%= link_to 'Voir les menus', meals_path, class: "btn btn-pepeat2" %></p>
         </div>
       <% else %>
