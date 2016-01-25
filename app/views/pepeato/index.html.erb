@@ -1,0 +1,27 @@
+<div class="background-pepeato background-banner">
+  <div class="overlay">
+    <div class="background-pepeato-title text-center">
+      <h3 class= "title-banner">Communauté Pepeato</h3>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <% @pepeatos.each do |pepeato| %>
+      <div class="col-xs-6 col-sm-3">
+        <div class="text-center">
+          <%= link_to publics_path(pepeato) do %>
+            <%= image_tag pepeato.picture.url(:medium), class: "img-circle img-pepeato hvr-fadeIn hvr-grow" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

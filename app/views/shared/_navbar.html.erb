@@ -81,6 +81,11 @@
               </li>
             </ul>
           </li>
+          <li>
+            <%= link_to pepeato_index_path do %>
+              Les Pepeato
+            <% end %>
+          </li>
           <li class= "dropdown">
              <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <i class="fa fa-question-circle"></i> Aide <span class="caret"></span>
@@ -114,6 +119,11 @@
           </li>
           <li>
             <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to pepeato_index_path do %>
+              Les Pepeato
+            <% end %>
           </li>
           <li class= "dropdown">
              <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>

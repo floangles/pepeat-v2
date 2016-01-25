@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :meals, only: [:index, :show]
+  resources :pepeato, only: [:index]
 
   resource :profile, only: [:show, :edit, :update] do
     collection do
