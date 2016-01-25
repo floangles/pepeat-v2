@@ -21,3 +21,8 @@
     transform: translateX(-50%) translateY(-50%);
   }
 }
+
+
+@media (max-width: 767px) {
+  .img-pepeato { width: 70px; height: 70px}
+}

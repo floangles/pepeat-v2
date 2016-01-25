@@ -11,7 +11,7 @@
   <h1 class= "home-title text-center">Vos commandes</h1>
   <div class="container">
     <div class="row">
-      <% if @orders.where(state: 'paid') && orders_history(@orders) == 0 %>
+      <% if orders_history(@orders) == 0 %>
         <div class="text-center">
           <p>Vous n'avez pas encore de commandes en cours</p>
           <%= image_tag 'not_found.png', class: "not-found-img" %>
