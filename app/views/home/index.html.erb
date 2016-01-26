@@ -40,6 +40,19 @@
               <% end %>
             <% end %>
             <p><%=link_to 'Se connecter', 'javascript:;', id:"su-trigger" %></p>
+            <div class= "links text-center">
+              <%- if devise_mapping.omniauthable? %>
+                <%- resource_class.omniauth_providers.each do |provider| %>
+                  <% if provider == :facebook %>
+                    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+                      <div class= "text-center">
+                        <%= image_tag 'facebook.png', class: "facebook-btn2 hvr-fadeIn hvr-grow" %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end -%>
+              <% end -%>
+            </div>
           </div>
           <div class= "home-signup text-center hidden-form si">
             <h3>Se connecter</h3>
@@ -54,6 +67,19 @@
               </div>
             <% end %>
             <p><%=link_to 'Créer un compte', 'javascript:;', id: "si-trigger" %></p>
+            <div class= "links text-center">
+              <%- if devise_mapping.omniauthable? %>
+                <%- resource_class.omniauth_providers.each do |provider| %>
+                  <% if provider == :facebook %>
+                    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+                      <div class= "text-center">
+                        <%= image_tag 'facebook.png', class: "facebook-btn2 hvr-fadeIn hvr-grow" %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end -%>
+              <% end -%>
+            </div>
           </div>
         <% end %>
       </div>

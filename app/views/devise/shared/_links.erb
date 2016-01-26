@@ -23,7 +23,7 @@
     <% if provider == :facebook %>
       <%= link_to omniauth_authorize_path(resource_name, provider) do %>
         <div class= "text-center">
-          facebook
+          <%= image_tag 'facebook.png', class: "facebook-btn hvr-fadeIn hvr-grow" %>
         </div>
       <% end %>
     <% end %>
