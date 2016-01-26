@@ -76,6 +76,7 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_facebook_oauth(auth)
+
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -86,6 +87,7 @@ class User < ActiveRecord::Base
       user.picture = auth.info.image
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
+      user.skip_confirmation!
     end
   end
 
