@@ -22,8 +22,9 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% if provider == :facebook %>
       <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-      <div class= "text-center">
-      </div>
+        <div class= "text-center">
+          facebook
+        </div>
       <% end %>
     <% end %>
   <% end -%>
