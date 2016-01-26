@@ -24,8 +24,8 @@
 <% if current_user.chief? %>
 <ul class="nav nav-pills nav-justified">
   <li role="presentation"><a href=".1">Mes informations</a></li>
-  <li role="presentation"><a href=".3">Mes informations bancaire</a></li>
-  <li role="presentation"><a href=".4">Ma gallerie photo</a></li>
+  <li role="presentation"><a href=".3">Mes informations bancaires</a></li>
+  <li role="presentation"><a href=".4">Ma galerie photo</a></li>
   <li role="presentation"><a href=".5">Mes avis</a></li>
 </ul>
 
@@ -113,7 +113,7 @@
           </div>
         </div>
         <div class="col-xs-12 col-sm-6">
-          <h1 class= "text-center profile-header">Mes informations bancaire</h1>
+          <h1 class= "text-center profile-header">Mes informations bancaires</h1>
           <p>Pour pouvoir transférer vos revenus sur votre compte nous avons besoin de votre RIB.</p>
           <% if current_user.bank_account_id %>
             <% account = Stripe::Account.retrieve(current_user.stripe_id) %>
@@ -124,7 +124,7 @@
             </div>
           <% else %>
             <div class= "text-center">
-            <%= link_to 'Informations bancaire', bank_account_profile_path, class: "btn btn-pepeat2" %>
+            <%= link_to 'Informations bancaires', bank_account_profile_path, class: "btn btn-pepeat2" %>
             </div>
           <% end %>
         </div>
