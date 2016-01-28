@@ -50,15 +50,6 @@ module Profile
       @meals = policy_scope(Meal)
       @meals = current_user.meals
 
-      @graph = Koala::Facebook::API.new("CAACEdEose0cBAEnogksPyaPbicMbJHUAol2PgCZCJeYgzC7mgAVD3gbFE8iAB3J6BCnp0OZCOyCBR81R6q6vhHDcUZAbbPeQaG9T5WzIOLyM7C02fpqxmTkRWAzWEgvkxpZCYaZAZAw0cevmHiWFGgMqfLreiZAL9xQIG73ME0ywutkPnUXBZBvnJb1pOw6WG8Bo09iDHo1TDgZDZD")
-
-      groups = @graph.get_connections("me", "groups")
-
-      pepeat_group = groups.select do |group|
-        group["name"] == "Pepeat - Lille"
-      end
-
-      @graph.put_connections(pepeat_group[0]['id'], "feed", message: "Ca va cartonner")
     end
 
     def show
