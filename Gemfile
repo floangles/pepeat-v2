@@ -51,6 +51,8 @@ gem 'sidekiq-failures'
 
 gem 'jquery-countdown-rails', '~> 2.0', '>= 2.0.2'
 
+gem "koala", "~> 2.2"
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-scrollReveal.js'
   gem "rails-assets-underscore"
