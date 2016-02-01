@@ -4,7 +4,7 @@
       <div class= "carousel">
         <% meal.meal_pictures.each do |picture| %>
           <%= link_to meal_path(meal) do %>
-            <div> <%= image_tag picture.picture.url(:large), class: "img-carousel"%> </div>
+            <div> <%= image_tag picture.picture.url(:large), class: "img-carousel hvr-fadeIn hvr-grow"%> </div>
           <% end %>
         <% end %>
       </div>
@@ -94,8 +94,8 @@
             <% end %>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <div class= "meals-body-takeaway-portion hover" title= "Nombre de menus restant">
-              <span class= "size-txt-portion"><%= available_portions(meal)%></span> <%= image_tag 'portion.svg', class: "size-portion" %>
+            <div class= "meals-body-takeaway-portion hover">
+              <span class= "size-txt-portion"><%= available_portions(meal)%></span> <span class= "size-portion"><i>Menus restant</i></span>
             </div>
           </div>
         </div>

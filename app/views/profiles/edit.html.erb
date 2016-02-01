@@ -21,7 +21,11 @@
                   <div class= "img-preview">
                     <%= image_tag @user.picture.url(:large), id: "img-preview" %>
                   </div>
-                  <span class="btn btn-success" id= "changepicture">Changer la photo</span>
+                  <% if current_user.picture.nil? %>
+                    <span class="btn btn-success" id= "changepicture">Charger une photo</span>
+                  <% else %>
+                    <span class="btn btn-success" id= "changepicture">Changer la photo</span>
+                  <% end %>
                 </div>
               <div id="picturechief"></div>
 
@@ -47,7 +51,7 @@
                 <i class="fa fa-user"></i><%= f.input :lastname, label: 'Nom de famille', label: false, placeholder: 'Nom de famille', required: false %>
               </div>
               <div class="chief-profile-right-date">
-                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse exacte obligatoire',label: 'Choisissez obligatoirement votre adresse parmis les propositions', hint: 'Si votre adresse comporte un bis: écrivez seulement b' %>
+                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse exacte obligatoire',label: 'renseignez votre adresse puis sélectionnez parmis les propositions', hint: 'Si votre adresse comporte un bis: écrivez seulement b' %>
                 <input id="street_number" name="street_number" type="hidden">
                 <input id="route" name="route" type="hidden">
                 <input id="postal_code" name="postal_code" type="hidden">
@@ -125,7 +129,11 @@
                 </div>
                 <div>
                   <div id="picturechief"></div>
-                  <span class="btn btn-success2" id= "changepicture">Changer la photo</span>
+                  <% if current_user.picture.nil? %>
+                    <span class="btn btn-success" id= "changepicture">Changer la photo</span>
+                  <% else %>
+                    <span class="btn btn-success" id= "changepicture">Charger une photo</span>
+                  <% end %>
                 </div>
               <% end %>
 
@@ -149,7 +157,7 @@
                 <i class="fa fa-user"></i><%= f.input :lastname, label: 'Nom de famille', label: false, placeholder: 'Nom de famille', required: false %>
               </div>
               <div class="chief-profile-right-date">
-                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse',label: 'Choisissez obligatoirement votre adresse parmi les propositions', hint: 'Si votre adresse comporte un bis: écrivez seulement b' %>
+                <i class="fa fa-map-marker"></i><%= f.input :address, label: false,required: false, placeholder: 'Adresse',label: 'renseignez votre adresse puis sélectionnez parmis les propositions', hint: 'Si votre adresse comporte un bis: écrivez seulement b' %>
               </div>
               <div class= "chief-profile-right-date">
                 <i class="fa fa-mobile"></i><%= f.input :phone_number, label: false, placeholder: 'Téléphone', required: false %>
@@ -163,7 +171,7 @@
                 </div>
               <% else %>
                 <div class='input-group' id='datetimepicker7'>
-                  <i class="fa fa-birthday-cake"></i><%= f.input :birth, as: :string, required: false, label: false%>
+                  <i class="fa fa-birthday-cake"></i><%= f.input :birth, label: "Date de naissance", as: :string, required: false%>
                     <span class="input-group-addon form-control">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
