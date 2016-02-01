@@ -1,0 +1,12 @@
+<div class="">
+  <%= simple_form_for(@comment, url: comments_path, remote: true, html: { multipart: true }) do |f|%>
+    <div class="form-group">
+      <%= f.label :commenter, 'Enter your comment:' %>
+      <%= f.text_area :commenter, rows: 3, class: 'form-control', required: true, maxlength: 2000 %>
+
+      <small class="label label-warning">Cannot be blank or contain more than 2000 symbols.</small>
+    </div>
+    <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+    <%= f.submit 'Post', class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>

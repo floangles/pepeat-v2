@@ -149,6 +149,10 @@ class MealsController < ApplicationController
 
   def show
 
+    @comment = Comment.new
+    @comments = Comment.order('created_at DESC')
+
+
     @meal = Meal.find(params[:id])
     authorize @meal
     @order = Order.new
