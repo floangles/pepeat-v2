@@ -15,6 +15,8 @@
 //= require jquery.countdown
 //= require jquery.countdown-es
 //= require ScrollToFixed
+//= require jquery.turbolinks
+//= require turbolinks
 
 
 //= require_tree ./app

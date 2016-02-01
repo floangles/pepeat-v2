@@ -109,11 +109,25 @@
 
 <div class="container">
   <div class="card-chat">
+    <h1 class= "text-center profile-header">
+      <%= image_tag @meal.user.picture.url(:medium), class: "img-circle img-chat-chief" %>
+      Posez vos questions au chef <%= @meal.user.surname %>
+    </h1>
     <div class="row">
-      <%= render 'form' %>
+      <% if current_user %>
+        <%= render 'form' %>
+      <% else %>
+        <%= render 'form2' %>
+      <% end %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ul class="media-list " id="comments">
+            <%= render 'comments/comment' %>
+          </ul>
+        </div>
+      </div>
     </div>
-      <%= j render @comments %>
-    </div>
+  </div>
 </div>
 
 

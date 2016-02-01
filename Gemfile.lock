@@ -177,6 +177,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-slick-rails (1.5.9.1)
       railties (>= 3.1)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
@@ -365,6 +368,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -406,6 +411,7 @@ DEPENDENCIES
   jquery-countdown-rails (~> 2.0, >= 2.0.2)
   jquery-rails
   jquery-slick-rails
+  jquery-turbolinks
   koala (~> 2.2)
   letter_opener
   momentjs-rails (>= 2.9.0)
@@ -439,6 +445,7 @@ DEPENDENCIES
   sinatra
   spring
   stripe
+  turbolinks
   uglifier
 
 BUNDLED WITH

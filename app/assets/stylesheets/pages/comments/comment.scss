@@ -1,0 +1,21 @@
+.comment-card {
+  position: relative;
+  margin: 15px;
+  &-pic {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border: solid 1px rgba(0, 0, 0, 0.38);
+  }
+  &-date {
+    margin-right: 10px;
+    font-size: 11px;
+  }
+  &-comm {
+    font-size: 15px;
+  }
+}
+
+.current-chat {
+  border: solid 2px #f5bb00;
+}

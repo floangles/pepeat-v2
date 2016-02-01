@@ -12,12 +12,12 @@ class CommentsController < ApplicationController
           flash[:error] = 'Your comment cannot be saved.'
         end
 
-        format.html {redirect_to @meal}
+        format.html {redirect_to root_url}
 
-        format.js {}
+        format.js {@comments = @meal.comments.order('created_at DESC')}
 
       else
-        format.html {redirect_to meal_path}
+        format.html {redirect_to root_url}
         format.js {render nothing: true}
       end
     # redirect_to meal_path

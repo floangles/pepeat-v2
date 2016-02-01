@@ -14,6 +14,9 @@ class MealsController < ApplicationController
     end
   end
 
+  def is_admin?
+  end
+
   def who_cook(i)
     @people = []
     @meals_selection = []
