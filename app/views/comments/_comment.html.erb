@@ -1,11 +1,11 @@
-<% @comments.each do |comment| %>
+<% @meal.comments.order('created_at DESC').each do |comment| %>
   <div class="comment-card">
-     <% if current_user.id == comment.meal.user.id %>
+     <% if comment.user.id == comment.meal.user.id %>
       <%= image_tag comment.user.picture.url(:medium), class: "img-circle comment-card-pic hvr-fadeIn hvr-grow current-chat" %>
      <% else %>
       <%= image_tag comment.user.picture.url(:medium), class: "img-circle comment-card-pic hvr-fadeIn hvr-grow" %>
      <% end %>
     <span class= "comment-card-date"><i> <%= l(comment.created_at, format:'%d %B %Y, %H:%M')%></i></span>
-      <span class= "comment-card-comm"><%= comment.commenter%></span>
+      <span class= "comment-card-comm">" <%= comment.commenter%> "</span>
   </div>
 <% end %>

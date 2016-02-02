@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+   before_action :authenticate_user!
 
   def create
     respond_to do |format|
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
 
         format.html {redirect_to root_url}
 
-        format.js {@comments = @meal.comments.order('created_at DESC')}
+        format.js {}
 
       else
         format.html {redirect_to root_url}
@@ -32,3 +33,6 @@ class CommentsController < ApplicationController
 
 
 end
+
+
+# format.js {@comments = @meal.comments.order('created_at DESC')}

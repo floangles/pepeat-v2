@@ -16,6 +16,7 @@
 #
 
 class Comment < ActiveRecord::Base
+
   belongs_to :meal
   belongs_to :user
 
