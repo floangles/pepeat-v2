@@ -13,8 +13,11 @@
   }
   &-comm {
     font-size: 15px;
+    position: relative;
+    top: 13px;
   }
 }
+
 
 .current-chat {
   border: solid 2px #f5bb00;
