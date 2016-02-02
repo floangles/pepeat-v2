@@ -107,6 +107,34 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="card-chat">
+    <h1 class= "text-center profile-header">
+      <% if current_user == @meal.user %>
+        <%= image_tag @meal.user.picture.url(:medium), class: "img-circle img-chat-chief" %>
+      Répondez et informez
+      <% else %>
+        <%= image_tag @meal.user.picture.url(:medium), class: "img-circle img-chat-chief" %>
+      Posez vos questions au chef <%= @meal.user.surname %>
+      <% end %>
+    </h1>
+    <div class="row">
+      <% if current_user %>
+        <%= render 'form', meal: @meal %>
+      <% else %>
+        <%= render 'form2', meal: @meal %>
+      <% end %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ul class="media-list " id="comments">
+            <%= render 'comments/comment', meal: @meal %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
   <div class="card-feedback">

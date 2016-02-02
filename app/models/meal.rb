@@ -36,6 +36,7 @@ class Meal < ActiveRecord::Base
   belongs_to :user
   has_many :orders, dependent: :destroy
   has_many :meal_pictures, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :takeaway, presence: true, unless: "home?"
   validates :home, presence: true, unless: "takeaway?"

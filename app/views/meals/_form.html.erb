@@ -1,0 +1,16 @@
+<div class="form-chat-card">
+  <%= simple_form_for(@comment, url: comments_path, remote: true, html: { multipart: true }) do |f|%>
+    <div class="form-group">
+      <% if current_user.id == meal.user.id %>
+        <%= f.label :commenter, 'Répondez ou informez les utilisateurs' %>
+      <% else %>
+        <%= f.label :commenter, 'Entrez votre question:' %>
+      <% end %>
+      <%= f.text_area :commenter, rows: 3, class: 'form-control', required: true, maxlength: 2000 %>
+
+      <small class="label label-warning">Ne peux pas être vide et doit contenir moins de 200 caractères.</small>
+    </div>
+    <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
+    <%= f.submit 'Je poste', class: 'btn btn-pepeat' %>
+  <% end %>
+</div>

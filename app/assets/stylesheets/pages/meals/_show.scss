@@ -260,6 +260,27 @@
   }
 }
 
+
+.card-chat {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  border-radius: 3px;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid rgba(49,49,47,0.18);
+}
+
+.form-chat-card {
+  margin: 10px;
+}
+
+.img-chat-chief {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
 .card-feedback {
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);

@@ -114,6 +114,7 @@ class User < ActiveRecord::Base
   has_many :meals, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :chief_pictures, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
 

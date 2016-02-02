@@ -14,6 +14,9 @@ class MealsController < ApplicationController
     end
   end
 
+  def is_admin?
+  end
+
   def who_cook(i)
     @people = []
     @meals_selection = []
@@ -148,6 +151,10 @@ class MealsController < ApplicationController
   end
 
   def show
+
+    @comment = Comment.new
+    @comments = Comment.order('created_at DESC')
+
 
     @meal = Meal.find(params[:id])
     authorize @meal
