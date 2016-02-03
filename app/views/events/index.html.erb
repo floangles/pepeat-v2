@@ -1,0 +1,66 @@
+<div class="banner-ouishare">
+
+</div>
+
+<div class= "text-center share-header">
+  <span>Cuisinez pour</span><%= image_tag 'ouishare', class: "share-header-logo" %>
+  <span>Et faite connaître votre talent.</span>
+  <div>
+    <p>Le 21 Avril 2016</p>
+    <h2>Gagnez 200€ pour cuisiner une de vos spécialité et la faire décourvir pendant le salon organisé par OuiShare</h2>
+  </div>
+</div>
+
+<div class="share-body text-center">
+  <div class="container">
+    <h1>Pepeat et OuiShare</h1>
+    <%= image_tag 'arrow' %>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="share-body-card">
+          <div class="share-body-card-header">
+            <%= image_tag 'ouishare-left' %>
+          </div>
+          <div class="share-body-card-body">
+          <%= link_to "Voir plus sur l'événement SharingLille", 'http://www.sharinglille.com/', class: "btn buton-order" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="share-body-card">
+          <div class="share-body-card-header">
+            <%= image_tag 'ouishare-right' %>
+          </div>
+          <div class="share-body-card-body">
+            <%= link_to "Voir plus sur l'association OuiShare", 'http://ouishare.net/fr', class: "btn buton-order" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="share-infos text-center">
+  <div class="container">
+    <h4>Nous recherchons 10 Pepeato pour participer en tant que cuisinier à l'événement Sharing Lille !</h4>
+    <div class="share-infos-card">
+      <%= image_tag 'pepeat-circle', class: "img-circle pepeat-circle" %>
+      <div class="row">
+        <div class="col-xs-6">
+          <h4>La communauté Pepeato</h4>
+          <% @pepeatos.each do |pepeato| %>
+            <%= image_tag pepeato.picture.url(:medium), class: 'img-circle' %>
+          <% end %>
+        </div>
+        <div class="col-xs-6">
+          <h4>En toute simplicité</h4>
+          <p><i class="fa fa-check-circle"></i> Je prépare un repas de ma spécialité pour 20 personnes</p>
+          <p><i class="fa fa-check-circle"></i> Je me rend le lendemain matin avec ma préparation à Sharing Lille à Euratechnologie </p>
+          <p><i class="fa fa-check-circle"></i> Je touche 200 € directement sur mon compte</p>
+          <%= link_to 'En savoir plus', '', class: "btn btn-pepeat" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

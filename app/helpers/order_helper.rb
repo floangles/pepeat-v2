@@ -30,7 +30,7 @@ module OrderHelper
   def orders_history(orders)
     res = 0
     orders.each do |order|
-      if DateTime.now.to_date < order.meal.day && order.state == 'paid'
+      if (DateTime.now.to_date < order.meal.day) && order.state == 'paid'
         res += 1
       end
     end

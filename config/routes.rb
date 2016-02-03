@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  resources :events, only: [:index]
   resources :meals, only: [:index, :show]
   resources :comments, only: [:create]
   resources :pepeato, only: [:index]
