@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :events, only: [:index]
+  resources :events, only: [:index] do
+    collection do
+      get 'update_user'
+    end
+  end
   resources :meals, only: [:index, :show]
   resources :comments, only: [:create]
   resources :pepeato, only: [:index]

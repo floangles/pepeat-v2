@@ -53,6 +53,7 @@
 #  last_meal              :datetime
 #  number_orders          :integer
 #  last_order             :datetime
+#  ouishare               :boolean
 #
 # Indexes
 #

@@ -6,14 +6,14 @@
   <span>Cuisinez pour</span><%= image_tag 'ouishare', class: "share-header-logo" %>
   <span>Et faite connaître votre talent.</span>
   <div>
-    <p>Le 21 Avril 2016</p>
-    <h2>Gagnez 200€ pour cuisiner une de vos spécialité et la faire décourvir pendant le salon organisé par OuiShare</h2>
+    <p>Avis de recherche :</p>
+    <h2>10 Pepeato motivés et talentueux pour cuisiner pour un événement hors du commun !</h2>
   </div>
 </div>
 
 <div class="share-body text-center">
   <div class="container">
-    <h1>Pepeat et OuiShare</h1>
+    <b><h1>L'événement</h1></b>
     <%= image_tag 'arrow' %>
     <div class="row">
       <div class="col-xs-6">
@@ -22,7 +22,7 @@
             <%= image_tag 'ouishare-left' %>
           </div>
           <div class="share-body-card-body">
-          <%= link_to "Voir plus sur l'événement SharingLille", 'http://www.sharinglille.com/', class: "btn buton-order" %>
+          <%= link_to "Voir plus sur SharingLille", 'http://www.sharinglille.com/', class: "btn buton-order" %>
           </div>
         </div>
       </div>
@@ -32,7 +32,101 @@
             <%= image_tag 'ouishare-right' %>
           </div>
           <div class="share-body-card-body">
-            <%= link_to "Voir plus sur l'association OuiShare", 'http://ouishare.net/fr', class: "btn buton-order" %>
+            <%= link_to "Voir plus sur OuiShare", 'http://ouishare.net/fr', class: "btn buton-order" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>Le 21 Avril 2016 à Euratechnologies</p>
+  </div>
+</div>
+
+
+<div class="explain-container text-center">
+  <b><h1>Pourquoi participer ?</h1></b>
+  <div class="explain">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="explain-card">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="explain-card-left">
+                <b><h2>Au sein d'Euratechnologies</h2></b>
+                <h3>Un emplacement de choix au coeur de la FrenchTech</h3>
+                <p>Le déjeuner aura lieu dans le magnifique hall d'Euratechnologies, un bijoux d'architecture qui ne vous laissera pas insensible.</p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="explain-card-right">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="explain">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="explain-card">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="explain-card-left">
+                <b><h2>200 personnes pour déjeuner</h2></b>
+                <h3>Chaque Pepeato cuisine pour 20 personnes</h3>
+                <p>10 tables seront dressées et chaque Pepeato aura la responsablité d'une d'elles. C'est le moment de se faire connaître ! </p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="explain-card-right2">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="explain">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="explain-card">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="explain-card-left">
+                <b><h2>Vous êtes le maître</h2></b>
+                <h3>Vous choisissez entièrement ce que vous cuisinez.</h3>
+                <p>Vous avez carte blanche pour préparer une de vos spécialités pour 20 personnes. Soyez créatif !</p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="explain-card-right3">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="explain">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="explain-card">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="explain-card-left">
+                <b><h2>Cerise sur le gateau : 200€</h2></b>
+                <h3>Probablement la matinée la plus rentable de votre vie.</h3>
+                <p>Vous sauterez de joie à l'idée de gagnez de l'argent tout en pratiquant votre passion. Et oui c'est comme ça avec Pepeat !</p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="explain-card-right4">
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -42,23 +136,61 @@
 
 <div class="share-infos text-center">
   <div class="container">
-    <h4>Nous recherchons 10 Pepeato pour participer en tant que cuisinier à l'événement Sharing Lille !</h4>
     <div class="share-infos-card">
       <%= image_tag 'pepeat-circle', class: "img-circle pepeat-circle" %>
       <div class="row">
-        <div class="col-xs-6">
-          <h4>La communauté Pepeato</h4>
+        <div class="col-xs-12">
+          <h4>Qui de vous saura impressionner sa table ? </h4>
           <% @pepeatos.each do |pepeato| %>
             <%= image_tag pepeato.picture.url(:medium), class: 'img-circle' %>
           <% end %>
         </div>
-        <div class="col-xs-6">
-          <h4>En toute simplicité</h4>
-          <p><i class="fa fa-check-circle"></i> Je prépare un repas de ma spécialité pour 20 personnes</p>
-          <p><i class="fa fa-check-circle"></i> Je me rend le lendemain matin avec ma préparation à Sharing Lille à Euratechnologie </p>
-          <p><i class="fa fa-check-circle"></i> Je touche 200 € directement sur mon compte</p>
-          <%= link_to 'En savoir plus', '', class: "btn btn-pepeat" %>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="share-form text-center">
+  <div class="container">
+    <h1>Intéressé ? Inscrivez vous pour cette aventure avec Pepeat !</h1>
+    <div class="row">
+      <div class="share-form-card">
+
+        <%= link_to "Je souhaite participer à l'événement", update_user_events_path, class: "btn btn-lg btn-pepeat2"%>
+      </div>
+      <p>Nous reviendrons très vite vers vous pour l'organisation !</p>
+    </div>
+  </div>
+</div>
+
+<div class="participant text-center">
+  <div class="container">
+    <div class="row">
+      <% if User.where(ouishare: true).count == 0 %>
+      <% else %>
+        <h1>Participants</h1>
+        <% User.where(ouishare: true).each do |user| %>
+          <div class="col-xs-6 col-xs-offset-3">
+            <%= link_to publics_path(user) do %>
+              <%= image_tag user.picture.url(:medium), class: "img-circle hvr-fadeIn hvr-grow" %>
+            <% end %>
+            <span>Pepeato <%= user.surname %></span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="partner text-center">
+  <div class="container">
+    <b><h1>En partenariat avec</h1></b>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= image_tag 'ouishare_logo' %>
+      </div>
+      <div class="col-xs-6">
+        <%= image_tag 'ruche_logo' %>
       </div>
     </div>
   </div>
