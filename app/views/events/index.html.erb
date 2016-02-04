@@ -142,8 +142,9 @@
         <div class="col-xs-8 col-xs-offset-2">
           <div class="share-infos-card-img">
             <h4>Qui de vous saura impressionner sa table ? </h4>
+            <h3>Communauté Pepeato</h3>
             <% @pepeatos.each do |pepeato| %>
-                <%= image_tag pepeato.picture.url(:medium), class: 'img-circle' %>
+                <%= image_tag pepeato.picture.url(:medium), class: 'img-circle hvr-fadeIn hvr-grow' %>
             <% end %>
           </div>
         </div>
