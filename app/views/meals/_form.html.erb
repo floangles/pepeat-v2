@@ -8,7 +8,7 @@
       <% end %>
       <%= f.text_area :commenter, rows: 3, class: 'form-control', required: true, maxlength: 2000 %>
 
-      <small class="label label-warning">Ne peux pas être vide et doit contenir moins de 200 caractères.</small>
+      <small class="label label-warning">200 caractères maximum</small>
     </div>
     <%= f.input :meal_id, as: :hidden, input_html: { value: @meal.id } %>
     <%= f.submit 'Je poste', class: 'btn btn-pepeat' %>
