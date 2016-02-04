@@ -139,11 +139,13 @@
     <div class="share-infos-card">
       <%= image_tag 'pepeat-circle', class: "img-circle pepeat-circle" %>
       <div class="row">
-        <div class="col-xs-12">
-          <h4>Qui de vous saura impressionner sa table ? </h4>
-          <% @pepeatos.each do |pepeato| %>
-            <%= image_tag pepeato.picture.url(:medium), class: 'img-circle' %>
-          <% end %>
+        <div class="col-xs-8 col-xs-offset-2">
+          <div class="share-infos-card-img">
+            <h4>Qui de vous saura impressionner sa table ? </h4>
+            <% @pepeatos.each do |pepeato| %>
+                <%= image_tag pepeato.picture.url(:medium), class: 'img-circle' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
