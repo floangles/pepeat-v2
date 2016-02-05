@@ -61,7 +61,7 @@
   <div class="row">
     <% @user.meals.each do |meal| %>
       <% if meal.validate && meal_actual(meal) %>
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-6">
           <%= render "/shared/cardmeals", meal: meal %>
         </div>
       <% end %>
