@@ -3,7 +3,7 @@
 </div>
 
 <div class= "text-center share-header">
-  <span>Cuisinez pour</span><%= image_tag 'ouishare', class: "share-header-logo" %>
+  <span>Cuisinez pour</span><%= image_tag 'http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,f_auto,h_1440,q_90,w_720/v1/453596/LOGO-SARING-LILLE-01_rtrt3c.png', class: "share-header-logo" %>
   <span>Et faite connaître votre talent.</span>
   <div>
     <p>Avis de recherche :</p>
@@ -202,4 +202,17 @@
     </div>
   </div>
 </div>
+
+
+
+<% if current_user %>
+  <script type="text/javascript">
+    analytics.identify(<%= current_user.id %>, <%= raw current_user.traits.to_json%>);
+    analytics.track('SharingLille');
+  </script>
+<% else %>
+  <script type="text/javascript">
+    analytics.track('SharingLille');
+  </script>
+<% end %>
 
