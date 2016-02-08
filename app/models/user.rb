@@ -109,7 +109,7 @@ class User < ActiveRecord::Base
       number_meals_sold: number_meals_sold,
       number_orders: number_orders,
       last_order: last_order,
-      sharing_lille: ouishare
+      sharing_lille: ouishare,
     }
   end
 
