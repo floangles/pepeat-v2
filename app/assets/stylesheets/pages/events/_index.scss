@@ -10,18 +10,38 @@
   margin: 60px 60px;
   margin-bottom: 0px;
   h1 {
+    line-height: 54px;
     color: $pepeat;
     font-size: 34px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
   img {
     width: 165px;
     margin: 10px;
   }
+  span {
+    font-size: 23px;
+  }
 }
 
 .gallery-pepeato {
-  img {
+  position: relative;
+  height: 221px;
+  background-image: image-url('background-pepeato');
+  background-size: cover;
+  background-position: center center;
+  h1 {
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    font-size: 36px;
     width: 100%;
+  }
+  b {
+    margin-right: 20px;
   }
 }
 

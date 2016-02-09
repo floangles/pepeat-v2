@@ -3,32 +3,15 @@
 </div>
 
 <div class= "text-center share-header">
-  <h1>Le 21 avril, devenez Super Pepeato et cuisinez depuis chez vous pour un événement 100% lillois</h1>
+  <h1>Le 21 avril, devenez Super Pepeato et cuisinez pour un événement 100% lillois</h1>
   <%= image_tag 'http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,f_auto,h_1440,q_90,w_720/v1/453596/LOGO-SARING-LILLE-01_rtrt3c.png', class: "share-header-logo" %>
-  <span>by</span>
+  <span><b>by</b></span>
   <%= image_tag 'ouishare_logo', class: "share-header-logo" %>
 </div>
 
-<div class="gallery-pepeato text-center">
-
-    <div class="row">
-
-        <% @pepeatos.each do |pepeato| %>
-          <div class="col-sm-1">
-            <%= image_tag pepeato.picture.url(:medium) %>
-          </div>
-        <% end %>
-
-  </div>
+<div class="gallery-pepeato">
+  <h1 class= "text-center"><b>Avis de recherche : </b> 10 supers Pepeato</h1>
 </div>
-
-<!-- <div class="background-meal-new background-banner">
-  <div class="overlay">
-    <div class="background-meal-new-title text-center">
-      <h3>salut</h3>
-    </div>
-  </div>
-</div> -->
 
 <div class="share-body text-center">
   <div class="container">
