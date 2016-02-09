@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && DateTime.now.hour + 4 > meal.start_hour.hour) || (meal.home && DateTime.now.hour + 4 > meal.home_hour.hour)) %>
+      <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && format(meal.start_hour)) || (meal.home && format(meal.start_hour_home))) %>
         <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
       <% else %>
         <% if current_user == meal.user %>

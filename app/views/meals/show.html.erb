@@ -82,7 +82,7 @@
           </div>
           <div class="card-infos-plus-order">
             <div class="card-infos-plus-order-buton">
-              <% if DateTime.now.day == @meal.day.day && ((@meal.takeaway && DateTime.now.hour + 4 > @meal.start_hour.hour) || (@meal.home && DateTime.now.hour + 4 > @meal.home_hour.hour)) %>
+              <% if DateTime.now.day == @meal.day.day && ((@meal.takeaway && format(@meal.start_hour)) || (@meal.home && format(@meal.start_hour_home))) %>
                 <%= link_to "Trop tard pour commander le menu", '', class: "disabled btn btn-danger buton-order" %>
               <% else %>
                 <% if current_user == @meal.user %>

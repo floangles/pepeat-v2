@@ -1,7 +1,23 @@
+var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if(dd<10) {
+      dd='0'+dd
+  }
+
+  if(mm<10) {
+      mm='0'+mm
+  }
+
+  today = mm+'/'+dd+'/'+yyyy;
+
+
 $(function () {
       $('#datetimepicker3').datetimepicker({
           format: 'L',
-          minDate: '01/15/2016'
+          minDate: moment(today, "MM DD YYYY")
       });
   });
 
