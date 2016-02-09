@@ -247,10 +247,9 @@
 }
 
 @media (max-width: 767px) {
-  .share-header span {font-size: 23px;;}
-  .share-header-logo { width: 127px;}
-  .share-header p {font-size: 22px; margin-top: 20px;}
-  .share-header h2 {font-size: 20px;margin: 17px 20px;}
+  .share-header h1 {line-height: 37px;font-size: 22px;}
+  .gallery-pepeato h1 {font-size: 27px}
+  .gallery-pepeato {height: 144px}
   .share-body img { display: none}
   .share-body-card-header img {display: block; width: 100%;height: 200px;}
   .share-body {padding: 10px;}
