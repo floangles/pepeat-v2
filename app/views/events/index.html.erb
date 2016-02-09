@@ -5,10 +5,10 @@
 <div class= "text-center share-header">
   <span>Le 21 avril, devenez Super Pepeato et cuisinez depuis chez vous pour le</span><%= image_tag 'http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,f_auto,h_1440,q_90,w_720/v1/453596/LOGO-SARING-LILLE-01_rtrt3c.png', class: "share-header-logo" %>
   <span>by</span>
-  <%= image_tag 'http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,f_auto,h_1440,q_90,w_720/v1/453596/LOGO-SARING-LILLE-01_rtrt3c.png', class: "share-header-logo" %>
+  <%= image_tag 'ouishare_logo', class: "share-header-logo" %>
   <div>
     <p>Avis de recherche :</p>
-    <h2>10 Pepeato en quête d'aventure pour un évènement unique !</h2>
+    <h2>10 Pepeato en quête d'aventure pour un événement unique !</h2>
   </div>
 </div>
 
@@ -49,16 +49,16 @@
 
 <div class="explain-container text-center">
   <b><h1>Pourquoi participer ?</h1></b>
-  <div class="explain">
+  <div class="explain foo">
     <div class="row">
       <div class="col-xs-12">
         <div class="explain-card">
           <div class="row">
             <div class="col-xs-12 col-sm-8">
               <div class="explain-card-left">
-                <b><h2>Au sein d'Euratechnologies</h2></b>
-                <h3>Un emplacement de choix au coeur de la FrenchTech</h3>
-                <p>Le déjeuner aura lieu dans le magnifique hall d'Euratechnologies, un bijoux d'architecture qui ne vous laissera pas insensible.</p>
+                <b><h2>En deux mots</h2></b>
+                <h3>Pepeat et la Ruche Qui Dit Oui deviennent partenaires</h3>
+                <p>Ouishare organise le festival SharingLille à Euratechnologies et fait appel au duo Pepeat - La Ruche Qui Dit Oui pour régaler les participants.</p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4">
@@ -71,16 +71,16 @@
       </div>
     </div>
   </div>
-  <div class="explain">
+  <div class="explain foo">
     <div class="row">
       <div class="col-xs-12">
         <div class="explain-card">
           <div class="row">
             <div class="col-xs-12 col-sm-8">
               <div class="explain-card-left">
-                <b><h2>200 personnes pour déjeuner</h2></b>
+                <b><h2>Les Pepeato dans tout ça?</h2></b>
                 <h3>Chaque Pepeato cuisine pour 20 personnes</h3>
-                <p>10 tables seront dressées et chaque Pepeato aura la responsablité d'une d'elles. C'est le moment de se faire connaître ! </p>
+                <p>Les Super Pepeato sont les chefs de la journée. Chaque Pepeato cuisinera, depuis chez lui, une marmite pour 20 participants. Il n'aura plus qu'à présenter sa réalisation le jour de l'événement pendant que les bénévoles se chargeront du service.</p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4">
@@ -93,16 +93,16 @@
       </div>
     </div>
   </div>
-  <div class="explain">
+  <div class="explain foo">
     <div class="row">
       <div class="col-xs-12">
         <div class="explain-card">
           <div class="row">
             <div class="col-xs-12 col-sm-8">
               <div class="explain-card-left">
-                <b><h2>Vous êtes le maître</h2></b>
-                <h3>Vous choisissez entièrement ce que vous cuisinez.</h3>
-                <p>Vous avez carte blanche pour préparer une de vos spécialités pour 20 personnes. Soyez créatif !</p>
+                <b><h2>La Ruche Qui Dit Oui</h2></b>
+                <h3>Des produits locaux de qualités</h3>
+                <p>LRQDO est le réseau de producteurs responsables regroupés en rûches. Vous commandez et achetez les meilleurs produits de votre région auprès d'une ruche près de chez vous.</p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4">
@@ -115,7 +115,7 @@
       </div>
     </div>
   </div>
-  <div class="explain">
+  <div class="explain foo">
     <div class="row">
       <div class="col-xs-12">
         <div class="explain-card">
@@ -134,6 +134,29 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="efonction text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <%= image_tag 'course' %>
+        <h1>Ou faire vos courses ?</h1>
+        <p> Faites vos courses avec La Ruche Qui Dit Oui. Cuisinez une marmite pour 20 convives, à base de produits locaux. </p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= image_tag 'cuisine' %>
+        <h1>Quand cuisiner ? </h1>
+        <p> Vous cuisinez de chez vous la veille de l'événement. La préparation est libre, à vous d'être créatif !  </p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= image_tag 'event' %>
+        <h1>Et le jour J ? </h1>
+        <p> Le 21 avril vous arrivez à 9h30 à Euratechnologies avec votre préparation que vous présenterez à vos convives à 12h30. </p>
       </div>
     </div>
   </div>
@@ -164,7 +187,7 @@
     <div class="row">
       <div class="share-form-card">
 
-        <%= link_to "Je souhaite participer", update_user_events_path, class: "btn btn-lg btn-pepeat2"%>
+        <%= link_to "Je suis intéressé", update_user_events_path, class: "btn btn-lg btn-pepeat2"%>
       </div>
       <p>Nous reviendrons très vite vers vous pour l'organisation !</p>
     </div>
