@@ -89,13 +89,17 @@
                 <%= image_tag 'take.png', class: "img-take hover", title: "A emporter chez soi" %>
               </div>
               <div class="meals-body-takeaway-hour">
-                <i><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></i>
+                <p><i><%= meal.start_hour.strftime('%Hh:%M')%> <%= meal.end_hour.strftime('à %Hh:%M') %></i></p>
               </div>
             <% end %>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class= "meals-body-takeaway-portion hover">
-              <span class= "size-txt-portion"><%= available_portions(meal)%></span> <span class= "size-portion"><i>parts disponibles</i></span>
+              <% if meal.home?%>
+                <span class= "size-txt-portion"><%= available_portions(meal)%></span> <span class= "size-portion"><i>places disponibles</i></span>
+              <% else %>
+                <span class= "size-txt-portion"><%= available_portions(meal)%></span> <span class= "size-portion"><p>parts disponibles</p></span>
+              <% end %>
             </div>
           </div>
         </div>
