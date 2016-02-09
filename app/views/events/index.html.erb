@@ -12,13 +12,13 @@
 <div class="gallery-pepeato text-center">
 
     <div class="row">
-      <% 10.times do %>
+
         <% @pepeatos.each do |pepeato| %>
           <div class="col-sm-1">
             <%= image_tag pepeato.picture.url(:medium) %>
           </div>
         <% end %>
-      <%end %>
+
   </div>
 </div>
 
