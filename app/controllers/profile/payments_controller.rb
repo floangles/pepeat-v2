@@ -38,10 +38,6 @@ module Profile
       current_user.update(customer_id: customer.id)
     end
 
-    PaymentMailer.confirmation(@order.id).deliver_later
-    PaymentMailer.new_order(@order.id).deliver_later
-    PaymentMailer.delay_until(@order.meal.day).remember(@order.id)
-
     # You should store this customer id and re-use it.
     @commission = @order.amount_cents * @order.portion.to_i * @client + @order.amount_cents * @order.portion.to_i * @chief
     charge = Stripe::Charge.create({
@@ -58,6 +54,9 @@ module Profile
     @order.meal.user.update(number_meals_sold: @order.meal.user.number_meals_sold.to_i + @order.portion.to_i, ca: @order.meal.user.ca.to_i + @order.portion.to_i * (@order.amount_cents.to_i / 100 ))
 
     StripeJob.delay_until(@order.meal.day + 23.hour).perform_later(@order.id)
+    PaymentMailer.confirmation(@order.id).deliver_later
+    PaymentMailer.new_order(@order.id).deliver_later
+    PaymentMailer.delay_until(@order.meal.day).remember(@order.id)
 
     redirect_to profile_orders_path
 
