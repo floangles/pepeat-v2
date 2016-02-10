@@ -23,6 +23,6 @@ class EventsController < ApplicationController
   def update_user
     @user = current_user
     @user.update(ouishare: true)
-    redirect_to events_path, notice: "Féliciation, vous êtes officielement inscrit à l'événement SharingLille, Nous vous contacterons sous peu !"
+    redirect_to events_path, notice: "Féliciation, vous êtes officiellement inscrit à l'événement SharingLille, Nous vous contacterons sous peu !"
   end
 end
