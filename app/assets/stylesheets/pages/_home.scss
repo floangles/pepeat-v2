@@ -451,6 +451,15 @@ position: relative;
   }
 }
 
+.presse {
+  background-color: white;
+  padding: 60px 20px;
+  img {
+    max-height: 100px;
+    margin: 10px;
+  }
+}
+
 
 .event {
   position: relative;
@@ -502,6 +511,8 @@ position: relative;
   .meals-home-body-price { font-size: 25px;}
   .meals-home-body {height: 24px;}
   .signup-home {display: block;}
+  .presse {padding: 22px 10px;}
+  .presse img {max-height: 27px;margin-bottom: 30px;}
 }
 @media (min-width: 768px) and (max-width: 1025px) {
   .size-pepeat {width: 400px !important;}
