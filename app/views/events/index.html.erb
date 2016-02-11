@@ -197,14 +197,14 @@
   </div>
 </div>
 
-<div class="participant">
+<div class="participant text-center">
   <div class="container">
     <div class="row">
       <% if User.where(ouishare: true).count == 0 %>
       <% else %>
         <h1 class= "text-center"><%= User.where(ouishare: true).count %> Participants</h1>
         <% User.where(ouishare: true).each do |user| %>
-          <div class="col-xs-6 col-xs-offset-3">
+          <div class="col-xs-12 col-sm-6">
             <div class="participant-element">
             <%= link_to publics_path(user) do %>
               <%= image_tag user.picture.url(:medium), class: "img-circle hvr-fadeIn hvr-grow" %>
