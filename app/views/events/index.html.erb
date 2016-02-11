@@ -202,7 +202,7 @@
     <div class="row">
       <% if User.where(ouishare: true).count == 0 %>
       <% else %>
-        <h1 class= "text-center">Participants</h1>
+        <h1 class= "text-center"><%= User.where(ouishare: true).count %> Participants</h1>
         <% User.where(ouishare: true).each do |user| %>
           <div class="col-xs-6 col-xs-offset-3">
             <div class="participant-element">
