@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <% @pepeatos.each do |pepeato| %>
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-4 col-sm-2">
           <div class="text-center name-pepeato">
             <%= link_to publics_path(pepeato) do %>
               <%= image_tag pepeato.picture.url(:medium), class: "img-circle img-pepeato hvr-fadeIn hvr-grow img-pepeato" %>
