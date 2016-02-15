@@ -315,18 +315,23 @@
       // transform: translateX(-50%) translateY(-50%);
     }
     &-name {
+      font-size: 13px;
       // position: absolute;
       // top: 35%;
       // left: 12%;
       // transform: translateX(-50%) translateY(-50%);
     }
     &-date {
+      font-size: 10px;
+      margin-left: 5px;
       // position: absolute;
       // bottom: 3%;
       // left: 12%;
       // transform: translateX(-50%) translateY(-50%);
     }
     &-review {
+    font-size: 13px;
+    margin-top: 40px;
     padding: 0px 20px;
     }
   }

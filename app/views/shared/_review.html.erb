@@ -2,6 +2,8 @@
 <% else %>
   <% meal.orders.each do |order| %>
     <% if !order.review.nil? %>
+    <div class="row">
+      <div class="col-xs-3">
       <div class="card-feedback-element">
         <span class= "card-feedback-element-img">
           <%= image_tag order.user.picture.url(:thumb), class: "picuser img-circle"%>
@@ -12,8 +14,12 @@
         <span class= "card-feedback-element-date">
           <i><%= order.meal.day.strftime('%d/%m/%Y') %></i>
         </span>
+        </div>
+        </div>
+        <div class="col-xs-9">
         <div class= "card-feedback-element-review text-center">
           <p><i class="fa fa-angle-double-left"></i> <%= order.review %> <i class="fa fa-angle-double-right"></i></p>
+        </div>
         </div>
       </div>
     <% end %>
