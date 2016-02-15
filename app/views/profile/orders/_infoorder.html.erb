@@ -27,9 +27,9 @@
             <div class="infos-body-hour">
               <% if order.meal.home? %>
                 <p> Jour et heure du rendez vous</p>
-                <i class="fa fa-calendar awesome"></i><%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.home_hour.strftime('à %Hh') %>
+                <i class="fa fa-calendar awesome"></i><%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.home_hour.strftime('à %Hh:%M') %>
               <% else %>
-                <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh') %> <%= order.meal.end_hour.strftime('à %Hh')%>
+                <i class="fa fa-calendar awesome"></i> <%= order.meal.day.strftime('%d/%m/%Y') %> <%= order.meal.start_hour.strftime('De %Hh:%M') %> <%= order.meal.end_hour.strftime('à %Hh:%M')%>
               <% end %>
             </div>
             <div class="infos-body-portion">
