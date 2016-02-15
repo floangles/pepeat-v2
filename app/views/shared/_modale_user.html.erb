@@ -1,24 +1,16 @@
 <a data-toggle="modal" data-target="#booked_user-<%=order.id%>">
   <% if order.payment_validation == true %>
-    <span class= "relative">
+    <span class= "img-modale-cuisine">
       <%= image_tag order.user.picture.url(:medium),role:"button", class: "img-circle picture-offer-validate"%>
       <i class="fa fa-check-circle check-position"></i>
     </span>
   <% else %>
+    <span class="img-modale-cuisine">
       <%= image_tag order.user.picture.url(:medium),role:"button", class: "img-circle picture-offer-invalidate"%>
-    <% if order.meal.takeaway %>
-      <% if Time.now == order.meal.day %>
-        <%= link_to 'Valider', validation_profile_meals_path(order), class: "btn btn-pepeat button-validation" %>
-      <% end %>
-    <% end %>
-    <% if order.meal.home %>
-      <% if Time.now == order.meal.day %>
-        <%= link_to 'Valider', validation_profile_meals_path(order), class: "btn btn-pepeat button-validation" %>
-      <% end %>
-    <% end %>
+      <span class="badge"><%= order.portion%></span>
+    </span>
   <% end %>
 </a>
-
 
 <div class="modal fade" id="booked_user-<%=order.id%>">
   <div class="modal-dialog">

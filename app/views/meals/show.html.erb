@@ -45,7 +45,10 @@
     <h1 class= "text-center profile-header">Les commandes</h1>
     <h3 class= "text-center"><%= total_orders(@meal) %> menu(s) commandé(s) </h3>
     <% @meal.orders.where(state: "paid").each do |order| %>
-      <%= image_tag order.user.picture.url(:medium), class: "img-circle picuser" %>
+      <span class="card-order-image">
+        <%= image_tag order.user.picture.url(:medium), class: "img-circle picuser" %>
+        <span class="badge"><%= order.portion%></span>
+     </span>
     <% end %>
   </div>
 </div>

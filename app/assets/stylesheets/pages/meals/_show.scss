@@ -175,6 +175,15 @@
     font-family: $subtitle;
     color: $pepeat
   }
+  .card-order-image {
+    position: relative;
+    span {
+      position: absolute;
+      bottom: -26px;
+      left: 37px;
+      background-color: white;
+    }
+  }
 }
 
 .card-show-chief {
