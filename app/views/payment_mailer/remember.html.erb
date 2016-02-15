@@ -120,7 +120,7 @@
 
   <body>
     <div class= "mail-payment-header">
-      <%= image_tag 'pepeat-title.png', class: "mail-img" %>
+      <%= image_tag 'pepeat-title', class: "mail-img" %>
       <h1><%= @order.user.firstname.capitalize %>, N'oublie pas ta commande !</h1>
       <p>Clique sur le bouton ci-dessous pour valider la réception et payer ton Pepeato. Bon appétit ;)</p>
       <button class= 'myButton'><%= link_to 'Je valide la réception',validation_profile_orders_url(@order) %></button>

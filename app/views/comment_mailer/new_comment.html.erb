@@ -1,0 +1,105 @@
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Quelqu'un vous a posé une question pour votre menu</title>
+
+    <style type= "text/css">
+
+      .mail-payment-header{
+        text-align: center;
+      }
+
+      body {text-align:center;}
+
+      .mail-img {
+        width: 200px;
+      }
+
+      table {
+        border: solid 1px rgba(0, 0, 0, 0.41);
+        border-radius: 5px;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.15);
+        margin: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      td {
+         padding: 5px;
+        padding-left: 20px;
+        vertical-align: middle;
+      }
+
+      tr {
+        vertical-align: middle;
+      }
+
+      .img-mail-chief {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        margin-right: 10px;
+      }
+
+      .myButton {
+        background-color: #F5BB00;
+        -moz-border-radius: 28px;
+        -webkit-border-radius: 28px;
+        border-radius: 28px;
+        border: 1px solid #CC9E06;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 17px;
+        padding: 16px 31px;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.3);
+      }
+      .myButton:hover {
+        background-color:#5cbf2a;
+      }
+      .myButton:active {
+        position:relative;
+        top:1px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      button {
+        margin-top: 30px;
+      }
+
+
+    </style>
+
+  </head>
+
+  <body>
+   <%= image_tag 'pepeat-title', class: "mail-img" %>
+   <table>
+    <tr>
+      <td>
+         <p>Hello <%= @comment.meal.user.firstname %></p>
+         <p> <%= @comment.user.firstname %> vous a posé une question concernant votre menu <%= @comment.meal.title %>.</p>
+
+         <p>"<%= @comment.commenter%>"</p>
+
+        <p>Répondez lui pour augmenter vos chances d'avoir des commandes.</p>
+
+      <div>
+        <button class= 'myButton'><%= link_to "Répondre à #{@comment.user.firstname}", meal_url(@comment.meal)%></button>
+      </div>
+   </td>
+   </tr>
+   </table>
+  </body>
+</html>

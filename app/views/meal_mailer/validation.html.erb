@@ -37,13 +37,17 @@
         text-shadow: 1px 1px 1px rgba(31, 31, 31, 0.3);
       }
 
+      .mail-img {
+        width: 200px;
+      }
+
 
     </style>
 
   </head>
 
   <body>
-
+  <%= image_tag 'pepeat-title', class: "mail-img" %>
   <table>
     <h3>Félicitations <%= @meal.user.firstname %>, ton menu <%= @meal.title %> est en ligne.</h3>
 
