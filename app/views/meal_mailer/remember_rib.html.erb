@@ -47,13 +47,14 @@
   </head>
 
   <body>
-  <%= image_tag 'pepeat-title', class: "mail-img" %>
+    <%= image_tag 'pepeat-title', class: "mail-img" %>
   <table>
 
     <h3>Hello <%= @meal.user.firstname %></h3>
-    <p>J'ai vu que tu as créé un menu très récement, si tu veux pouvoir recevoir ton argent directement sur ton compte n'oublie pas de <b>renseigner ton RIB</b></p>
+    <p>J'ai vu que tu as créé un menu très récement mais que tu n'as pas renseigné tes informations bancaires.</p>
+    <p>Pour recevoir tes revenus directement sur ton compte il suffit de te rendre sur ton profil et rentrer ton IBAN. Cela ne te prendra que 2 minutes et c'est entièrement sécurisé.</p>
     <p>Très bonne journée à toi :) !</p>
-    <button class= 'myButton'> <%= link_to 'Je renseigne mon RIB', bank_account_profile_url %> </button>
+    <button class= 'myButton'> <%= link_to 'Je renseigne mon IBAN', bank_account_profile_url %> </button>
 
   </table>
 
