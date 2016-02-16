@@ -11,7 +11,9 @@
         <span class= "comment-card-date"><i> <%= l(comment.created_at, format:'%d/%m/%Y')%></i></span>
       </div>
       <div class="col-xs-9">
-        <span class= "comment-card-comm vcenter">" <%= comment.commenter%> "</span>
+        <div class= "comment-card-comm vcenter">
+          <p><%= comment.commenter%></p>
+        </div>
       </div>
     </div>
   </div>
