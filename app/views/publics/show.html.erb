@@ -6,9 +6,11 @@
     </div>
   </div>
 </div>
-<% @user.meals.each do |meal| %>
-  <%= render '/shared/review', meal: meal %>
-<% end %>
+<div class="container">
+  <% @user.meals.each do |meal| %>
+    <%= render '/shared/review', meal: meal %>
+  <% end %>
+</div>
 
 
 
