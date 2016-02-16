@@ -22,5 +22,12 @@ class MealMailer < ApplicationMailer
       mail(to: order.user.email, subject: "#{order.user.firstname}, votre repas Pepeat du #{l(order.meal.day, format: '%A %d')} est annulé ")
     end
   end
+
+
+  def remember_rib(meal_id)
+    @meal = Meal.find(meal_id)
+    mail(to: @meal.user.email, subject: "#{@meal.user.firstname}, tu n'as pas renseigné ton RIB")
+  end
+
 end
 

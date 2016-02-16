@@ -42,5 +42,10 @@ class PaymentMailer < ApplicationMailer
     mail(to: @order.user.email, subject: "#{@order.user.firstname}, ta commande est bien annulée")
   end
 
+  def review(order_id)
+    @order = Order.find(order_id)
+    mail(to: @order.user.email, subject: "#{@order.user.firstname}, ton repas Pepeat d'hier s'est bien passé ? Donne ton avis sur le Pepeato #{@order.meal.user.firstname}.")
+  end
+
 
 end

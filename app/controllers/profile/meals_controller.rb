@@ -67,7 +67,12 @@ module Profile
       authorize @meal
       if @meal.save
         MealMailer.creation(@meal.id).deliver_now
-        MealMailer.delay_for(4.minutes).validation(@meal.id)
+        MealMailer.delay_for(5.minutes).validation(@meal.id)
+
+        if !@meal.user.bank_account_id
+          MealMailer.delay_for(10.minutes).remember_rib(@meal.id)
+        end
+
         current_user.update(last_meal: DateTime.now)
 
         if params[:pictures]

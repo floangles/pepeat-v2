@@ -32,4 +32,9 @@ class PaymentMailerPreview < ActionMailer::Preview
     order = Order.first
     PaymentMailer.cancel_before_user(order.id)
   end
+
+  def review
+    order = Order.first
+    PaymentMailer.review(order.id)
+  end
 end

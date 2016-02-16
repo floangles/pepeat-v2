@@ -8,4 +8,9 @@ class MealMailerPreview < ActionMailer::Preview
     meal = Meal.first
     MealMailer.validation(meal.id)
   end
+
+  def remember_rib
+    meal = Meal.first
+    MealMailer.remember_rib(meal.id)
+  end
 end

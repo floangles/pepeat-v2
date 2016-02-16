@@ -54,6 +54,7 @@ module Profile
     @order.meal.user.update(number_meals_sold: @order.meal.user.number_meals_sold.to_i + @order.portion.to_i, ca: @order.meal.user.ca.to_i + @order.portion.to_i * (@order.amount_cents.to_i / 100 ))
 
     StripeJob.delay_until(@order.meal.day + 23.hour).perform_later(@order.id)
+    PaymentMailer.delay_until(@order.meal.day + 41.hour).review(@order.id)
     PaymentMailer.confirmation(@order.id).deliver_later
     PaymentMailer.new_order(@order.id).deliver_later
     PaymentMailer.delay_until(@order.meal.day).remember(@order.id)

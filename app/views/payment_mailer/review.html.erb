@@ -49,20 +49,11 @@
   <body>
   <%= image_tag 'pepeat-title', class: "mail-img" %>
   <table>
-    <h3>Félicitations <%= @meal.user.firstname %> pour la création de ton menu.</h3>
 
-    <p>
-      Les utilisateurs pourront passer leur commande dès que l'équipe <b>Pepeat aura validé ton menu.</b>. Cela prend généralement 30 minutes.
-    </p>
-    <p>
-      Reste informé et suis tes commandes en direct sur ton espace annonce :).
-    </p>
-      <br>
-        <button class= 'myButton'> <%= link_to 'Mon annonce', profile_meals_url %> </button>
-      <br>
-      <p><b>Si à emporter : </b>Tes clients viendront chez toi récupérer leur menu.</p>
-
-      <p><b>Si sur place:</b> Tes clients viendront chez toi pour partager le repas.</p>
+    <h3>Hello <%=@order.user.firstname%></h3>
+    <p>Comment s'est passé ton repas d'hier ? N'hésite pas à donner ton avis sur la cuisine de <%= @order.meal.user.firstname %>, c'est très important pour nous ;).</p>
+    <p>Très bonne journée à toi :) !</p>
+    <button class= 'myButton'> <%= link_to 'Je donne mon avis', history_profile_orders_url %> </button>
 
   </table>
 
