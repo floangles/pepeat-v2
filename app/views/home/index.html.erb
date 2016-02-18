@@ -161,12 +161,12 @@
   <h1 class= "text-center home-title">Pourquoi Pepeat ?</h1>
   <div class="container">
     <div class="row disposition-row">
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-12 col-md-6 foo">
         <div class="us-img text-center">
           <%= image_tag 'economique.jpg', class: "us-img-size" %>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-12 col-md-6 foo">
         <div class="us-txt">
           <h1> Des menus de qualité</h1>
           <p>Pepeat, c'est une alternative innovante pour se procurer des plats de qualité frais et variés. </p>
@@ -187,7 +187,7 @@
         </div>
       </div>
     </div>
-    <div class="row disposition-row">
+    <div class="row disposition-row foo">
       <div class= "hidden-sm">
         <div class="col-xs-12 col-sm-12 col-md-6">
           <div class="us-txt">
@@ -206,13 +206,13 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-12 col-md-6 foo">
         <div class="us-img">
           <%= image_tag 'confiance.jpg', class: "us-img-size" %>
         </div>
       </div>
       <div class= "hidden-xs">
-        <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 foo">
           <div class="us-txt">
             <h1 class= "text-center">Des cuisiniers de confiance</h1>
             <p class= "decalage">Des passionnés de votre quartier sélectionnés par Pepeat vous proposent des plats à déguster sur place ou à emporter.</p>
@@ -223,7 +223,7 @@
                 </span>
                 <span>Pepeato validé</span>
               </div>
-              <div class="col-xs-12 col-sm-12 col-md-6">
+              <div class="col-xs-12 col-sm-12 col-md-6 foo">
                  <span class="us-txt-element hvr-fade hvr-grow">
                   <i class="fa fa-heart fa-1x us-txt-element-fafa"></i>
                 </span>
@@ -235,23 +235,23 @@
       </div>
     </div>
     <div class="row disposition-row">
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-12 col-md-6 foo">
         <div class="us-img text-center">
           <%= image_tag 'qualite.jpg', class: "us-img-size" %>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-12 col-md-6 foo">
         <div class="us-txt">
           <h1>Des économies</h1>
           <p>30 à 40% moins cher qu'en restaurant, Pepeat vous offre un service économique. N'hésitez plus à bien manger.</p>
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 foo">
               <span class="us-txt-element hvr-fade hvr-grow">
                 <i class="fa fa-money fa-1x us-txt-element-fafa"></i>
               </span>
               <span>Faîtes des économies</span>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 foo">
                <span class="us-txt-element hvr-fade hvr-grow">
                 <i class="fa fa-calendar-o fa-1x us-txt-element-fafa"></i>
               </span>
@@ -277,6 +277,27 @@
   </div>
 </div>
 
+
+<div class="witness text-center">
+  <h1 class= "home-title">Ils ont testé Pepeat</h1>
+  <div class="flex-container">
+    <div class="witness-item up">
+      <%= image_tag 'utilisateur1', class: "img-circle" %>
+      <h1>Victoria</h1>
+      <p>" Par chance, mon voisin est un Pepeato. J'ai pu profiter d'une cuisine avec des ingrédients de saisons et de qualités pour moins de 10€. "</p>
+    </div>
+    <div class="witness-item up">
+      <%= image_tag 'utilisateur2', class: "img-circle" %>
+      <h1>Manon</h1>
+      <p>" J'ai mangé chez Pepeat pour retrouver la saveur d'un plat fait maison. Je n'ai pas été déçue, le rapport qualité/prix est imbattable ! "</p>
+    </div>
+    <div class="witness-item up">
+      <%= image_tag 'utilisateur3', class: "img-circle" %>
+      <h1>Jordan</h1>
+      <p>" Excellent premier menu chez Pepeat. Les deux Pepeato qui m'ont reçues étaient parfaites dans leur rôle ! Un concept qui rapproche le voisinage et permet de faire de belles rencontres. "</p>
+    </div>
+  </div>
+</div>
 
 <div id="bg-meals">
   <h1 class= "home-title text-center">Les menus disponibles</h1>
