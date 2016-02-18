@@ -70,6 +70,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
+
   # after_create :welcome_message
 
   attr_accessor :stripe_account
@@ -127,10 +128,31 @@ class User < ActiveRecord::Base
   validates :birth, presence: true, on: :update, if: :not_recovering_password
   validates :picture, presence: true, on: :update, if: :not_recovering_password
 
+  # MAILBOXER
+
+  acts_as_messageable
 
   def not_recovering_password
     password_confirmation.nil?
   end
+
+  #Returning any kind of identification you want for the model
+  def name
+    return "You should add method :name in your Messageable model"
+  end
+
+  #Returning the email address of the model if an email should be sent for this object (Message or Notification).
+  #If no mail has to be sent, return nil.
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    return "define_email@on_your.model"
+    #if false
+    #return nil
+  end
+
+
+  # MAILBOXER
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>", large: "550x550>", crop:"300x300#" },
