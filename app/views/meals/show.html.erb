@@ -7,10 +7,16 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-7">
-   <%= render "/shared/cardmealsshow", meal: @meal %>
-    </div>
     <div class="col-xs-12 col-sm-5">
+      <%= render "/shared/cardmeals", meal: @meal %>
+    </div>
+    <div class="col-sm-3">
+      <div class="meal-description text-center">
+        <h2>Description du menu.</h2>
+        <p><%= @meal.description.html_safe%> </p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
       <div class="card-show-chief">
         <div class="carousel">
           <% @meal.user.chief_pictures.each do |picture| %>
