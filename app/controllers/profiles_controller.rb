@@ -74,6 +74,31 @@ class ProfilesController < ApplicationController
         )
         @user.update(stripe_id: stripe.id, stripe: 'true')
         flash[:notice] = 'Félicitation, vous êtes désormais chef Pepeat !'
+
+      elsif @user.stripe == 'true' || @user.stripe == true
+
+        # Retrieve the stripe account
+
+        account = Stripe::Account.retrieve(current_user.stripe_id)
+
+        # update the stripe account informations for address
+
+        if params[:locality] != ""
+
+          account.legal_entity.address.city = params[:locality]
+          account.legal_entity.address.line1 = params[:street_number] + ' ' + params[:route]
+          account.legal_entity.address.postal_code = params[:postal_code]
+          account.legal_entity.address.state = params[:administrative_area_level_1]
+
+          account.legal_entity.personal_address.city = params[:locality]
+          account.legal_entity.personal_address.line1 = params[:street_number] + ' ' + params[:route]
+          account.legal_entity.personal_address.postal_code = params[:postal_code]
+          account.legal_entity.personal_address.state = params[:administrative_area_level_1]
+          account.save
+
+
+        end
+         flash[:notice] = 'Ton profil a bien été mis à jour'
       end
 
       redirect_to profile_path
