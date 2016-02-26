@@ -23,12 +23,11 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   h3 {
-  font-size: 95px;
+  font-size: 75px;
   color: #E7B336;
-  text-shadow: 1px 1px grey;
   }
   h1 {
-  font-size: 30px;
+  font-size: 26px;
   }
 }
 
@@ -51,26 +50,34 @@
   background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
   background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
   background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
-  h1 {
-    margin-top: 0;
-    padding-top: 61px;
+  h4 {
+    margin-top: 0px;
+    padding-top: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid #D4CDCD;
+  }
+  img {
+    width: 100%;
+    padding-bottom: 30px;
   }
 
 }
 
 .description-chief {
-  padding-right: 100px;
+  padding: 10px 30px;
   h1 {
-    font-size: 26px;
+    font-size: 22px;
     padding-bottom: 15px;
     font-family: $subtitle;
   }
   p {
     text-align: -webkit-left;
-    font-size: 17px;
+    line-height: 24px;
+    font-size: 15px;
     padding-bottom: 20px;
+  }
+  b {
+    font-weight: 400;
   }
 }
 

@@ -4,7 +4,7 @@
       <h3>Pepeato</h3>
       <h1>Partagez votre passion de la cuisine et vendez vos menus avec Pepeat</h1>
        <div class= "text-center button-chief">
-        <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat2", id: "Pepeato action create" %>
+        <%= link_to "Je deviens Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat2", id: "Pepeato action create" %>
       </div>
       </div>
     </div>
@@ -13,14 +13,15 @@
 
 
 <div id= "infos" class="infos-chief">
-  <h1 class= "text-center home-title">Qu'est ce qu'un Pepeato ?</h1>
+  <h4 class= "text-center home-title">Qu'est ce qu'un Pepeato ?</h4>
   <div class="container">
     <div class="row organisation-row">
       <div class="col-xs-12 col-sm-4">
-        <div class= "position-sticker">
+        <%= image_tag 'chef-maison' %>
+        <!-- <div class= "position-sticker">
           <div class="sticker statut" data-sr='enter left over 1.3s scale up 20% reset'>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-xs-12 col-sm-8">
         <div class= "description-chief text-center">
@@ -33,10 +34,11 @@
     </div>
     <div class="row organisation-row">
       <div class="col-xs-12 col-sm-4">
-        <div class= "position-sticker">
+        <%= image_tag 'chef-domicile' %>
+        <!-- <div class= "position-sticker">
           <div class="sticker passion" data-sr='enter left over 1.3s scale up 20% reset'>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-xs-12 col-sm-8">
         <div class= "description-chief text-center">
@@ -47,10 +49,11 @@
     </div>
     <div class="row organisation-row">
       <div class="col-xs-12 col-sm-4">
-        <div class= "position-sticker">
+        <%= image_tag 'chef-cuisine' %>
+       <!--  <div class= "position-sticker">
           <div class="sticker hygiene" data-sr='enter left over 1.3s scale up 20% reset'>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-xs-12 col-sm-8">
         <div class= "description-chief text-center">
@@ -67,14 +70,14 @@
     <h1 class= "text-center home-title">Comment ça fonctionne ?</h1>
     <h3 class= "text-center">Le Pepeato choisit de distribuer les menus en main propre à ses clients ou de recevoir ses convives à sa table.</h3>
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <div class="card-chief-infos">
           <h1 class= "text-center">A emporter</h1>
           <div class= "text-center">
             <%= image_tag 'emporter.png', class: "size-chief-picture" %>
           </div>
           <p>- Vous cuisinez ce que vous voulez, quand vous le souhaitez.</p>
-          <p>- Vous choisissez le nombre de parts que vous cuisinez par menu. De 1 à 60 parts par menu.</p>
+          <p>- Vous choisissez le nombre de parts que vous cuisinez par menu. De 1 à 12 col-sm-60 parts par menu.</p>
           <p>- Vous fixez librement le prix de vos menus. Pepeat vous conseille de respecter les fourchettes de prix définies.</p>
           <p>- Vous suivez vos commandes en temps réel dans votre espace réservé sur pepeat.org</p>
         </div>
@@ -134,7 +137,7 @@
       <h1 class= "home-title">Convaincu ?</h1>
       <h3>N'attendez plus et créez votre profil en 2 minutes.</h3>
       <div class= "text-center button-chief">
-        <%= link_to "Je crée un profil de Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
+        <%= link_to "Je deviens Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
       </div>
     </div>
   </div>
