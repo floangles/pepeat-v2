@@ -99,7 +99,7 @@
             <div class="card-infos-plus-order-buton">
               <% if DateTime.now.day == @meal.day.day && ((@meal.takeaway && format(@meal.start_hour)) || (@meal.home && format(@meal.home_hour))) || available_portions(@meal) == 0 %>
                 <%= link_to "Menu indisponible", '', class: "disabled btn btn-danger buton-order" %>
-              <% elsif DateTime.now > @meal.day %>
+              <% elsif DateTime.now.to_date > @meal.day %>
                 <%= link_to "Menu indisponible", '', class: "disabled btn btn-danger buton-order" %>
               <% else %>
                 <% if current_user == @meal.user %>

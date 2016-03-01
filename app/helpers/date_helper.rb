@@ -9,7 +9,7 @@ module DateHelper
 
     res = dateMeal - dateNow
 
-    if res > 300
+    if res > 180
       false
     else
       true

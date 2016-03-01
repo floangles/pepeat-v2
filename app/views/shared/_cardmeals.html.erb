@@ -105,8 +105,9 @@
         </div>
       </div>
       <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && format(meal.start_hour)) || (meal.home && format(meal.home_hour))) || available_portions(meal) == 0 %>
-         <%= render "/shared/modale", meal: meal %>
-
+        <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
+      <% elsif DateTime.now.to_date> meal.day %>
+        <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
       <% else %>
         <% if current_user == meal.user %>
           <% if meal.orders.count == 0 %>
