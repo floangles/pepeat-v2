@@ -15,6 +15,7 @@ $(document).ready( function() {
 $(document).ready( function() {
   $('#placeholder-meal').click(function(){
     $("#mealpictureInput").click();
+    $('.validation').addClass( "hidden-form" );
   });
 });
 
