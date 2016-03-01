@@ -75,6 +75,9 @@ class User < ActiveRecord::Base
   attr_accessor :stripe_account
   attr_accessor :bank_account
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 
   def self.find_for_facebook_oauth(auth)
 
@@ -139,9 +142,6 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
-
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
 
   private
 

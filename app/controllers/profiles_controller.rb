@@ -50,8 +50,8 @@ class ProfilesController < ApplicationController
             email: @user.email,
             legal_entity: {
               type: "individual",
-              first_name: @user.firstname,
-              last_name: @user.lastname,
+              first_name: @user.firstname.upcase,
+              last_name: @user.lastname.upcase,
               address: {
                 city: params[:locality],
                 line1: params[:street_number] + ' ' + params[:route],
