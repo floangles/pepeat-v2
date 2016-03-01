@@ -51,7 +51,7 @@
   <table>
 
     <h3>Hello <%=@order.user.firstname%></h3>
-    <p>Comment s'est passé ton repas d'hier ? N'hésite pas à donner ton avis sur la cuisine de <%= @order.meal.user.firstname %>, c'est très important pour nous ;).</p>
+    <p>Comment s'est passé ton repas d'hier ? N'hésite pas à donner ton avis sur la cuisine de <%= @order.meal.user.firstname %>.</p>
     <p>Très bonne journée à toi :) !</p>
     <button class= 'myButton'> <%= link_to 'Je donne mon avis', history_profile_orders_url %> </button>
 

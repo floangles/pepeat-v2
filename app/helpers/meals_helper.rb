@@ -67,7 +67,7 @@ module MealsHelper
       end
     end
 
-    array.sum
+    array.sum.round
   end
 
   def total_meal_sold(meals)
