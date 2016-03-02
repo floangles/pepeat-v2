@@ -63,7 +63,7 @@ module Profile
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_order_payment_path(@order)
+      redirect_to new_profile_order_payment_path(@order)
     end
 
   private
