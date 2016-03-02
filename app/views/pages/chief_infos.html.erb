@@ -12,8 +12,8 @@
 </div>
 
 
-<div id= "infos" class="infos-chief">
-  <h4 class= "text-center home-title">Qu'est ce qu'un Pepeato ?</h4>
+<div id= "infos" class="infos-chief text-center">
+  <h2 class= "text-center">Qu'est ce qu'un Pepeato ?</h2>
   <div class="container">
     <div class="row organisation-row">
       <div class="col-xs-12 col-sm-4">
@@ -65,82 +65,124 @@
   </div>
 </div>
 
-<div class="choice">
+<div class="pepeato-fonct text-center">
+  <h2>Tout est simple avec Pepeat</h2>
+  <h3>Vous choisissez . . . </h3>
   <div class="container">
-    <h1 class= "text-center home-title">Comment ça fonctionne ?</h1>
-    <h3 class= "text-center">Le Pepeato choisit de distribuer les menus en main propre à ses clients ou de recevoir ses convives à sa table.</h3>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <div class="card-chief-infos">
-          <h1 class= "text-center">A emporter</h1>
-          <div class= "text-center">
-            <%= image_tag 'emporter.png', class: "size-chief-picture" %>
+        <div class="pepeato-fonct-card">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <div class="pepeato-fonct-card-left">
+                <b><h2> . . . quand vous cuisinez</h2></b>
+                <p>Vous êtes totalement libre de cuisiner quand bon vous semble. Il vous suffit de fixer un jour et une tranche horaire et le tour est joué !</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="pepeato-fonct-card-right">
+
+              </div>
+            </div>
           </div>
-          <p>- Vous cuisinez ce que vous voulez, quand vous le souhaitez.</p>
-          <p>- Vous choisissez le nombre de parts que vous cuisinez par menu. De 1 à 12 col-sm-60 parts par menu.</p>
-          <p>- Vous fixez librement le prix de vos menus. Pepeat vous conseille de respecter les fourchettes de prix définies.</p>
-          <p>- Vous suivez vos commandes en temps réel dans votre espace réservé sur pepeat.org</p>
         </div>
       </div>
-       <div class="col-xs-6">
-        <div class="card-chief-infos">
-          <h1 class= "text-center">Sur place</h1>
-          <div class= "text-center">
-            <%= image_tag 'chez-le-chef.png', class: "size-chief-picture" %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="pepeato-fonct-card">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <div class="pepeato-fonct-card-left">
+                <b><h2>. . . ce que vous cuisinez</h2></b>
+                <p>Entrée, plat, dessert ou un menu complet. Il vous appartient de concoter ce que vous voulez, c'est votre cuisine non ? </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="pepeato-fonct-card-right2">
+
+              </div>
+            </div>
           </div>
-          <p>- Vous choisissez l'heure à laquelle vos invités doivent se présenter.</p>
-          <p>- Vous choisissez le nombre de convives que vous souhaitez recevoir à votre table</p>
-          <p>- Vous fixez librement le prix de vos menus. Pepeat vous conseille de respecter les fourchettes définies.</p>
-          <p>- Vous suivez vos commandes en temps réel dans votre espace réservé sur pepeat.org</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="pepeato-fonct-card">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <div class="pepeato-fonct-card-left">
+                <b><h2> . . . pour combien de personnes vous cuisinez</h2></b>
+                <p>Vous avez une grande cuisine et la capacité de faire un menu pour 30 personnes, aucun problème. Vous avez peu de place et pouvez préparer un repas pour 4 personnes, toujours aucun problème.</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="pepeato-fonct-card-right3">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="pepeato-fonct-card">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <div class="pepeato-fonct-card-left">
+                <b><h2> . . . le prix que vous voulez</h2></b>
+                <p>C'est à vous de juger le prix de votre menu. Mais attention, s'il est trop cher, cela risque de faire fuir les potentiels clients. Pepeat conseille de fixer le prix d'un menu complet ( entrée, plat, dessert) entre 8€ et 12€.</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="pepeato-fonct-card-right4">
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <div class="embed-container">
-          <%= embed('https://www.youtube.com/watch?v=nQYhp6znFO0') %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class= "text-center">
-    <h3>Pour en savoir plus lisez notre foire aux questions</h3>
-    <%= link_to 'Foire aux questions', faq_publics_path, :target => "_blank",  class: "btn btn-success2"%>
   </div>
 </div>
-  <div id="stripe-infos">
-    <div class="container">
-      <h1 class= "home-title text-center">Recevez les paiements directement sur votre compte</h1>
-      <div class="row">
-        <div class="col-xs-6">
-          <div class="card-chief-infos text-center">
-            <div class= "text-center"><%= image_tag 'stripe-logo.png' %></div>
-            <%= image_tag 'credit-cards_visa', class: "card-chief-infos-img" %><%= image_tag 'credit-cards_bitcoin', class: "card-chief-infos-img" %>
-            <%= image_tag 'credit-cards_maestro', class: "card-chief-infos-img" %>
+
+<div class="pepeato-order text-center">
+  <h3>Et vous préparez . . .</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pepeato-order-card">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <div class="pepeato-order-card-superleft">
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="pepeato-order-card-left">
+                <h2> . . . votre menu en toute sérénité</h2>
+                <p><i class="fa fa-check"></i>Les commandes s'arrêtent <b>4h avant</b> l'heure que vous avez fixée.</p>
+                <p><i class="fa fa-check"></i>Vous faites les courses et la cuisine <b>uniquement pour les personnes qui ont commandé</b>. Pas de gachis, pas de surplus.</p>
+                <p><i class="fa fa-check"></i>Vous recevez vos voisins chez vous à l'heure prévue. Pas besoin de parler d'argent, <b>le transfert est automatique</b> et arrivera dans 1 semaine sur votre compte.</p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <div class="pepeato-order-card-right">
+
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-6">
-          <div class="stripe-solution text-center">
-            <h3>La solution Stripe</h3>
-            <p><i class="fa fa-check-square-o"></i> Paiement sécurisé </p>
-            <p><i class="fa fa-check-square-o"></i> Recevez vos revenus une semaine après avoir vendu vos menus. </p>
-            <p><i class="fa fa-check-square-o"></i> Vous avez seulement besoin de renseigner votre RIB</p>
-          </div>
+
         </div>
       </div>
     </div>
   </div>
-  <div class="convaincu text-center">
-    <div class="container">
-      <h1 class= "home-title">Convaincu ?</h1>
-      <h3>N'attendez plus et créez votre profil en 2 minutes.</h3>
-      <div class= "text-center button-chief">
-        <%= link_to "Je deviens Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
-      </div>
+</div>
+
+<div class="convaincu text-center">
+  <div class="container">
+    <h2>Convaincu ?</h2>
+    <h3>N'attendez plus et créez votre profil en 2 minutes.</h3>
+    <div class= "text-center button-chief">
+      <%= link_to "Je deviens Pepeato", edit_profile_path(chief: true), class: "btn-lg btn-pepeat", id: "Pepeato action create" %>
     </div>
   </div>
+</div>
 
 
 <script type="text/javascript">
