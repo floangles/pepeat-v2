@@ -63,6 +63,7 @@ module Profile
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
+      flash[:notice] = "Votre carte n'a pas été acceptée. Rapprochez vous de votre banque pour connaître la raison."
       redirect_to new_profile_order_payment_path(@order)
     end
 
