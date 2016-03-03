@@ -19,6 +19,164 @@
   }
 }
 
+
+
+// FLO V2
+.create-first {
+  &-card {
+    padding: 1% 5% 4% 5%;
+    cursor: pointer;
+    box-shadow: 0px 0px 6px 1px #bebebe;
+    border-radius: 5px;
+    background-color: white;
+    height: auto;
+    margin: 30px;
+    margin-top: 40px;
+    @include transition(opacity, 0.3s ease-out);
+    &:hover {
+      box-shadow: 0px 0px 6px 3px rgba(9, 9, 9, 0.25);
+    }
+    h1 {
+      font-size: 26px;
+      padding-bottom: 10px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.14);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    img {
+      width: 100%;
+    }
+    button {
+      border-radius: 5px;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 14px;
+      margin: 30px;
+    }
+      &-check {
+      text-align: -webkit-left;
+      margin: 45px 0px;
+      i {
+        color: $pepeat;
+        margin-right: 10px;
+      }
+      p {
+        font-weight: 400;
+        margin: 15px 30px;
+        color: black;
+      }
+    }
+  }
+  &-button {
+    margin: 40px;
+  }
+}
+
+
+.selected {
+  width: 75%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.2s ease-out;
+  h1 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 10px;
+    margin: 13px;
+  }
+}
+
+.create-second{
+  &-card {
+    padding: 1% 5% 4% 5%;
+    box-shadow: 0px 0px 6px 1px #bebebe;
+    border-radius: 5px;
+    background-color: white;
+    height: auto;
+    margin: 30px;
+    margin-top: 40px;
+    input {
+      border-radius: 5px;
+    }
+    &-title {
+      margin: 30px;
+    }
+    &-compo {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.18);
+      h3 {
+        font-size: 20px;
+        margin-bottom: 34px;
+        font-weight: bold;
+      }
+      &-el {
+        font-size: 20px;
+        margin: 20px;
+        h2 {
+          font-size: 18px;
+        }
+        i {
+          cursor: pointer;
+          color: $pepeat;
+        }
+      }
+    }
+    &-description {
+      margin: 40px;
+      h2 {
+        font-size: 25px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+  &-button {
+    margin: 40px;
+  }
+}
+
+
+.create-third {
+  &-card {
+    box-shadow: 0px 0px 6px 1px #bebebe;
+    border-radius: 5px;
+    background-color: white;
+    height: auto;
+    margin: 30px;
+    margin-top: 40px;
+    @include transition(opacity, 0.3s ease-out);
+    &:hover {
+      box-shadow: 0px 0px 6px 3px rgba(9, 9, 9, 0.25);
+    }
+    &-header {
+      img {
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+    }
+    &-body {
+      margin-top: 10px;
+      padding: 20px;
+      h3 {
+        font-size: 23px;
+      }
+      p {
+        color: rgba(0, 0, 0, 0.48);
+        font-size: 13px;
+        text-align: -webkit-left;
+        margin-left: 20px;
+      }
+    }
+    &-input {
+      padding: 30px 50px;
+    }
+  }
+}
+
+// END FLO V2
+
 .card-warning {
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);

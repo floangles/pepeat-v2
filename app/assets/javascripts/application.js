@@ -10,7 +10,7 @@
 //= require gmaps/google
 //= require tooltipster
 //= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales
+//= require bootstrap-wysihtml5/locales/fr-FR
 //= require papercrop
 //= require jquery.countdown
 //= require jquery.countdown-es

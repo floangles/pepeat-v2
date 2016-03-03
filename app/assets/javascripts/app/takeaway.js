@@ -7,6 +7,10 @@ $(document).ready(function() {
         $(".hidden-field").addClass( "invisible");
         $(".take-away-txt").removeClass( "invisible");
         $(".home-txt").addClass( "invisible");
+
+        $("#home").addClass("selected") // change the card unselected
+        $("#takeaway").removeClass("selected")
+
     } else {
         $(".goaway").addClass( "invisible");
 
@@ -20,6 +24,10 @@ $(document).ready(function() {
         $(".hidden-field").addClass( "invisible");
         $(".home-txt").removeClass( "invisible");
         $(".take-away-txt").addClass( "invisible");
+
+        $("#takeaway").addClass("selected") // change the card unselected
+        $("#home").removeClass("selected")
+
     } else {
       $(".gohome").addClass( "invisible");
     }
