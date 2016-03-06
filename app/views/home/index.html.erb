@@ -311,10 +311,14 @@
             <div class="meals-home">
               <div class="meals-home-header">
                 <div class= "carousel">
-                  <% meal.meal_pictures.each do |picture| %>
-                    <%= link_to meal_path(meal) do %>
-                      <div> <%= image_tag picture.picture.url(:medium), class: "img-carousel"%> </div>
+                  <% if meal.meal_pictures.count != 0 %>
+                    <% meal.meal_pictures.each do |picture| %>
+                      <%= link_to meal_path(meal) do %>
+                        <div> <%= image_tag picture.picture.url(:medium), class: "img-carousel"%> </div>
+                      <% end %>
                     <% end %>
+                  <% else %>
+                    <%= image_tag 'special', class: "img-carousel" %>
                   <% end %>
                 </div>
                 <div class="meals-home-header-away">
