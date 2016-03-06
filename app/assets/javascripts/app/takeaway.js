@@ -34,8 +34,22 @@ $(document).ready(function() {
   });
 })
 
-
-
+// Change the button to a validation check
+$(document).ready(function() {
+  $('#click2').click(function(){
+    $("#click2").addClass( "invisible");
+    $(".validation1").removeClass( "invisible");
+    $("#click1").removeClass( "invisible");
+    $(".validation2").addClass( "invisible");
+  });
+  $('#click1').click(function(){
+    $("#click1").addClass( "invisible");
+    $(".validation2").removeClass( "invisible");
+    $("#click2").removeClass( "invisible");
+    $(".validation1").addClass( "invisible");
+  });
+});
+//END Change the button to a validation check
 
 $(document).ready(function() {
   if( $('#meal_home').prop('checked') || $(this).value == 1) {

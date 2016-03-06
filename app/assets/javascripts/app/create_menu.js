@@ -13,6 +13,9 @@ $(document).ready( function() {
 
 //END Trigger takeaway or home
 
+
+// Display the nex step
+
 $(document).ready( function() {
   $('#next-step1').click(function(){
     $(".create-second").removeClass("invisible");
@@ -22,7 +25,21 @@ $(document).ready( function() {
     $(".create-third").removeClass("invisible");
     $("#next-step2").addClass("invisible2");
  });
+  $('#next-step3').click(function(){
+    $(".create-fourth").removeClass("invisible");
+    $("#next-step3").addClass("invisible2");
+  });
+  $('#next-step4').click(function(){
+    $(".create-fifth").removeClass("invisible");
+    $("#next-step4").addClass("invisible2");
+  });
+  $('#get-hour').click(function(){
+    $("#hour").removeClass("invisible");
+    $("#get-hour").addClass("invisible2");
+  });
 });
+// END display the next step
+
 
 // render form for starter main or dessert
 
