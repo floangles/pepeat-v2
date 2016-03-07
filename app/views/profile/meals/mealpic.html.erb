@@ -18,6 +18,7 @@
 <div class="container">
   <div class="gallery-kitchen">
     <h1 class= "text-center profile-header">Les photos de mon menu</h1>
+    <p class= "text-center">Les photos sont un élément essentiel sur Pepeat. Plus elles seront belles, plus vous aurez de chances de vendre votre menu. Prennez votre temps et n'oubliez pas: <b>on mange d'abord avec les yeux !</b></p>
     <div class="gallery-kitchen-row">
       <div class="row">
         <% @meal.meal_pictures.each do |picture|%>
@@ -42,7 +43,7 @@
             <%= image_tag 'placeholder.png', id: "placeholder-meal", class: "kitchen-size" %>
           </div>
           <div id= 'target-meal' class= "picture-kitchen"></div>
-          <div class= "go-btn invisible" id= "space-btn">
+          <div class= "go-btn invisible hover" id= "space-btn" title= "Validez votre photo et redimensionnez la" >
             <%=link_to 'Valider', 'javascript:;', class: 'btn btn-success' %>
           </div>
           <div class= "go-btn invisible modify-btn" id= "change-btn-meal">

@@ -12,7 +12,8 @@
 <%= simple_form_for @picture, url: profile_meal_picture_path(@picture, meal_id: params[:meal_id]) do |f| %>
   <div class="container">
     <div class="crop-tool">
-      <h1 class= "text-center profile-header">Outil sublimation de photo</h1>
+      <h1 class= "text-center profile-header">Je redimensionne ma photo</h1>
+      <p class= "text-center">Il est <b>très important</b> que vous utilisiez cet outil. Si votre photo ne respecte pas les normes de tailles de Pepeat nous ne pourrons pas valider votre menu. </p>
       <div class="row">
         <div class="col-xs-8">
           <div class= "crop-tool-picture">

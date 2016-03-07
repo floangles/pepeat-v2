@@ -17,25 +17,29 @@ var today = new Date();
 $(function () {
       $('#datetimepicker3').datetimepicker({
           format: 'L',
-          minDate: moment(today, "MM DD YYYY")
+          minDate: moment(today, "MM DD YYYY"),
+          widgetPositioning: {vertical: 'top'}
       });
   });
 
 $(function () {
       $('#datetimepicker4').datetimepicker({
-          format: 'LT'
+          format: 'LT',
+          widgetPositioning: {vertical: 'top'}
       });
   });
 
 $(function () {
       $('#datetimepicker5').datetimepicker({
-          format: 'LT'
+          format: 'LT',
+          widgetPositioning: {vertical: 'top'}
       });
   });
 
 $(function () {
       $('#datetimepicker6').datetimepicker({
-          format: 'LT'
+          format: 'LT',
+          widgetPositioning: {vertical: 'top'}
       });
   });
 

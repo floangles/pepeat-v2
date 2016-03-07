@@ -87,6 +87,13 @@
   padding: 30px;
   margin: 30px;
   border: 1px solid rgba(49,49,47,0.18);
+  p {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.55);
+  }
+  b {
+    font-weight: 400;
+  }
   &-row {
     margin-bottom: 40px;
     &-submit {
@@ -100,7 +107,6 @@
 
 .kitchen-size {
   height: 200px;
-  border: solid 1px rgba(0, 0, 0, 0.42);
   width: 100%;
 }
 
@@ -112,6 +118,10 @@
 
 .invisible {
   display: none;
+}
+
+.visible {
+  display: block;
 }
 
 

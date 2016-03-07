@@ -6,231 +6,265 @@
   </div>
 </div>
 
-<ul class="nav nav-pills nav-justified">
-  <li role="presentation"><a href=".first">1. Menu</a></li>
-  <li role="presentation"><a href=".second">2. Ingrédients</a></li>
-  <li role="presentation"><a href=".third">3. A propos</a></li>
-  <li role="presentation"><a href=".fourth">4. Prix et quantité</a></li>
-  <li role="presentation"><a href=".five">5. Date</a></li>
-</ul>
-
-
-<div class="container">
-  <div class="card-warning text-center">
-    <h1>N'oubliez pas de tester votre menu avant de le mettre en ligne sur Pepeat</h1>
-    <p>Ce sera l'occasion de prendre les photos nécessaires à la publication de votre menu.</p>
-    <p>Suivez ce guide pour que vos photos soient belles et vendeuses. .</p>
-    <%= link_to 'Guide photos', photo_publics_path, class: "btn btn-pepeat2", :target => "_blank" %>
-  </div>
-</div>
 
 <%= simple_form_for(@meal, url: profile_meals_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="container">
-    <div class="card-menu first">
-      <h1 class= "text-center profile-header">1. Votre menu</h1>
+  <!-- FLO V2 -->
+  <div class="create-first text-center">
+    <h2>À emporter ou sur place ?</h2>
+    <div class="container">
       <div class="row">
-        <div class="col-sm-5 col-sm-offset-1">
-          <div class="card-menu-left">
-            <p class= "text-center">Entrée et/ou plat et/ou dessert, à vous de choisir ce que vous cuisinez !</p>
-            <%= f.input :title, label: "Nom de votre menu", required: false %>
-            <%= f.input :starter, label: "Entrée" %>
-            <%= f.input :main, label: "Plat principal" %>
-            <%= f.input :dessert, label: "Dessert" %>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+          <div class="create-first-card" id= "takeaway">
+            <h1>À emporter</h1>
+            <%= image_tag 'a-emporter' %>
+            <p>Vous servez votre repas dans des lunchbox que vous remettez à vos clients.</p>
+            <div class="create-first-card-check">
+              <p><i class="fa fa-check"></i>Vous préparez les lunchbox</p>
+              <p><i class="fa fa-check"></i>Les clients mangent chez eux</p>
+            </div>
+            <button type= "button" class= "btn btn-pepeat2" id= "click2">Je choisis ce mode</button>
+            <div class="validation1 invisible">
+              <i class="fa fa-3x fa-check-circle-o"></i>
+            </div>
+            <div class="invisible">
+              <%= f.input :takeaway, label: 'À emporter' %>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="card-menu-right">
-            <div class= "card-menu-right-away">
-              <div class= "card-menu-right-away-txt">
-                <h3>À emporter</h3>
-                <p>Vous distribuez directement vos préparations à vos clients, depuis votre domicile, dans des lunch box à votre charge. Vous fixez la date et l'heure à laquelle ils pourront se rendre chez vous.  </p>
-                <%= f.input :takeaway, label: 'À emporter' %>
-              </div>
-                <%= image_tag 'emporter.png', class: "card-menu-right-away-pic" %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="create-first-card" id= "home">
+            <h1>Sur place</h1>
+            <%= image_tag 'sur-place' %>
+            <p>Vous acceuillez vos convives en tant qu'hôte. Vous pouvez manger avec ou sans eux.</p>
+            <div class="create-first-card-check">
+              <p><i class="fa fa-check"></i>Repas à votre table</p>
+              <p><i class="fa fa-check"></i>De belles rencontres</p>
             </div>
-            <div class= "card-menu-right-home">
-              <div class= "card-menu-right-home-txt">
-                <h3>Sur place</h3>
-                <p>D'humeur sociable ? Recevez vos clients à votre table et partagez un moment privilégié autour de votre cuisine.</p>
-                <%= f.input :home, label: 'Sur place' %>
+            <button type= "button" class= "btn btn-pepeat2" id= "click1">Je choisis ce mode</button>
+            <div class="validation2 invisible">
+              <i class="fa fa-3x fa-check-circle-o"></i>
+            </div>
+             <div class="invisible">
+              <%= f.input :home, label: 'Sur place' %>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="create-first-button">
+      <a href=".create-second"><button type="button" class= "btn btn-pepeat invisible" id= "next-step1">Etape suivante</button></a>
+    </div>
+  </div>
+
+
+  <div class="create-second invisible text-center">
+    <h2>Votre menu</h2>
+    <div class="container">
+      <div class="col-xs-12">
+        <div class="create-second-card">
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <div class="create-second-card-title">
+                <%= f.input :title, label: "Nom de votre menu", required: false, class: "form-control" %>
               </div>
-                <%= image_tag 'chez-le-chef.png', class: "card-menu-right-home-pic" %>
+            </div>
+          </div>
+          <div class="create-second-card-compo">
+            <h3>Dans mon menu il y a :</h3>
+            <p>Cliquez sur le + pour choisir la composition de votre menu. <br> Il n'est pas obligatoire de faire entrée + plat + dessert, vous êtes libre de cuisiner ce que vous désirez.  </p>
+            <div class="row">
+              <div class="col-xs-4">
+                <div class="create-second-card-compo-el">
+                  <h2>Une entrée</h2>
+                  <i class="fa fa-plus-circle hvr-grow hvr-fadeIn" id="click3"></i>
+                  <div id= "starter-input" class="invisible">
+                    <%= f.input :starter, label: false %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div class="create-second-card-compo-el">
+                  <h2>Un plat</h2>
+                  <i class="fa fa-plus-circle hvr-grow hvr-fadeIn" id="click4"></i>
+                  <div id= "main-input" class="invisible">
+                    <%= f.input :main, label: false %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div class="create-second-card-compo-el">
+                  <h2>Un dessert</h2>
+                  <i class="fa fa-plus-circle hvr-grow hvr-fadeIn" id="click5"></i>
+                  <div id= "dessert-input" class="invisible">
+                    <%= f.input :dessert, label: false %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="create-second-card-description">
+                <h2>Description</h2>
+                <%= f.input :description, placeholder: "Exemple : Cette recette m'a été transmise par mes ancêtres. Je la cuisine depuis 37 ans et souhaite aujourd'hui la faire connaître au monde entier ...", label: false, input_html: { class: 'wysihtml5' }, wysihtml5: { locale: "fr-FR" } %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="create-second-card-description">
+                <h2>Ingrédients</h2>
+                <%= f.input :ingredients, placeholder: '<b>Entrée</b> : tomate, oignon ...  </br> <b>Plat</b> :  boeuf, crème fraîche ... </br> <b>Dessert</b> : amande, farine, oeuf ... ', label: false, input_html: { class: 'wysihtml5' } %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="create-second-button">
+      <a href=".create-third"><button type="button" class= "btn btn-pepeat" id= "next-step2">Etape suivante</button></a>
+    </div>
   </div>
 
 
-  <div class="container">
-    <div class="card-ingredients second">
-      <h1 class= "text-center profile-header">2. Ingrédients</h1>
+
+  <div class="create-third invisible text-center">
+    <h2>Prix et quantité</h2>
+    <div class="container">
       <div class="row">
-        <div class="col-xs-3 col-xs-offset-1">
-          <div class= "card-ingredients-left text-center">
-            <%= image_tag 'ingredient.png', class: "card-ingredients-left-pic" %>
-            <p>La liste complète des ingrédients est obligatoire. Elle permet aux utilisateurs de connaître la composition du menu. </p>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+          <div class="create-third-card">
+            <div class="create-third-card-header">
+              <%= image_tag 'prix' %>
+            </div>
+            <div class="create-third-card-body">
+              <h3>Prix pour un menu</h3>
+              <p>Dessert ou entrée : 3€ - 5€ <br> Entrée ou dessert et plat : 7 - 10 € <br> Entrée et plat et dessert : 8 - 12 €</p>
+            </div>
+            <div class="create-third-card-input">
+              <%= f.input :price, label: false, required: false,collection: 1..30 %>
+            </div>
           </div>
         </div>
-        <div class="col-xs-5 col-xs-offset-1">
-          <%= f.input :ingredients, placeholder: '<b>Entrée</b> : tomate, oignon ...  </br> <b>Plat</b> :  boeuf, crème fraîche ... </br> <b>Dessert</b> : amande, farine, oeuf ... ', label: false, input_html: { class: 'wysihtml5' } %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="create-third-card">
+            <div class="create-third-card-header">
+              <%= image_tag 'nombre-menus' %>
+            </div>
+            <div class="create-third-card-body">
+              <h3>Nombre de menus</h3>
+              <p>Vous proposez un nombre de menus en adéquation avec la taille de votre cuisine. Il n'y a pas de limite !</p>
+            </div>
+            <div class="create-third-card-input">
+              <%= f.input :portion,label: false ,collection: 1..100, required: false%>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="create-third-button">
+      <a href=".create-fourth"><button type="button" class= "btn btn-pepeat" id= "next-step3">Etape suivante</button></a>
+    </div>
   </div>
 
-
-  <div class="container">
-    <div class="card-description-menu third">
-      <h1 class= "text-center profile-header">3. Description</h1>
+  <div class="create-fourth invisible text-center">
+    <h2>Jour et heure</h2>
+    <div class="container">
       <div class="row">
-        <div class="col-xs-3 col-xs-offset-1">
-            <div class= "card-description-menu-left text-center">
-              <%= image_tag 'description.png', class: "card-description-menu-left-pic" %>
-              <p>Décrivez votre menu et donnez envie à vos clients de le commander.  </p>
+        <div class="col-xs-12">
+          <div class="create-fourth-card">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="create-fourth-card-header">
+                  <%= image_tag 'horaire'%>
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div class="create-fourth-card-body">
+                  <h2>Quel jour cuisinez vous ?</h2>
+                  <div class="form-group date-day-input" align="center">
+                    <div class='input-group' id='datetimepicker3'>
+                      <%= f.input :day, as: :string, label: false, class: 'form-control' %>
+                      <span class="input-group-addon form-control">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="create-fourth-card-button">
+                    <button type= "button" class= "btn btn-pepeat2" id="get-hour"> Je valide</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-5">
+                <div class="create-fourth-card-body invisible" id= "hour">
+                  <div class="goaway invisible">
+                    <h3>À quelle heure viennent vos clients ?</h3>
+                    <p>Choisissez le créneau horaire pendant lequel vos clients peuvent venir chercher leurs menus. </p>
+                    <div class="form-group" align= "center">
+                      <div class='input-group' id='datetimepicker4'>
+                        <%= f.input :start_hour, as: :string, label: false, class: 'form-control' %>
+                        <span class="input-group-addon form-control">
+                        <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group" align= "center">
+                      <div class='input-group' id='datetimepicker5'>
+                        <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
+                        <span class="input-group-addon form-control">
+                        <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="invisible gohome">
+                    <h3>À quelle heure vos convives arrivent chez vous ? </h3>
+                    <p>Prévoyez un peu de marge pour les éventuels retards.</p>
+                    <div class="form-group" align= "center">
+                      <div class='input-group' id='datetimepicker6'>
+                        <%= f.input :home_hour, as: :string, label: false, class: 'form-control' %>
+                        <span class="input-group-addon form-control">
+                        <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        <div class="col-xs-5 col-xs-offset-2">
-          <%= f.input :description, placeholder: "<b>Exemple </b> : </br> Cette recette m'a été transmise par mes ancêtres. Je la cuisine depuis 37 ans et souhaite aujourd'hui la faire connaître au monde entier ...", label: false, input_html: { class: 'wysihtml5' } %>
         </div>
       </div>
+    </div>
+    <div class="create-fourth-button">
+      <a href=".create-fifth"><button type="button" class= "btn btn-pepeat" id= "next-step4">Etape suivante</button></a>
     </div>
   </div>
-
-
-
-    <!-- Hidden form -->
-
-    <div class="hidden-form">
-      <%= file_field_tag "pictures[]", type: :file, multiple: true,  id: "mealpictureInput" %>
-    </div>
-
-    <!-- Hidden form -->
-
-    <div class= "container">
-      <div class="menu-infos fourth">
-        <h1 class= "text-center profile-header">4. Prix et quantité</h1>
-        <div class="row">
-          <div class= "col-xs-12 col-sm-6">
-            <div class="menu-infos-price">
-              <div class= "text-center menu-infos-price-icon">
-                <%= image_tag 'price.png', class: "menu-infos-price-icon-size" %>
-                <h3>Prix pour un menu</h3>
-              </div>
-              <b><p>Conseils</p></b>
-              <p> Dessert ou entrée : 3 - 5 €</p>
-              <p>Entrée ou dessert et plat : 7 - 10 €</p>
-              <p>Entrée et plat et dessert : 8 - 12 €</p>
-              <%= f.input :price, label: 'Prix (€)',required: false,collection: 1..100, input_html: { style: 'width: 100px' } %>
-            </div>
-          </div>
-          <div class= "col-xs-12 col-sm-6">
-            <div class="menu-infos-portion">
-              <div class="text-center menu-infos-portion-icon">
-                <%= image_tag 'quantity.png', class: "menu-infos-portion-icon-size" %>
-                <h3>Nombre de menus</h3>
-            </div>
-            <p>Choisissez le nombre de menu que vous souhaitez cusiner.</p>
-            <p>En moyenne, les Pepeato proposent entre 5 et 50 menus.</p>
-            <p>A vos fourneaux !</p>
-              <%= f.input :portion,label: 'Nombre de menus',collection: 1..100, required: false, input_html: { style: 'width: 100px' } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-<div class="container">
-  <div class="date five">
-    <h1 class= "text-center profile-header">5. Fixez une date</h1>
-    <div class="text-center">
-      <h3 class="take-away-txt invisible">Quand vos clients pourront ils récupérer leur menu ?</h3>
-      <h3 class= "hidden-field">Vous devez choisir "sur place" ou "à emporter" <a href=".first", class: 'btn btn-pepeat'>ici</a></h3>
-      <h3 class= "invisible home-txt">Quand voulez-vous recevoir vos convives ?</h3>
-      <%= image_tag 'calendar.png', class: "date-calendar" %>
-    </div>
-    <div class="row">
-      <div class="col-xs-6">
-        <div class="date-day text-center">
-          <h3 class= "text-center">Quel jour ?</h3>
-          <p>Indiquez le jour auquel votre menu sera disponible, le jour où vous souhaitez cuisiner.</p>
-          <div class="form-group date-day-input" align="center">
-            <div class='input-group date' id='datetimepicker3'>
-              <%= f.input :day, as: :string, label: false, class: 'form-control' %>
-              <span class="input-group-addon form-control">
-              <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6">
-        <div class="date-hour text-center">
-          <div class="date-hour-away invisible goaway">
-            <h3>Quel créneau horaire ?</h3>
-            <p>Vous avez choisi "à emporter"</p>
-            <p> Indiquez le créneau horaire dans lequel vos clients devront récupérer leur commande. Vous devrez leur remettre en main propre. </p>
-            <p>Vous receverez votre paiement une fois la réception validée.</p>
-            <div class="form-group" align= "center">
-              <div class='input-group date' id='datetimepicker4'>
-                <%= f.input :start_hour, as: :string, label: false, class: 'form-control' %>
-                <span class="input-group-addon form-control">
-                <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-            <div class="form-group" align= "center">
-              <div class='input-group date' id='datetimepicker5'>
-                <%= f.input :end_hour, as: :string, label: false, class: 'form-control' %>
-                <span class="input-group-addon form-control">
-                <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="date-hour-home invisible gohome text-center">
-            <h3>A quelle heure recevez vous</h3>
-            <p>Vous avez choisi "sur place" </br>Vos convives dégusterons votre menu, avec vous à votre table :)</p>
-            <p> Indiquez à vos invités l'heure à laquelle ils devront se présenter à votre domicile</p>
-            <p> Ils valideront le paiement une fois arrivés chez vous.</p>
-            <div class="form-group" align= "center">
-              <div class='input-group date' id='datetimepicker6'>
-                <%= f.input :home_hour, as: :string, label: false, class: 'form-control' %>
-                <span class="input-group-addon form-control">
-                <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <%= f.input :validation, as: :hidden, input_html: { value: false } %>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="important">
-        <h3 class= "text-center">Important</h3>
-        <p  class= "text-center">Pepeat vérifie les informations de votre menu avant publication</p>
-        <b><p> Assurez vous de bien vérifier :</p></b>
-        <p> - Que vous avez renseigné tous les champs</p>
-        <p> - Que vous avez inscrit la totalité des ingrédients composant votre menu</p>
-        <p> - Que le prix soit cohérent</p>
-        <p> - Que vous avez renseigné la bonne date et heure</p>
-        <div class= "text-center important-submit">
-          <%= f.button :submit, " Je valide les informations", class: "btn-lg btn-pepeat" %>
+
+  <div class="create-fifth invisible text-center">
+    <h2>C'est fini ! </h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+          <div class="create-fifth-card">
+            <div class="create-fifth-card-header">
+              <%= image_tag 'people' %>
+            </div>
+            <div class="create-fifth-card-body">
+              <h3>Bravo ! On passe maintenant aux photos</h3>
+              <p>Toutes vos informations sont bonnes ? Télécharger maintenant vos photos pour rendre votre menu le plus appétissant possible</p>
+              <%= f.button :submit, " Je passe aux photos", class: "btn btn-pepeat2" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- END FLO V2 -->
+
 <% end %>
 
 <script type="text/javascript">
