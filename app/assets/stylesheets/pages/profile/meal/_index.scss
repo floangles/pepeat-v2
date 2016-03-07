@@ -45,129 +45,18 @@
 }
 
 
-.card-offer {
-  position: relative;
-  background-color: white;
-  box-shadow: 1px 1px 3px rgb(239, 231, 231);
-  border-radius: 3px;
-  height: auto;
-  padding:4px;
-  margin: 30px;
-  margin-top: 40px;
-  border: 1px solid rgba(49,49,47,0.18);
-  &-header {
-    width: 100%;
-    height: 60px;
-    background-color: $pepeat;
-    h3 {
-      font-family: $subtitle;
-      text-shadow: 1px 1px rgba(0, 0, 0, 0.46);
-      font-size: 30px;
-      padding-top: 12px;
-      color: white;
-      margin-top: 0px;
-    }
-  }
-  &-header2 {
-  width: 100%;
-  height: 60px;
-  background-color: rgba(241, 61, 4, 0.94);
-    h3 {
-      font-family: $subtitle;
-      text-shadow: 1px 1px rgba(0, 0, 0, 0.46);
-      font-size: 30px;
-      padding-top: 12px;
-      color: white;
-      margin-top: 0px;
-    }
-  }
-  &-left {
-    position: relative;
-    border-right: 1px solid rgba(4, 4, 4, 0.05);
-    &-title {
-      padding: 15px;
-      font-family: $subtitle;
-      font-size: 19px;
-      margin-bottom: 3px;
-    }
-    &-meal {
-      position: relative;
-      padding: 10px;
-      &-icon {
-        position: absolute;
-        top: 50%;
-        left: 6%;
-        width: 37px;
-        height: 27px;
-        transform: translateX(-50%) translateY(-50%);
-      }
-      &-name {
-        padding-left: 17%;
-        margin-bottom: 5px;
-      }
-    }
-    &-announce {
-      margin-top: 20px;
-      margin-bottom: 3px;
-      margin-right: 10px;
-    }
-    &-edit {
-      position: absolute;
-      top: 72%;
-      right: 10%;
-    }
-  }
-  &-right {
-    &-title {
-      padding: 15px;
-      font-family: $subtitle;
-      font-size: 19px;
-      margin-bottom: 3px;
-    }
-    &-date {
-      position: relative;
-      padding: 15px;
-      border-bottom: 1px solid rgba(4, 4, 4, 0.05);
-      &-img {
-        position: absolute;
-        top: 50%;
-        left: 12%;
-        width: 39px;
-        height: 40px;
-        transform: translateX(-50%) translateY(-50%);
-      }
-      &-infos {
-        margin-bottom: 8px;
-        padding-left: 30px;
-      }
-    }
-    &-portion {
-      padding: 20px;
-      margin-top: 23px;
-      &-infos {
-      font-size: 30px;
-      color: $announce;
-      }
-    }
-  }
-  &-list {
-  border-top: 1px solid rgba(4, 4, 4, 0.05);
-  }
-}
-
-
 .picture-offer-validate{
   position: relative;
   border: solid 3px #e7b336;
-  height: 45px;
-  width: 45px;
+  height: 60px;
+  width: 60px;
   margin: 10px;
 }
 
 .picture-offer-invalidate{
   border: solid 3px #a94442;
-  height: 45px;
-  width: 45px;
+  height: 60px;
+  width: 60px;
   margin: 10px;
 }
 
@@ -264,6 +153,81 @@
     }
     i {
       margin-right: 15px;
+    }
+  }
+}
+
+
+.dashboard {
+  &-card {
+    box-shadow: 0px 0px 6px 1px #bebebe;
+    border-radius: 5px;
+    background-color: white;
+    height: auto;
+    margin: 30px;
+    margin-top: 40px;
+    .meals {
+      margin: 0px;
+      border-radius: 0px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &-right {
+      h2 {
+        margin: 0px;
+        font-size: 22px;
+        padding: 6px;
+      }
+      &-nonvalidate {
+        border-top-right-radius: 5px;
+        background-color: rgba(255, 0, 0, 0.66);
+        color: white;
+      }
+      &-validate {
+        background-color: #5BBEA0;
+        border-top-right-radius: 5px;
+        color: white;
+      }
+      &-bodytop {
+        padding: 55px 30px;
+        p {
+          font-family: $subtitle;
+          color: #273B77;
+          font-size: 13px;
+        }
+        img {
+          width: 70px;
+        }
+      }
+      &-bodybottom {
+        border-top: 1px solid rgba(0, 0, 0, 0.16);
+        margin: 50px 5px;
+        padding: 20px 2px;
+        margin-bottom: 0px;
+        padding-bottom: 5px;
+        h2 {
+          color: #273B77;
+          font-size: 23px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: rgba(0, 0, 0, 0.59);
+          font-size: 13px;
+          margin: 10px 30px;
+        }
+        span {
+          font-size: 20px;
+        }
+      }
+      &-user {
+        .badge {
+          font-size: 11px;
+          position: absolute;
+          bottom: -28px;
+          left: 37px;
+          background-color: white;
+        }
+      }
     }
   }
 }

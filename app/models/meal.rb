@@ -27,7 +27,8 @@
 # Indexes
 #
 #  index_meals_on_user_id  (user_id)
-#
+
+
 
 class Meal < ActiveRecord::Base
 

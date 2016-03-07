@@ -17,7 +17,8 @@ var today = new Date();
 $(function () {
       $('#datetimepicker3').datetimepicker({
           format: 'L',
-          minDate: moment(today, "MM DD YYYY")
+          minDate: moment(today, "MM DD YYYY"),
+          widgetPositioning: {vertical: 'top'}
       });
   });
 

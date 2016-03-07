@@ -221,6 +221,9 @@
       margin: 20px;
     }
   }
+  &-button {
+    margin: 40px;
+  }
 }
 
 .create-fifth {
@@ -233,13 +236,22 @@
     margin-top: 40px;
     &-header {
       img {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         width: 100%
       }
     }
     &-body {
       margin: 20px;
       h3 {
-
+        font-size: 19px;
+      }
+      p {
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.42);
+      }
+      input {
+        margin: 20px;
       }
     }
   }

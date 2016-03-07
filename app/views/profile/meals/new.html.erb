@@ -219,7 +219,7 @@
                   </div>
                   <div class="invisible gohome">
                     <h3>À quelle heure vos convives arrivent chez vous ? </h3>
-                    <p>Prévoyez un peu de marge pour les éventuels retard.</p>
+                    <p>Prévoyez un peu de marge pour les éventuels retards.</p>
                     <div class="form-group" align= "center">
                       <div class='input-group' id='datetimepicker6'>
                         <%= f.input :home_hour, as: :string, label: false, class: 'form-control' %>
@@ -244,6 +244,7 @@
 <%= f.input :validation, as: :hidden, input_html: { value: false } %>
 
   <div class="create-fifth invisible text-center">
+    <h2>C'est fini ! </h2>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-sm-offset-4">
@@ -253,7 +254,8 @@
             </div>
             <div class="create-fifth-card-body">
               <h3>Bravo ! On passe maintenant aux photos</h3>
-              <%= f.button :submit, " Je passe aux photos", class: "btn-lg btn-pepeat" %>
+              <p>Toutes vos informations sont bonnes ? Télécharger maintenant vos photos pour rendre votre menu le plus appétissant possible</p>
+              <%= f.button :submit, " Je passe aux photos", class: "btn btn-pepeat2" %>
             </div>
           </div>
         </div>

@@ -10,8 +10,8 @@ $(document).ready( function() {
     $("#next-step1").removeClass("invisible");
   });
 });
-
 //END Trigger takeaway or home
+
 
 
 // Display the nex step
@@ -60,3 +60,7 @@ $(document).ready( function() {
 });
 
 // END render form for starter main or dessert
+
+
+
+
