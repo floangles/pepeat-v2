@@ -50,6 +50,116 @@
   }
 }
 
+.card-offer {
+ position: relative;
+ background-color: white;
+ box-shadow: 1px 1px 3px rgb(239, 231, 231);
+ border-radius: 3px;
+ height: auto;
+ padding:4px;
+ margin: 30px;
+ margin-top: 40px;
+ border: 1px solid rgba(49,49,47,0.18);
+ &-header {
+   width: 100%;
+   height: 60px;
+   background-color: $pepeat;
+   h3 {
+     font-family: $subtitle;
+     text-shadow: 1px 1px rgba(0, 0, 0, 0.46);
+     font-size: 30px;
+     padding-top: 12px;
+     color: white;
+     margin-top: 0px;
+   }
+ }
+ &-header2 {
+ width: 100%;
+ height: 60px;
+ background-color: rgba(241, 61, 4, 0.94);
+   h3 {
+     font-family: $subtitle;
+     text-shadow: 1px 1px rgba(0, 0, 0, 0.46);
+     font-size: 30px;
+     padding-top: 12px;
+     color: white;
+     margin-top: 0px;
+   }
+ }
+ &-left {
+   position: relative;
+   border-right: 1px solid rgba(4, 4, 4, 0.05);
+   &-title {
+     padding: 15px;
+     font-family: $subtitle;
+     font-size: 19px;
+     margin-bottom: 3px;
+   }
+   &-meal {
+     position: relative;
+     padding: 10px;
+     &-icon {
+       position: absolute;
+       top: 50%;
+       left: 6%;
+       width: 37px;
+       height: 27px;
+       transform: translateX(-50%) translateY(-50%);
+     }
+     &-name {
+       padding-left: 17%;
+       margin-bottom: 5px;
+     }
+   }
+   &-announce {
+     margin-top: 20px;
+     margin-bottom: 3px;
+     margin-right: 10px;
+   }
+   &-edit {
+     position: absolute;
+     top: 72%;
+     right: 10%;
+   }
+ }
+ &-right {
+   &-title {
+     padding: 15px;
+     font-family: $subtitle;
+     font-size: 19px;
+     margin-bottom: 3px;
+   }
+   &-date {
+     position: relative;
+     padding: 15px;
+     border-bottom: 1px solid rgba(4, 4, 4, 0.05);
+     &-img {
+       position: absolute;
+       top: 50%;
+       left: 12%;
+       width: 39px;
+       height: 40px;
+       transform: translateX(-50%) translateY(-50%);
+     }
+     &-infos {
+       margin-bottom: 8px;
+       padding-left: 30px;
+     }
+   }
+   &-portion {
+     padding: 20px;
+     margin-top: 23px;
+     &-infos {
+     font-size: 30px;
+     color: $announce;
+     }
+   }
+ }
+ &-list {
+ border-top: 1px solid rgba(4, 4, 4, 0.05);
+ }
+ }
+
 
 .away {
   margin-right: 20px;
