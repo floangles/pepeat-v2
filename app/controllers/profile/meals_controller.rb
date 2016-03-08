@@ -106,6 +106,19 @@ module Profile
       end
     end
 
+    def update_portion
+      @meal = Meal.find(params[:format])
+      @meal.update(portion_params)
+
+        if @meal.save
+          flash[:notice] = 'Le nombre de menus a été modifié'
+          redirect_to profile_meals_path
+        else
+          flash[:notice] = "Nous n'avons pas pu modifier le nombre de menus"
+          redirect_to profile_meals_path
+        end
+    end
+
     def mealpic
       @meal_picture = MealPicture.new
       @meal = current_user.meals.find(params[:meal_id])
@@ -125,6 +138,12 @@ module Profile
       MealMailer.cancel(@meal.id).deliver_now
       @meal.destroy
       redirect_to profile_meals_path
+    end
+
+    private
+
+    def portion_params
+      params.require(:meal).permit(:portion)
     end
 
     def meal_params

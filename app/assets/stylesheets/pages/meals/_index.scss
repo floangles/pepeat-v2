@@ -118,8 +118,7 @@
   @include transition(opacity, 0.3s ease-out);
 
   &:hover {
-
-    box-shadow: 3px 3px 3px rgba(9, 9, 9, 0.25);
+    box-shadow: 0px 0px 6px 3px rgba(9, 9, 9, 0.25);
   }
   &-header {
     height: auto;
@@ -238,8 +237,10 @@
         margin-top: 10px;
       }
     }
-    &-order {
+    &-footer {
+      &-order {
 
+      }
     }
   }
 }

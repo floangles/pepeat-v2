@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         get 'mealcrop'
         get 'history'
         get 'validation'
+        patch 'update_portion'
       end
     end
     resources :orders do

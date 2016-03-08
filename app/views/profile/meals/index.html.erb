@@ -87,13 +87,28 @@
                       <div class="dashboard-card-right-bodybottom">
                         <h2>Commandes</h2>
                         <p>Vous suivez ici l'avancement de vos commandes. Pour plus d'informations sur une commande en particulier ( téléphone, paiement etc), cliquez dessus.</p>
-                        <span><%= booked_portions(meal)%></span> / <span><%= meal.portion %></span>
+                        <div><span><%= booked_portions(meal)%></span> / <span><%= meal.portion %></span>
+                        </div>
                       </div>
                       <div class="dashboard-card-right-user">
-                        <% meal.orders.each do |order| %>
-                          <% if order.state == 'paid' %>
-                            <%= render "/shared/modale_user", order: order %>
+                        <% if meal.orders.count != 0 %>
+                          <% meal.orders.each do |order| %>
+                            <% if order.state == 'paid' %>
+                              <%= render "/shared/modale_user", order: order %>
+                            <% end %>
                           <% end %>
+                        <% else %>
+                          <div class="dashboard-card-right-user-sample">
+                            <%= image_tag 'sample_users' %>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class= "dashboard-card-right-portion">
+                        <%= simple_form_for(meal, url: update_portion_profile_meals_path(meal), html: {class: "form-inline"}) do |f| %>
+                          <%= f.input :portion, label: "Nombre de menus", required: false, collection: total_orders(meal)..20, selected: meal.portion,  input_html: { min: '3' }%>
+                          <button type="submit" class="btn btn-success">
+                            <i class="fa fa-check"></i>
+                          </button>
                         <% end %>
                       </div>
                     </div>

@@ -108,25 +108,27 @@
           </div>
         </div>
       </div>
-      <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && format(meal.start_hour)) || (meal.home && format(meal.home_hour))) || available_portions(meal) == 0 %>
-        <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
-      <% elsif DateTime.now.to_date> meal.day %>
-        <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
-      <% else %>
-        <% if current_user == meal.user %>
-          <% if meal.orders.count == 0 %>
-            <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
-          <% end %>
-        <% elsif (meal.day.to_date - DateTime.now.to_date).to_i > 6  %>
-          <div class= "hover" title= "Vous ne pouvez pas commander plus de 7 jours avant">
-            <%= link_to 'Réservation bientôt disponible', "#", class: "disabled btn btn-success buton-order" %>
-          </div>
+      <div class="meals-body-footer">
+        <% if  DateTime.now.day == meal.day.day &&((meal.takeaway && format(meal.start_hour)) || (meal.home && format(meal.home_hour))) || available_portions(meal) == 0 %>
+          <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
+        <% elsif DateTime.now.to_date> meal.day %>
+          <%= link_to "Voir le menu", meal_path(meal), class: "btn btn-success buton-order" %>
         <% else %>
-          <div class="meals-body-order">
-            <%= render "/shared/modale", meal: meal %>
-          </div>
+          <% if current_user == meal.user %>
+            <% if meal.orders.count == 0 %>
+              <%= link_to 'Modifier mon annonce', edit_profile_meal_path(meal), class: "btn btn-success buton-order" %>
+            <% end %>
+          <% elsif (meal.day.to_date - DateTime.now.to_date).to_i > 6  %>
+            <div class= "hover" title= "Vous ne pouvez pas commander plus de 7 jours avant">
+              <%= link_to 'Réservation bientôt disponible', "#", class: "disabled btn btn-success buton-order" %>
+            </div>
+          <% else %>
+            <div class="meals-body-order">
+              <%= render "/shared/modale", meal: meal %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

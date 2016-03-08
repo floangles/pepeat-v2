@@ -167,10 +167,18 @@
     margin: 30px;
     margin-top: 40px;
     .meals {
+      box-shadow: 0px 0px 0px rgba(9, 9, 9, 0.12);
       margin: 0px;
       border-radius: 0px;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
+    }
+    .meals-body-footer {
+      display: none;
+    }
+
+    .meals-body-takeaway {
+      border-bottom: 0px solid rgba(4, 4, 4, 0.05);
     }
     &-right {
       h2 {
@@ -189,20 +197,29 @@
         color: white;
       }
       &-bodytop {
-        padding: 55px 30px;
+        padding: 23px 30px;
         p {
           font-family: $subtitle;
           color: #273B77;
           font-size: 13px;
         }
         img {
-          width: 70px;
+          width: 60px;
+          margin-bottom: 20px;
         }
       }
       &-bodybottom {
+        position: relative;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: flex-start;
+
         border-top: 1px solid rgba(0, 0, 0, 0.16);
-        margin: 50px 5px;
-        padding: 20px 2px;
+        margin: 75px 5px;
+        padding: 10px 2px;
         margin-bottom: 0px;
         padding-bottom: 5px;
         h2 {
@@ -226,6 +243,24 @@
           bottom: -28px;
           left: 37px;
           background-color: white;
+        }
+        &-sample {
+          margin-top: 30px;
+          img {
+            width: 55%;
+          }
+        }
+      }
+      &-portion {
+        position: absolute;
+        top: 32px;
+        right: 10px;
+          label {
+          display: inline-block;
+          max-width: 100%;
+          margin-bottom: 5px;
+          font-weight: 400;
+          margin-right: 20px;
         }
       }
     }
