@@ -140,6 +140,11 @@ module Profile
       redirect_to profile_meals_path
     end
 
+    def history
+      @meals = policy_scope(Meal)
+      @meals = current_user.meals
+    end
+
     private
 
     def portion_params
@@ -148,11 +153,6 @@ module Profile
 
     def meal_params
       params.require(:meal).permit(:cgu, :ingredients, :validation, :home_hour, :home, :starter, :main, :dessert, :price, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway)
-    end
-
-    def history
-      @meals = policy_scope(Meal)
-      @meals = current_user.meals
     end
 
   end
