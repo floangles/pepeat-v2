@@ -197,15 +197,24 @@
         color: white;
       }
       &-bodytop {
-        padding: 23px 30px;
-        p {
-          font-family: $subtitle;
-          color: #273B77;
-          font-size: 13px;
+        &-el {
+          padding: 23px 30px;
+          p {
+            font-family: $subtitle;
+            color: #273B77;
+            font-size: 13px;
+          }
+          img {
+            width: 60px;
+            margin-bottom: 20px;
+          }
         }
-        img {
-          width: 60px;
-          margin-bottom: 20px;
+        label {
+          display: inline-block;
+          max-width: 100%;
+          margin-bottom: 5px;
+          font-weight: 400;
+          margin-right: 20px;
         }
       }
       &-bodybottom {
@@ -218,7 +227,7 @@
         align-items: flex-start;
 
         border-top: 1px solid rgba(0, 0, 0, 0.16);
-        margin: 75px 5px;
+        margin: 5px 5px;
         padding: 10px 2px;
         margin-bottom: 0px;
         padding-bottom: 5px;
@@ -255,13 +264,6 @@
         position: absolute;
         top: 32px;
         right: 10px;
-          label {
-          display: inline-block;
-          max-width: 100%;
-          margin-bottom: 5px;
-          font-weight: 400;
-          margin-right: 20px;
-        }
       }
     }
   }

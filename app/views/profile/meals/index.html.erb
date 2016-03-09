@@ -49,38 +49,56 @@
                     <% end %>
                     <div class="dashboard-card-right-bodytop">
                       <div class="col-sm-3">
-                        <p>Voir</p>
-                        <%= link_to meal_path(meal), class: "hvr-grow" do %>
-                          <%= image_tag 'show' %>
-                        <% end %>
-                      </div>
-                      <div class="col-sm-3">
-                        <p>Modifier</p>
-                        <% if meal.orders.where(state: "paid").count == 0 %>
-                          <%= link_to edit_profile_meal_path(meal), class: "hvr-grow" do %>
-                            <%= image_tag 'modify' %>
+                        <div class="dashboard-card-right-bodytop-el">
+                         <p>Voir</p>
+                          <%= link_to meal_path(meal), class: "hvr-grow" do %>
+                            <%= image_tag 'show' %>
                           <% end %>
-                        <% else %>
-                          <span class= "hover" title= "Vous ne pouvez pas modifier un menu lorsque vous avez des réservations">
-                            <%= image_tag 'modify', class: "hvr-grow" %>
-                          </span>
-                        <% end %>
+                        </div>
                       </div>
                       <div class="col-sm-3">
-                        <p>Supprimer</p>
-                        <%= link_to profile_meal_path(meal), class: "hvr-grow",
-                        method: :delete,
-                        data: { confirm: "Etes vous certain de vouloir supprimer votre menu ?" } do %>
-                            <span class= "hover" title= "Supprimer votre menu. Cette action est irréversible. Les personnes ayant commandés seront prévenues par mail">
-                              <%= image_tag 'delete' %>
+                        <div class="dashboard-card-right-bodytop-el">
+                          <p>Modifier</p>
+                          <% if meal.orders.where(state: "paid").count == 0 %>
+                            <%= link_to edit_profile_meal_path(meal), class: "hvr-grow" do %>
+                              <%= image_tag 'modify' %>
+                            <% end %>
+                          <% else %>
+                            <span class= "hover" title= "Vous ne pouvez pas modifier un menu lorsque vous avez des réservations">
+                              <%= image_tag 'modify', class: "hvr-grow" %>
                             </span>
-                        <% end %>
+                          <% end %>
+                        </div>
                       </div>
                       <div class="col-sm-3">
-                        <p>Photos</p>
-                        <%= link_to mealpic_profile_meals_path(meal_id: meal.id), class: "hvr-grow" do %>
-                          <%= image_tag 'modpicture' %>
-                        <% end %>
+                        <div class="dashboard-card-right-bodytop-el">
+                          <p>Supprimer</p>
+                          <%= link_to profile_meal_path(meal), class: "hvr-grow",
+                          method: :delete,
+                          data: { confirm: "Etes vous certain de vouloir supprimer votre menu ?" } do %>
+                              <span class= "hover" title= "Supprimer votre menu. Cette action est irréversible. Les personnes ayant commandés seront prévenues par mail">
+                                <%= image_tag 'delete' %>
+                              </span>
+                          <% end %>
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="dashboard-card-right-bodytop-el">
+                          <p>Photos</p>
+                          <%= link_to mealpic_profile_meals_path(meal_id: meal.id), class: "hvr-grow" do %>
+                            <%= image_tag 'modpicture' %>
+                          <% end %>
+                        </div>
+                      </div>
+                      <div class="col-sm-5 col-sm-offset-7">
+                        <div class= "">
+                          <%= simple_form_for(meal, url: update_portion_profile_meals_path(meal), html: {class: "form-inline"}) do |f| %>
+                            <%= f.input :portion, label: "Nombre de menus", required: false, collection: total_orders(meal)..20, selected: meal.portion,  input_html: { min: '3' }%>
+                            <button type="submit" class="btn btn-success">
+                              <i class="fa fa-check"></i>
+                            </button>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -101,14 +119,6 @@
                           <div class="dashboard-card-right-user-sample">
                             <%= image_tag 'sample_users' %>
                           </div>
-                        <% end %>
-                      </div>
-                      <div class= "dashboard-card-right-portion">
-                        <%= simple_form_for(meal, url: update_portion_profile_meals_path(meal), html: {class: "form-inline"}) do |f| %>
-                          <%= f.input :portion, label: "Nombre de menus", required: false, collection: total_orders(meal)..20, selected: meal.portion,  input_html: { min: '3' }%>
-                          <button type="submit" class="btn btn-success">
-                            <i class="fa fa-check"></i>
-                          </button>
                         <% end %>
                       </div>
                     </div>
