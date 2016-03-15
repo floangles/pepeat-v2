@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   def index
     @meals = Meal.all
     @order = Order.new
+
+
     # @graph = Koala::Facebook::API.new("CAACEdEose0cBAIXCWMG03CJfUVrCnv2NLkq39OfEr4foXoteal6BBxJaeYZAlyT8jkzQ8bhsMSWmj2CF5qAIdzpIZCaZCjbZBt78V33aTL4UmyjZAaSisl4ag9GfVwOvuNfsJPuuqaaG6msQOT3qt56U6ZAyO79ZAepRgpo3ZA5xQYEeuVl63B7dXARYLIa1nVW7fogvZAaocWAZDZD")
     # groups = @graph.get_connections("me", "groups")
 

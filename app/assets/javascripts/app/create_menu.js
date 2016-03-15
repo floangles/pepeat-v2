@@ -37,6 +37,9 @@ $(document).ready( function() {
     $("#hour").removeClass("invisible");
     $("#get-hour").addClass("invisible2");
   });
+  $('#get-hour').click(function(){
+    $(".create-fourth-button").removeClass("invisible");
+  });
 });
 // END display the next step
 
