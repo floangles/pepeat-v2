@@ -160,6 +160,8 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.3)
+    heroku-deflater (0.6.2)
+      rack (>= 1.4.5)
     high_voltage (2.4.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -402,6 +404,7 @@ DEPENDENCIES
   foreman
   geocoder
   gmaps4rails
+  heroku-deflater
   high_voltage
   jquery-countdown-rails (~> 2.0, >= 2.0.2)
   jquery-rails

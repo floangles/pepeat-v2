@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module PepeatV2
   class Application < Rails::Application
+    config.middleware.use Rack::Deflater
     config.assets.initialize_on_precompile = false
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :fr
