@@ -5,3 +5,13 @@ color: rgba(0, 0, 0, 0.25);
 .slick-slider .slick-list {
   max-height: 350px;
 }
+
+
+.carousel .item-slick {
+  display: none;
+}
+
+
+.carousel.slick-initialized .item-slick {
+  display: block;
+}
