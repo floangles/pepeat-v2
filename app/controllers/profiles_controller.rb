@@ -113,6 +113,12 @@ class ProfilesController < ApplicationController
     @picture = current_user.chief_pictures.find(params[:format])
   end
 
+  def update_picture
+    @user.update(picture_params)
+    redirect_to profile_path
+  end
+
+
   def crop_user
 
   end
@@ -149,6 +155,10 @@ class ProfilesController < ApplicationController
 
   def user_params
     params.require(:user).permit( :customer_id, :stripe_account, :stripe, :chief, :birth, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)
+  end
+
+  def picture_params
+    params.require(:user).permit(:chiefpicture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)
   end
 
 

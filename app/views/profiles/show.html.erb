@@ -43,7 +43,7 @@
               </div>
             </div>
             <div class= "hidden-form cropable">
-              <%= form_for @user, url: { action: "update", id: @user.id } do |f| %>
+              <%= form_for @user, url: { action: "update_picture", id: @user.id } do |f| %>
                 <%= f.cropbox :picture, :width => 400 %>
                 <div class= "text-center mtop-10">
                   <%= f.submit 'Ma photo est belle', class: "btn btn-pepeat" %>
