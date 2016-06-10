@@ -21,7 +21,6 @@ index do
     column :validation
     column :admin
     actions
-
   end
 
 permit_params :cgu, :ingredients, :start_hour_home, :user_id, :validation, :home_hour, :home, :starter, :main, :dessert, :price, :price_cents, :title, :portion, :description, :start_hour, :end_hour, :day, :picture, :takeaway

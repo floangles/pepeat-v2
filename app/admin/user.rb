@@ -20,8 +20,6 @@
 
 
 ActiveAdmin.register User do
-
-
   show do
     attributes_table do
       row :image do
