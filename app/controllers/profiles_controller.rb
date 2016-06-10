@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
 
-
   def show
     @chief_picture = ChiefPicture.new
     @markers = Gmaps4rails.build_markers(@user) do |user, marker|
@@ -22,8 +21,6 @@ class ProfilesController < ApplicationController
       DateTime.now.year - user.birth.year
     end
   end
-
-
 
   def edit
     skip_authorization
@@ -84,7 +81,6 @@ class ProfilesController < ApplicationController
         # update the stripe account informations for address
 
         if params[:locality] != ""
-
           account.legal_entity.address.city = params[:locality]
           account.legal_entity.address.line1 = params[:street_number] + ' ' + params[:route]
           account.legal_entity.address.postal_code = params[:postal_code]
@@ -95,18 +91,13 @@ class ProfilesController < ApplicationController
           account.legal_entity.personal_address.postal_code = params[:postal_code]
           account.legal_entity.personal_address.state = params[:administrative_area_level_1]
           account.save
-
-
         end
          flash[:notice] = 'Ton profil a bien été mis à jour'
       end
-
       redirect_to profile_path
-
     else
       render :edit
     end
-
   end
 
   def croping
@@ -118,14 +109,13 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
-
   def crop_user
-
   end
 
   def update_bank_account
     token = params[:stripeToken]
     account = Stripe::Account.retrieve(current_user.stripe_id)
+
     if account.external_accounts.count == 0
       bank_account = account.external_accounts.create(external_account: token)
       @user.update(bank_account_id: bank_account.id)
@@ -148,10 +138,11 @@ class ProfilesController < ApplicationController
   def rating
   end
 
+  private
+
   def set_user
     @user = current_user
   end
-
 
   def user_params
     params.require(:user).permit( :customer_id, :stripe_account, :stripe, :chief, :birth, :firstname, :phone_number, :surname, :lastname, :picture, :email, :address, :description, :chiefpicture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)

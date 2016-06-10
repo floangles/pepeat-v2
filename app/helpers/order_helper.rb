@@ -17,7 +17,6 @@ module OrderHelper
         rating_stars << rate.stars
       end
     end
-
   rating_stars.inject{ |sum, el| sum + el }.to_f / rating_stars.size
   end
 
@@ -36,7 +35,6 @@ module OrderHelper
     end
     res
   end
-
 
   def order_price(order)
     order.meal.price * order.portion

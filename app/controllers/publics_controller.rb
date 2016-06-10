@@ -1,6 +1,5 @@
 class PublicsController < ApplicationController
 
-
   def index
     @user = User.find(params[:format])
     @order = Order.new
@@ -16,7 +15,6 @@ class PublicsController < ApplicationController
     end
   end
 
-
   def show
     @user = User.find(params[:id])
   end
@@ -30,6 +28,5 @@ class PublicsController < ApplicationController
     pdf_filename = File.join(Rails.root, "app/assets/images/photo.pdf")
     send_file(pdf_filename, :filename => "photo", :disposition => 'inline', :type => "application/pdf")
   end
-
 
 end

@@ -5,12 +5,10 @@ module Profile
     before_action :authenticate_user!
     before_action :set_order, only: [:show, :update, :destroy, :charged]
 
-
     def index
       @orders = policy_scope(Order)
       @orders = current_user.orders.all
     end
-
 
     def new
       @meal = Meal.find(params[:order][:meal_id])
@@ -23,7 +21,6 @@ module Profile
       @order = @meal.orders.build(order_params)
       authorize @order
       @order.user = current_user
-
       if @order.save
         redirect_to new_profile_order_payment_path(@order)
       else
@@ -53,7 +50,7 @@ module Profile
     end
 
     def edit
-       authorize @order
+      authorize @order
     end
 
     def destroy
@@ -73,10 +70,6 @@ module Profile
         @order.destroy
         redirect_to profile_orders_path
       end
-    end
-
-    def set_order
-      @order = current_user.orders.find(params[:id])
     end
 
     def history
@@ -99,6 +92,12 @@ module Profile
         @order.update(review_params)
         redirect_to history_profile_orders_path
       end
+    end
+
+    private
+
+    def set_order
+      @order = current_user.orders.find(params[:id])
     end
 
     def order_params

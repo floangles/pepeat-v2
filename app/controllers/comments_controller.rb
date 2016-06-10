@@ -12,16 +12,13 @@ class CommentsController < ApplicationController
         else
           flash[:error] = 'Your comment cannot be saved.'
         end
-
         format.html {redirect_to root_url}
-
         format.js {}
         if @comment.meal.user.id == @comment.user.id
           CommentMailer.new_answer(@comment.id).deliver_now
         else
           CommentMailer.new_comment(@comment.id).deliver_now
         end
-
       else
         format.html {redirect_to root_url}
         format.js {render nothing: true}
@@ -36,8 +33,4 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:commenter, :meal_id, :user_id)
   end
 
-
 end
-
-
-# format.js {@comments = @meal.comments.order('created_at DESC')}

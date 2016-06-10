@@ -3,7 +3,6 @@ module Profile
 
     before_action :authenticate_user!
 
-
     def create
       @user = current_user
       @chief_picture = @user.chief_pictures.build(chief_picture_params)
@@ -37,6 +36,7 @@ module Profile
       redirect_to profile_path
     end
 
+    private
 
     def chief_picture_params
       params.require(:chief_picture).permit(:chiefpicture, :chiefpicture_original_w, :chiefpicture_original_h, :chiefpicture_box_w, :chiefpicture_aspect, :chiefpicture_crop_x, :chiefpicture_crop_y, :chiefpicture_crop_w, :chiefpicture_crop_h)

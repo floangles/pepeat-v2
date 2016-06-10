@@ -1,6 +1,5 @@
 module PaymentsHelper
 
-
   def price(order)
     order.amount * order.portion.to_i
   end

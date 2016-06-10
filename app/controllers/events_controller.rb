@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:update_user]
   before_action :is_chief?, only: [:update_user]
 
-
   def is_chief?
     if current_user.chief?
       true
@@ -16,7 +15,6 @@ class EventsController < ApplicationController
   def index
     @user = current_user
     @pepeatos = User.where(chief: true)
-
   end
 
 

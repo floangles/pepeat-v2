@@ -3,12 +3,11 @@ class HomeController < ApplicationController
     @meals = Meal.all
     @order = Order.new
 
-
     # @graph = Koala::Facebook::API.new("CAACEdEose0cBAIXCWMG03CJfUVrCnv2NLkq39OfEr4foXoteal6BBxJaeYZAlyT8jkzQ8bhsMSWmj2CF5qAIdzpIZCaZCjbZBt78V33aTL4UmyjZAaSisl4ag9GfVwOvuNfsJPuuqaaG6msQOT3qt56U6ZAyO79ZAepRgpo3ZA5xQYEeuVl63B7dXARYLIa1nVW7fogvZAaocWAZDZD")
     # groups = @graph.get_connections("me", "groups")
 
     # pepeat_group = groups.select do |group|
-    #   group["name"] == "Les putes de l'Est !"
+    #   group["name"] == "test !"
     # end
 
     # @graph.put_connections(pepeat_group[0]['id'], "feed",{ message: "Ca va cartonner"})

@@ -5,7 +5,6 @@ module UserHelper
     user.meals.each do |meal|
       array << meal.orders.count(:review)
     end
-
     array.sum
   end
 
@@ -30,6 +29,5 @@ module UserHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-
 
 end

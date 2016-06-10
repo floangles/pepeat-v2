@@ -7,32 +7,6 @@ module Profile
     before_action :has_stripe?, only: [:new]
     before_action :is_ordered?, only: [:edit, :update]
 
-
-    def is_chief?
-      if current_user.chief?
-        true
-      else
-        render :text =>" Ce n'est pas bien de taper des URL au pif. Si vous voulez cuisiner postulez en tant que chef Pepeat"
-      end
-    end
-
-
-    def is_ordered?
-      if @meal.orders.where(state: "paid").sum(:portion)
-        true
-      else
-        render :text =>" Ce n'est pas bien de taper des URL au pif.Vous ne pouvez supprimer un plat avec des commandes"
-      end
-    end
-
-    def has_stripe?
-      if current_user.stripe_id
-        true
-      else
-        redirect_to profile_path, notice: "Vous devez entrer vos données bancaire avant de créer un menu."
-      end
-    end
-
     def validation
       @order = Order.find(params[:format])
       ch = Stripe::Charge.retrieve(@order.charge)
@@ -49,7 +23,6 @@ module Profile
       @user = current_user
       @meals = policy_scope(Meal)
       @meals = current_user.meals
-
     end
 
     def show
@@ -62,7 +35,6 @@ module Profile
     end
 
     def create
-
       @meal = current_user.meals.new(meal_params)
       authorize @meal
       if @meal.save
@@ -109,14 +81,13 @@ module Profile
     def update_portion
       @meal = Meal.find(params[:format])
       @meal.update(portion_params)
-
-        if @meal.save
-          flash[:notice] = 'Le nombre de menus a été modifié'
-          redirect_to profile_meals_path
-        else
-          flash[:notice] = "Nous n'avons pas pu modifier le nombre de menus"
-          redirect_to profile_meals_path
-        end
+      if @meal.save
+        flash[:notice] = 'Le nombre de menus a été modifié'
+        redirect_to profile_meals_path
+      else
+        flash[:notice] = "Nous n'avons pas pu modifier le nombre de menus"
+        redirect_to profile_meals_path
+      end
     end
 
     def mealpic
@@ -146,6 +117,31 @@ module Profile
     end
 
     private
+
+    def is_chief?
+      if current_user.chief?
+        true
+      else
+        render :text =>" Ce n'est pas bien de taper des URL au pif. Si vous voulez cuisiner postulez en tant que chef Pepeat"
+      end
+    end
+
+
+    def is_ordered?
+      if @meal.orders.where(state: "paid").sum(:portion)
+        true
+      else
+        render :text =>" Ce n'est pas bien de taper des URL au pif.Vous ne pouvez supprimer un plat avec des commandes"
+      end
+    end
+
+    def has_stripe?
+      if current_user.stripe_id
+        true
+      else
+        redirect_to profile_path, notice: "Vous devez entrer vos données bancaire avant de créer un menu."
+      end
+    end
 
     def portion_params
       params.require(:meal).permit(:portion)

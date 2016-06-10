@@ -37,7 +37,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   namespace :profile do
     resources :chief_pictures, only: [:destroy, :new, :create, :update]
     resources :meal_pictures, only: [:destroy, :new, :create, :update]

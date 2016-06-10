@@ -55,7 +55,6 @@ module MealsHelper
     meal.orders.each do |order|
       array << order.meal.price.to_i * order.portion
     end
-
     array.sum
   end
 
@@ -66,7 +65,6 @@ module MealsHelper
         array << order.meal.price.to_i * order.portion - order.meal.price.to_i * order.portion * @chief
       end
     end
-
     array.sum.round
   end
 
@@ -80,9 +78,6 @@ module MealsHelper
 
 
   def notification(meals)
-
   end
-
-
 
 end

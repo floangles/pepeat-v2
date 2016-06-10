@@ -38,6 +38,7 @@ module Profile
       end
     end
 
+    private
 
     def meal_picture_params
       params.require(:meal_picture).permit(:picture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_aspect, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h)
